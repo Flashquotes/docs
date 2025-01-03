@@ -1,0 +1,35 @@
+---
+title: "List Events"
+description: "Retrieve events within a specified date range"
+openapi: "GET /api/event/get-events"
+---
+
+This endpoint returns a list of events that fall within the specified date range. You can optionally filter events by location.
+
+### Response
+
+The response includes an array of event objects containing:
+
+- Event identification and basic details
+- Location information (venue name, address)
+- Assigned resources (equipment, machines)
+- Staff assignments and roles
+- Associated addons
+- Booking status and details
+- Event brief reference
+
+### Common Use Cases
+
+- Retrieving events for a specific time period
+- Checking event schedules by location
+- Planning resource and staff allocation
+- Reviewing upcoming bookings
+- Generating event reports
+
+### Notes
+
+- Date ranges must be provided in ISO 8601 format with timezone offset
+- Maximum date range span is 31 days
+- Results are ordered by event start time
+- Returns a 400 error if date format is invalid
+- Access requires a valid API key with appropriate permissions

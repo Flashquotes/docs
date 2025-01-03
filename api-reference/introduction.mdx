@@ -1,33 +1,64 @@
 ---
-title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+title: "Introduction"
+description: "Welcome to the Flashquotes API documentation"
 ---
 
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
+## Welcome to the Flashquotes API
 
-## Welcome
+The Flashquotes API enables you to programmatically access and manage your events, bookings, forms, and invoices. Our REST API provides endpoints for retrieving event data, managing form responses, and accessing invoice information.
 
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
-
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
+<Tip>
+	API access is limited to Flashquotes Pro plan customers. You can easily
+	upgrade in [Plan Settings](https://app.flashquotes.com/settings/plans).
+</Tip>
 
 ## Authentication
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+All API endpoints require authentication using an API key. You must include your API key in the request headers:
 
-```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
+```bash
+'x-api-key: your_api_key_here'
 ```
+
+<Note>
+	Keep your API key secure and never share it publicly. If you're subscribed to
+	the Pro plan, access your API key in the [Integrations
+	Settings](https://app.flashquotes.com/settings/integrations).
+</Note>
+
+## Base URL
+
+All API requests should be made to:
+
+```bash
+https://app.flashquotes.com/api
+```
+
+## Available Endpoints
+
+Our API provides several endpoint groups:
+
+<CardGroup cols={3}>
+<Card title="Event Endpoints" icon="calendar">
+  Manage events, retrieve event details, and list events within date ranges
+</Card>
+
+<Card title="Form Response Endpoints" icon="clipboard">
+	Access form submission data and response details
+</Card>
+
+<Card title="Invoice Endpoints" icon="file-invoice">
+  Retrieve invoice information and payment details
+</Card>
+</CardGroup>
+## Response Format
+
+All responses are returned in JSON format. Successful responses will have a 2xx status code, while errors will return appropriate 4xx or 5xx status codes with error details.
+
+## Need Help?
+
+If you need assistance or have questions about the API:
+
+- Email us at [support@flashquotes.com](mailto:support@flashquotes.com)
+- Check our documentation for examples and guides
+- Contact your account manager for enterprise support

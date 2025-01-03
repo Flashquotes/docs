@@ -1,0 +1,35 @@
+---
+title: "Get Form Response"
+description: "Retrieve detailed information about a specific form response"
+openapi: "GET /api/form-response/{id}"
+---
+
+This endpoint returns comprehensive information about a specific form response, including all question responses and their associated questions.
+
+### Response
+
+The response includes a detailed form response object containing:
+
+- Form response identification and metadata
+- Form and booking associations
+- Question responses with:
+  - Question details (title, type, requirements)
+  - User's response data
+  - Question metadata (position, system links)
+- Timestamps for creation and updates
+
+### Common Use Cases
+
+- Retrieving submission details for display
+- Accessing customer responses
+- Verifying form completion status
+- Integrating with external systems
+- Analyzing response data
+
+### Notes
+
+- The form response ID must be valid and associated with your company
+- Returns a 404 error if the form response is not found
+- All timestamps are returned in ISO 8601 format
+- Access requires a valid API key with appropriate permissions
+- Response data format varies based on question type

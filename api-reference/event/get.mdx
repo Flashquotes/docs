@@ -1,0 +1,34 @@
+---
+title: "Get Event"
+description: "Retrieve detailed information about a specific event"
+openapi: "GET /api/event/getEventData/{event_id}"
+---
+
+This endpoint returns comprehensive information about a specific event, including its location, resources, staff assignments, and associated booking details.
+
+### Response
+
+The response includes a detailed event object containing:
+
+- Event identification and basic details
+- Location information (venue name, address)
+- Assigned resources (equipment, machines)
+- Staff assignments and roles
+- Associated addons
+- Booking status and details
+- Event brief reference
+
+### Common Use Cases
+
+- Retrieving event details for display
+- Checking resource and staff assignments
+- Verifying event location and timing
+- Accessing booking information
+- Confirming addon selections
+
+### Notes
+
+- The event ID must be valid and associated with your company
+- Returns a 404 error if the event is not found
+- All event times are returned in ISO 8601 format with timezone
+- Access requires a valid API key with appropriate permissions

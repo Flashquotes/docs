@@ -1,0 +1,255 @@
+{
+	"openapi": "3.0.1",
+	"info": {
+		"title": "Flashquotes API",
+		"description": "API for managing invoices in Flashquotes",
+		"license": {
+			"name": "MIT"
+		},
+		"version": "1.0.0"
+	},
+	"servers": [
+		{
+			"url": "https://app.flashquotes.com/"
+		}
+	],
+	"security": [
+		{
+			"apiKeyAuth": []
+		}
+	],
+	"paths": {
+		"/api/invoice/{booking_id}": {
+			"get": {
+				"description": "Returns all invoices associated with a booking",
+				"parameters": [
+					{
+						"name": "booking_id",
+						"in": "path",
+						"description": "ID of the booking to retrieve invoices for",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "List of invoices for the booking",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/components/schemas/Invoice"
+									}
+								},
+								"example": [
+									{
+										"id": "inv_123",
+										"invoiceNumber": "INV-2024-001",
+										"dueDate": "2024-02-15T00:00:00Z",
+										"issuedDate": "2024-01-15T08:30:00Z",
+										"paidDate": "2024-01-16T10:15:00Z",
+										"description": "Coffee service for corporate event",
+										"status": "PAID",
+										"poNumber": "PO-2024-001",
+										"notes": "Please process payment within terms",
+										"taxable": true,
+										"taxRate": {
+											"id": "tax_123",
+											"name": "Sales Tax",
+											"rate": 0.0825
+										},
+										"lineItems": [
+											{
+												"id": "line_123",
+												"name": "Coffee Service",
+												"description": "4 hour coffee service with barista",
+												"quantity": 1,
+												"unitPrice": 75000,
+												"taxable": true,
+												"position": 1,
+												"type": "SERVICE"
+											},
+											{
+												"id": "line_124",
+												"name": "Specialty Syrups",
+												"description": "Additional flavored syrups",
+												"quantity": 1,
+												"unitPrice": 2500,
+												"taxable": true,
+												"position": 2,
+												"type": "ADDON"
+											}
+										]
+									}
+								]
+							}
+						}
+					},
+					"404": {
+						"description": "Booking not found",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								},
+								"example": {
+									"message": "Booking not found"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthorized - Invalid API key",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"message": {
+											"type": "string"
+										}
+									}
+								},
+								"example": {
+									"message": "Invalid API key"
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"components": {
+		"schemas": {
+			"Invoice": {
+				"type": "object",
+				"required": ["id", "invoiceNumber", "status"],
+				"properties": {
+					"id": {
+						"type": "string",
+						"description": "The unique identifier of the invoice"
+					},
+					"invoiceNumber": {
+						"type": "string",
+						"description": "The human-readable invoice number"
+					},
+					"dueDate": {
+						"type": "string",
+						"format": "date-time",
+						"description": "When the invoice payment is due"
+					},
+					"issuedDate": {
+						"type": "string",
+						"format": "date-time",
+						"description": "When the invoice was issued"
+					},
+					"paidDate": {
+						"type": "string",
+						"format": "date-time",
+						"description": "When the invoice was paid, if applicable"
+					},
+					"description": {
+						"type": "string",
+						"description": "Description of the invoice"
+					},
+					"status": {
+						"type": "string",
+						"enum": ["DRAFT", "SENT", "PAID", "VOID"],
+						"description": "Current status of the invoice"
+					},
+					"poNumber": {
+						"type": "string",
+						"description": "Purchase order number if provided"
+					},
+					"notes": {
+						"type": "string",
+						"description": "Additional notes on the invoice"
+					},
+					"taxable": {
+						"type": "boolean",
+						"description": "Whether the invoice is taxable"
+					},
+					"taxRate": {
+						"$ref": "#/components/schemas/TaxRate"
+					},
+					"lineItems": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/InvoiceLineItem"
+						}
+					}
+				}
+			},
+			"TaxRate": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"rate": {
+						"type": "number",
+						"format": "float"
+					}
+				}
+			},
+			"InvoiceLineItem": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"quantity": {
+						"type": "integer"
+					},
+					"unitPrice": {
+						"type": "integer",
+						"description": "Price in cents"
+					},
+					"taxable": {
+						"type": "boolean"
+					},
+					"position": {
+						"type": "integer"
+					},
+					"type": {
+						"type": "string",
+						"enum": ["SERVICE", "ADDON", "GRATUITY"]
+					}
+				}
+			},
+			"Error": {
+				"type": "object",
+				"required": ["message"],
+				"properties": {
+					"message": {
+						"type": "string",
+						"description": "A human-readable error message"
+					}
+				},
+				"example": {
+					"message": "An error occurred"
+				}
+			}
+		},
+		"securitySchemes": {
+			"apiKeyAuth": {
+				"type": "apiKey",
+				"in": "header",
+				"name": "x-api-key"
+			}
+		}
+	}
+}

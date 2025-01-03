@@ -1,0 +1,252 @@
+{
+	"openapi": "3.0.1",
+	"info": {
+		"title": "Flashquotes API",
+		"description": "API for retrieving form responses in Flashquotes",
+		"license": {
+			"name": "MIT"
+		},
+		"version": "1.0.0"
+	},
+	"servers": [
+		{
+			"url": "https://app.flashquotes.com/"
+		}
+	],
+	"security": [
+		{
+			"apiKeyAuth": []
+		}
+	],
+	"paths": {
+		"/api/form-response/{id}": {
+			"get": {
+				"description": "Returns detailed information about a specific form response",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "ID of form response to retrieve",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Form response data",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"type": "object",
+										"properties": {
+											"id": {
+												"type": "string",
+												"description": "The unique identifier of the form response"
+											},
+											"createdAt": {
+												"type": "string",
+												"format": "date-time",
+												"description": "When the form response was created"
+											},
+											"updatedAt": {
+												"type": "string",
+												"format": "date-time",
+												"description": "When the form response was last updated"
+											},
+											"formId": {
+												"type": "string",
+												"description": "ID of the form this response belongs to"
+											},
+											"bookingId": {
+												"type": "string",
+												"nullable": true,
+												"description": "ID of the booking if this form response is associated with a booking"
+											},
+											"quoteId": {
+												"type": "string",
+												"description": "ID of the quote this form response is associated with"
+											},
+											"companyId": {
+												"type": "string",
+												"description": "ID of the company this form response belongs to"
+											},
+											"formQuestionResponses": {
+												"type": "array",
+												"items": {
+													"type": "object",
+													"properties": {
+														"id": {
+															"type": "string",
+															"description": "The unique identifier of the question response"
+														},
+														"response": {
+															"type": "string",
+															"description": "The answer provided for this question"
+														},
+														"createdAt": {
+															"type": "string",
+															"format": "date-time",
+															"description": "When this question response was created"
+														},
+														"updatedAt": {
+															"type": "string",
+															"format": "date-time",
+															"description": "When this question response was last updated"
+														},
+														"question": {
+															"type": "object",
+															"properties": {
+																"id": {
+																	"type": "string",
+																	"description": "The unique identifier of the question"
+																},
+																"title": {
+																	"type": "string",
+																	"description": "The title/text of the question"
+																},
+																"type": {
+																	"type": "string",
+																	"enum": [
+																		"ADDRESS",
+																		"ADDONS",
+																		"TEXT",
+																		"MULTISELECT",
+																		"MULTICHOICE",
+																		"DROPDOWN",
+																		"DATE",
+																		"TIME",
+																		"NUMBER",
+																		"YESNO",
+																		"DISPLAYTEXT",
+																		"ACKNOWLEDGEMENTS",
+																		"RESOURCE",
+																		"STAFFING_CALCULATOR"
+																	],
+																	"description": "The type of question"
+																},
+																"subtitle": {
+																	"type": "string",
+																	"nullable": true,
+																	"description": "Optional subtitle/description for the question"
+																},
+																"position": {
+																	"type": "integer",
+																	"description": "The order position of this question in the form"
+																},
+																"systemRequired": {
+																	"type": "boolean",
+																	"description": "Whether this question is required by the system"
+																},
+																"userRequired": {
+																	"type": "boolean",
+																	"description": "Whether this question is marked as required by the user"
+																},
+																"linkedSystemField": {
+																	"type": "string",
+																	"nullable": true,
+																	"description": "The system field this question is linked to, if any"
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								},
+								"example": [
+									{
+										"id": "clh2x4j9s0000qw3v5km8j1t2",
+										"createdAt": "2024-01-15T08:30:00Z",
+										"updatedAt": "2024-01-15T08:30:00Z",
+										"formId": "clh2x4j9s0001qw3v5km8j1t3",
+										"bookingId": null,
+										"quoteId": "clh2x4j9s0002qw3v5km8j1t4",
+										"companyId": "clh2x4j9s0003qw3v5km8j1t5",
+										"formQuestionResponses": [
+											{
+												"id": "clh2x4j9s0004qw3v5km8j1t6",
+												"response": "John Doe",
+												"createdAt": "2024-01-15T08:30:00Z",
+												"updatedAt": "2024-01-15T08:30:00Z",
+												"question": {
+													"id": "clh2x4j9s0005qw3v5km8j1t7",
+													"title": "What is your full name?",
+													"type": "TEXT",
+													"subtitle": "Please enter your first and last name",
+													"position": 1,
+													"systemRequired": true,
+													"userRequired": true,
+													"linkedSystemField": "clientName"
+												}
+											}
+										]
+									}
+								]
+							}
+						}
+					},
+					"404": {
+						"description": "Form response not found",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								},
+								"example": {
+									"message": "Form response not found"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthorized - Invalid API key",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"message": {
+											"type": "string"
+										}
+									}
+								},
+								"example": {
+									"message": "Invalid API key"
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"components": {
+		"schemas": {
+			"Error": {
+				"type": "object",
+				"required": ["message"],
+				"properties": {
+					"message": {
+						"type": "string",
+						"description": "A human-readable error message"
+					}
+				},
+				"example": {
+					"message": "An error occurred"
+				}
+			}
+		},
+		"securitySchemes": {
+			"apiKeyAuth": {
+				"type": "apiKey",
+				"in": "header",
+				"name": "x-api-key"
+			}
+		}
+	}
+}

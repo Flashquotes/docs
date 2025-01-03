@@ -48,12 +48,16 @@
 			"pages": ["api-reference/introduction"]
 		},
 		{
-			"group": "Endpoint Examples",
-			"pages": [
-				"api-reference/endpoint/get",
-				"api-reference/endpoint/create",
-				"api-reference/endpoint/delete"
-			]
+			"group": "Event endpoints",
+			"pages": ["api-reference/event/get", "api-reference/event/list-events"]
+		},
+		{
+			"group": "Form Response endpoints",
+			"pages": ["api-reference/form-response/get"]
+		},
+		{
+			"group": "Invoice endpoints",
+			"pages": ["api-reference/invoice/list-invoices"]
 		}
 	],
 	"footerSocials": {

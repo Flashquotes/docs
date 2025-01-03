@@ -1,0 +1,410 @@
+{
+	"openapi": "3.0.1",
+	"info": {
+		"title": "Flashquotes API",
+		"description": "API for managing events and bookings in Flashquotes",
+		"license": {
+			"name": "MIT"
+		},
+		"version": "1.0.0"
+	},
+	"servers": [
+		{
+			"url": "https://app.flashquotes.com/"
+		}
+	],
+	"security": [
+		{
+			"apiKeyAuth": []
+		}
+	],
+	"paths": {
+		"/api/event/getEventData/{event_id}": {
+			"get": {
+				"description": "Returns detailed information about a specific event",
+				"parameters": [
+					{
+						"name": "event_id",
+						"in": "path",
+						"description": "ID of event to retrieve",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Event data response",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Event"
+								},
+								"example": {
+									"id": "clh2x4j9s0000qw3v5km8j1t2",
+									"location": {
+										"id": "loc_123",
+										"name": "Downtown Venue",
+										"address": "123 Main St, Seattle, WA 98101"
+									},
+									"resources": [
+										{
+											"id": "res_456",
+											"type": "espresso_machine",
+											"name": "La Marzocco GB5"
+										}
+									],
+									"staff": [
+										{
+											"id": "staff_789",
+											"name": "Jane Smith",
+											"role": "Lead Barista"
+										}
+									],
+									"addons": [
+										{
+											"id": "addon_101",
+											"name": "Specialty Syrups Package",
+											"quantity": 1
+										}
+									],
+									"booking": {
+										"id": "book_202",
+										"status": "confirmed"
+									},
+									"eventBriefId": "brief_303"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Event not found",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								},
+								"example": {
+									"message": "Event not found"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthorized - Invalid API key",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"message": {
+											"type": "string"
+										}
+									}
+								},
+								"example": {
+									"message": "Invalid API key"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+
+		"/api/event/get-events": {
+			"get": {
+				"description": "Returns events within a specified date range",
+				"parameters": [
+					{
+						"name": "event_starts_after",
+						"in": "query",
+						"description": "Start of date range in ISO 8601 format with timezone offset (e.g., 2024-12-19T23:59:00-07:00)",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "date-time"
+						}
+					},
+					{
+						"name": "event_starts_before",
+						"in": "query",
+						"description": "End of date range in ISO 8601 format with timezone offset (e.g., 2024-12-19T23:59:00-07:00)",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "date-time"
+						}
+					},
+					{
+						"name": "location_id",
+						"in": "query",
+						"description": "Optional filter for specific location",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "List of events in the specified date range",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"type": "object",
+										"properties": {
+											"event": {
+												"type": "array",
+												"items": {
+													"$ref": "#/components/schemas/Event"
+												}
+											}
+										}
+									}
+								},
+								"example": [
+									{
+										"event": [
+											{
+												"id": "clh2x4j9s0000qw3v5km8j1t2",
+												"location": {
+													"id": "loc_123",
+													"name": "Downtown Venue",
+													"address": "123 Main St, Seattle, WA 98101"
+												},
+												"resources": [
+													{
+														"id": "res_456",
+														"type": "espresso_machine",
+														"name": "La Marzocco GB5"
+													}
+												],
+												"staff": [
+													{
+														"id": "staff_789",
+														"name": "Jane Smith",
+														"role": "Lead Barista"
+													}
+												],
+												"addons": [
+													{
+														"id": "addon_101",
+														"name": "Specialty Syrups Package",
+														"quantity": 1
+													}
+												],
+												"booking": {
+													"id": "book_202",
+													"status": "confirmed"
+												},
+												"eventBriefId": "brief_303"
+											}
+										]
+									}
+								]
+							}
+						}
+					},
+					"400": {
+						"description": "Invalid request parameters",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"error": {
+											"type": "string"
+										},
+										"details": {
+											"oneOf": [
+												{
+													"type": "string"
+												},
+												{
+													"type": "object"
+												}
+											]
+										}
+									}
+								},
+								"example": {
+									"error": "Invalid date format",
+									"details": "event_starts_after must be in ISO 8601 format with timezone offset"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthorized - Invalid API key",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"message": {
+											"type": "string"
+										}
+									}
+								},
+								"example": {
+									"message": "Invalid API key"
+								}
+							}
+						}
+					},
+					"500": {
+						"description": "Internal server error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"error": {
+											"type": "string"
+										}
+									}
+								},
+								"example": {
+									"error": "Internal server error occurred"
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"components": {
+		"schemas": {
+			"Event": {
+				"type": "object",
+				"required": ["id"],
+				"properties": {
+					"id": {
+						"type": "string",
+						"description": "The unique identifier of the event"
+					},
+					"location": {
+						"$ref": "#/components/schemas/Location"
+					},
+					"resources": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/Resource"
+						}
+					},
+					"staff": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/Staff"
+						}
+					},
+					"addons": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/Addon"
+						}
+					},
+					"booking": {
+						"$ref": "#/components/schemas/Booking"
+					},
+					"eventBriefId": {
+						"type": "string",
+						"description": "The ID of the associated event brief"
+					}
+				}
+			},
+			"Location": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"address": {
+						"type": "string"
+					}
+				}
+			},
+			"Resource": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"type": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					}
+				}
+			},
+			"Staff": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"role": {
+						"type": "string"
+					}
+				}
+			},
+			"Addon": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"quantity": {
+						"type": "integer"
+					}
+				}
+			},
+			"Booking": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"status": {
+						"type": "string"
+					}
+				}
+			},
+			"Error": {
+				"type": "object",
+				"required": ["message"],
+				"properties": {
+					"message": {
+						"type": "string",
+						"description": "A human-readable error message"
+					}
+				},
+				"example": {
+					"message": "An error occurred"
+				}
+			}
+		},
+		"securitySchemes": {
+			"apiKeyAuth": {
+				"type": "apiKey",
+				"in": "header",
+				"name": "x-api-key"
+			}
+		}
+	}
+}

@@ -1,0 +1,35 @@
+---
+title: 'List Invoices'
+description: 'Retrieve all invoices associated with a booking'
+openapi: 'GET /api/invoice/{booking_id}'
+---
+
+This endpoint returns all invoices associated with a specific booking. The invoices include detailed information such as line items, tax rates, and payment status.
+
+### Response
+
+The response includes an array of invoice objects. Each invoice contains:
+
+- Basic invoice details (ID, number, dates)
+- Status information (draft, sent, paid, void)
+- Line items with pricing and tax details
+- Tax rate information if applicable
+- Payment and due date information
+
+<Note>All monetary values are returned in cents. For example, $750.00 is returned as 75000.</Note>
+
+### Example Usage
+
+Here's an example of how to use this endpoint with curl:
+
+```bash
+curl -X GET 'https://app.flashquotes.com/api/invoice/book_123' \
+-H 'x-api-key: your_api_key_here'
+```
+
+### Common Use Cases
+
+- Retrieving invoice history for a booking
+- Checking payment status of invoices
+- Accessing detailed pricing information
+- Verifying tax calculations
