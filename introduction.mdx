@@ -1,14 +1,96 @@
 ---
-title: Introduction
-description: "Flashquotes documentation to help you get started, learn how to use the platform, and understand our API functionality."
+title: "Introduction"
+description: "Flashquotes helps event businesses manage their entire workflow - from lead capture through event delivery and payment. This documentation will help you get started and make the most of the platform."
 ---
 
-## Quickstart guide
+## Core Features
 
-Are you new here? Start with our [Quickstart guide](quickstart) to get your first quote out the door.
+<CardGroup cols={2}>
+	<Card title="Lead Management" icon="user-plus" href="/leads/managing">
+		Capture and track leads, create quotes, and convert prospects into bookings
+	</Card>
+	
+	<Card title="Event Management" icon="calendar-days" href="/events">
+		Manage events, timelines, and event briefs for successful delivery
+	</Card>
 
-<CardGroup cols={1}>
-	<Card title="Quickstart guide" icon="book-open-cover" href="/quickstart">
-		Easy steps to get you going
+	<Card title="Forms" icon="browser" href="/forms/lead-intake">
+		Configure lead intake and booking forms for your business
+	</Card>
+
+	<Card title="Staff & Resources" icon="users" href="/staff">
+		Manage your team and equipment effectively
+	</Card>
+</CardGroup>
+
+## Key Workflows
+
+<AccordionGroup>
+	<Accordion icon="paper-plane" title="Lead to Booking">
+		The complete sales process:
+		- [Lead capture](/leads/managing)
+		- [Quote creation](/leads/quotes)
+		- [Quote delivery](/leads/sending-quotes)
+		- [Booking confirmation](/bookings)
+	</Accordion>
+
+	<Accordion icon="calendar-check" title="Event Delivery">
+		Successful event execution:
+		- [Event planning](/events)
+		- [Timeline management](/events/timeline)
+		- [Event briefs](/events/event-brief)
+		- [Staff coordination](/staff)
+	</Accordion>
+
+	<Accordion icon="money-bill-transfer" title="Payment Processing">
+		Make sure you get paid:
+		- [Invoice creation](/invoices)
+		- [Deposits and invoice payments via Stripe](/introduction#payment-processing)
+		- [QuickBooks sync](/settings/integrations/quickbooks)
+		
+		<Note>
+			All payment processing is handled securely through Stripe.
+		</Note>
+	</Accordion>
+</AccordionGroup>
+
+## Configuration
+
+<CardGroup cols={2}>
+	<Card title="General Settings" icon="gear" href="/settings/general">
+		Configure your company information and core settings
+	</Card>
+	
+	<Card title="Branding" icon="palette" href="/settings/branding">
+		Customize your forms and client-facing elements
+	</Card>
+
+	<Card title="Integrations" icon="plug" href="/settings/integrations/overview">
+		Connect with QuickBooks, Zapier, and more
+	</Card>
+
+	<Card title="Add-ons" icon="puzzle-piece" href="/settings/add-ons">
+		Configure service add-ons and pricing options
+	</Card>
+</CardGroup>
+
+## Getting Started
+
+<Steps>
+	1. Start with our [Quickstart guide](/quickstart)
+	2. Embed your [lead intake form](/forms/lead-intake)
+	3. Set up your [company branding](/settings/branding)
+	4. Add your [staff](/staff) and [resources](/resources)
+</Steps>
+
+## Need Help?
+
+<CardGroup cols={2}>
+	<Card title="Support" icon="headset" href="mailto:support@flashquotes.com">
+		Contact our support team for assistance
+	</Card>
+	
+	<Card title="API Documentation" icon="code" href="/api-reference/introduction">
+		Access our API documentation for custom integrations
 	</Card>
 </CardGroup>

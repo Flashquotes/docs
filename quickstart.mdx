@@ -3,6 +3,10 @@ title: "Quickstart"
 description: "Get started with Flashquotes and set up your app for success."
 ---
 
+import MarkdownSupport from "/snippets/markdown-support.mdx";
+
+<SnippetIntro />
+
 ## 💳 Stripe Setup
 
 <Warning>
@@ -168,19 +172,7 @@ Each task can be put in a specific order and assigned to a section of the event 
 
   </Accordion>
   <Accordion icon="markdown" title="Use Markdown in Tasks">
-    You can add specific styling or hyperlinks in your tasks using standard [Markdown syntax](https://www.markdownguide.org/basic-syntax/). This allows you to format text in a way that best suits your needs.
-
-    Here are some common Markdown styles to get you started:
-
-    - Surround text with two asterisks `**` to **bold** it.
-      - Example: `**This** is bold` results in "**This** is bold".
-    - Surround text with one asterisk `*` to *italicize* it.
-      - Example: `*This* is italicized` results in "*This* is italicized".
-    - Surround text in brackets `[]` followed by a URL in parentheses `()` to create a hyperlink.
-      - Example: `Take me to [Google](https://google.com)` results in "Take me to [Google](https://google.com)".
-
-    Use these Markdown tips to make your task titles clear, engaging, and useful.
-
+    <MarkdownSupport object="tasks" />
   </Accordion>
   
 </AccordionGroup>
@@ -249,3 +241,6 @@ Let’s walk through how to send a quote from Flashquotes
 ## Questions?
 
 Contact us at [support@flashquotes.com](mailto:support@flashquotes.com).
+
+---
+

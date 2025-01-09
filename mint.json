@@ -44,6 +44,47 @@
 			"pages": ["introduction", "quickstart"]
 		},
 		{
+			"group": "Core Features",
+			"pages": [
+				{
+					"group": "Leads",
+					"pages": ["leads/managing", "leads/quotes", "leads/sending-quotes"]
+				},
+				"bookings",
+				{
+					"group": "Events",
+					"pages": ["events", "events/timeline", "events/event-brief"]
+				},
+				"calendar",
+				"invoices",
+				{
+					"group": "Forms",
+					"pages": ["forms/lead-intake", "forms/booking"]
+				},
+				"staff",
+				"resources"
+			]
+		},
+		{
+			"group": "Settings",
+			"pages": [
+				"settings/general",
+				"settings/my-profile",
+				"settings/tasks",
+				"settings/quotes",
+				"settings/add-ons",
+				"settings/branding",
+				{
+					"group": "Integrations",
+					"pages": [
+						"settings/integrations/overview",
+						"settings/integrations/quickbooks",
+						"settings/integrations/zapier"
+					]
+				}
+			]
+		},
+		{
 			"group": "API Documentation",
 			"pages": ["api-reference/introduction"]
 		},
