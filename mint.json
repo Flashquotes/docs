@@ -16,7 +16,7 @@
     }
   },
   "background": {
-    "style": "gradient"
+    "style": "windows"
   },
   "topbarLinks": [
     {
@@ -112,6 +112,9 @@
       "pages": ["api-reference/invoice/list-invoices"]
     }
   ],
+  "feedback": {
+    "thumbsRating": true
+  },
   "footerSocials": {
     "x": "https://x.com/flashquoteshq",
     "linkedin": "https://linkedin.com/company/flashquotes"
