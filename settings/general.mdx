@@ -10,56 +10,55 @@ General settings contain your core company information and location configuratio
 ## Company Information
 
 <AccordionGroup>
-  <Accordion icon="building" title="Basic Details">
-    Configure essential company information:
-    - Company name
-    - Company ID
-    - Invoice display name
-    - Invoice address
-    - Contact email
-    - Contact phone
-    
-    <Note>
-      Company and location IDs are used for building automations with platforms like Zapier.
-    </Note>
-  </Accordion>
+	<Accordion icon="building" title="Basic Details">
+		Configure essential company information: - Company name - Company ID -
+		Invoice display name - Invoice address - Contact email - Contact phone
+		<Note>
+			Company and location IDs are used for building automations with platforms
+			like Zapier.
+		</Note>
+	</Accordion>
 </AccordionGroup>
 
 ## Location Management
 
 <AccordionGroup>
-  <Accordion icon="map-pin" title="Primary Location">
-    Set your headquarters location:
-    - Physical address
-    - Resource storage location
-    - Timeline calculation origin
-    - Service area center
+  <Accordion icon="map-pin" title="Location Address">
+    Set your headquarters location address to ensure accurate drive time calculations and service area validation.
     
     <Tip>
       Your primary location should be where your resources are stored to ensure accurate drive time calculations.
     </Tip>
   </Accordion>
 
-  <Accordion icon="map" title="Service Areas">
-    Define your operational boundaries:
-    - Service radius
-    - Multiple locations
-    - Coverage areas
-    - Travel zones
+  <Accordion icon="clock" title="Location Timezone">
+    Set your timezone to ensure accurate timeline and event time presentation.
   </Accordion>
+  <Accordion icon="envelope" title="Default Email">
+    Set your default email for each location to ensure the right email is used when sending a quote.
+
+    <Tip>
+      Need to add another account? Click *+ Add new email* to easily link a new Google account.
+    </Tip>
+
+  </Accordion>
+  <Accordion icon="building-columns" title="Default Tax Rate">
+    Set your default tax rate for each location to ensure the right tax rate is auto-applied to each quote.
+  </Accordion>
+  
 </AccordionGroup>
 
 ## Best Practices
 
 1. Keep company information current
 2. Verify location accuracy
-3. Update service areas as needed
-4. Maintain correct contact details
-5. Review automation IDs periodically
+3. Use a default tax rate for each location
+4. Use a default email for each location
 
 ## Next Steps
 
 After configuring general settings:
+
 - [Set up branding](/settings/branding)
 - [Configure locations](/settings/general#location-management)
-- [Review automation IDs](/settings/integrations/zapier) 
+- [Review automation IDs](/settings/integrations/zapier)

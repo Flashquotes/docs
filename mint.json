@@ -1,122 +1,123 @@
 {
-  "$schema": "https://mintlify.com/schema.json",
-  "name": "Flashquotes Documentation",
-  "logo": {
-    "dark": "/logo/dark.png",
-    "light": "/logo/light.png"
-  },
-  "favicon": "/favicon.png",
-  "colors": {
-    "primary": "#4F46E5",
-    "light": "#a5b4fc",
-    "dark": "#4F46E5",
-    "anchors": {
-      "from": "#4F46E5",
-      "to": "#a5b4fc"
-    }
-  },
-  "background": {
-    "style": "windows"
-  },
-  "topbarLinks": [
-    {
-      "name": "Support",
-      "url": "mailto:support@flashquotes.com"
-    }
-  ],
-  "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://app.flashquotes.com"
-  },
-  "tabs": [
-    {
-      "name": "API Reference",
-      "url": "api-reference"
-    },
-    {
-      "name": "Changelog",
-      "url": "changelog"
-    }
-  ],
-  "anchors": [
-    {
-      "name": "Home page",
-      "icon": "globe-pointer",
-      "url": "https://flashquotes.com"
-    }
-  ],
-  "navigation": [
-    {
-      "group": "Get Started",
-      "pages": ["introduction", "quickstart"]
-    },
-    {
-      "group": "Core Features",
-      "pages": [
-        {
-          "group": "Leads",
-          "pages": ["leads/managing", "leads/quotes", "leads/sending-quotes"]
-        },
-        "bookings",
-        {
-          "group": "Events",
-          "pages": ["events", "events/timeline", "events/event-brief"]
-        },
-        "calendar",
-        "invoices",
-        {
-          "group": "Forms",
-          "pages": ["forms/lead-intake", "forms/booking"]
-        },
-        "staff",
-        "resources"
-      ]
-    },
-    {
-      "group": "Settings",
-      "pages": [
-        "settings/general",
-        "settings/my-profile",
-        "settings/tasks",
-        "settings/quotes",
-        "settings/add-ons",
-        "settings/branding",
-        {
-          "group": "Integrations",
-          "pages": [
-            "settings/integrations/overview",
-            "settings/integrations/quickbooks",
-            "settings/integrations/zapier"
-          ]
-        }
-      ]
-    },
-    {
-      "group": "API Documentation",
-      "pages": ["api-reference/introduction"]
-    },
-    {
-      "group": "Changelog",
-      "pages": ["changelog/overview"]
-    },
-    {
-      "group": "Event endpoints",
-      "pages": ["api-reference/event/get", "api-reference/event/list-events"]
-    },
-    {
-      "group": "Form Response endpoints",
-      "pages": ["api-reference/form-response/get"]
-    },
-    {
-      "group": "Invoice endpoints",
-      "pages": ["api-reference/invoice/list-invoices"]
-    }
-  ],
-  "feedback": {
-    "thumbsRating": true
-  },
-  "footerSocials": {
-    "x": "https://x.com/flashquoteshq",
-    "linkedin": "https://linkedin.com/company/flashquotes"
-  }
+	"$schema": "https://mintlify.com/schema.json",
+	"name": "Flashquotes Documentation",
+	"logo": {
+		"dark": "/logo/dark.png",
+		"light": "/logo/light.png"
+	},
+	"favicon": "/favicon.png",
+	"colors": {
+		"primary": "#4F46E5",
+		"light": "#a5b4fc",
+		"dark": "#4F46E5",
+		"anchors": {
+			"from": "#4F46E5",
+			"to": "#a5b4fc"
+		}
+	},
+	"background": {
+		"style": "windows"
+	},
+	"topbarLinks": [
+		{
+			"name": "Support",
+			"url": "mailto:support@flashquotes.com"
+		}
+	],
+	"topbarCtaButton": {
+		"name": "Dashboard",
+		"url": "https://app.flashquotes.com"
+	},
+	"tabs": [
+		{
+			"name": "API Reference",
+			"url": "api-reference"
+		},
+		{
+			"name": "Changelog",
+			"url": "changelog"
+		}
+	],
+	"anchors": [
+		{
+			"name": "Home page",
+			"icon": "globe-pointer",
+			"url": "https://flashquotes.com"
+		}
+	],
+	"navigation": [
+		{
+			"group": "Get Started",
+			"pages": ["introduction", "quickstart"]
+		},
+		{
+			"group": "Core Features",
+			"pages": [
+				{
+					"group": "Leads",
+					"pages": ["leads/managing", "leads/quotes", "leads/sending-quotes"]
+				},
+				"bookings",
+				{
+					"group": "Events",
+					"pages": ["events", "events/timeline", "events/event-brief"]
+				},
+				"calendar",
+				"invoices",
+				{
+					"group": "Forms",
+					"pages": ["forms/lead-intake", "forms/booking"]
+				},
+				"staff",
+				"resources"
+			]
+		},
+		{
+			"group": "Settings",
+			"pages": [
+				"settings/general",
+				"settings/my-profile",
+				"settings/tasks",
+				"settings/quotes",
+				"settings/add-ons",
+				"settings/branding",
+				{
+					"group": "Integrations",
+					"pages": [
+						"settings/integrations/overview",
+						"settings/integrations/google",
+						"settings/integrations/quickbooks",
+						"settings/integrations/zapier"
+					]
+				}
+			]
+		},
+		{
+			"group": "API Documentation",
+			"pages": ["api-reference/introduction"]
+		},
+		{
+			"group": "Changelog",
+			"pages": ["changelog/overview"]
+		},
+		{
+			"group": "Event endpoints",
+			"pages": ["api-reference/event/get", "api-reference/event/list-events"]
+		},
+		{
+			"group": "Form Response endpoints",
+			"pages": ["api-reference/form-response/get"]
+		},
+		{
+			"group": "Invoice endpoints",
+			"pages": ["api-reference/invoice/list-invoices"]
+		}
+	],
+	"feedback": {
+		"thumbsRating": true
+	},
+	"footerSocials": {
+		"x": "https://x.com/flashquoteshq",
+		"linkedin": "https://linkedin.com/company/flashquotes"
+	}
 }

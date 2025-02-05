@@ -3,6 +3,8 @@ title: "Quotes"
 description: "Configure default quote settings and presentation options"
 ---
 
+import MarkdownSupport from "/snippets/markdown-support.mdx";
+
 ## Overview
 
 Quote settings control how your quotes are presented to clients and set default parameters for quote generation. These settings help maintain consistency in your pricing and presentation while optimizing conversion rates.
@@ -11,11 +13,7 @@ Quote settings control how your quotes are presented to clients and set default 
 
 <AccordionGroup>
   <Accordion icon="clock" title="Expiration Settings">
-    Configure quote timing:
-    - Default expiration periods
-    - Automatic follow-up timing
-    - Reminder schedules
-    - Grace period options
+    Configure quote default expiration. Expired quotes can still be accessed and booked, but clients will see a message that the quote is expired.
     
     <Tip>
       Set expiration dates that create urgency while giving clients reasonable time to decide.
@@ -23,11 +21,9 @@ Quote settings control how your quotes are presented to clients and set default 
   </Accordion>
 
   <Accordion icon="map-location-dot" title="Service Area">
-    Define service boundaries:
-    - Service radius limits
-    - Travel zones
-    - Location restrictions
-    - Distance calculations
+    Define service area radius:
+    - Service radius limits in miles
+    - Leads that have an address outside of this radius will be warned that there may be additional fees for travel
   </Accordion>
 </AccordionGroup>
 
@@ -36,57 +32,45 @@ Quote settings control how your quotes are presented to clients and set default 
 <AccordionGroup>
   <Accordion icon="image" title="Hero Content">
     Customize quote appearance:
-    - Hero message content
-    - Hero image selection
-    - Gallery integration
-    - Menu links
+    - Default hero message content
+    - Default hero image selection
     
     <Note>
       The hero message is an excellent opportunity to showcase your value proposition to decision-makers.
     </Note>
   </Accordion>
 
-  <Accordion icon="palette" title="Visual Elements">
-    Control visual presentation:
-    - Brand colors
-    - Image placement
-    - Layout options
-    - Typography choices
+  <Accordion icon="markdown" title="Markdown on Hero Message">
+    <MarkdownSupport object="hero message" />
   </Accordion>
 </AccordionGroup>
 
-## Content Management
+## Quote Delivery
 
 <AccordionGroup>
-  <Accordion icon="pen-to-square" title="Message Templates">
-    Customize standard messages:
-    - Welcome text
-    - Service descriptions
-    - Terms and conditions
-    - Special instructions
+  <Accordion icon="pen-to-square" title="Custom Quote Email Body">
+    Click `Update` on *Custom quote email body* to set a custom text to use as your default for all quote emails you send.
+    
+    Emoji are welcome! 😃
+
+    <Note>
+      Want to use a different email body for quote? No problem, just edit it when sending the quote email.
+    </Note>
+
   </Accordion>
 
-  <Accordion icon="link" title="External Links">
-    Integrate supporting content:
-    - Photo galleries
-    - Menu PDFs
-    - Service videos
-    - Client testimonials
-  </Accordion>
 </AccordionGroup>
 
 ## Best Practices
 
 1. Keep hero messages concise and impactful
-2. Update service areas regularly
-3. Test quote presentation
-4. Maintain current pricing
-5. Review expiration settings periodically
+2. Add a default hero image to make the quote more engaging
+3. Leverage markdown formatting and links in your hero message
 
 ## Next Steps
 
 After configuring quote settings:
+
 - [Review add-ons](/settings/add-ons)
 - [Set up branding](/settings/branding)
-- Test quote generation
-- Monitor conversion rates 
+- [Create a test quote](/leads/quotes)
