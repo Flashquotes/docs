@@ -72,6 +72,7 @@ The Invoices section in Flashquotes provides comprehensive tools for managing yo
     - Credit/debit cards
     - Stripe Bank Transfer
     - Manual payment recording
+    - Scheduled payments
     
     <Info>
       As of January 2024, approximately 15-20% of customers use Stripe Link for convenient one-click payments.
@@ -79,23 +80,28 @@ The Invoices section in Flashquotes provides comprehensive tools for managing yo
   </Accordion>
 
   <Accordion icon="money-bill-transfer" title="Manual Transactions">
-    Record payments received through:
-    - Check
-    - Bank transfer
-    - Cash
-    - Other offline methods
+      Record payments received through:
+      - Check
+      - Bank transfer 
+      - Cash
+      - Other
+
   </Accordion>
-</AccordionGroup>
 
-### Card Processing
+  <Accordion icon="calendar" title="Scheduled Payments">
+    You can schedule a partial invoice payment by clicking the `Schedule Payment` button in the invoice *Payment Activity* table.
+    
+    Scheduled payments will then be available for customers to select and pay from the invoice payment page. If they'd rather, customers can opt to pay the remaining balance.
 
-<AccordionGroup>
-  <Accordion icon="credit-card" title="Stored Cards">
-    For cards on file:
-    - Process new charges
-    - View transaction history
-    - Handle recurring billing
-    - Process refunds
+    <Frame>
+      <img src="/images/invoices/payment-schedule.png" alt="Payment schedule interface showing how to schedule partial payments" />
+    </Frame>
+
+
+    <Tip>
+      Use scheduled payments easily allow customers to make partial payments on their invoices.
+    </Tip>
+
   </Accordion>
 </AccordionGroup>
 
@@ -111,12 +117,6 @@ The Invoices section in Flashquotes provides comprehensive tools for managing yo
     - Tax jurisdiction summaries
   </Accordion>
 
-  <Accordion icon="hand-holding-dollar" title="Gratuity Management">
-    Track and manage:
-    - Gratuity totals
-    - Non-taxable gratuity items
-    - Staff tip distribution
-  </Accordion>
 </AccordionGroup>
 
 ## Stripe Integration
@@ -124,13 +124,14 @@ The Invoices section in Flashquotes provides comprehensive tools for managing yo
 <AccordionGroup>
   <Accordion icon="stripe" title="Stripe Features">
     - Process all transactions through Stripe
-    - Handle refunds within Flashquotes
+    - Handle refunds within Flashquotes 
     - View payment history
     - Access detailed transaction records
-    
+
     <Warning>
       All financial transactions are processed through Stripe's secure platform.
     </Warning>
+
   </Accordion>
 </AccordionGroup>
 
@@ -154,7 +155,8 @@ The Invoices section in Flashquotes provides comprehensive tools for managing yo
 ## Next Steps
 
 After mastering invoices:
+
 - [Configure forms](/forms)
 - Set up payment reminders
 - Establish follow-up procedures
-- Review financial reporting needs 
+- Review financial reporting needs
