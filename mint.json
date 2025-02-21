@@ -81,6 +81,7 @@
       "group": "Settings",
       "pages": [
         "settings/general",
+        "settings/members",
         "settings/my-profile",
         "settings/tasks",
         "settings/quotes",
