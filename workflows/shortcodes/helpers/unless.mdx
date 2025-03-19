@@ -1,0 +1,124 @@
+---
+title: "Unless Conditions"
+description: "Learn how to use unless conditional logic in your workflow message templates"
+---
+
+The `unless` helper is the inverse of the [`if` helper](/workflows/shortcodes/helpers/if-else). It executes the block if the conditional value is empty or equal to `0`.
+
+<Tip>
+	Think of `unless` as "if not" - it's particularly useful when you want to
+	check if something is missing or empty.
+</Tip>
+
+## Basic Usage
+
+```
+{{#unless lead.phone}}
+  Please provide a phone number for better communication.
+{{/unless}}
+```
+
+If `lead.phone` is empty:
+
+```
+Please provide a phone number for better communication.
+```
+
+If `lead.phone` exists, nothing will be rendered.
+
+## With Else Block
+
+Like the `if` helper, `unless` can include an `else` block:
+
+```
+{{#unless quote.event_address}}
+  Event location is pending
+{{else}}
+  Event location: {{quote.event_address}}
+{{/unless}}
+```
+
+If `quote.event_address` is empty:
+
+```
+Event location is pending
+```
+
+If `quote.event_address` exists:
+
+```
+Event location: 123 Main St, Anytown, USA
+```
+
+## Common Use Cases
+
+### Missing Contact Information
+
+```
+{{#unless lead.email}}
+  {{#unless lead.phone}}
+    No contact information provided.
+  {{/unless}}
+{{/unless}}
+```
+
+### Incomplete Quote Details
+
+```
+{{#unless quote.guest_count}}
+  Guest count needs to be confirmed.
+{{/unless}}
+
+{{#unless quote.event_start_time}}
+  Event start time is not set.
+{{/unless}}
+```
+
+### Missing Company Information
+
+```
+{{#unless company.contact_phone}}
+  Contact us at {{company.contact_email}}
+{{else}}
+  Call us at {{company.contact_phone}}
+{{/unless}}
+```
+
+## Best Practices
+
+1. Use `unless` when checking for missing or empty values
+2. Consider using [`if`](/workflows/shortcodes/helpers/if-else) when the logic is complex or needs multiple conditions
+3. Keep the logic simple and readable
+4. Test templates with both empty and filled data
+
+<Warning>
+	Like the `if` helper, `unless` treats zero (`0`) as a falsy value. If you need
+	to treat zero differently, consider using the `if` helper with
+	`includeZero=true`.
+</Warning>
+
+## Comparison with If Helper
+
+Here's the same logic written with both `unless` and `if`:
+
+Using `unless`:
+
+```
+{{#unless lead.company_name}}
+  Individual client
+{{else}}
+  Corporate client: {{lead.company_name}}
+{{/unless}}
+```
+
+Equivalent using `if`:
+
+```
+{{#if lead.company_name}}
+  Corporate client: {{lead.company_name}}
+{{else}}
+  Individual client
+{{/if}}
+```
+
+Choose the one that makes your template more readable and intuitive.

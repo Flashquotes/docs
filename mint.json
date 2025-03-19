@@ -86,8 +86,12 @@
 								"workflows/shortcodes/overview",
 								"workflows/shortcodes/helpers",
 								{
-									"group": "Available Functions",
-									"pages": ["workflows/shortcodes/helpers/default"]
+									"group": "Available Helpers",
+									"pages": [
+										"workflows/shortcodes/helpers/default",
+										"workflows/shortcodes/helpers/if-else",
+										"workflows/shortcodes/helpers/unless"
+									]
 								}
 							]
 						}
