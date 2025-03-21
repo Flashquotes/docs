@@ -1,0 +1,129 @@
+---
+title: "Instant Pricing"
+description: "Learn how to configure automatic price calculations for your services and quotes"
+---
+
+## Overview
+
+Instant Pricing automatically calculates service quotes based on predefined pricing rules, saving time and ensuring consistent pricing across your lead intake forms.
+
+## Setting Up Service Pricing
+
+### Step 1: Create or Edit a Service
+
+Navigate to the Services tab and either create a new service or edit an existing one. In the service editor, you'll find the Pricing Configuration section with the following options:
+
+<Frame>
+  <img
+    src="/images/changelog/pricing-settings.webp"
+    alt="Pricing Configuration UI showing fields for Base Price, Hourly Rate Per Staff, Price Per Guest, and Minimum Price"
+  />
+</Frame>
+
+- **Base Price**: Starting price for the service before any adjustments
+- **Hourly Rate Per Staff**: Rate charged per staff member per hour
+- **Price Per Guest**: Additional charge per guest (optional)
+- **Minimum Price**: The lowest price that will ever be quoted for this service
+
+<Note>
+  The Minimum Price threshold ensures you never quote below your cost basis,
+  protecting your business's profitability.
+</Note>
+
+### Example Calculation
+
+For an event with:
+
+- 2 staff members
+- 3 hours duration
+- 50 guests
+
+The total price would be calculated as:
+
+```
+Total = Base Price + (Hourly Rate × Staff × Hours) + (Price Per Guest × Guests)
+```
+
+<Tip>
+  If the calculated total is less than the Minimum Price, the system will
+  automatically use the Minimum Price instead.
+</Tip>
+
+## Setting Default Pricing Rules
+
+### Step 1: Access Pricing Settings
+
+1. Go to your lead intake form's edit page
+2. Click the "Instant Pricing" button in the header navigation
+3. The pricing settings modal will open
+
+<Frame>
+  <img
+    src="/images/changelog/lead-intake-pricing-settings.webp"
+    alt="Settings modal to configure pricing rules for a lead intake form"
+  />
+</Frame>
+
+### Step 2: Select Default Service
+
+Choose a service to use as the default pricing rule set for the form. When leads submit this form, the pricing will automatically be calculated using the selected service's configuration.
+
+<Warning>
+  Make sure to test your pricing configurations with different combinations of
+  staff, hours, and guest counts before publishing your forms.
+</Warning>
+
+## How It Works
+
+When a new lead submits your intake form:
+
+1. The system uses the form's default service pricing rules
+2. Calculates the price based on:
+   - Number of staff requested
+   - Event duration
+   - Guest count
+3. Creates a draft quote with the calculated price
+4. Admins can review and adjust the price before sending the quote
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion icon="chart-line" title="Testing Your Pricing Rules">
+    Before publishing your forms:
+    - Test different combinations of staff, hours, and guest counts
+    - Verify calculations align with your business model
+    - Check that minimum prices are being applied correctly
+  </Accordion>
+  
+  <Accordion icon="rotate" title="Regular Reviews">
+    Stay competitive and profitable by:
+    - Periodically reviewing your pricing configurations
+    - Adjusting rates based on market conditions
+    - Updating minimum prices as costs change
+  </Accordion>
+
+  <Accordion icon="layer-group" title="Multiple Services">
+    Maximize flexibility with:
+    - Different services for various event types
+    - Unique pricing configurations per service level
+    - Specialized rates for premium offerings
+  </Accordion>
+</AccordionGroup>
+
+## Important Notes
+
+<Note>
+  - Instant Pricing generates draft quotes only - you can still review and
+  adjust prices before sending to clients - The system calculates separate
+  prices for multi-day events based on the duration and guest count for each day
+  - You can update pricing configurations at any time without affecting existing
+  quotes
+</Note>
+
+## Next Steps
+
+After setting up Instant Pricing:
+
+- [Test your forms](/forms/booking) with sample submissions
+- [Review generated quotes](/leads/quotes) to ensure accuracy
+- [Send quotes to clients](/leads/sending-quotes) after review
