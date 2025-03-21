@@ -1,0 +1,66 @@
+---
+title: "Default Value"
+description: "Learn how to use the default value helper function to handle empty values in shortcodes"
+---
+
+The `default` helper function allows you to specify a fallback value when a shortcode field is empty. This ensures your emails always display something meaningful, even when data is missing.
+
+## Syntax
+
+The syntax for this helper function is:
+
+```
+{{default shortcode_value fallback_default_value}}
+```
+
+Where:
+
+- `default` is the function name
+- `shortcode_value` is the primary value you want to display
+- `fallback_default_value` is what will be displayed if the `shortcode_value` is empty
+
+## Examples
+
+### Using a String Fallback
+
+```
+Hey {{default lead.full_name 'there'}}!
+```
+
+If `lead.full_name` exists:
+
+```
+Hey John Doe!
+```
+
+If `lead.full_name` is empty:
+
+```
+Hey there!
+```
+
+### Using Another Shortcode as Fallback
+
+```
+Contact us at {{default company.contact_phone company.contact_email}}
+```
+
+If `company.contact_phone` exists:
+
+```
+Contact us at +1 234-567-890
+```
+
+If `company.contact_phone` is empty:
+
+```
+Contact us at contact@acmeinc.com
+```
+
+## Best Practices
+
+- Always use default values for critical personalization fields
+- Keep default values generic but professional
+- Test your templates with both filled and empty fields
+- Consider using other shortcodes as fallbacks when appropriate
+- Preview your templates to ensure the fallbacks work as expected
