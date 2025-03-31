@@ -39,52 +39,37 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"type": "array",
-									"items": {
-										"$ref": "#/components/schemas/Invoice"
+									"type": "object",
+									"required": ["bookingId", "invoiceIds", "invoiceUrls"],
+									"properties": {
+										"bookingId": {
+											"type": "string",
+											"description": "The ID of the booking"
+										},
+										"invoiceIds": {
+											"type": "array",
+											"items": {
+												"type": "string"
+											},
+											"description": "Array of invoice IDs associated with the booking"
+										},
+										"invoiceUrls": {
+											"type": "array",
+											"items": {
+												"type": "string"
+											},
+											"description": "Array of encrypted invoice URLs"
+										}
 									}
 								},
-								"example": [
-									{
-										"id": "inv_123",
-										"invoiceNumber": "INV-2024-001",
-										"dueDate": "2024-02-15T00:00:00Z",
-										"issuedDate": "2024-01-15T08:30:00Z",
-										"paidDate": "2024-01-16T10:15:00Z",
-										"description": "Coffee service for corporate event",
-										"status": "PAID",
-										"poNumber": "PO-2024-001",
-										"notes": "Please process payment within terms",
-										"taxable": true,
-										"taxRate": {
-											"id": "tax_123",
-											"name": "Sales Tax",
-											"rate": 0.0825
-										},
-										"lineItems": [
-											{
-												"id": "line_123",
-												"name": "Coffee Service",
-												"description": "4 hour coffee service with barista",
-												"quantity": 1,
-												"unitPrice": 75000,
-												"taxable": true,
-												"position": 1,
-												"type": "SERVICE"
-											},
-											{
-												"id": "line_124",
-												"name": "Specialty Syrups",
-												"description": "Additional flavored syrups",
-												"quantity": 1,
-												"unitPrice": 2500,
-												"taxable": true,
-												"position": 2,
-												"type": "ADDON"
-											}
-										]
-									}
-								]
+								"example": {
+									"bookingId": "book_123",
+									"invoiceIds": ["inv_456", "inv_789"],
+									"invoiceUrls": [
+										"https://app.flashquotes.com/invoices/encrypted/abc123",
+										"https://app.flashquotes.com/invoices/encrypted/def456"
+									]
+								}
 							}
 						}
 					},

@@ -42,38 +42,114 @@
 									"$ref": "#/components/schemas/Event"
 								},
 								"example": {
-									"id": "clh2x4j9s0000qw3v5km8j1t2",
+									"id": "evt_123",
+									"clientName": "John Smith",
+									"clientEmail": "john.smith@example.com",
+									"clientPhone": "555-123-4567",
+									"siteContactName": "Jane Doe",
+									"siteContactPhone": "555-987-6543",
+									"eventDescription": "Corporate Team Building Event",
+									"eventAddress": "123 Business Ave, Suite 100, New York, NY 10001",
+									"additionalLocationInfo": "Enter through the main lobby. Security will direct you to the conference room.",
+									"specialNotes": null,
+									"parkingLoadingInfo": "Parking available in the underground garage",
+									"serviceStartTime": "2025-04-15T14:00:00.000Z",
+									"serviceEndTime": "2025-04-15T17:00:00.000Z",
+									"staffNumber": 2,
+									"resourceNumber": 1,
+									"companyId": "comp_456",
+									"locationId": "loc_789",
+									"createdAt": "2025-03-20T10:00:00.000Z",
+									"updatedAt": "2025-03-25T15:30:00.000Z",
+									"deletedAt": null,
+									"staffDressCode": "Business Casual",
+									"customData": null,
+									"multiDay": false,
+									"bookingId": "book_101",
+									"guestCount": 50,
+									"loadingTime": 30,
+									"setupTime": 60,
+									"breakdownTime": 45,
+									"unloadingTime": 30,
+									"shiftStartTime": "2025-04-15T12:00:00.000Z",
+									"shiftEndTime": "2025-04-15T19:00:00.000Z",
+									"specialPrepTime": 0,
+									"travelToEventTime": 45,
+									"travelFromEventTime": 45,
+									"tipJarAllowed": false,
+									"outdoors": false,
 									"location": {
-										"id": "loc_123",
-										"name": "Downtown Venue",
-										"address": "123 Main St, Seattle, WA 98101"
+										"id": "loc_789",
+										"name": "Downtown Office",
+										"streetAddress": "123 Business Ave",
+										"city": "New York",
+										"state": "New York",
+										"zip": "10001",
+										"timeZone": "America/New_York",
+										"lng": null,
+										"lat": null,
+										"createdAt": "2023-01-01T00:00:00.000Z",
+										"updatedAt": "2024-01-01T00:00:00.000Z",
+										"companyId": "comp_456",
+										"defaultTaxRateId": null,
+										"defaultEmailConnectionId": null,
+										"color": "blue"
 									},
 									"resources": [
 										{
-											"id": "res_456",
-											"type": "espresso_machine",
-											"name": "La Marzocco GB5"
+											"id": "res_111",
+											"name": "Coffee Cart",
+											"description": "Mobile coffee service cart",
+											"imageUrl": null,
+											"createdAt": "2024-01-01T00:00:00.000Z",
+											"updatedAt": "2024-01-01T00:00:00.000Z",
+											"companyId": "comp_456",
+											"locationId": "loc_789",
+											"status": "Available",
+											"category": "CORE",
+											"eventCount": 0
 										}
 									],
 									"staff": [
 										{
-											"id": "staff_789",
-											"name": "Jane Smith",
-											"role": "Lead Barista"
+											"id": "staff_222",
+											"firstName": "Alice",
+											"lastName": "Johnson",
+											"email": "alice.johnson@example.com",
+											"phone": "555-111-2222",
+											"role": "Barista",
+											"status": "Active",
+											"createdAt": "2024-01-01T00:00:00.000Z",
+											"updatedAt": "2024-01-01T00:00:00.000Z",
+											"companyId": "comp_456"
 										}
 									],
-									"addons": [
-										{
-											"id": "addon_101",
-											"name": "Specialty Syrups Package",
-											"quantity": 1
-										}
-									],
+									"addons": [],
 									"booking": {
-										"id": "book_202",
-										"status": "confirmed"
+										"id": "book_101",
+										"entityToInvoice": "John Smith",
+										"fullName": "John Smith",
+										"email": "john.smith@example.com",
+										"phone": "5551234567",
+										"paymentMethod": "Stripe",
+										"billingNotes": null,
+										"paymentIntentId": null,
+										"stripeCustomerId": "cus_example123",
+										"paymentMethodId": "pm_example456",
+										"setupIntentId": "seti_example789",
+										"totalPrice": 750.0,
+										"totalPriceCents": 75000,
+										"cardOnFile": true,
+										"gratuity": 125.0,
+										"gratuityAmountCents": 12500,
+										"companyId": "comp_456",
+										"createdAt": "2025-03-20T10:00:00.000Z",
+										"updatedAt": "2025-03-25T15:30:00.000Z",
+										"deletedAt": null,
+										"leadId": "lead_333"
 									},
-									"eventBriefId": "brief_303"
+									"eventBriefId": "brief_444",
+									"eventBriefUrl": "https://app.flashquotes.com/event-briefs/brief_444"
 								}
 							}
 						}
@@ -170,38 +246,114 @@
 									{
 										"event": [
 											{
-												"id": "clh2x4j9s0000qw3v5km8j1t2",
+												"id": "evt_123",
+												"clientName": "John Smith",
+												"clientEmail": "john.smith@example.com",
+												"clientPhone": "555-123-4567",
+												"siteContactName": "Jane Doe",
+												"siteContactPhone": "555-987-6543",
+												"eventDescription": "Corporate Team Building Event",
+												"eventAddress": "123 Business Ave, Suite 100, New York, NY 10001",
+												"additionalLocationInfo": "Enter through the main lobby. Security will direct you to the conference room.",
+												"specialNotes": null,
+												"parkingLoadingInfo": "Parking available in the underground garage",
+												"serviceStartTime": "2025-04-15T14:00:00.000Z",
+												"serviceEndTime": "2025-04-15T17:00:00.000Z",
+												"staffNumber": 2,
+												"resourceNumber": 1,
+												"companyId": "comp_456",
+												"locationId": "loc_789",
+												"createdAt": "2025-03-20T10:00:00.000Z",
+												"updatedAt": "2025-03-25T15:30:00.000Z",
+												"deletedAt": null,
+												"staffDressCode": "Business Casual",
+												"customData": null,
+												"multiDay": false,
+												"bookingId": "book_101",
+												"guestCount": 50,
+												"loadingTime": 30,
+												"setupTime": 60,
+												"breakdownTime": 45,
+												"unloadingTime": 30,
+												"shiftStartTime": "2025-04-15T12:00:00.000Z",
+												"shiftEndTime": "2025-04-15T19:00:00.000Z",
+												"specialPrepTime": 0,
+												"travelToEventTime": 45,
+												"travelFromEventTime": 45,
+												"tipJarAllowed": false,
+												"outdoors": false,
 												"location": {
-													"id": "loc_123",
-													"name": "Downtown Venue",
-													"address": "123 Main St, Seattle, WA 98101"
+													"id": "loc_789",
+													"name": "Downtown Office",
+													"streetAddress": "123 Business Ave",
+													"city": "New York",
+													"state": "New York",
+													"zip": "10001",
+													"timeZone": "America/New_York",
+													"lng": null,
+													"lat": null,
+													"createdAt": "2023-01-01T00:00:00.000Z",
+													"updatedAt": "2024-01-01T00:00:00.000Z",
+													"companyId": "comp_456",
+													"defaultTaxRateId": null,
+													"defaultEmailConnectionId": null,
+													"color": "blue"
 												},
 												"resources": [
 													{
-														"id": "res_456",
-														"type": "espresso_machine",
-														"name": "La Marzocco GB5"
+														"id": "res_111",
+														"name": "Coffee Cart",
+														"description": "Mobile coffee service cart",
+														"imageUrl": null,
+														"createdAt": "2024-01-01T00:00:00.000Z",
+														"updatedAt": "2024-01-01T00:00:00.000Z",
+														"companyId": "comp_456",
+														"locationId": "loc_789",
+														"status": "Available",
+														"category": "CORE",
+														"eventCount": 0
 													}
 												],
 												"staff": [
 													{
-														"id": "staff_789",
-														"name": "Jane Smith",
-														"role": "Lead Barista"
+														"id": "staff_222",
+														"firstName": "Alice",
+														"lastName": "Johnson",
+														"email": "alice.johnson@example.com",
+														"phone": "555-111-2222",
+														"role": "Barista",
+														"status": "Active",
+														"createdAt": "2024-01-01T00:00:00.000Z",
+														"updatedAt": "2024-01-01T00:00:00.000Z",
+														"companyId": "comp_456"
 													}
 												],
-												"addons": [
-													{
-														"id": "addon_101",
-														"name": "Specialty Syrups Package",
-														"quantity": 1
-													}
-												],
+												"addons": [],
 												"booking": {
-													"id": "book_202",
-													"status": "confirmed"
+													"id": "book_101",
+													"entityToInvoice": "John Smith",
+													"fullName": "John Smith",
+													"email": "john.smith@example.com",
+													"phone": "5551234567",
+													"paymentMethod": "Stripe",
+													"billingNotes": null,
+													"paymentIntentId": null,
+													"stripeCustomerId": "cus_example123",
+													"paymentMethodId": "pm_example456",
+													"setupIntentId": "seti_example789",
+													"totalPrice": 750.0,
+													"totalPriceCents": 75000,
+													"cardOnFile": true,
+													"gratuity": 125.0,
+													"gratuityAmountCents": 12500,
+													"companyId": "comp_456",
+													"createdAt": "2025-03-20T10:00:00.000Z",
+													"updatedAt": "2025-03-25T15:30:00.000Z",
+													"deletedAt": null,
+													"leadId": "lead_333"
 												},
-												"eventBriefId": "brief_303"
+												"eventBriefId": "brief_444",
+												"eventBriefUrl": "https://app.flashquotes.com/event-briefs/brief_444"
 											}
 										]
 									}
@@ -288,6 +440,153 @@
 						"type": "string",
 						"description": "The unique identifier of the event"
 					},
+					"clientName": {
+						"type": "string",
+						"description": "Name of the client"
+					},
+					"clientEmail": {
+						"type": "string",
+						"description": "Email of the client"
+					},
+					"clientPhone": {
+						"type": "string",
+						"description": "Phone number of the client"
+					},
+					"siteContactName": {
+						"type": "string",
+						"description": "Name of the site contact"
+					},
+					"siteContactPhone": {
+						"type": "string",
+						"description": "Phone number of the site contact"
+					},
+					"eventDescription": {
+						"type": "string",
+						"description": "Description of the event"
+					},
+					"eventAddress": {
+						"type": "string",
+						"description": "Address where the event will take place"
+					},
+					"additionalLocationInfo": {
+						"type": "string",
+						"description": "Additional information about the location"
+					},
+					"specialNotes": {
+						"type": "string",
+						"description": "Special notes about the event"
+					},
+					"parkingLoadingInfo": {
+						"type": "string",
+						"description": "Information about parking and loading"
+					},
+					"serviceStartTime": {
+						"type": "string",
+						"format": "date-time",
+						"description": "When the service starts"
+					},
+					"serviceEndTime": {
+						"type": "string",
+						"format": "date-time",
+						"description": "When the service ends"
+					},
+					"staffNumber": {
+						"type": "integer",
+						"description": "Number of staff required"
+					},
+					"resourceNumber": {
+						"type": "integer",
+						"description": "Number of resources required"
+					},
+					"companyId": {
+						"type": "string",
+						"description": "ID of the company"
+					},
+					"locationId": {
+						"type": "string",
+						"description": "ID of the location"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "date-time",
+						"description": "When the event was created"
+					},
+					"updatedAt": {
+						"type": "string",
+						"format": "date-time",
+						"description": "When the event was last updated"
+					},
+					"deletedAt": {
+						"type": "string",
+						"format": "date-time",
+						"description": "When the event was deleted, if applicable"
+					},
+					"staffDressCode": {
+						"type": "string",
+						"description": "Dress code for staff"
+					},
+					"customData": {
+						"type": "object",
+						"description": "Custom data associated with the event"
+					},
+					"multiDay": {
+						"type": "boolean",
+						"description": "Whether the event spans multiple days"
+					},
+					"bookingId": {
+						"type": "string",
+						"description": "ID of the associated booking"
+					},
+					"guestCount": {
+						"type": "integer",
+						"description": "Number of guests expected"
+					},
+					"loadingTime": {
+						"type": "integer",
+						"description": "Time required for loading in minutes"
+					},
+					"setupTime": {
+						"type": "integer",
+						"description": "Time required for setup in minutes"
+					},
+					"breakdownTime": {
+						"type": "integer",
+						"description": "Time required for breakdown in minutes"
+					},
+					"unloadingTime": {
+						"type": "integer",
+						"description": "Time required for unloading in minutes"
+					},
+					"shiftStartTime": {
+						"type": "string",
+						"format": "date-time",
+						"description": "When the shift starts"
+					},
+					"shiftEndTime": {
+						"type": "string",
+						"format": "date-time",
+						"description": "When the shift ends"
+					},
+					"specialPrepTime": {
+						"type": "integer",
+						"description": "Special preparation time required in minutes"
+					},
+					"travelToEventTime": {
+						"type": "integer",
+						"description": "Travel time to event in minutes"
+					},
+					"travelFromEventTime": {
+						"type": "integer",
+						"description": "Travel time from event in minutes"
+					},
+					"tipJarAllowed": {
+						"type": "boolean",
+						"description": "Whether tip jar is allowed"
+					},
+					"outdoors": {
+						"type": "boolean",
+						"description": "Whether the event is outdoors"
+					},
 					"location": {
 						"$ref": "#/components/schemas/Location"
 					},
@@ -314,7 +613,11 @@
 					},
 					"eventBriefId": {
 						"type": "string",
-						"description": "The ID of the associated event brief"
+						"description": "ID of the associated event brief"
+					},
+					"eventBriefUrl": {
+						"type": "string",
+						"description": "URL to access the event brief"
 					}
 				}
 			},
