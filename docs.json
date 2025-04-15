@@ -1,0 +1,174 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Flashquotes Documentation",
+  "colors": {
+    "primary": "#4F46E5",
+    "light": "#a5b4fc",
+    "dark": "#4F46E5"
+  },
+  "favicon": "/favicon.png",
+  "integrations": {
+    "intercom": {
+      "appId": "m2cqoqa0"
+    }
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": ["introduction", "quickstart"]
+          },
+          {
+            "group": "Core Features",
+            "pages": [
+              {
+                "group": "Leads",
+                "pages": [
+                  "leads/managing",
+                  "leads/quotes",
+                  "leads/sending-quotes",
+                  "leads/instant-pricing"
+                ]
+              },
+              "bookings",
+              {
+                "group": "Events",
+                "pages": [
+                  "events",
+                  "events/timeline",
+                  "events/reminders",
+                  "events/event-brief"
+                ]
+              },
+              "calendar",
+              "invoices",
+              {
+                "group": "Forms",
+                "pages": ["forms/lead-intake", "forms/booking"]
+              },
+              {
+                "group": "Workflows",
+                "pages": [
+                  "workflows/overview",
+                  "workflows/templates",
+                  "workflows/workflow-enrollments",
+                  "workflows/triggers",
+                  {
+                    "group": "Shortcodes",
+                    "pages": [
+                      "workflows/shortcodes/overview",
+                      "workflows/shortcodes/helpers",
+                      {
+                        "group": "Available Helpers",
+                        "pages": [
+                          "workflows/shortcodes/helpers/default",
+                          "workflows/shortcodes/helpers/if-else",
+                          "workflows/shortcodes/helpers/unless"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              "staff",
+              "resources"
+            ]
+          },
+          {
+            "group": "Settings",
+            "pages": [
+              "settings/general",
+              "settings/members",
+              "settings/my-profile",
+              "settings/tasks",
+              "settings/quotes",
+              "settings/add-ons",
+              "settings/branding",
+              {
+                "group": "Integrations",
+                "pages": [
+                  "settings/integrations/overview",
+                  "settings/integrations/google",
+                  "settings/integrations/quickbooks",
+                  "settings/integrations/zapier"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API Reference",
+        "groups": [
+          {
+            "group": "API Documentation",
+            "pages": ["api-reference/introduction"]
+          },
+          {
+            "group": "Event endpoints",
+            "pages": [
+              "api-reference/event/get",
+              "api-reference/event/list-events"
+            ]
+          },
+          {
+            "group": "Form Response endpoints",
+            "pages": ["api-reference/form-response/get"]
+          },
+          {
+            "group": "Invoice endpoints",
+            "pages": ["api-reference/invoice/list-invoices"]
+          }
+        ]
+      },
+      {
+        "tab": "Changelog",
+        "groups": [
+          {
+            "group": "Changelog",
+            "pages": ["changelog/overview"]
+          }
+        ]
+      }
+    ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Home page",
+          "href": "https://flashquotes.com",
+          "icon": "globe-pointer"
+        }
+      ]
+    }
+  },
+  "logo": {
+    "light": "/logo/light.png",
+    "dark": "/logo/dark.png"
+  },
+  "background": {
+    "decoration": "windows"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Support",
+        "href": "mailto:support@flashquotes.com"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Dashboard",
+      "href": "https://app.flashquotes.com"
+    }
+  },
+  "footer": {
+    "socials": {
+      "x": "https://x.com/flashquoteshq",
+      "linkedin": "https://linkedin.com/company/flashquotes"
+    }
+  }
+}
