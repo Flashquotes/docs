@@ -48,7 +48,11 @@
               "invoices",
               {
                 "group": "Forms",
-                "pages": ["forms/lead-intake", "forms/booking"]
+                "pages": [
+                  "forms/lead-intake",
+                  "forms/real-time-availability",
+                  "forms/booking"
+                ]
               },
               {
                 "group": "Workflows",
