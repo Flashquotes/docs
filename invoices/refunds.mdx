@@ -1,0 +1,112 @@
+---
+title: "Processing Refunds"
+description: "Learn how to issue full or partial refunds for customer payments in Flashquotes"
+---
+
+## Overview
+
+Sometimes you may need to refund a payment to a customer due to cancellations, service issues, or accounting adjustments. Flashquotes makes it easy to process refunds through its Stripe integration, providing multiple ways to access the refund functionality.
+
+## Accessing Refund Options
+
+<AccordionGroup>
+  <Accordion icon="money-bill-transfer" title="From the Payments Tab">
+    <Steps>
+      <Step title="Navigate to Invoices">
+        Go to the main **Invoices** section in your Flashquotes dashboard.
+      </Step>
+
+      <Step title="Select the Payments Tab">
+        Click on the **Payments** tab at the top of the page. This will display
+        a comprehensive list of all payments received through your Stripe
+        account.
+      </Step>
+
+      <Step title="Access Payment Details">
+        Find and click on the specific payment you need to refund. This will
+        open a Stripe modal with complete payment details.
+        <Note>
+          The payment list includes key information like payment date, amount,
+          and customer name to help you identify the correct transaction.
+        </Note>
+      </Step>
+
+      <Step title="Process the Refund">
+        In the Stripe modal, locate and click the **Send Refund** button.
+      </Step>
+
+      <Step title="Enter Refund Details">
+        Choose between issuing a **full refund** or a **partial refund**. If
+        selecting a partial refund, enter the specific amount to refund.
+        <Warning>
+          Refunds can take 5-10 business days to appear in your customer's
+          account, depending on their payment method and banking institution.
+        </Warning>
+      </Step>
+    </Steps>
+
+  </Accordion>
+
+  <Accordion icon="file-invoice" title="From the Invoice Page">
+    <Steps>
+      <Step title="Find the Invoice">
+        Navigate to the **Invoices** section and locate the specific invoice
+        containing the payment you need to refund.
+      </Step>
+
+      <Step title="Access Invoice Details">
+        Click on the invoice to open its detail page.
+      </Step>
+
+      <Step title="Locate the Payment Activity Table">
+        Scroll down to the **Payment Activity** table section, which lists all
+        transactions associated with this invoice.
+      </Step>
+
+      <Step title="View Payment Details">
+        Find the payment you need to refund and click the **Show Details**
+        button next to it.
+      </Step>
+
+      <Step title="Process the Refund">
+        In the Stripe payment detail modal that appears, click the **Send
+        Refund** button and follow the prompts to complete the refund process.
+        <Tip>
+          You can include a note with the refund to document the reason, which
+          will be stored in your transaction history.
+        </Tip>
+      </Step>
+    </Steps>
+
+  </Accordion>
+</AccordionGroup>
+
+## Refund Types
+
+<AccordionGroup>
+  <Accordion icon="circle-dollar-to-slot" title="Full Refunds">
+    A full refund returns the entire payment amount to the customer.
+    <Note>
+      When you provide a refund to a customer in Stripe, the original processing fees are not reversed or returned
+    </Note>
+  </Accordion>
+
+  <Accordion icon="percent" title="Partial Refunds">
+    Partial refunds return only a portion of the original payment amount. To issue a partial refund, click the **Send Refund** button in the Stripe modal and edit the amount to refund.
+    <Info>
+      You can issue multiple partial refunds up to the total amount of the
+      original payment.
+    </Info>
+  </Accordion>
+</AccordionGroup>
+
+## Refund Processing
+
+Refunds are processed through Stripe, which may take 5-10 business days to
+appear in your customer's account. See [Stripe's documentation](https://support.stripe.com/questions/where-is-my-customers-refund)
+for more information on the refund process.
+
+## Related Resources
+
+- [Invoice Management](/invoices)
+- [Stripe Integration](/settings/integrations/quickbooks)

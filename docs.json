@@ -45,7 +45,10 @@
                 ]
               },
               "calendar",
-              "invoices",
+              {
+                "group": "Invoices",
+                "pages": ["invoices", "invoices/refunds"]
+              },
               {
                 "group": "Forms",
                 "pages": [
