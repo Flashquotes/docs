@@ -54,7 +54,8 @@
                 "pages": [
                   "forms/lead-intake",
                   "forms/real-time-availability",
-                  "forms/booking"
+                  "forms/booking",
+                  "forms/compatibility"
                 ]
               },
               {
