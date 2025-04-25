@@ -1,11 +1,11 @@
 ---
-title: "Instant Pricing"
-description: "Learn how to configure automatic price calculations for your services and quotes"
+title: "Instant Pricing & Quoting"
+description: "Learn how to configure automatic price calculations and instant quoting for your services"
 ---
 
 ## Overview
 
-Instant Pricing automatically calculates service quotes based on predefined pricing rules, saving time and ensuring consistent pricing across your lead intake forms.
+Instant Pricing and Quoting automatically calculates service quotes based on predefined pricing rules, saving time and ensuring consistent pricing across your lead intake forms. With Instant Quoting enabled, clients can receive and book quotes immediately upon form submission.
 
 ## Setting Up Service Pricing
 
@@ -59,37 +59,61 @@ Total = Base Price + (Hourly Rate × Staff × Hours) + (Price Per Guest × Guest
 
 <Frame>
   <img
-    src="/images/changelog/lead-intake-pricing-settings.webp"
+    src="/images/leads/quoting-mode.webp"
     alt="Settings modal to configure pricing rules for a lead intake form"
   />
 </Frame>
 
-### Step 2: Select Default Service
+### Step 2: Configure Quoting Mode
 
-Choose a service to use as the default pricing rule set for the form. When leads submit this form, the pricing will automatically be calculated using the selected service's configuration.
+When configuring your lead intake form's pricing settings, you'll find two quoting modes:
+
+- **Manual Quoting** (Default): Generates a draft quote for admin review before sending
+- **Instant Quoting**: Automatically calculates and presents quotes to clients immediately upon form submission
+
+<Note>
+  Instant Quoting is available exclusively on the FlashQuotes Pro plan.
+</Note>
+
+### Step 3: Select Default Service
+
+Choose a service to use as the default pricing rule set for the form. When leads submit this form, the pricing will be calculated in one of two ways:
+
+1. **With Service Selection Question**: If your lead intake form includes a service selection question, the system will use the pricing rules from the service(s) that the customer selected in the form.
+
+2. **Without Service Selection Question**: If your form doesn't include service selection, the system will use the pricing rules from the default service you configure here.
 
 <Warning>
   Make sure to test your pricing configurations with different combinations of
-  staff, hours, and guest counts before publishing your forms.
+  staff, hours, and guest counts before enabling Instant Quoting. If using a
+  service selection question, test with each available service option.
 </Warning>
 
 ## How It Works
 
-When a new lead submits your intake form:
+When Instant Quoting is enabled:
 
-1. The system uses the form's default service pricing rules
-2. Calculates the price based on:
+1. Client submits your lead intake form
+2. System determines which service pricing rules to use:
+   - If the form has a service selection question: Uses the selected service's rules
+   - If no service selection: Uses the default service's rules
+3. Calculates the price based on:
    - Number of staff requested
    - Event duration
    - Guest count
-3. Creates a draft quote with the calculated price
-4. Admins can review and adjust the price before sending the quote
+4. Automatically redirects the client to a quote presentation page
+5. Client can review the quote and click "Book Now" immediately
+
+<Tip>
+  Instant Quoting creates a seamless experience where clients can inquire,
+  receive a quote, and book all in one visit to your website.
+</Tip>
 
 ## Best Practices
 
 <AccordionGroup>
   <Accordion icon="chart-line" title="Testing Your Pricing Rules">
-    Before publishing your forms:
+    Before enabling Instant Quoting:
     - Test different combinations of staff, hours, and guest counts
     - Verify calculations align with your business model
     - Check that minimum prices are being applied correctly
@@ -113,17 +137,16 @@ When a new lead submits your intake form:
 ## Important Notes
 
 <Note>
-  - Instant Pricing generates draft quotes only - you can still review and
-  adjust prices before sending to clients - The system calculates separate
-  prices for multi-day events based on the duration and guest count for each day
-  - You can update pricing configurations at any time without affecting existing
-  quotes
+  Instant Quoting requires careful configuration of your pricing rules to ensure
+  accuracy based on the duration and guest count for each day. **Consider
+  starting with Manual Quoting mode to verify your pricing rules before enabling
+  Instant Quoting**
 </Note>
 
 ## Next Steps
 
-After setting up Instant Pricing:
+After setting up Instant Pricing and Quoting:
 
 - [Test your forms](/forms/booking) with sample submissions
 - [Review generated quotes](/leads/quotes) to ensure accuracy
-- [Send quotes to clients](/leads/sending-quotes) after review
+- [Monitor conversion rates](/leads/managing) to optimize your pricing strategy
