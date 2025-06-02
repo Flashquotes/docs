@@ -1,0 +1,252 @@
+---
+title: "Payment Schedules"
+description: "Configure payment schedules for booking forms to match your business needs"
+---
+
+## Overview
+
+Payment schedules determine how and when your clients pay for their bookings. This guide covers everything you need to know about setting up payment schedules in Flashquotes.
+
+## Accessing Payment Schedule Settings
+
+<Steps>
+  <Step title="Navigate to Forms">
+    Go to the **Forms** section in your dashboard
+  </Step>
+
+<Step title="Select Your Form">Click on the booking form you want to edit</Step>
+
+<Step title="Open Settings">
+  Click the **Settings** tab at the top of the form editor
+</Step>
+
+  <Step title="Find Payment Schedule">
+    Scroll down to the **Payment Schedule** section
+  </Step>
+</Steps>
+
+<Frame>
+  <img
+    src="/images/forms/payment-schedules.webp"
+    alt="Payment Schedule Configuration Interface"
+  />
+</Frame>
+
+## Payment Schedule Types
+
+<AccordionGroup>
+  <Accordion icon="coins" title="Deposit Only">
+    **Best for:** Events that require an upfront deposit to secure the booking
+    
+    **How it works:**
+    - Clients pay a deposit amount when booking
+    - The remaining balance is handled outside of Flashquotes (e.g., cash on delivery, separate invoice)
+    
+    **Configuration options:**
+    - **Deposit Type:** Choose between:
+      - **Fixed Amount:** Set a specific dollar amount (e.g., $500)
+      - **Percentage:** Set a percentage of the total quote (e.g., 20%)
+    - **Deposit Amount:** Enter the fixed dollar amount or percentage value
+  </Accordion>
+
+<Accordion icon="circle-dollar-to-slot" title="Full Payment">
+  **Best for:** Events that require complete payment upfront **How it works:** -
+  Clients pay 100% of the quote total when booking - No additional payments
+  needed **Configuration options:** - No additional configuration needed -
+  clients will be charged the full quote amount
+</Accordion>
+
+<Accordion icon="calendar-days" title="Payment Plan">
+  **Best for:** Higher-value events where clients prefer to spread payments over
+  time **How it works:** - Initial deposit to secure the booking - Remaining
+  balance split into scheduled installments - Automatic payment collection on
+  scheduled dates **Configuration options:** - **Initial Deposit:** - Fixed
+  amount or percentage - Collected immediately upon booking - **Number of
+  Installments:** How many payments to split the remaining balance into (2-12) -
+  **Payment Schedule:** - **Weekly:** Payments collected every week -
+  **Bi-weekly:** Payments collected every two weeks - **Monthly:** Payments
+  collected once per month - **First Installment Date:** When the payment plan
+  begins (must be after the booking date)
+</Accordion>
+
+  <Accordion icon="file-invoice" title="Invoice Only">
+    **Best for:** Corporate clients or situations where payment is handled through traditional invoicing
+    
+    **How it works:**
+    - No payment collected through Flashquotes
+    - Booking is confirmed without payment
+    - You handle invoicing and payment collection separately
+    
+    **Configuration options:**
+    - **Payment Terms:** Set when payment is due (e.g., Net 30, Due on Receipt)
+    - **Invoice Notes:** Add any special instructions or payment information
+  </Accordion>
+</AccordionGroup>
+
+## Using Multiple Payment Schedules
+
+### Why Use Multiple Booking Forms?
+
+Different client types often require different payment terms:
+
+<CardGroup cols={3}>
+  <Card title="Corporate Clients" icon="building">
+    Invoice only with Net 30 terms
+  </Card>
+
+<Card title="Private Events" icon="party-horn">
+  50% deposit required
+</Card>
+
+  <Card title="Last-minute Bookings" icon="clock">
+    Full payment upfront
+  </Card>
+</CardGroup>
+
+### Setting Up Multiple Forms
+
+<AccordionGroup>
+  <Accordion icon="copy" title="Create Separate Forms">
+    1. Go to **Forms** → **Create New Form**
+    2. Name them clearly (e.g., "Corporate Booking Form", "Standard Booking Form")
+    3. Configure each with the appropriate payment schedule
+  </Accordion>
+
+  <Accordion icon="gear" title="Configure Payment Schedules">
+    1. Edit each form's settings
+    2. Set the payment schedule that matches that client type
+  </Accordion>
+</AccordionGroup>
+
+### Selecting the Right Form When Sending Quotes
+
+<Steps>
+  <Step title="Send Quote">Click **Send Quote** on the quote details page</Step>
+
+<Step title="Choose Form">
+  In the send quote modal, look for **"Choose a booking form"**
+</Step>
+
+  <Step title="Select Appropriate Form">
+    Select from the dropdown based on: - Client type (corporate vs. private) -
+    Event timeline (rush vs. standard) - Your payment preferences for that
+    specific client
+  </Step>
+</Steps>
+
+<Note>
+  The form you select determines: - Which payment schedule applies - What
+  payment options the client sees - How and when payments are collected
+</Note>
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion icon="tag" title="Name Forms Clearly">
+    Use descriptive names that indicate the payment terms:
+    
+    <Tabs>
+      <Tab title="Good Examples">
+        - "Corporate Booking - Invoice Only"
+        - "Private Events - 50% Deposit"
+        - "Rush Orders - Full Payment"
+      </Tab>
+      
+      <Tab title="Bad Examples">
+        - "Booking Form 1"
+        - "Form A"
+        - "New Form"
+      </Tab>
+    </Tabs>
+  </Accordion>
+
+<Accordion icon="users" title="Consider Your Client Types">
+  Create forms that match your common scenarios: - Regular clients who know your
+  payment terms - New clients who might need flexible options - Corporate
+  clients with procurement processes - Last-minute bookings requiring immediate
+  payment
+</Accordion>
+
+<Accordion icon="comments" title="Communicate Payment Terms">
+  - Include payment schedule details in your quote emails - Make sure clients
+  understand what they're agreeing to - Consider adding payment information to
+  your form's introduction text
+</Accordion>
+
+  <Accordion icon="flask" title="Test Your Forms">
+    Before sending to clients:
+    - Preview each form to ensure payment options display correctly
+    - Verify deposit calculations for percentage-based deposits
+    - Check that payment plan schedules make sense for your typical event timelines
+  </Accordion>
+</AccordionGroup>
+
+## Common Scenarios
+
+<CardGroup cols={3}>
+  <Card title="Wedding Catering" icon="heart">
+    **Form 1:** Wedding Booking - Standard - 25% deposit to secure date -
+    Remaining balance due 2 weeks before event **Form 2:** Wedding Booking -
+    Payment Plan - 25% deposit - Balance split into 3 monthly payments
+  </Card>
+
+<Card title="Corporate Catering" icon="briefcase">
+  **Form 1:** Corporate - Net 30 - Invoice only, Net 30 terms **Form 2:**
+  Corporate - Immediate - Full payment required for first-time clients
+</Card>
+
+  <Card title="Mixed Event Types" icon="calendar-days">
+    **Form 1:** Private Events - 50% deposit required **Form 2:** Corporate
+    Events - Invoice only, Net 30 **Form 3:** Last Minute Bookings - 100%
+    payment upfront
+  </Card>
+</CardGroup>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion icon="eye-slash" title="Client Can't See Payment Options">
+    - Verify the form's payment schedule is properly configured
+    - Check that you selected the correct form when sending the quote
+    - Ensure the form is published and active
+  </Accordion>
+
+<Accordion icon="calculator" title="Wrong Payment Amount Calculated">
+  - For percentage deposits, verify the percentage is entered correctly (e.g.,
+  25 not 0.25) - Check that the quote total is accurate before sending
+</Accordion>
+
+  <Accordion icon="pen-to-square" title="Need to Change Payment Terms After Sending">
+    - You cannot change the payment schedule after a quote is sent
+    - Create a new quote with the correct booking form selected
+    - Void or archive the original quote to avoid confusion
+  </Accordion>
+</AccordionGroup>
+
+## Frequently Asked Questions
+
+<AccordionGroup>
+  <Accordion icon="question" title="Can I change payment schedules for existing bookings?">
+    No, payment schedules are locked once a booking is created. You'll need to handle any changes manually.
+  </Accordion>
+
+<Accordion
+  icon="question"
+  title="What happens if a payment plan payment fails?"
+>
+  Failed payments trigger notifications to both you and the client. The system
+  will retry failed payments automatically.
+</Accordion>
+
+<Accordion
+  icon="question"
+  title="Can I have different payment schedules for different services?"
+>
+  Payment schedules are set at the form level, not the service level. Create
+  different forms for different service types if needed.
+</Accordion>
+
+  <Accordion icon="question" title="How do refunds work with different payment schedules?">
+    Refunds are processed based on what the client has actually paid, regardless of the original payment schedule.
+  </Accordion>
+</AccordionGroup>

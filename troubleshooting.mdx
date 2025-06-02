@@ -1,0 +1,75 @@
+---
+title: "Troubleshooting & FAQs"
+description: "Common issues and frequently asked questions"
+icon: "circle-question"
+---
+
+## Frequently Asked Questions
+
+<AccordionGroup>
+  <Accordion title="Why are my clients not able to book me? They get an error message when they complete the booking form.">
+    99% of the time, this issue occurs because your Stripe account is not properly connected or is on hold pending additional documentation.
+
+    **Immediate Solution:**
+
+    1. Go to **Settings → Company** in your Flashquotes dashboard
+    2. Check if your Stripe account says "Connected"
+    3. If it shows "Connect" or "Finish setting up", your Stripe account is not ready to receive payments
+
+    <Warning>
+      You must complete your Stripe account setup to use Flashquotes' payment
+      features.
+    </Warning>
+
+    **Temporary Workaround:**
+    If you need to accept bookings immediately while resolving Stripe issues:
+
+    1. Change your booking form to not require a deposit
+    2. Modify the [payment schedule](/forms/payment-schedules) so payment isn't required to complete the booking form
+    3. This allows customers to book without immediate payment
+
+    <Note>
+      Even with this workaround, you'll still need to resolve your Stripe account
+      issues to process invoice payments.
+    </Note>
+
+    **Common Stripe Account Issues:**
+
+    - Incomplete verification
+    - Missing business documentation
+    - Account on hold for compliance review
+    - Incorrect bank account information
+
+    For more help with Stripe setup, visit [Settings → Integrations](/settings/integrations/overview).
+
+  </Accordion>
+
+  <Accordion title="How do I include a contract for my customers?">
+    Our general recommendation is to add an acknowledgement type question to your booking form.
+
+    **Implementation Steps:**
+
+    1. Add an acknowledgement question to your booking form
+    2. Word it something like: "I acknowledge that by completing this booking form I agree to the service terms and conditions of [Company Name]"
+    3. Use a markdown hyperlink to link to your service contract on your web page
+
+    **Example:**
+    ```
+    I acknowledge that by completing this booking form I agree to the
+    [service terms and conditions](https://yourwebsite.com/terms) of Company X.
+    ```
+
+    <Tip>
+      This approach ensures customers explicitly agree to your terms before booking, providing legal protection while maintaining a smooth booking experience.
+    </Tip>
+
+    For more information on customizing booking forms, see [Forms → Booking](/forms/booking).
+
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## More FAQs
+
+Have a question that's not answered here? Contact our support team at [support@flashquotes.com](mailto:support@flashquotes.com) or use the chat widget in the bottom right corner.
