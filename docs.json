@@ -29,7 +29,10 @@
                 "group": "Leads",
                 "pages": [
                   "leads/managing",
-                  "leads/quotes",
+                  {
+                    "group": "Creating Quotes",
+                    "pages": ["leads/quotes", "leads/quote-view-v2"]
+                  },
                   "leads/sending-quotes",
                   "leads/instant-pricing"
                 ]
@@ -55,6 +58,7 @@
                   "forms/lead-intake",
                   "forms/real-time-availability",
                   "forms/booking",
+                  "forms/payment-schedules",
                   "forms/compatibility"
                 ]
               },
@@ -85,6 +89,10 @@
               "staff",
               "resources"
             ]
+          },
+          {
+            "group": "Help & Support",
+            "pages": ["troubleshooting"]
           },
           {
             "group": "Settings",
