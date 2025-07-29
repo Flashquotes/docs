@@ -20,7 +20,12 @@ description: "Learn how to invite and manage team members in your Flashquotes wo
 1. Click the **Invite Member** button in the top right corner
 2. In the Invite Member dialog, enter the email address of the person you want to invite. **Be sure the email is tied to a Google account**, since they will need to sign in with Google to join your workspace.
 
-3. Click **Send Invitation**
+3. **Select a Role**: Choose between:
+
+   - **Admin** - Full access to all features and financial data
+   - **Member** - Full access except for aggregate financial data
+
+4. Click **Send Invitation**
 
 <Note>
   The invited user will receive an email with a unique link to join your company
@@ -37,7 +42,49 @@ When a user receives an invitation:
 - Sign in with Google
 - Create a new account (if they don't have one)
 
-3. After signing in, they're automatically added to your company workspace
+3. After signing in, they're automatically added to your company workspace with the role you specified
+
+## Team Roles and Permissions
+
+Flashquotes supports two team member roles with different access levels:
+
+### Admin Role
+
+**Full access to all features including:**
+
+- All booking management features
+- All invoice and payment features
+- All lead and quote management
+- Company settings and configuration
+- **Aggregate financial data** (revenue totals, payment statistics, etc.)
+- Member management (invite, promote, demote other members)
+
+### Member Role
+
+**Full access to all features except:**
+
+- Aggregate financial data (revenue totals, payment statistics)
+- Member management (cannot invite, promote, or demote other members)
+
+<Note>
+  Members can still see individual invoice amounts and booking details, but they
+  cannot see aggregate financial statistics like total revenue, overdue amounts,
+  or payment summaries.
+</Note>
+
+### Changing Member Roles
+
+Only admins can change member roles:
+
+1. Go to **Settings** → **Members**
+2. Find the member you want to modify
+3. Click the dropdown menu (⋮) next to their name
+4. Select **Promote to Admin** or **Demote to Member**
+
+<Warning>
+  Be careful when promoting members to admin roles, as they will gain access to
+  all financial data and member management capabilities.
+</Warning>
 
 ## Managing Invitations
 
