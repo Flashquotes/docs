@@ -21,7 +21,7 @@ Navigate to **Finance → Payments** from the main navigation menu to access you
 
 The dashboard displays comprehensive payment information including:
 
-- **Payment Status**: Real-time status for all payments (succeeded, processing, failed)
+- **Payment Status**: Real-time status for all payments (succeeded, pending, processing, failed)
 - **Transaction Details**: Amount, date, and associated invoice information
 - **Customer Information**: Client details linked to each payment
 - **Payment Method**: Card type and last four digits used
@@ -32,6 +32,7 @@ The dashboard displays comprehensive payment information including:
   <Accordion icon="filter" title="Status Filters">
     Filter payments by status:
     - **Succeeded**: Completed payments
+    - **Pending**: ACH transfers awaiting clearance
     - **Processing**: Payments currently being processed
     - **Failed**: Failed payment attempts
     - **Refunded**: Payments that have been refunded
@@ -40,8 +41,8 @@ The dashboard displays comprehensive payment information including:
 {" "}
 
 <Accordion icon="calendar" title="Date Range">
-  View payments within specific time periods: - Last 7 days - Last 30 days -
-  Last 90 days - Custom date range
+	View payments within specific time periods: - Last 7 days - Last 30 days -
+	Last 90 days - Custom date range
 </Accordion>
 
   <Accordion icon="magnifying-glass" title="Search">
@@ -59,6 +60,10 @@ The dashboard displays comprehensive payment information including:
 
 Payment has been successfully processed and funds will be deposited according to your Stripe payout schedule.
 
+### Pending
+
+Bank transfer is in process but payment has not settled. Funds typically clear within 2-3 business days. Invoice balance calculations include pending amounts.
+
 ### Processing
 
 Payment is currently being processed by Stripe. This status typically updates within a few minutes.
@@ -73,8 +78,8 @@ Payment attempt was unsuccessful. Common reasons include:
 - Bank authentication required
 
 <Tip>
-  For failed payments, the dashboard displays the specific error message from
-  Stripe to help you communicate with your client about resolution.
+	For failed payments, the dashboard displays the specific error message from
+	Stripe to help you communicate with your client about resolution.
 </Tip>
 
 ## Payment Actions
@@ -98,8 +103,8 @@ Process refunds directly from the dashboard:
 4. Add refund reason for your records
 
 <Warning>
-  Refunds are processed immediately and cannot be reversed. Always confirm the
-  refund amount before processing.
+	Refunds are processed immediately and cannot be reversed. Always confirm the
+	refund amount before processing.
 </Warning>
 
 ## Related Topics
