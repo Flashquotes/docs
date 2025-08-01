@@ -1,0 +1,110 @@
+---
+title: "Payments"
+description: "Track and monitor client payments through Stripe integration"
+---
+
+## Overview
+
+The Payments dashboard provides a centralized view of all your client payments processed through Stripe. This real-time dashboard helps you monitor payment status, track successful transactions, and identify any payment issues that need attention.
+
+## Accessing the Payments Dashboard
+
+Navigate to **Finance → Payments** from the main navigation menu to access your payment tracking dashboard.
+
+<Note>
+  The Payments dashboard requires an active Stripe integration. If you haven't connected Stripe yet, visit [Settings → Integrations](</settings/integrations/overview>) to set up your payment processing.
+</Note>
+
+## Dashboard Features
+
+### Payment Overview
+
+The dashboard displays comprehensive payment information including:
+
+- **Payment Status**: Real-time status for all payments (succeeded, processing, failed)
+- **Transaction Details**: Amount, date, and associated invoice information
+- **Customer Information**: Client details linked to each payment
+- **Payment Method**: Card type and last four digits used
+
+### Filtering and Search
+
+<AccordionGroup>
+  <Accordion icon="filter" title="Status Filters">
+    Filter payments by status:
+    - **Succeeded**: Completed payments
+    - **Processing**: Payments currently being processed
+    - **Failed**: Failed payment attempts
+    - **Refunded**: Payments that have been refunded
+  </Accordion>
+
+{" "}
+
+<Accordion icon="calendar" title="Date Range">
+  View payments within specific time periods: - Last 7 days - Last 30 days -
+  Last 90 days - Custom date range
+</Accordion>
+
+  <Accordion icon="magnifying-glass" title="Search">
+    Search for specific payments by:
+    - Customer name
+    - Invoice number
+    - Payment amount
+    - Transaction ID
+  </Accordion>
+</AccordionGroup>
+
+## Understanding Payment Statuses
+
+### Succeeded
+
+Payment has been successfully processed and funds will be deposited according to your Stripe payout schedule.
+
+### Processing
+
+Payment is currently being processed by Stripe. This status typically updates within a few minutes.
+
+### Failed
+
+Payment attempt was unsuccessful. Common reasons include:
+
+- Insufficient funds
+- Card declined
+- Invalid card details
+- Bank authentication required
+
+<Tip>
+  For failed payments, the dashboard displays the specific error message from
+  Stripe to help you communicate with your client about resolution.
+</Tip>
+
+## Payment Actions
+
+### View Details
+
+Click on any payment to view comprehensive transaction details including:
+
+- Full payment timeline
+- Processing fees
+- Net amount after fees
+- Associated invoice and booking information
+
+### Refund Payments
+
+Process refunds directly from the dashboard:
+
+1. Click on a succeeded payment
+2. Select "Refund Payment"
+3. Enter refund amount (partial or full)
+4. Add refund reason for your records
+
+<Warning>
+  Refunds are processed immediately and cannot be reversed. Always confirm the
+  refund amount before processing.
+</Warning>
+
+## Related Topics
+
+- [Invoice Management](/invoices)
+- [Payment Reminders](/invoices/reminders)
+- [Stripe Integration Setup](/settings/integrations/overview)
+- [Payouts and Deposits](/finance/payouts)

@@ -49,45 +49,60 @@
               },
               "calendar",
               {
-                "group": "Invoices",
-                "pages": ["invoices", "invoices/reminders", "invoices/refunds"]
-              },
-              {
-                "group": "Forms",
+                "group": "Finance",
                 "pages": [
-                  "forms/lead-intake",
-                  "forms/real-time-availability",
-                  "forms/booking",
-                  "forms/payment-schedules",
-                  "forms/compatibility"
+                  "invoices",
+                  "finance/payments",
+                  "finance/payouts",
+                  {
+                    "group": "Invoice Management",
+                    "pages": ["invoices/reminders", "invoices/refunds"]
+                  }
                 ]
               },
               {
-                "group": "Workflows",
+                "group": "Automations",
                 "pages": [
-                  "workflows/overview",
-                  "workflows/templates",
-                  "workflows/workflow-enrollments",
-                  "workflows/triggers",
                   {
-                    "group": "Shortcodes",
+                    "group": "Forms",
                     "pages": [
-                      "workflows/shortcodes/overview",
-                      "workflows/shortcodes/helpers",
+                      "forms/lead-intake",
+                      "forms/real-time-availability",
+                      "forms/booking",
+                      "forms/payment-schedules",
+                      "forms/compatibility"
+                    ]
+                  },
+                  {
+                    "group": "Workflows",
+                    "pages": [
+                      "workflows/overview",
+                      "workflows/templates",
+                      "workflows/workflow-enrollments",
+                      "workflows/triggers",
                       {
-                        "group": "Available Helpers",
+                        "group": "Shortcodes",
                         "pages": [
-                          "workflows/shortcodes/helpers/default",
-                          "workflows/shortcodes/helpers/if-else",
-                          "workflows/shortcodes/helpers/unless"
+                          "workflows/shortcodes/overview",
+                          "workflows/shortcodes/helpers",
+                          {
+                            "group": "Available Helpers",
+                            "pages": [
+                              "workflows/shortcodes/helpers/default",
+                              "workflows/shortcodes/helpers/if-else",
+                              "workflows/shortcodes/helpers/unless"
+                            ]
+                          }
                         ]
                       }
                     ]
                   }
                 ]
               },
-              "staff",
-              "resources"
+              {
+                "group": "Operations",
+                "pages": ["services", "settings/add-ons", "staff", "resources"]
+              }
             ]
           },
           {
@@ -102,14 +117,12 @@
               "settings/my-profile",
               "settings/tasks",
               "settings/quotes",
-              "settings/add-ons",
               "settings/branding",
               {
                 "group": "Integrations",
                 "pages": [
                   "settings/integrations/overview",
                   "settings/integrations/google",
-                  "settings/integrations/quickbooks",
                   "settings/integrations/zapier"
                 ]
               }
