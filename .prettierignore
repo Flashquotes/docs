@@ -1,0 +1,5 @@
+# Ignore MDX files to prevent formatting issues
+*.mdx
+
+# Ignore generated files
+docs.json

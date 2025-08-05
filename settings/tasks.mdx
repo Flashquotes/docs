@@ -1,13 +1,13 @@
 ---
 title: "Tasks"
-description: "Configure task templates for admin tasks and event briefs"
+description: "Configure task templates and checklist templates for admin tasks and event briefs"
 ---
 
 ## Overview
 
-Task settings allow you to manage templates for both administrative tasks and event brief tasks. These templates automatically populate when creating new events, ensuring consistency in your operations.
+Task settings allow you to manage templates for both administrative tasks and event brief checklists. These default templates automatically populate when creating new events, ensuring consistency in your operations.
 
-## Task Templates
+## Default Task Templates
 
 <AccordionGroup>
   <Accordion icon="list-check" title="Admin Tasks">
@@ -22,16 +22,11 @@ Task settings allow you to manage templates for both administrative tasks and ev
     </Tip>
   </Accordion>
 
-  <Accordion icon="file-lines" title="Event Brief Tasks">
-    Manage event brief sections:
-    - Task name and description
-    - Section assignment
-    - Task ordering
-    - Required actions
-    
-    <Note>
-      As of January 2025, you can use Markdown formatting in task descriptions for better organization and linking.
-    </Note>
+  <Accordion icon="file-lines" title="Event Brief Checklist Template">
+    Configure default checklist templates:
+    - Create templates of your most standard checklist tasks
+    - Organize tasks by event brief sections
+    - Default checklist auto-applied to new events
   </Accordion>
 </AccordionGroup>
 
@@ -53,7 +48,7 @@ Task settings allow you to manage templates for both administrative tasks and ev
   </Accordion>
 
   <Accordion icon="link" title="Link Integration">
-    Add useful links in tasks:
+    Add useful links in tasks using markdown formatting:
     - Equipment manuals
     - Setup guides
     - Training videos
@@ -83,7 +78,48 @@ Task settings allow you to manage templates for both administrative tasks and ev
   </Accordion>
 </AccordionGroup>
 
+## Checklist Template Management
+
+<AccordionGroup>
+  <Accordion icon="document-duplicate" title="Creating Templates">
+    Save successful checklists as reusable templates:
+    1. Complete an event with a well-organized checklist
+    2. Navigate to the Event Brief tab
+    3. Select the checklist you want to save
+    4. Click "Checklist options" → "Save as template"
+    5. Enter a descriptive name for your template
+    
+    <Tip>
+      Use specific names like "Lead team member checklist" or "Premium bar checklist" to make templates easy to identify.
+    </Tip>
+  </Accordion>
+
+<Accordion icon="building-office" title="Company-Wide Access">
+	Templates benefit your entire team:
+  - All team members can access company templates
+  - Standardize procedures across events - Maintain consistency in service quality
+  - Share best practices organization-wide
+	<Note>
+		Templates are automatically available to all team members when creating new
+		event checklists.
+	</Note>
+</Accordion>
+
+  <Accordion icon="trash" title="Template Maintenance">
+    Keep your template library organized:
+    - Regularly review template effectiveness
+    - Remove outdated or unused templates
+    - Create new updated templates based on operational changes
+    
+    <Warning>
+      Deleting a template doesn't affect checklists already created from that template.
+    </Warning>
+  </Accordion>
+</AccordionGroup>
+
 ## Best Practices
+
+### Task Creation
 
 1. Create clear, actionable tasks
 2. Use consistent formatting
@@ -91,10 +127,20 @@ Task settings allow you to manage templates for both administrative tasks and ev
 4. Review and update regularly
 5. Maintain logical task order
 
+### Template Management
+
+6. Use descriptive template names
+7. Regularly audit and clean up templates
+8. Test templates with real events before company-wide rollout
+9. Gather feedback from staff on template effectiveness
+10. Create templates for different event types and sizes
+
 ## Next Steps
 
-After configuring tasks:
-- [Review event briefs](/events/event-brief)
+After configuring tasks and templates:
+
+- [Create event briefs with checklists](/events/event-brief)
 - [Set up timeline defaults](/events/timeline)
-- Test task templates
-- Train team on procedures 
+- Test task templates with upcoming events
+- Train team on checklist procedures
+- Gather feedback and iterate on templates
