@@ -1,11 +1,15 @@
 ---
 title: "Event Brief"
-description: "Learn how to create and manage comprehensive event briefs for your team"
+description: "Learn how to create and manage comprehensive event briefs with customizable checklists for your team"
 ---
+
+import MarkdownSupport from "/snippets/markdown-support.mdx";
 
 ## Overview
 
 The Event Brief serves as the day-of-service documentation for your team. It provides a shareable, dynamic document that contains all necessary information for successful event execution, accessible via a public link without requiring a Flashquotes account.
+
+Each event brief includes customizable checklists that ensure your staff knows exactly what to pack, what to do, and how to put on a great event. You can create multiple checklists per event and save them as templates to use in other events.
 
 ## Brief Structure
 
@@ -19,7 +23,7 @@ The Event Brief serves as the day-of-service documentation for your team. It pro
     - Event description
     - Indoor/outdoor status
     - Dress code requirements
-    - Pre-departure checklist
+    - Customizable checklist tasks
     
     <Note>
       Special add-ons appear as prominent yellow banners to ensure visibility.
@@ -41,7 +45,7 @@ The Event Brief serves as the day-of-service documentation for your team. It pro
     - Setup duration
     - Tip jar policies
     - Gratuity information
-    - Setup checklist
+    - Customizable setup checklist tasks
     - Equipment placement
     - Venue requirements
   </Accordion>
@@ -53,13 +57,14 @@ The Event Brief serves as the day-of-service documentation for your team. It pro
     - Disposal policies
     - Service extension procedures
     - Guest interaction guidelines
+    - Customizable service checklist tasks
   </Accordion>
 
   <Accordion icon="broom" title="Post-Event Cleanup">
     Includes:
     - Cleanup duration
     - Departure timeline
-    - Venue cleanup checklist
+    - Customizable cleanup checklist tasks
     - Equipment breakdown procedures
   </Accordion>
 
@@ -67,9 +72,176 @@ The Event Brief serves as the day-of-service documentation for your team. It pro
     Contains:
     - Return navigation
     - Expected drive time
-    - Cleaning checklist
+    - Customizable return checklist tasks
     - Restocking procedures
     - Equipment maintenance tasks
+  </Accordion>
+</AccordionGroup>
+
+## Checklist Management
+
+### Creating Checklists
+
+Each event brief can have multiple checklists to organize tasks for different services and staff. You have three ways to create checklists:
+
+<AccordionGroup>
+  <Accordion icon="plus" title="Add Default Checklist">
+    Creates a new checklist with standard tasks:
+    1. Navigate to the Event Brief tab
+    2. Click "Add checklist"
+    3. Select "Add default checklist"
+    4. The system creates a checklist with predefined tasks for each section
+    
+    <Tip>
+      Default checklists include common tasks like equipment checks, setup procedures, and cleanup items.
+    </Tip>
+  </Accordion>
+
+  <Accordion icon="copy" title="Copy from Existing Checklist">
+    Duplicate a checklist from the current event:
+    1. Click "Add checklist"
+    2. Choose from the "Copy event checklist" section
+    3. Select the checklist you want to duplicate
+    4. A new checklist is created with all the same tasks
+    
+    <Note>
+      This is perfect when you need variations of the same checklist or want to create specialized versions for different team members.
+    </Note>
+  </Accordion>
+
+  <Accordion icon="document-arrow-up" title="Add from Template">
+    Use a saved template to create a checklist:
+    1. Click "Add checklist"
+    2. Browse the "Add from template" section
+    3. Select your desired template
+    4. The checklist is created with all template tasks
+    
+    <Tip>
+      Templates are reusable across all events and can be managed company-wide.
+    </Tip>
+  </Accordion>
+</AccordionGroup>
+
+### Managing Checklist Tasks
+
+<AccordionGroup>
+  <Accordion icon="pencil" title="Editing Tasks">
+    Customize tasks within each checklist section:
+    - Click on any task to edit its description
+    - Use markdown formatting for rich text (links, bold, italic)
+    - Press Enter to save or Escape to cancel
+    - Tasks automatically sync across all viewers
+    
+    <Note>
+      Tasks are organized into six sections: Prep & Loading, Travel to Event, Setup, Service, Post-Event Cleanup, and Return & Unload.
+    </Note>
+  </Accordion>
+
+  <Accordion icon="arrows-up-down" title="Reordering Tasks">
+    Drag and drop to reorder tasks:
+    - Hover over a task to see the drag handles
+    - Click and drag to reorder within a section
+    - Changes are saved automatically
+    - Order is maintained for all staff viewing the brief
+  </Accordion>
+
+  <Accordion icon="plus-small" title="Adding New Tasks">
+    Add custom tasks to any section:
+    1. Navigate to the desired section
+    2. Click "Add task"
+    3. Enter your task description
+    4. Use markdown for formatting if needed
+    5. Press Enter to save
+    
+    <Tip>
+      Add specific instructions, equipment checks, or client-specific requirements as custom tasks.
+    </Tip>
+  </Accordion>
+
+  <Accordion icon="trash" title="Removing Tasks">
+    Delete unnecessary tasks:
+    - Click "Delete" next to any task
+    - Confirm the deletion
+    - Task is immediately removed for all viewers
+    
+    <Warning>
+      Deleted tasks cannot be recovered. Consider editing instead of deleting if you might need the task later.
+    </Warning>
+  </Accordion>
+
+  <Accordion icon="markdown" title="Enhanced Tasks with Markdown">
+    <MarkdownSupport object="tasks" />
+  </Accordion>
+</AccordionGroup>
+
+### Template Management
+
+<AccordionGroup>
+  <Accordion icon="document-duplicate" title="Creating Templates">
+    Save successful checklists as reusable templates:
+    1. Select the checklist you want to save
+    2. Click "Checklist options" → "Save as template"
+    3. Enter a descriptive template name
+    4. Click "Save Template"
+    
+    <Tip>
+      Use descriptive names like "Wedding Reception Setup" or "Corporate Event Cleanup" to make templates easy to find.
+    </Tip>
+  </Accordion>
+
+  <Accordion icon="cog" title="Managing Templates">
+    Edit and organize your template library:
+    - Templates are available company-wide
+    - Delete outdated templates by clicking the trash icon
+    - Edit your default checklist template from "Checklist options" → "Edit defaults"
+    - Templates sync across all team members
+    
+    <Note>
+      Deleting a template doesn't affect checklists already created from that template.
+    </Note>
+  </Accordion>
+
+  <Accordion icon="building-office" title="Company-Wide Templates">
+    Templates benefit your entire organization:
+    - All team members can use company templates
+    - Standardize procedures across events
+    - Maintain consistency in service quality
+    - Update templates to improve all future events
+  </Accordion>
+</AccordionGroup>
+
+### Multiple Checklist Workflow
+
+<AccordionGroup>
+  <Accordion icon="list-bullet" title="Organizing Multiple Checklists">
+    Use multiple checklists to organize complex events:
+    - Create role-specific checklists (e.g., "Lead Barista", "Setup Crew")
+    - Create service-specific checklists (e.g., "Drip Coffee Bar", "360 Photo booth")
+    - Use descriptive names for easy identification
+    - Click checklist names to switch between them
+  </Accordion>
+
+  <Accordion icon="pencil-square" title="Editing Checklist Names">
+    Rename checklists for better organization:
+    1. Click on the selected checklist name
+    2. Edit the name inline
+    3. Press Enter to save or Escape to cancel
+    4. Names update immediately for all viewers
+    
+    <Tip>
+      Use names like "Barista Tasks", "Manager Checklist", or "Premium bar cart" to clearly identify each checklist's purpose.
+    </Tip>
+  </Accordion>
+
+  <Accordion icon="trash" title="Removing Checklists">
+    Delete unnecessary checklists:
+    1. Select the checklist to delete
+    2. Click "Checklist options" → "Delete checklist"
+    3. Confirm the deletion
+    
+    <Warning>
+      You cannot delete the last remaining checklist. Each event brief must have at least one checklist.
+    </Warning>
   </Accordion>
 </AccordionGroup>
 
@@ -81,14 +253,10 @@ The Event Brief serves as the day-of-service documentation for your team. It pro
   <Accordion icon="share" title="Sharing Methods">
     Share the event brief:
     1. Navigate to the Event Brief tab
-    2. Click the share button
-    3. Choose distribution method:
-       - Text message
-       - Email
-       - Copy link
+    2. Copy the "Share link" and send it to your team
     
     <Tip>
-      Staff can access the brief without logging into Flashquotes.
+      Staff can access the brief using the link without logging into Flashquotes
     </Tip>
   </Accordion>
 
@@ -104,16 +272,56 @@ The Event Brief serves as the day-of-service documentation for your team. It pro
 
 ## Best Practices
 
+### Event Brief Management
+
 1. Share briefs well in advance of event day
 2. Verify all sections are complete
 3. Double-check contact information
 4. Update special instructions as needed
 5. Confirm staff have accessed the brief
+6. Use [markdown formatting](#enhanced-tasks-with-markdown) in tasks for better clarity and organization
+
+### Checklist Best Practices
+
+<AccordionGroup>
+  <Accordion icon="lightbulb" title="Effective Checklist Creation">
+    - Use clear, actionable language for tasks
+    - Include specific quantities and measurements
+    - Add time estimates for complex tasks
+    - Reference equipment by specific names or model numbers
+    - Include safety reminders and protocols
+    - Use [markdown formatting](#enhanced-tasks-with-markdown) to add links, emphasis, and structure to tasks
+  </Accordion>
+
+  <Accordion icon="users" title="Team Collaboration">
+    - Create role-specific checklists for different team members
+    - Use consistent naming conventions across events
+    - Regularly review and update templates based on team feedback
+    - Share successful checklist configurations with your team
+  </Accordion>
+
+  <Accordion icon="refresh" title="Continuous Improvement">
+    - Save successful checklists as templates after events
+    - Update templates based on lessons learned
+    - Remove outdated or unused templates regularly
+    - Gather feedback from staff on checklist effectiveness
+  </Accordion>
+
+  <Accordion icon="shield-check" title="Quality Assurance">
+    - Review all checklists before sharing the event brief
+    - Test templates with new events to ensure completeness
+    - Keep backup copies of critical checklist templates
+    - Maintain a master template for standard events
+  </Accordion>
+</AccordionGroup>
 
 ## Next Steps
 
-After creating event briefs:
+After creating event briefs with checklists:
+
 - [Review timeline details](/events/timeline)
 - [Manage staff assignments](/staff)
-- Monitor brief access
-- Gather team feedback 
+- [Configure task defaults](/settings/tasks)
+- Monitor brief access and checklist completion
+- Gather team feedback on checklist effectiveness
+- Save successful checklists as templates for future events
