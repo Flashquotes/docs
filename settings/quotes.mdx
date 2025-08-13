@@ -48,6 +48,28 @@ Quote settings control how your quotes are presented to clients and set default 
 ## Quote Delivery
 
 <AccordionGroup>
+  <Accordion icon="pen-to-square" title="Custom Quote Email Subject">
+    Set a custom subject line for all quote emails you send. Personalize your subject lines using lead-specific shortcodes to increase open rates and engagement.
+    
+    **Available Shortcodes:**
+    - `{{lead.first_name}}` - Lead's first name (e.g., "John")
+    - `{{lead.last_name}}` - Lead's last name (e.g., "Doe") 
+    - `{{lead.full_name}}` - Lead's full name (e.g., "John Doe")
+    - `{{lead.company_name}}` - Lead's company name (e.g., "Acme Inc")
+
+    **Example Subject Lines:**
+    - `☕ {{lead.first_name}}, your quote is ready!`
+    - `✨ {{lead.full_name}}, review your quote from and book online in minutes!`
+
+    <Tip>
+      💡 Including emojis in your subject lines can boost open rates by making emails more visually appealing and less likely to be filtered as spam.
+    </Tip>
+
+    <Note>
+      If no custom subject is set, Flashquotes will use a default subject line. You can always edit the subject when sending individual quotes.
+    </Note>
+  </Accordion>
+
   <Accordion icon="pen-to-square" title="Custom Quote Email Body">
     Click `Update` on *Custom quote email body* to set a custom text to use as your default for all quote emails you send.
     
