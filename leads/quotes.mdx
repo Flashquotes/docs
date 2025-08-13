@@ -80,19 +80,26 @@ Quotes in Flashquotes allow you to provide detailed pricing and service informat
 
 ## Service Days
 
-Service days let you attach multiple dates and times to a single quote. This is useful for multi-day events, setups the day before, or separate service blocks for the same client.
+Service days let you attach multiple dates and times to a single quote. Perfect for multi-day events, setups, or separate service blocks.
 
 <Info>
   When a quote is booked, each service day becomes its own event inside the
-  booking. This makes scheduling, timelines, and staffing clearer for
-  multi-day engagements.
+  booking.
 </Info>
+
+<Frame>
+  <img
+    src="/images/leads/quotes/service-days.webp"
+    alt="Service Days editor interface showing multiple service days with date and time inputs"
+  />
+</Frame>
 
 ### How service days work
 
-- **Per-quote**: Add as many service days as needed to a single quote
+- **Per-quote**: Add as many service days as needed
 - **Separate events**: Each service day converts to an individual event upon booking
-- **Editing**: You can edit the date and time of any service day inline in the quote editor
+- **Inline editing**: Edit date and time directly in the quote editor
+- **Timezone aware**: All times handled in your location's timezone
 
 ### Adding or editing service days
 
@@ -101,7 +108,7 @@ Service days let you attach multiple dates and times to a single quote. This is 
     Navigate to a quote and scroll to the <b>Service Days</b> section.
   </Step>
   <Step title="Add a day">
-    Click the <b>+</b> button. A new row appears in edit mode, pre-filled with the next logical day and the last used time range.
+    Click the <b>+</b> button. A new row appears in edit mode.
   </Step>
   <Step title="Edit inline and save">
     Adjust the date, start time, and end time inline. Click the check icon to
@@ -109,11 +116,49 @@ Service days let you attach multiple dates and times to a single quote. This is 
   </Step>
 </Steps>
 
+### Service day management
+
+<AccordionGroup>
+  <Accordion icon="calendar" title="Date and Time Selection">
+    - **Date picker**: Click calendar icon to select date
+    - **Time inputs**: Use 24-hour format (HH:MM)
+    - **Auto-suggestions**: New days default to next day with same time range
+  </Accordion>
+
+  <Accordion icon="edit" title="Inline Editing">
+    - Click pencil icon to edit any service day
+    - Make changes directly in form fields
+    - Save with check icon or cancel with X icon
+    - Changes saved immediately with optimistic updates
+  </Accordion>
+
+  <Accordion icon="trash" title="Removing Service Days">
+    - Click trash icon to delete a service day
+    - Last remaining service day cannot be deleted
+    - Deleting removes associated line items
+  </Accordion>
+</AccordionGroup>
+
 <Tip>
-  Need to remove a day? Click the trash icon on any service day. Deleting the
-  last remaining day is prevented so every quote maintains at least one
-  service day.
+  Click the trash icon to remove a service day. The last remaining day cannot be deleted.
 </Tip>
+
+### Multi-day event scenarios
+
+Service days work for:
+
+- **Wedding weekends**: Ceremony Friday, reception Saturday
+- **Corporate events**: Setup day, main event day, breakdown day  
+- **Festivals**: Multiple days with different schedules
+- **Installations**: Setup, service, removal days
+
+<Info>
+  Each service day maintains its own start and end times for flexible scheduling.
+</Info>
+
+<Note>
+  For detailed information about managing service days, see our [Service Days guide](/leads/service-days).
+</Note>
 
 ## Legacy Quote View
 

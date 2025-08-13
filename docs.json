@@ -31,7 +31,7 @@
                   "leads/managing",
                   {
                     "group": "Creating Quotes",
-                    "pages": ["leads/quotes", "leads/quote-view-v2"]
+                    "pages": ["leads/quotes", "leads/service-days", "leads/quote-view-v2"]
                   },
                   "leads/sending-quotes",
                   "leads/instant-pricing"
