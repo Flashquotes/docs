@@ -49,6 +49,39 @@ Navigate to **Settings > Service Charges** and click **Create Service Charge**.
 
 **Auto-applied charges** appear on new quotes but can be removed manually. **Manual charges** can be added individually when editing quotes.
 
+## Working with Service Charges
+
+<AccordionGroup>
+  <Accordion icon="edit" title="In Quote Editing">
+    **Adding charges to quotes:**
+    - Auto-applied charges appear automatically on new quotes
+    - Add manual charges using the service charges dropdown
+    - Remove any charge by clicking the trash icon
+    - Charges apply to all line items except gratuity
+    
+    **What customers see:**
+    - Service charges display as separate line items
+    - Included in quote total calculations
+    - Visible in both V1 and V2 quote presentations
+  </Accordion>
+
+  <Accordion icon="receipt" title="In Invoice Editing">
+    **From quote to invoice:**
+    - Service charges automatically carry over from quotes
+    - Adjust amounts during invoice editing if needed
+    - Appear as line items on customer invoices
+    - Included in payment calculations
+  </Accordion>
+
+  <Accordion icon="calculator" title="Tax Configuration">
+    **How taxable charges work:**
+    - Taxable charges: Included in tax calculations
+    - Non-taxable charges: Added after tax calculation
+    - Respects your location-based tax settings
+    - Shows tax breakdown to customers
+  </Accordion>
+</AccordionGroup>
+
 ## Common Examples
 
 | Use Case | Type | Value | Taxable | Auto-Apply |
@@ -57,6 +90,19 @@ Navigate to **Settings > Service Charges** and click **Create Service Charge**.
 | Corkage Fee | Flat | $75 | No | No |
 | Service Fee | Percentage | 10% | Yes | Yes |
 
+## Application Rules
+
+**What gets charged:**
+- Applies to all line items EXCEPT gratuity
+- Percentage charges calculate from subtotal of applicable items
+- Flat charges add fixed amount regardless of quote value
+
+**Customer visibility:**
+- Shows on quote presentations (V1 and V2)
+- Appears on booking confirmation forms
+- Listed as separate line items on invoices
+- Included in all total calculations
+
 ## Integration
 
 Service charges work with:
@@ -64,3 +110,4 @@ Service charges work with:
 - Tax rates (respects location settings)
 - QuickBooks (syncs as line items)
 - Invoices (carries through from quotes)
+- Quote View V2 (displays in modern interface)

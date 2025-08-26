@@ -102,7 +102,7 @@
               },
               {
                 "group": "Operations",
-                "pages": ["services", "settings/add-ons", "staff", "resources"]
+                "pages": ["services", "settings/add-ons", "settings/service-charges", "staff", "resources"]
               }
             ]
           },
