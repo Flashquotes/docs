@@ -1,0 +1,66 @@
+---
+title: "Service Charges"
+description: "Add percentage or flat fees to quotes and invoices"
+---
+
+## Overview
+
+Service charges add percentage-based or flat fees to quotes and invoices. Common uses: gratuity, service fees, corkage fees.
+
+## Creating Service Charges
+
+Navigate to **Settings > Service Charges** and click **Create Service Charge**.
+
+<AccordionGroup>
+  <Accordion icon="gear" title="Configuration">
+    **Required fields:**
+    - **Name**: e.g., "Service Fee", "Corkage Fee"
+    - **Type**: Percentage or Flat Amount
+    - **Value**: Percentage (0-100%) or dollar amount
+    
+    **Options:**
+    - **Taxable**: Include in tax calculations
+    - **Auto-Apply**: Add to all new quotes automatically
+    
+    <Note>
+      Percentage charges calculate from quote subtotal before tax.
+    </Note>
+  </Accordion>
+</AccordionGroup>
+
+## Managing Charges
+
+<AccordionGroup>
+  <Accordion icon="edit" title="Edit & Delete">
+    - Toggle tax and auto-apply settings directly in the table
+    - Delete charges with the trash icon (doesn't affect existing quotes)
+    - Name and value cannot be edited after creation
+  </Accordion>
+</AccordionGroup>
+
+## How It Works
+
+**Calculation order:**
+1. Quote subtotal (services + add-ons)
+2. Service charges
+3. Discounts
+4. Tax
+5. Final total
+
+**Auto-applied charges** appear on new quotes but can be removed manually. **Manual charges** can be added individually when editing quotes.
+
+## Common Examples
+
+| Use Case | Type | Value | Taxable | Auto-Apply |
+|----------|------|-------|---------|------------|
+| Gratuity | Percentage | 20% | Yes | Yes |
+| Corkage Fee | Flat | $75 | No | No |
+| Service Fee | Percentage | 10% | Yes | Yes |
+
+## Integration
+
+Service charges work with:
+- Discounts (applied after charges)
+- Tax rates (respects location settings)
+- QuickBooks (syncs as line items)
+- Invoices (carries through from quotes)
