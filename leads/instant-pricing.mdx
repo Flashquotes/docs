@@ -90,13 +90,36 @@ When configuring your lead intake form's pricing settings, you'll find two quoti
   plan](https://app.flashquotes.com/settings/plans).
 </Note>
 
-### Step 3: Select Default Service
+### Step 3: Choose Your Pricing Approach
 
-Choose a service to use as the default pricing rule set for the form. When leads submit this form, the pricing will be calculated in one of two ways:
+There are two ways pricing works with forms, depending on whether you have a service selection question:
 
-1. **With Service Selection Question**: If your lead intake form includes a service selection question, the system will use the pricing rules from the service(s) that the customer selected in the form.
+#### Forms WITH Service Selection Questions
 
-2. **Without Service Selection Question**: If your form doesn't include service selection, the system will use the pricing rules from the default service you configure here.
+When your form includes a service selection question:
+
+- Pricing comes from the service the customer selects
+- Works for both manual and instant quoting
+- The "fallback service" configured below is only used if no service is selected
+- Each service can have different pricing rules
+
+#### Forms WITHOUT Service Selection Questions
+
+When your form doesn't include service selection:
+
+- All quotes use the single service configured in pricing settings
+- This creates "fixed pricing" where every quote follows the same pricing rules
+- Simpler setup for single-service businesses
+
+<Tip>
+  Not sure which approach to use? Single service businesses often prefer fixed pricing, while multi-service businesses benefit from service selection questions.
+</Tip>
+
+### Step 4: Configure Fallback Service
+
+Select a service to use when:
+- Forms with service selection have no service selected
+- Forms without service selection questions (this becomes your fixed pricing service)
 
 <Warning>
   Make sure to test your pricing configurations with different combinations of
@@ -108,16 +131,20 @@ Choose a service to use as the default pricing rule set for the form. When leads
 
 When Instant Quoting is enabled:
 
-1. Client submits your lead intake form
-2. System determines which service pricing rules to use:
-   - If the form has a service selection question: Uses the selected service's rules
-   - If no service selection: Uses the default service's rules
-3. Calculates the price based on:
-   - Number of staff requested
-   - Event duration
-   - Guest count
-4. Automatically redirects the client to a quote presentation page
-5. Client can review the quote and click "Book Now" immediately
+1. **Client submits your lead intake form**
+2. **System determines pricing source:**
+   - **With service selection question**: Uses the service the customer selected
+   - **Without service selection question**: Uses the fallback service configured in settings
+   - **No service selected**: Falls back to the configured default service
+3. **Calculates the price using the selected service's pricing rules:**
+   - Base price + (Hourly rate × Staff × Hours) + (Price per guest × Guests)
+   - Applies minimum price threshold if calculated total is lower
+4. **Automatically redirects client to quote presentation page**
+5. **Client can review the quote and click "Book Now" immediately**
+
+<Note>
+  The pricing calculation is identical for manual and instant quoting - the only difference is when the quote gets presented to the customer.
+</Note>
 
 <Tip>
   Instant Quoting creates a seamless experience where clients can inquire,

@@ -83,7 +83,12 @@ The Lead Intake Form is optimized for high conversion rates, collecting only ess
     
     1. Click the "Instant Pricing" button in form settings
     2. Toggle "Quoting Mode" to "Instant Quoting"
-    3. Configure default service and pricing rules
+    3. Configure fallback service and pricing rules
+    
+    **How pricing works:**
+    - **With service selection questions**: Uses the service the customer selects
+    - **Without service selection questions**: Uses the fallback service (fixed pricing)
+    - **No service selected**: Falls back to the configured default service
     
     When enabled:
     - Quotes are generated instantly upon form submission
@@ -92,11 +97,11 @@ The Lead Intake Form is optimized for high conversion rates, collecting only ess
     
     <Note>
       Instant Quoting is a [Pro plan](https://app.flashquotes.com/settings/plans) feature that enables clients to inquire, receive quotes, and book in a single session.
-
-<Tip>
-  Combine Instant Quoting with [Quote View V2](/leads/quote-view-v2) for the ultimate conversion-optimized quote experience.
-</Tip>
     </Note>
+
+    <Tip>
+      Combine Instant Quoting with [Quote View V2](/leads/quote-view-v2) for the ultimate conversion-optimized quote experience.
+    </Tip>
   </Accordion>
 </AccordionGroup>
 
