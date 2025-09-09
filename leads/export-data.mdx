@@ -1,0 +1,135 @@
+---
+title: "Export Leads to CSV"
+description: "Export your lead data for marketing automation, analytics, and Google Ads conversion tracking"
+---
+
+## Overview
+
+Export your lead data to CSV format for use with email marketing platforms, Google Ads conversion tracking, business analytics tools, and more. The CSV export includes comprehensive lead information and calculated metrics to help you analyze and act on your sales pipeline.
+
+## How to Export Leads
+
+<Steps>
+  <Step title="Navigate to Leads">
+    Go to the [Leads](https://app.flashquotes.com/leads) page in your flashquotes dashboard.
+  </Step>
+  
+  <Step title="Click Export Button">
+    Click the **Export to CSV** button in the top toolbar. The button appears next to the filters.
+  </Step>
+  
+  <Step title="Download Your File">
+    Your browser will automatically download a CSV file containing up to 1,000 leads with all their associated data.
+  </Step>
+</Steps>
+
+## What's Included
+
+The lead export includes comprehensive information about each lead:
+
+<AccordionGroup>
+  <Accordion icon="user" title="Contact Information">
+    - Lead ID
+    - First and Last Name
+    - Email Address
+    - Phone Number
+    - Company Name
+    - Source and Campaign tracking
+  </Accordion>
+  
+  <Accordion icon="chart-line" title="Quote Metrics">
+    - Number of quotes sent
+    - Conversion status (booked/not booked)
+    - Total quoted amount
+    - Last quote date
+    - Quote view tracking
+  </Accordion>
+  
+  <Accordion icon="calendar" title="Event Details">
+    - Event date
+    - Event type
+    - Location information
+    - Guest count
+    - Service requirements
+  </Accordion>
+  
+  <Accordion icon="clock" title="Activity Tracking">
+    - Created date
+    - Last updated date
+    - Last activity
+    - Lead status
+    - Assigned team member
+  </Accordion>
+</AccordionGroup>
+
+## Common Use Cases
+
+### Email Marketing Integration
+
+Upload your lead export to email platforms like Mailchimp, Klaviyo, or HubSpot to:
+- Create targeted campaigns for unconverted leads
+- Send follow-up sequences based on quote status
+- Segment by event type or date range
+
+### Google Ads Conversion Tracking
+
+Use the export to optimize your ad campaigns:
+- Upload converted leads as conversions in Google Ads
+- Create lookalike audiences from booked customers
+- Exclude existing leads from prospecting campaigns
+
+### Business Analytics
+
+Import data into Excel, Google Sheets, or BI tools to:
+- Analyze conversion rates by source
+- Track seasonal trends
+- Measure sales team performance
+- Forecast future bookings
+
+## Export Limits
+
+<Note>
+  Exports are limited to 1,000 leads at a time to ensure optimal performance. For larger exports, consider:
+  - Filtering by date range before exporting
+  - Exporting in batches
+  - Using the API for programmatic access (Enterprise plans)
+</Note>
+
+## File Format
+
+The CSV file follows RFC 4180 standards:
+- UTF-8 encoding
+- Comma-separated values
+- Double-quoted text fields
+- Header row with column names
+- Compatible with Excel, Google Sheets, and all major data tools
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion icon="exclamation-triangle" title="Export button not appearing">
+    Ensure you have the appropriate permissions. Lead exports require Admin or Member role access.
+  </Accordion>
+  
+  <Accordion icon="file-excel" title="File won't open in Excel">
+    If special characters appear incorrectly:
+    1. Open Excel first
+    2. Use Data → Import from Text/CSV
+    3. Select UTF-8 encoding
+    4. Choose comma as delimiter
+  </Accordion>
+  
+  <Accordion icon="filter" title="Missing leads in export">
+    Check your active filters - the export respects all current filters including:
+    - Date range
+    - Lead status
+    - Assigned user
+    - Search terms
+  </Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+- [Managing Leads](/leads/managing)
+- [Lead Conversion Tracking](/leads/quotes)
+- [Workflow Automation](/workflows)
