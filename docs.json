@@ -124,6 +124,7 @@
                 "group": "Integrations",
                 "pages": [
                   "settings/integrations/overview",
+                  "settings/integrations/email-provider",
                   "settings/integrations/google",
                   "settings/integrations/zapier"
                 ]
