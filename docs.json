@@ -68,6 +68,7 @@
                     "group": "Forms",
                     "pages": [
                       "forms/lead-intake",
+                      "forms/share-links",
                       "forms/sms-opt-in",
                       "forms/real-time-availability",
                       "forms/booking",
