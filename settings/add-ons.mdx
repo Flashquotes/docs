@@ -16,7 +16,24 @@ Add-on settings allow you to create and manage additional services that can be i
     - Display name
     - Description
     - Pricing structure
+    - Quantity limits (for per unit pricing)
     - Availability rules
+    
+    ### Quantity Limits
+    For "Per Unit" priced add-ons, set minimum and maximum quantity controls:
+    
+    - **Min Quantity**: Enforce minimum order requirements
+    - **Max Quantity**: Prevent over-ordering or resource conflicts
+    - **Default Quantity**: Uses minimum if set, otherwise defaults to 1
+    
+    **Examples**:
+    - Cocktail tables: Min 2, Max 10 (event space limitations)
+    - Bartenders: Min 1, Max 4 (staffing availability)
+    - Photo booth props: Min 5, Max 25 (package deals)
+    
+    <Note>
+      Quantity limits only apply to per-unit pricing. Flat rate and other pricing models don't use these controls.
+    </Note>
     
     <Note>
       Unique IDs are essential for automation workflows and integrations.
@@ -73,10 +90,27 @@ Add-on settings allow you to create and manage additional services that can be i
 
   <Accordion icon="calculator" title="Pricing Logic">
     Set up pricing rules:
-    - Quantity limits
-    - Minimum requirements
+    - Quantity limits for per-unit add-ons
+    - Minimum and maximum order requirements
     - Bundle discounts
     - Special pricing conditions
+    
+    ### How Quantity Limits Work
+    
+    **Minimum Quantity**:
+    - Prevents customers from ordering below your business requirements
+    - Automatically sets as default quantity when customers add the item
+    - Useful for items that require minimum orders to be profitable
+    
+    **Maximum Quantity**:
+    - Prevents over-ordering beyond your capacity
+    - Helps manage resource allocation and logistics
+    - Protects against inventory shortages
+    
+    **Common Use Cases**:
+    - Audio equipment: Min 1 speaker, Max 8 speakers (venue size limits)
+    - Linens: Min 10 napkins, Max 200 napkins (bulk order efficiency)
+    - Staff: Min 1 server, Max 6 servers (team size management)
   </Accordion>
 </AccordionGroup>
 
