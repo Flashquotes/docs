@@ -38,6 +38,24 @@
                   "leads/export-data"
                 ]
               },
+              {
+                "group": "Services",
+                "pages": [
+                  "services",
+                  {
+                    "group": "Core Services",
+                    "pages": ["services/core-services"]
+                  },
+                  {
+                    "group": "Pricing",
+                    "pages": ["services/pricing"]
+                  },
+                  {
+                    "group": "Add-ons",
+                    "pages": ["services/add-ons"]
+                  }
+                ]
+              },
               "bookings",
               {
                 "group": "Events",
@@ -55,6 +73,7 @@
                   "invoices",
                   "finance/payments",
                   "finance/payouts",
+                  "settings/service-charges",
                   {
                     "group": "Invoice Management",
                     "pages": ["invoices/reminders", "invoices/refunds"]
@@ -104,7 +123,7 @@
               },
               {
                 "group": "Operations",
-                "pages": ["services", "settings/add-ons", "settings/service-charges", "staff", "resources"]
+                "pages": ["staff", "resources"]
               }
             ]
           },

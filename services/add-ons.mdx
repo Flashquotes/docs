@@ -1,0 +1,131 @@
+---
+title: "Add-ons"
+description: "Create upsells and extras to boost booking revenue"
+---
+
+## Overview
+
+Add-on settings allow you to create and manage additional services that can be included in quotes and bookings. Each add-on can be configured with specific pricing models and automation IDs for integration purposes.
+
+## Add-on Configuration
+
+<AccordionGroup>
+  <Accordion icon="plus" title="Creating Add-ons">
+    Set up new add-ons with:
+    - Unique identifier
+    - Display name
+    - Description
+    - Pricing structure
+    - Quantity limits (for per unit pricing)
+    - Availability rules
+    
+    ### Quantity Limits
+    For "Per Unit" priced add-ons, set minimum and maximum quantity controls:
+    
+    - **Min Quantity**: Enforce minimum order requirements
+    - **Max Quantity**: Prevent over-ordering or resource conflicts
+    - **Default Quantity**: Uses minimum if set, otherwise defaults to 1
+    
+    **Examples**:
+    - Cocktail tables: Min 2, Max 10 (event space limitations)
+    - Bartenders: Min 1, Max 4 (staffing availability)
+    - Photo booth props: Min 5, Max 25 (package deals)
+    
+    <Note>
+      Quantity limits only apply to per-unit pricing. Flat rate and other pricing models don't use these controls.
+    </Note>
+    
+    <Note>
+      Unique IDs are essential for automation workflows and integrations.
+    </Note>
+  </Accordion>
+
+  <Accordion icon="money-bill" title="Pricing Options">
+    Configure pricing models:
+    - Per unit pricing
+    - Flat rate pricing
+    - Hourly rates
+    - Resource-based pricing
+    
+    <Tip>
+      Choose pricing models that align with your operational costs and market positioning.
+    </Tip>
+  </Accordion>
+</AccordionGroup>
+
+## Add-on Management
+
+<AccordionGroup>
+  <Accordion icon="gear" title="Settings Control">
+    Manage add-on details:
+    - Availability status
+    - Display order
+    - Category assignment
+    - Required resources
+  </Accordion>
+
+  <Accordion icon="image" title="Visual Presentation">
+    Customize appearance:
+    - Add-on images
+    - Description formatting
+    - Feature highlights
+    - Upsell messaging
+  </Accordion>
+</AccordionGroup>
+
+## Integration Options
+
+<AccordionGroup>
+  <Accordion icon="plug" title="Automation Setup">
+    Configure integration details:
+    - Automation IDs
+    - System linkages
+    - Trigger conditions
+    - Workflow connections
+    
+    <Warning>
+      Maintain consistent IDs across all integrated platforms.
+    </Warning>
+  </Accordion>
+
+  <Accordion icon="calculator" title="Pricing Logic">
+    Set up pricing rules:
+    - Quantity limits for per-unit add-ons
+    - Minimum and maximum order requirements
+    - Bundle discounts
+    - Special pricing conditions
+    
+    ### How Quantity Limits Work
+    
+    **Minimum Quantity**:
+    - Prevents customers from ordering below your business requirements
+    - Automatically sets as default quantity when customers add the item
+    - Useful for items that require minimum orders to be profitable
+    
+    **Maximum Quantity**:
+    - Prevents over-ordering beyond your capacity
+    - Helps manage resource allocation and logistics
+    - Protects against inventory shortages
+    
+    **Common Use Cases**:
+    - Audio equipment: Min 1 speaker, Max 8 speakers (venue size limits)
+    - Linens: Min 10 napkins, Max 200 napkins (bulk order efficiency)
+    - Staff: Min 1 server, Max 6 servers (team size management)
+  </Accordion>
+</AccordionGroup>
+
+## Best Practices
+
+1. Use clear, descriptive names
+2. Set appropriate pricing models
+3. Maintain accurate descriptions
+4. Update availability regularly
+5. Test automation workflows
+
+## Next Steps
+
+After configuring add-ons:
+- [Review quote settings](/settings/quotes)
+- [Set up integrations](/settings/integrations/overview)
+- Test add-on functionality
+- Monitor sales performance 
