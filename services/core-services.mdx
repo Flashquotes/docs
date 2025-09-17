@@ -5,57 +5,58 @@ description: "Set up your main service offerings and packages"
 
 ## Create Your First Service
 
-Navigate to **Settings > Services** and click **Add Service**.
+Navigate to **Services** in the main menu and click **New Service**.
 
-**Required fields:**
+**Service fields:**
 - **Service Name**: What customers see on quotes (e.g., "Mobile Bar Service")
-- **Description**: Brief explanation of what's included
-- **Duration**: How long the service takes
-- **Pricing Model**: Choose from hourly, flat rate, or per-person
+- **Description**: Brief explanation for customers
+- **Line Item Description**: How it appears on invoices
+- **Base Price**: Starting price for the service
+- **Minimum Price**: Lowest acceptable price
+- **Pricing Options**: Configure hourly rates and per-guest pricing
 
-## Service Configuration
+## Service Pricing Configuration
 
 <AccordionGroup>
-  <Accordion icon="clock" title="Duration Settings">
-    Set realistic time estimates:
-    - **Setup time**: How long before the event starts
-    - **Event duration**: Active service time
-    - **Breakdown time**: Cleanup and packing
+  <Accordion icon="dollar-sign" title="Pricing Structure">
+    Each service can have multiple pricing components:
+
+    **Base Price**: The starting price for your service
+    - Sets the foundation cost
+    - Can be a flat fee or starting point for calculations
+
+    **Hourly Rate per Staff**: Price per hour per staff member
+    - Multiplied by number of staff and hours
+    - Great for labor-intensive services
+
+    **Price per Guest**: Additional charge per attendee
+    - Scales with event size
+    - Perfect for consumption-based services
+
+    **Minimum Price**: The lowest you'll accept
+    - Ensures profitability on all bookings
+    - Overrides calculated prices if they're too low
 
     <Tip>
-      Include buffer time for unexpected delays. Customers appreciate realistic timing.
+      Your final price = Base Price + (Staff × Hours × Hourly Rate) + (Guests × Per Guest Rate), with the Minimum Price as a floor.
     </Tip>
   </Accordion>
 
-  <Accordion icon="users" title="Capacity Limits">
-    Control service availability:
-    - **Maximum events per day**: Prevent overbooking
-    - **Guest count limits**: Set minimum/maximum event sizes
-    - **Location restrictions**: Limit service areas
-
-    **Example**: Mobile bar service
-    - Max 2 events per day
-    - 25-200 guests
-    - 30-mile radius only
-  </Accordion>
-
-  <Accordion icon="calendar" title="Availability Rules">
-    Set when services are available:
-    - **Days of week**: Weekend-only services
-    - **Seasonal availability**: Summer outdoor services
-    - **Lead time requirements**: How far in advance to book
+  <Accordion icon="image" title="Service Presentation">
+    Make your service appealing:
+    - **Service Image**: Upload a high-quality photo
+    - **Description**: Clear, benefit-focused text
+    - **Line Item Description**: Professional invoice wording
 
     <Note>
-      Availability rules help customers book appropriate dates and prevent last-minute conflicts.
+      Good descriptions and images significantly improve conversion rates.
     </Note>
   </Accordion>
 </AccordionGroup>
 
-## Service Categories
+## Service Examples
 
-Organize services for easy selection:
-
-**Popular categories:**
+**Popular service types:**
 - Bar Services (mobile bar, bartending, cocktail packages)
 - Photo Services (booth, photographer, instant prints)
 - Catering (appetizers, full meals, dessert stations)
@@ -72,12 +73,12 @@ Write clear descriptions that sell:
 
 ✗ **Too long**: Three paragraphs explaining every detail
 
-## Pricing Integration
+## Pricing Examples
 
-Services connect to your pricing models:
-- **Hourly rates**: $75/hour for bartender service
-- **Flat packages**: $1,200 for complete photo booth setup
-- **Per-person pricing**: $25/guest for appetizer service
+Common pricing strategies:
+- **Hourly services**: Base $200 + $75/hour per bartender
+- **Flat packages**: Base $1,200 for photo booth (4-hour minimum)
+- **Per-person services**: Base $500 + $25/guest for catering
 
 ## What Happens Next
 

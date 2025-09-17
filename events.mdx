@@ -14,13 +14,18 @@ The Events view provides a comprehensive operational overview of your upcoming e
 <AccordionGroup>
   <Accordion icon="circle-check" title="Visual Status System">
     The dashboard uses color coding to track event status:
-    - **Green**: Completed tasks/assignments
-    - **Grey**: Not applicable
-    - **Yellow**: Requires attention
-    - **Red**: Urgent/overdue items
-    
+    - **Green**: Completed tasks, fully staffed, resources assigned
+    - **Yellow**: Incomplete tasks, requires attention
+    - **Red**: Critical issues - staff shortage, resource shortage, overdue payments
+
+    Status indicators appear for:
+    - Admin task completion
+    - Staff assignments
+    - Resource allocation
+    - Payment status (Paid, Pending, Partially paid, Open, Overdue, Draft)
+
     <Info>
-      These visual indicators help quickly identify events that need attention.
+      These visual indicators help quickly identify events that need immediate attention.
     </Info>
   </Accordion>
 </AccordionGroup>
@@ -84,6 +89,35 @@ The Events view provides a comprehensive operational overview of your upcoming e
     - Manage service dates and times for each day
     - Update individual event details or all events at once
     - Handle setup, main event, and breakdown days separately
+  </Accordion>
+
+  <Accordion icon="copy" title="Copying Events vs Bookings">
+    Flashquotes offers two distinct copying features to help you quickly handle repeat business and multi-day services:
+
+    **Copying an Event (Add Another Service Day)**
+    - Creates a new event within the SAME booking
+    - Shares the same invoice and payment structure
+    - Perfect for adding another service day to an existing booking
+    - Example: Client wants to add a second day of service to their wedding weekend
+    - Access via: Event details page → "Make a copy" button
+
+    **Copying a Booking (Duplicate Entire Booking)**
+    - Creates an entirely NEW booking with new invoice
+    - Duplicates all events from the original booking
+    - Generates fresh invoice and payment schedule
+    - Perfect for repeat clients or similar events
+    - Example: Client loved your service and wants to book you for next year's event
+    - Access via: Booking details page → Copy booking option
+
+    <Tip>
+      **Quick Guide:**
+      - Same client, additional day = Copy Event
+      - New occasion or repeat booking = Copy Booking
+    </Tip>
+
+    <Note>
+      When you copy an event, the new event inherits most details from the original (staff, resources, timeline) but you can customize the date, time, and specific requirements.
+    </Note>
   </Accordion>
 </AccordionGroup>
 

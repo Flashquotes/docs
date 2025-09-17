@@ -1,125 +1,180 @@
 ---
-title: "Pricing Models"
-description: "Configure hourly rates, flat fees, and custom pricing structures"
+title: "Service Pricing"
+description: "Configure pricing for your services using flexible pricing components"
 ---
 
-## Pricing Model Types
+## How Service Pricing Works
 
-Choose the right model for each service:
+In Flashquotes, pricing is configured directly on each service. You can combine multiple pricing components to create the perfect pricing structure for your business.
 
-**Hourly Pricing**: Best for services where time varies (bartending, photography)
-**Flat Rate**: Fixed price regardless of time (equipment rental, setup fees)
-**Per Person**: Price scales with guest count (catering, favors)
-**Tiered Pricing**: Different rates based on duration or quantity
+## Pricing Components
 
-## Setting Up Pricing
-
-Navigate to your service settings and select **Pricing Configuration**.
+Each service can use any combination of these pricing elements:
 
 <AccordionGroup>
-  <Accordion icon="clock" title="Hourly Pricing">
-    Configure time-based rates:
-    - **Base hourly rate**: Your standard rate
-    - **Minimum hours**: Shortest booking allowed
-    - **Overtime rates**: Premium for extended hours
+  <Accordion icon="dollar-sign" title="Base Price">
+    The foundation of your pricing:
+    - Fixed amount added to every quote
+    - Use for setup fees, minimum charges, or equipment costs
+    - Can be the entire price for simple flat-rate services
 
-    **Example setup:**
-    - Bartender: $75/hour, 4-hour minimum
-    - Overtime: $100/hour after 8 hours
-    - Travel time: $50/hour for setup/breakdown
-
-    <Tip>
-      Set minimums that cover your costs. A 2-hour minimum prevents unprofitable short bookings.
-    </Tip>
+    **Example**: $500 base for photo booth rental
   </Accordion>
 
-  <Accordion icon="dollar-sign" title="Flat Rate Pricing">
-    One price for the complete service:
-    - **Package price**: Total cost regardless of time
-    - **What's included**: Clear scope definition
-    - **Add-on compatibility**: What extras can be added
+  <Accordion icon="clock" title="Hourly Rate per Staff">
+    Labor-based pricing:
+    - Charged per hour, per staff member
+    - Automatically multiplies by hours and staff count
+    - Perfect for services requiring skilled labor
 
-    **Best for:**
-    - Photo booth packages ($800 for 4 hours with props)
-    - DJ services ($1,200 including equipment and music)
-    - Delivery fees ($150 within 25 miles)
+    **Example**: $75/hour per bartender
   </Accordion>
 
-  <Accordion icon="users" title="Per-Person Pricing">
-    Price scales with guest count:
-    - **Rate per person**: Your per-guest charge
-    - **Minimum guests**: Lowest profitable count
-    - **Maximum capacity**: Your service limit
+  <Accordion icon="users" title="Price per Guest">
+    Scale with event size:
+    - Added cost for each attendee
+    - Great for consumption-based services
+    - Helps cover variable costs
 
-    **Perfect for:**
-    - Catering: $22/person for appetizer service
-    - Photo favors: $8/person for instant prints
-    - Welcome drinks: $12/person for signature cocktails
+    **Example**: $15 per guest for appetizer service
+  </Accordion>
 
-    <Note>
-      Include a reasonable minimum to ensure profitability even for small events.
-    </Note>
+  <Accordion icon="shield-check" title="Minimum Price">
+    Protect your profitability:
+    - Sets the absolute minimum you'll accept
+    - Overrides calculated price if it's too low
+    - Ensures every booking meets your minimum requirements
+
+    **Example**: $800 minimum for any event
   </Accordion>
 </AccordionGroup>
 
-## Advanced Pricing
+## Pricing Formula
 
-<AccordionGroup>
-  <Accordion icon="layer-group" title="Tiered Pricing">
-    Different rates based on booking size or duration:
+Your service price is calculated as:
 
-    **Duration tiers:**
-    - 1-4 hours: $100/hour
-    - 5-8 hours: $85/hour
-    - 9+ hours: $75/hour
+```
+Final Price = MAX(
+  Base Price + (Staff × Hours × Hourly Rate) + (Guests × Per Guest Rate),
+  Minimum Price
+)
+```
 
-    **Guest count tiers:**
-    - Under 50 guests: $25/person
-    - 50-100 guests: $22/person
-    - 100+ guests: $20/person
-  </Accordion>
+This ensures you're always paid at least your minimum while allowing flexible pricing based on event specifics.
 
-  <Accordion icon="calendar" title="Seasonal Pricing">
-    Adjust rates by demand:
-    - **Peak season**: 25% premium (wedding season)
-    - **Off-season**: Standard rates
-    - **Holiday pricing**: 50% premium (New Year's Eve)
+## Common Pricing Strategies
 
-    <Warning>
-      Update seasonal pricing annually and communicate changes to existing clients early.
-    </Warning>
-  </Accordion>
-</AccordionGroup>
+### Flat Rate Services
 
-## Pricing Strategy Tips
+**Setup**: High base price, no hourly or per-guest charges
 
-1. **Cover all costs**: Include travel, setup time, and overhead
-2. **Research competitors**: Price competitively but don't undervalue yourself
-3. **Test pricing**: Start higher and adjust based on booking rate
-4. **Package strategically**: Bundle services for higher average orders
+**Example**:
+- DJ Service: $1,500 base price
+- Covers up to 5 hours
+- Simple, predictable pricing
 
-## Common Pricing Models by Industry
+### Hourly Services
 
-| Service Type | Recommended Model | Typical Range |
-|--------------|-------------------|---------------|
-| Bartending | Hourly + minimums | $60-120/hour |
-| Photo Booth | Flat packages | $400-1200 |
-| DJ Services | Flat or hourly | $800-2000 |
-| Catering | Per person | $15-75/person |
-| Equipment | Daily/hourly rental | $50-500/day |
+**Setup**: Low/no base price, strong hourly component
 
-## What Customers See
+**Example**:
+- Bartending: $100 base + $75/hour per bartender
+- Scales with event duration
+- Fair for both short and long events
 
-Your pricing appears on:
-- Quote presentations with clear breakdowns
-- Booking forms with real-time calculations
-- Invoices with itemized costs
-- Proposal PDFs with professional formatting
+### Per-Person Services
 
-## Common Issues
+**Setup**: Base price for minimums, per-guest for scaling
 
-**Quotes too high**: Check if you're double-charging (service + hourly rate)
+**Example**:
+- Catering: $500 base + $25 per guest
+- Covers fixed costs + variable food costs
+- Profitable at any event size
 
-**Pricing confusing customers**: Simplify descriptions and use round numbers when possible
+### Hybrid Pricing
 
-**Losing bookings to price**: Consider value-adds instead of just lowering rates
+**Setup**: Combine all elements for sophisticated pricing
+
+**Example**:
+- Full Bar Service:
+  - $300 base (equipment/setup)
+  - $75/hour per bartender (labor)
+  - $12 per guest (supplies)
+  - $1,000 minimum
+
+## Setting Your Prices
+
+<Steps>
+  <Step title="Navigate to Services">
+    Go to **Services** in the main menu
+  </Step>
+
+  <Step title="Select or Create Service">
+    Click on an existing service or create a new one
+  </Step>
+
+  <Step title="Configure Pricing Fields">
+    Set your base price, hourly rates, per-guest pricing, and minimum
+  </Step>
+
+  <Step title="Test with Sample Quotes">
+    Create test quotes to verify pricing calculations
+  </Step>
+</Steps>
+
+## Pricing Tips
+
+<CardGroup cols={2}>
+  <Card title="Cover All Costs" icon="calculator">
+    Include setup time, travel, supplies, and overhead in your pricing
+  </Card>
+
+  <Card title="Use Minimums Wisely" icon="shield">
+    Set minimums that ensure profitability even for small events
+  </Card>
+
+  <Card title="Keep It Simple" icon="lightbulb">
+    Don't use every pricing component unless necessary
+  </Card>
+
+  <Card title="Test Your Math" icon="flask">
+    Create sample quotes for different scenarios before going live
+  </Card>
+</CardGroup>
+
+## Add-On Pricing
+
+In addition to service pricing, you can create add-ons with their own pricing models:
+
+- **Flat rate**: Fixed price add-ons
+- **Per unit**: Quantity-based pricing
+- **Per guest**: Scales with attendance
+- **Per hour**: Time-based add-ons
+- **Per resource**: Resource-dependent pricing
+- **Per unit per hour**: Combined pricing
+
+[Learn more about add-on pricing →](/services/add-ons)
+
+## Service Charges
+
+You can also apply automatic service charges (like gratuity or delivery fees) that calculate as a percentage or flat fee on top of your service pricing.
+
+Navigate to **Settings → Service Charges** to configure these additional fees.
+
+## Common Questions
+
+**Q: Can I have different prices for different event types?**
+A: Create separate services for each event type with appropriate pricing.
+
+**Q: How do I handle peak season pricing?**
+A: Create seasonal service variants or use manual quote adjustments.
+
+**Q: What if my costs vary by location?**
+A: Use the minimum price to ensure you cover costs, then adjust quotes manually for distant venues.
+
+## Next Steps
+
+- [Create your services](/services/core-services)
+- [Add upsells with add-ons](/services/add-ons)
+- [Configure service charges](/settings/service-charges)
+- Test your pricing with sample quotes
