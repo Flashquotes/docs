@@ -5,9 +5,16 @@ description: "Configure your Flashquotes account settings for optimal performanc
 
 ## Overview
 
-The Settings section is crucial for initial setup and ongoing management of your Flashquotes account. Along with Forms configuration, it's one of the most important areas to focus on when getting started.
+The Settings section is organized into three main areas: Profile, Workspace, and Features. Complete these settings early for optimal Flashquotes performance.
 
-## General Settings
+**Navigation structure:**
+- **Profile** - Your personal notification preferences
+- **Workspace** - Company settings, locations, and Stripe setup (labeled "Company" in navigation)
+- **Features** - Branding, quotes, add-ons, service charges, and other business tools
+
+## Company Settings
+
+Access these settings from the main `/settings` page (labeled "Company" in navigation).
 
 <AccordionGroup>
   <Accordion icon="building" title="Company Information">
@@ -18,10 +25,21 @@ The Settings section is crucial for initial setup and ongoing management of your
     - Invoice address
     - Contact email
     - Contact phone
-    
+
     <Note>
       Company and location IDs are used for building automations with platforms like Zapier.
     </Note>
+  </Accordion>
+
+  <Accordion icon="credit-card" title="Stripe Setup">
+    Connect your Stripe account for payment processing:
+    - Link Stripe Connect account
+    - Configure payment methods
+    - Set up automatic payment collection
+
+    <Warning>
+      Complete Stripe connection before launching forms or quotes.
+    </Warning>
   </Accordion>
 
   <Accordion icon="map-pin" title="Location Management">
@@ -30,7 +48,7 @@ The Settings section is crucial for initial setup and ongoing management of your
     - Define resource storage locations
     - Enable accurate timeline calculations
     - Manage multiple service areas
-    
+
     <Tip>
       Set your location to where your resources are stored to ensure accurate drive time calculations.
     </Tip>
@@ -156,11 +174,11 @@ The Settings section is crucial for initial setup and ongoing management of your
 
 ## Best Practices
 
-1. Complete Stripe connection first
-2. Set up branding early
+1. Complete Stripe connection first (in Company settings)
+2. Set up branding early (logo and colors only)
 3. Configure timeline defaults accurately
 4. Review and customize task templates
-5. Set appropriate notification preferences
+5. Set appropriate notification preferences (in Profile settings)
 
 ## Next Steps
 

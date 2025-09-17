@@ -1,11 +1,11 @@
 ---
 title: "Payments"
-description: "Track and monitor client payments through Stripe integration"
+description: "Track and monitor client payments through Stripe's integrated dashboard"
 ---
 
 ## Overview
 
-The Payments dashboard provides a centralized view of all your client payments processed through Stripe. This real-time dashboard helps you monitor payment status, track successful transactions, and identify any payment issues that need attention.
+The Payments dashboard provides a comprehensive view of all your client payments through Stripe's embedded payment management interface. This powerful integration gives you access to professional-grade payment tracking, dispute management, and refund processing capabilities.
 
 ## Accessing the Payments Dashboard
 
@@ -17,99 +17,141 @@ Navigate to **Finance → Payments** from the main navigation menu to access you
 
 ## Dashboard Features
 
-### Payment Overview
+### Stripe Connect Integration
 
-The dashboard displays comprehensive payment information including:
+Flashquotes uses Stripe's embedded ConnectPayments component, providing you with:
 
-- **Payment Status**: Real-time status for all payments (succeeded, pending, processing, failed)
-- **Transaction Details**: Amount, date, and associated invoice information
-- **Customer Information**: Client details linked to each payment
-- **Payment Method**: Card type and last four digits used
+- **Real-time payment monitoring**: View payments as they process
+- **Advanced filtering**: Filter by amount, date, status, and payment method
+- **Professional dispute management**: Handle chargebacks and disputes directly
+- **Payment capture controls**: Manage authorization and capture for card payments
+- **Export capabilities**: Download payment data for accounting and analysis
 
-### Filtering and Search
+### Payment Information
+
+The dashboard displays comprehensive payment details including:
+
+- **Transaction status**: Real-time status updates (succeeded, pending, processing, failed)
+- **Payment details**: Amount, currency, and processing fees
+- **Customer information**: Billing details and payment methods
+- **Timeline**: Complete payment history and status changes
+- **Related invoices**: Links to associated Flashquotes invoices
+
+## Filtering and Search
+
+The Stripe dashboard provides powerful filtering options:
 
 <AccordionGroup>
-  <Accordion icon="filter" title="Status Filters">
-    Filter payments by status:
-    - **Succeeded**: Completed payments
-    - **Pending**: ACH transfers awaiting clearance
-    - **Processing**: Payments currently being processed
-    - **Failed**: Failed payment attempts
-    - **Refunded**: Payments that have been refunded
+  <Accordion icon="filter" title="Amount Filters">
+    Filter payments by amount using:
+    - Equals specific amount
+    - Greater than threshold
+    - Less than threshold
+    - Between range
   </Accordion>
 
-{" "}
+  <Accordion icon="calendar" title="Date Filters">
+    View payments by date:
+    - Before specific date
+    - After specific date
+    - Between date range
+    - Preset ranges (today, this week, this month)
+  </Accordion>
 
-<Accordion icon="calendar" title="Date Range">
-	View payments within specific time periods: - Last 7 days - Last 30 days -
-	Last 90 days - Custom date range
-</Accordion>
+  <Accordion icon="magnifying-glass" title="Advanced Search">
+    The integrated search allows you to find payments by:
+    - Customer name or email
+    - Payment ID
+    - Card last 4 digits
+    - Metadata fields
+  </Accordion>
 
-  <Accordion icon="magnifying-glass" title="Search">
-    Search for specific payments by:
-    - Customer name
-    - Invoice number
-    - Payment amount
-    - Transaction ID
+  <Accordion icon="credit-card" title="Payment Method">
+    Filter by payment type:
+    - Card payments
+    - Bank transfers (ACH)
+    - Other payment methods
   </Accordion>
 </AccordionGroup>
-
-## Understanding Payment Statuses
-
-### Succeeded
-
-Payment has been successfully processed and funds will be deposited according to your Stripe payout schedule.
-
-### Pending
-
-Bank transfer is in process but payment has not settled. Funds typically clear within 2-3 business days. Invoice balance calculations include pending amounts.
-
-### Processing
-
-Payment is currently being processed by Stripe. This status typically updates within a few minutes.
-
-### Failed
-
-Payment attempt was unsuccessful. Common reasons include:
-
-- Insufficient funds
-- Card declined
-- Invalid card details
-- Bank authentication required
-
-<Tip>
-	For failed payments, the dashboard displays the specific error message from
-	Stripe to help you communicate with your client about resolution.
-</Tip>
 
 ## Payment Actions
 
 ### View Details
 
-Click on any payment to view comprehensive transaction details including:
+Click any payment to access:
+- Full transaction timeline
+- Processing and net amounts
+- Fee breakdown
+- Risk evaluation details
+- Related customer and invoice information
 
-- Full payment timeline
-- Processing fees
-- Net amount after fees
-- Associated invoice and booking information
-
-### Refund Payments
+### Refund Management
 
 Process refunds directly from the dashboard:
 
-1. Click on a succeeded payment
-2. Select "Refund Payment"
-3. Enter refund amount (partial or full)
-4. Add refund reason for your records
+1. Select a succeeded payment
+2. Click "Issue refund"
+3. Choose partial or full refund
+4. Add an optional reason for your records
+5. Confirm the refund
 
 <Warning>
-	Refunds are processed immediately and cannot be reversed. Always confirm the
-	refund amount before processing.
+  Refunds are processed immediately and cannot be reversed. Always confirm the refund amount before processing.
 </Warning>
+
+### Dispute Management
+
+Handle payment disputes professionally:
+
+- View dispute reason and evidence requests
+- Submit compelling evidence
+- Track dispute status and deadlines
+- Communicate with Stripe's dispute team
+
+<Info>
+  The dispute management feature helps you respond to chargebacks efficiently, improving your win rate and protecting your revenue.
+</Info>
+
+### Payment Capture
+
+For card payments using separate authorization and capture:
+
+- View authorized but uncaptured payments
+- Capture full or partial amounts
+- Cancel authorizations when needed
+
+## Manual Payment Tracking
+
+In addition to Stripe payments, Flashquotes supports manual payment recording for:
+
+- Check payments
+- Cash transactions
+- Bank transfers outside Stripe
+- Other payment methods
+
+These appear in your invoice payment tables but are tracked separately from Stripe transactions.
+
+## Export and Reporting
+
+The Stripe dashboard includes robust export functionality:
+
+- Download payment data as CSV
+- Filter exports by date range and status
+- Include all transaction details and metadata
+- Use exports for accounting reconciliation
+
+## Best Practices
+
+1. **Regular monitoring**: Check the dashboard daily for failed payments or disputes
+2. **Timely refunds**: Process refund requests promptly to maintain customer satisfaction
+3. **Dispute response**: Respond to disputes quickly with compelling evidence
+4. **Export regularly**: Download payment data monthly for accounting records
+5. **Filter effectively**: Use filters to focus on specific payment segments
 
 ## Related Topics
 
 - [Invoice Management](/invoices)
-- [Payment Reminders](/invoices/reminders)
+- [Processing Refunds](/invoices/refunds)
 - [Stripe Integration Setup](/settings/integrations/overview)
 - [Payouts and Deposits](/finance/payouts)
+- [Sales Tax Reporting](/sales-tax)

@@ -3,20 +3,16 @@ title: "Helper Functions"
 description: "Understanding and using helper functions with shortcodes in Flashquotes"
 ---
 
-Helper functions provide even more power and flexibility when you use shortcodes. The general syntax for helper functions is `{{function_name variable_1 variable_2...}}` where the _function_name_ value tells the system which function to trigger.
-
-Sometimes more advanced functions will have an open and closing tag which are formatted as:
-
-- Opening tag: `{{#function_name}}`
-- Closing tag: `{{/function_name}}`
-
-<Info>
-	For example, the [If Conditions](/workflows/shortcodes/helpers/if-else) us
-	opening and closing tag syntax
-</Info>
+Helper functions add flexibility to shortcodes in workflow templates. Currently, one helper function is available.
 
 ## Available Functions
 
-- [Default Values](/workflows/shortcodes/helpers/default) - Specify default fallback values when fields are empty
-- [If Conditions](/workflows/shortcodes/helpers/if-else) - Return something **if** a value is not empty
-- [Unless Conditions](/workflows/shortcodes/helpers/unless) - Return something **unless** a value is not empty
+- [Default Values](/workflows/shortcodes/helpers/default) - Specify fallback values when fields are empty
+
+## Coming Soon
+
+Additional helper functions are in development:
+- If Conditions - Conditional content based on values
+- Unless Conditions - Inverse conditional logic
+
+These helpers are not yet implemented in the system.

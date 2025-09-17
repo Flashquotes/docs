@@ -6,6 +6,10 @@ openapi: "GET /api/form-response/{id}"
 
 This endpoint returns comprehensive information about a specific form response, including all question responses and their associated questions.
 
+<Note>
+The response format is optimized for Zapier integration, returning a flattened object structure where questions appear as keys with their corresponding answers as values. This makes it easy to map form data directly to other systems.
+</Note>
+
 ### Response
 
 The response includes a detailed form response object containing:

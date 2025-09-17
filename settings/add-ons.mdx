@@ -3,116 +3,111 @@ title: "Add-Ons"
 description: "Configure and manage service add-ons and pricing options"
 ---
 
-## Overview
+Manage your add-ons from the Operations menu, not Settings.
 
-Add-on settings allow you to create and manage additional services that can be included in quotes and bookings. Each add-on can be configured with specific pricing models and automation IDs for integration purposes.
+## Where to find add-ons
 
-## Add-on Configuration
+Go to Operations > Add-ons to create and manage additional services for your quotes and bookings. Each add-on can be configured with specific pricing models and automation IDs for integration purposes.
 
-<AccordionGroup>
-  <Accordion icon="plus" title="Creating Add-ons">
-    Set up new add-ons with:
+## Creating add-ons
+
+<Steps>
+  <Step title="Navigate to add-ons">
+    Go to Operations > Add-ons in your dashboard
+  </Step>
+  <Step title="Add new add-on">
+    Click "Create Add-on" to set up:
     - Unique identifier
     - Display name
     - Description
     - Pricing structure
     - Quantity limits (for per unit pricing)
     - Availability rules
+  </Step>
+</Steps>
     
-    ### Quantity Limits
-    For "Per Unit" priced add-ons, set minimum and maximum quantity controls:
-    
-    - **Min Quantity**: Enforce minimum order requirements
-    - **Max Quantity**: Prevent over-ordering or resource conflicts
-    - **Default Quantity**: Uses minimum if set, otherwise defaults to 1
-    
-    **Examples**:
-    - Cocktail tables: Min 2, Max 10 (event space limitations)
-    - Bartenders: Min 1, Max 4 (staffing availability)
-    - Photo booth props: Min 5, Max 25 (package deals)
-    
-    <Note>
-      Quantity limits only apply to per-unit pricing. Flat rate and other pricing models don't use these controls.
-    </Note>
-    
-    <Note>
-      Unique IDs are essential for automation workflows and integrations.
-    </Note>
-  </Accordion>
+### Quantity limits
+For "Per Unit" priced add-ons, set minimum and maximum quantity controls:
 
-  <Accordion icon="money-bill" title="Pricing Options">
-    Configure pricing models:
-    - Per unit pricing
-    - Flat rate pricing
-    - Hourly rates
-    - Resource-based pricing
-    
-    <Tip>
-      Choose pricing models that align with your operational costs and market positioning.
-    </Tip>
-  </Accordion>
-</AccordionGroup>
+- **Min Quantity**: Enforce minimum order requirements
+- **Max Quantity**: Prevent over-ordering or resource conflicts
+- **Default Quantity**: Uses minimum if set, otherwise defaults to 1
 
-## Add-on Management
+**Examples**:
+- Cocktail tables: Min 2, Max 10 (event space limitations)
+- Bartenders: Min 1, Max 4 (staffing availability)
+- Photo booth props: Min 5, Max 25 (package deals)
 
-<AccordionGroup>
-  <Accordion icon="gear" title="Settings Control">
-    Manage add-on details:
-    - Availability status
-    - Display order
-    - Category assignment
-    - Required resources
-  </Accordion>
+<Note>
+Quantity limits only apply to per-unit pricing. Flat rate and other pricing models don't use these controls.
+</Note>
 
-  <Accordion icon="image" title="Visual Presentation">
-    Customize appearance:
-    - Add-on images
-    - Description formatting
-    - Feature highlights
-    - Upsell messaging
-  </Accordion>
-</AccordionGroup>
+<Note>
+Unique IDs are essential for automation workflows and integrations.
+</Note>
 
-## Integration Options
+## Pricing options
 
-<AccordionGroup>
-  <Accordion icon="plug" title="Automation Setup">
-    Configure integration details:
-    - Automation IDs
-    - System linkages
-    - Trigger conditions
-    - Workflow connections
-    
-    <Warning>
-      Maintain consistent IDs across all integrated platforms.
-    </Warning>
-  </Accordion>
+Configure pricing models:
+- Per unit pricing
+- Flat rate pricing
+- Hourly rates
+- Resource-based pricing
 
-  <Accordion icon="calculator" title="Pricing Logic">
-    Set up pricing rules:
-    - Quantity limits for per-unit add-ons
-    - Minimum and maximum order requirements
-    - Bundle discounts
-    - Special pricing conditions
-    
-    ### How Quantity Limits Work
-    
-    **Minimum Quantity**:
-    - Prevents customers from ordering below your business requirements
-    - Automatically sets as default quantity when customers add the item
-    - Useful for items that require minimum orders to be profitable
-    
-    **Maximum Quantity**:
-    - Prevents over-ordering beyond your capacity
-    - Helps manage resource allocation and logistics
-    - Protects against inventory shortages
-    
-    **Common Use Cases**:
-    - Audio equipment: Min 1 speaker, Max 8 speakers (venue size limits)
-    - Linens: Min 10 napkins, Max 200 napkins (bulk order efficiency)
-    - Staff: Min 1 server, Max 6 servers (team size management)
-  </Accordion>
-</AccordionGroup>
+<Tip>
+Choose pricing models that align with your operational costs and market positioning.
+</Tip>
+
+## Managing add-ons
+
+From the Operations > Add-ons page:
+
+**Settings control**:
+- Availability status
+- Display order
+- Category assignment
+- Required resources
+
+**Visual presentation**:
+- Add-on images
+- Description formatting
+- Feature highlights
+- Upsell messaging
+
+## Integration setup
+
+**Automation details**:
+- Automation IDs
+- System linkages
+- Trigger conditions
+- Workflow connections
+
+<Warning>
+Maintain consistent IDs across all integrated platforms.
+</Warning>
+
+**Pricing rules**:
+- Quantity limits for per-unit add-ons
+- Minimum and maximum order requirements
+- Bundle discounts
+- Special pricing conditions
+
+### How quantity limits work
+
+**Minimum Quantity**:
+- Prevents customers from ordering below your business requirements
+- Automatically sets as default quantity when customers add the item
+- Useful for items that require minimum orders to be profitable
+
+**Maximum Quantity**:
+- Prevents over-ordering beyond your capacity
+- Helps manage resource allocation and logistics
+- Protects against inventory shortages
+
+**Common use cases**:
+- Audio equipment: Min 1 speaker, Max 8 speakers (venue size limits)
+- Linens: Min 10 napkins, Max 200 napkins (bulk order efficiency)
+- Staff: Min 1 server, Max 6 servers (team size management)
 
 ## Best Practices
 
@@ -122,10 +117,10 @@ Add-on settings allow you to create and manage additional services that can be i
 4. Update availability regularly
 5. Test automation workflows
 
-## Next Steps
+## Next steps
 
 After configuring add-ons:
 - [Review quote settings](/settings/quotes)
-- [Set up integrations](/settings/integrations/overview)
+- [Set up integrations](/settings/integrations)
 - Test add-on functionality
 - Monitor sales performance 

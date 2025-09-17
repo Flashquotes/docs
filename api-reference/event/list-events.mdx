@@ -28,8 +28,9 @@ The response includes an array of event objects containing:
 
 ### Notes
 
-- Date ranges must be provided in ISO 8601 format with timezone offset
-- Maximum date range span is 31 days
+- Date ranges must be provided in ISO 8601 format with timezone offset (e.g., `2024-01-01T00:00:00-05:00`)
+- **Maximum date range span is 7 days**
 - Results are ordered by event start time
-- Returns a 400 error if date format is invalid
+- Returns a 400 error if date format is invalid or date range exceeds 7 days
+- The response format is optimized for Zapier integration (wrapped in an array)
 - Access requires a valid API key with appropriate permissions

@@ -5,60 +5,44 @@ description: "Learn how to customize and manage workflow templates in Flashquote
 
 ## Understanding Workflow Templates
 
-Workflow templates are pre-configured email sequences that help you maintain consistent and effective communication with your leads. Each template consists of multiple steps, with each step containing a customizable email message.
+Workflow templates are pre-configured email sequences for lead follow-up. The quote follow-up workflow includes 7 email templates designed for optimal conversion rates.
 
-## Template Components
+## What's Included
 
-Each step in a workflow template includes:
+Each email template includes:
 
-- **Subject Line**: The email subject that your lead will see
-- **Message Body**: The main content of your email
-- **Timing**: When the email should be sent relative to the previous step
-- **Shortcodes**: Dynamic placeholders that automatically insert relevant information
+- **Subject Line**: Pre-written subject optimized for engagement
+- **Message Body**: Professional content designed for conversions
+- **Timing**: Optimized sending intervals (immediate to 30 days)
+- **Shortcodes**: Automatic insertion of quote and lead details
 
-## Customizing Templates
+## Template Sequence
 
-### Editing Message Content
+The 7-step sequence includes:
+1. Welcome email (immediate)
+2. 3-day follow-up
+3. 7-day reminder
+4. 14-day check-in
+5. 21-day final offer
+6. 28-day last chance
+7. 30-day archive notice
 
-1. Navigate to the Workflows section
-2. Select the template you want to edit
-3. Click on any step to modify:
-   - Subject line
-   - Email body
-   - Timing settings
+## Using Shortcodes
 
-### Using Shortcodes
-
-Shortcodes automatically insert dynamic content into your emails. Common shortcodes include:
+Templates include shortcodes that automatically insert your data:
 
 - `{{lead.full_name}}`: The lead's full name
 - `{{quote.amount}}`: The quote amount
 - `{{quote.event_start_date}}`: The date of the first event
 - `{{company.name}}`: Your company name
 
-<Tip>
-	Reference the [Shortcodes](/workflows/shortcodes/overview) section to further
-	customize your template
-</Tip>
+Learn more about [shortcodes](/workflows/shortcodes/overview).
 
-### Testing Your Templates
+## How Templates Work
 
-Before activating a workflow:
+Templates are pre-configured and automatically activated when you:
+1. Send a quote with "Enroll in workflow" enabled
+2. The system sends emails according to the preset schedule
+3. Each email uses the appropriate template for that step
 
-1. Click the **Preview** button to see how your email will look
-2. Select a specific quote to see how shortcodes will be replaced
-3. Send a test email to verify everything appears correctly
-
-## Best Practices
-
-- Keep subject lines clear and engaging
-- Personalize messages using shortcodes
-- Space out follow-up emails appropriately
-- Test templates before using them with leads
-- Regularly review and update your templates based on engagement
-
-## Managing Multiple Templates
-
-While in beta, we have one workflow template for quote follow-up.
-
-Soon you'll be able to add as many templates as you like.
+No customization required - templates are ready to use.

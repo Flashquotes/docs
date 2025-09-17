@@ -5,11 +5,9 @@ description: "Understanding workflow triggers and automation in Flashquotes"
 
 ## Available Triggers
 
-### Quote Sent Trigger
+### Quote Sent
 
-The primary trigger currently available in Flashquotes is the **Quote Sent** trigger.
-
-This trigger automatically initiates a workflow when the **Send quote** action is taken and "Enroll in workflow" is toggled on.
+The Quote Sent trigger automatically starts the workflow when you send a quote with "Enroll in workflow" enabled.
 
 <Frame>
 	<img
@@ -18,29 +16,13 @@ This trigger automatically initiates a workflow when the **Send quote** action i
 	/>
 </Frame>
 
-When triggered, the workflow will:
+How it works:
 
-- Begin the automated email sequence
-- Schedule follow-up messages according to the _Quote follow-up workflow_ starter template
-- Track engagement with the sent emails
+1. Send a quote from the quotes page
+2. Toggle "Enroll in workflow" before sending
+3. The 7-step email sequence begins automatically
+4. Emails send at preset intervals over 30 days
 
-## Coming Soon
+## Other Triggers
 
-We're actively working on expanding our trigger system. Future triggers **may** include:
-
-- Quote requested
-- Quote booked
-- Invoice due
-- First event start
-- Last event end
-- And more!
-
-Stay tuned for updates as we continue to enhance the workflow automation capabilities in Flashquotes.
-
-## Best Practices
-
-Even with a single trigger type, you can optimize your workflow usage by:
-
-- Ensuring the "Enroll in workflow" toggle is enabled when needed
-- Customizing the workflow template timing and content based on your business needs
-- Using the preview feature to verify workflow behavior before sending
+Additional triggers are in development and not yet available through the user interface.

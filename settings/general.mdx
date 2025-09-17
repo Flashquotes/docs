@@ -1,64 +1,70 @@
 ---
-title: "General Settings"
-description: "Configure basic company information and location settings"
+title: "Company Settings"
+description: "Configure basic company information, Stripe setup, and location settings"
 ---
 
 ## Overview
 
-General settings contain your core company information and location configuration. This information is used throughout Flashquotes for invoicing, communications, and timeline calculations.
+Company settings (found at `/settings` and labeled "Company" in navigation) contain your core business configuration. This includes company information, Stripe payment setup, and location management.
+
+**When you need this:** Initial account setup and any time you need to update business details.
 
 ## Company Information
 
-<AccordionGroup>
-	<Accordion icon="building" title="Basic Details">
-		Configure essential company information: - Company name - Company ID -
-		Invoice display name - Invoice address - Contact email - Contact phone
-		<Note>
-			Company and location IDs are used for building automations with platforms
-			like Zapier.
-		</Note>
-	</Accordion>
-</AccordionGroup>
+Steps:
+1. Go to Settings (labeled "Company" in navigation)
+2. Update your company details:
+   - Company name
+   - Invoice display name
+   - Invoice address
+   - Contact email and phone
+3. Click Save Changes
+
+**What happens next:** This information appears on all invoices and client communications.
+
+<Note>
+Company and location IDs are used for building automations with platforms like Zapier.
+</Note>
+
+## Stripe Payment Setup
+
+Steps:
+1. Go to Settings > Stripe Connect section
+2. Click "Connect Stripe Account"
+3. Complete Stripe onboarding process
+4. Verify connection status shows "Connected"
+
+**What happens next:** You can accept payments through forms and quotes.
+
+**Common issues:**
+- Connection fails: Verify business information matches Stripe requirements
+- Payments not processing: Check Stripe dashboard for account restrictions
 
 ## Location Management
 
-<AccordionGroup>
-  <Accordion icon="map-pin" title="Location Address">
-    Set your headquarters location address to ensure accurate drive time calculations and service area validation.
-    
-    <Tip>
-      Your primary location should be where your resources are stored to ensure accurate drive time calculations.
-    </Tip>
-  </Accordion>
+Steps:
+1. Scroll to Location section in Company settings
+2. Set headquarters address (where resources are stored)
+3. Configure timezone for accurate event scheduling
+4. Set default email account for quote delivery
+5. Set default tax rate for automatic quote calculations
 
-  <Accordion icon="clock" title="Location Timezone">
-    Set your timezone to ensure accurate timeline and event time presentation.
-  </Accordion>
-  <Accordion icon="envelope" title="Default Email">
-    Set your default email for each location to ensure the right email is used when sending a quote.
+**What happens next:** Drive times and service areas calculate accurately.
 
-    <Tip>
-      Need to add another account? Click *+ Add new email* to easily link a new Google account.
-    </Tip>
-
-  </Accordion>
-  <Accordion icon="building-columns" title="Default Tax Rate">
-    Set your default tax rate for each location to ensure the right tax rate is auto-applied to each quote.
-  </Accordion>
-  
-</AccordionGroup>
+**Common issues:**
+- Incorrect drive times: Verify headquarters address is where equipment is stored
+- Wrong timezone: Events will display incorrect times to clients
 
 ## Best Practices
 
-1. Keep company information current
-2. Verify location accuracy
-3. Use a default tax rate for each location
-4. Use a default email for each location
+1. Connect Stripe before launching any forms
+2. Set headquarters to actual equipment storage location
+3. Configure default tax rate to avoid manual entry
+4. Link primary business email for quote delivery
 
 ## Next Steps
 
-After configuring general settings:
-
-- [Set up branding](/settings/branding)
-- [Configure locations](/settings/general#location-management)
-- [Review automation IDs](/settings/integrations/zapier)
+After configuring company settings:
+- [Set up branding](/settings/branding) (logo and colors only)
+- [Configure quote settings](/settings/quotes)
+- [Add service charges](/settings/service-charges)

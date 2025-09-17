@@ -3,116 +3,25 @@ title: "If Conditions"
 description: "Learn how to use if/else conditional logic in your workflow message templates"
 ---
 
-The `if` helper allows you to conditionally include content based on whether a value exists. You can add an `{{else}}` step to return a different value when the `if` check is empty/false.
-
 <Warning>
-	Empty values and zero (`0`) are considered false when evaluating an `if`
-	condition.
+	The `if` helper is not currently available in Flashquotes workflows. This feature is in development.
 </Warning>
 
-<Tip>
-	You can add an optional setting to [treat zero as
-	true](/workflows/shortcodes/helpers/if-else#treat-zero-as-true).
-</Tip>
+The `if` helper will allow you to conditionally include content based on whether a value exists.
 
-### Basic Usage
+## Planned Features
 
-```
-{{#if lead.company_name}}
-  Hello {{lead.full_name}} from {{lead.company_name}}!
-{{else}}
-  Hello {{lead.full_name}}!
-{{/if}}
-```
+When available, the `if` helper will support:
 
-If `lead.company_name` exists:
+- Basic conditional logic
+- Else blocks for alternative content
+- Multiple conditions in templates
+- Nested conditions for complex logic
 
-```
-Hello John Doe from Acme Inc!
-```
+## Alternative Solution
 
-If `lead.company_name` is empty:
+For now, use the [default helper](/workflows/shortcodes/helpers/default) to provide fallback values when fields are empty.
 
-```
-Hello John Doe!
-```
+## Coming Soon
 
-### Multiple Conditions
-
-You can check multiple conditions in the same template:
-
-```
-{{#if quote.guest_count}}
-  We're excited to serve your {{quote.guest_count}} guests!
-{{else}}
-  We're excited to serve your group!
-{{/if}}
-
-{{#if quote.number_of_staff}}
-  Our team of {{quote.number_of_staff}} staff members will ensure everything runs smoothly.
-{{/if}}
-```
-
-### Nested Conditions
-
-You can nest conditions for more complex logic:
-
-```
-{{#if lead.company_name}}
-  {{#if lead.phone}}
-    We'll contact {{lead.company_name}} at {{lead.phone}}.
-  {{else}}
-    We'll contact {{lead.company_name}} via email.
-  {{/if}}
-{{else}}
-  We'll be in touch soon!
-{{/if}}
-```
-
-### Treat Zero as True
-
-If you want the if statement to consider a value of `0` as true, use the optional `includeZero` setting.
-
-For example, if your if statement was `{{#if 0 includeZero=true}}`, then a value of `0` would satisfy and trigger the value within the `if` statement.
-
-## Best Practices
-
-1. Always provide an `else` block for critical information
-2. Use nested conditions sparingly to maintain readability
-3. Test your templates with both filled and empty data
-4. Consider using the [default helper](/workflows/shortcodes/helpers/default) for simpler fallback cases
-
-<Tip>
-	Preview your templates with different quotes to ensure your conditional logic
-	works as expected in all scenarios.
-</Tip>
-
-## Common Use Cases
-
-### Company Information
-
-```
-{{#if company.contact_phone}}
-  Call us at {{company.contact_phone}}
-{{else}}
-  Email us at {{company.contact_email}}
-{{/if}}
-```
-
-### Event Details
-
-```
-{{#if quote.event_address}}
-  Your event at {{quote.event_address}}
-{{else}}
-  Your upcoming event
-{{/if}}
-```
-
-### Service Information
-
-```
-{{#if quote.number_of_staff}}
-  With {{quote.number_of_staff}} professional staff
-{{/if}}
-```
+This feature is in development. Check back for updates on availability.
