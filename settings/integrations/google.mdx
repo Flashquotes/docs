@@ -1,19 +1,23 @@
 ---
 title: "Google Integration"
-description: "Connect your Gmail account to send quotes directly from your email"
+description: "Connect Gmail and Google Calendar to streamline communication and scheduling"
 ---
 
-Connect Gmail to send quotes from your business email and track customer conversations.
+Connect your Google account to unlock powerful integrations for email and calendar management.
 
 ## What you can do
 
-The Google integration allows you to send quotes and communications directly from your Gmail account. This creates a more personal connection with your leads and helps maintain your email communication history in one place.
+The Google integration provides three key capabilities:
+
+- **Send Email** - Send quotes directly from your Gmail account (all plans)
+- **Read Email** (Plus/Pro) - Sync email activity from your leads
+- **Calendar Sync** (Plus/Pro) - Automatically sync bookings to Google Calendar
 
 <Tip>
 Learn why [Google Workspace/Gmail is strongly recommended](/settings/integrations/email-provider) for the best Flashquotes experience.
 </Tip>
 
-## Connect Gmail
+## Getting started
 
 <Steps>
   <Step title="Go to integrations">
@@ -22,36 +26,51 @@ Learn why [Google Workspace/Gmail is strongly recommended](/settings/integration
   <Step title="Add Google account">
     Find the Google section and click "+ Add account"
   </Step>
-  <Step title="Sign in">
-    Sign in to your Google account and grant these permissions:
-    - Send emails on your behalf
-    - View your email address
-    - View your basic profile info
+  <Step title="Sign in and grant permissions">
+    Sign in to your Google account and grant the requested permissions
   </Step>
 </Steps>
 
-<Note>
-You can connect multiple Gmail accounts if you need to send from different addresses.
-</Note>
+## Feature details
 
-## Using the integration
-
-**Sending quotes**:
-- Select your Gmail account when sending quotes
-- Set a default email for each location in [Location Settings](/settings/general#default-email)
-
-**Managing connections**:
-- View all connected accounts in Settings > Integrations
-- Remove accounts by clicking "Disconnect"
+<CardGroup cols={3}>
+  <Card title="Gmail Sending" icon="paper-plane" href="/settings/integrations/google-gmail-send">
+    Send quotes from your Gmail account
+  </Card>
+  <Card title="Gmail Integration" icon="inbox" href="/settings/integrations/google-gmail-read">
+    Sync email activity from your leads (Plus/Pro)
+  </Card>
+  <Card title="Calendar Sync" icon="calendar" href="/settings/integrations/google-calendar">
+    Sync booked events to Google Calendar (Plus/Pro)
+  </Card>
+</CardGroup>
 
 ## Best practices
 
-1. Use a business Gmail account
-2. Set your most-used account as default
-3. Keep your email signature professional
+1. **Use a business Google Workspace account** - More reliable than personal Gmail for business use
+2. **Connect one primary account** - Use your main business email as default
+3. **Keep permissions current** - Reconnect promptly if you see disconnection warnings
+
+## Upgrading to Plus
+
+Full Gmail integration and Google Calendar sync require Flashquotes Plus or Pro.
+
+[Learn more about Flashquotes Plus](https://flashquotes.com/pricing)
+
+## Troubleshooting
+
+### Google account disconnected
+- Reconnect your account in Settings > Integrations
+- You may need to re-grant permissions
+- Calendar events and email syncing will resume after reconnection
+
+### Need more help?
+- [Gmail sending issues](/settings/integrations/google-gmail-send#troubleshooting)
+- [Gmail sync issues](/settings/integrations/google-gmail-read#troubleshooting)
+- [Calendar sync issues](/settings/integrations/google-calendar#troubleshooting)
 
 ## Next steps
 
-After connecting Gmail:
-- [Send your first quote](/leads/quotes)
-- Set default sending email for each location
+- [Set up Gmail sending](/settings/integrations/google-gmail-send)
+- [Enable full Gmail integration](/settings/integrations/google-gmail-read)
+- [Configure calendar sync](/settings/integrations/google-calendar)

@@ -1,0 +1,79 @@
+---
+title: "Sync payments to QuickBooks"
+description: "Manually sync individual payments and refunds to QuickBooks Online"
+---
+
+Sync specific payments and refunds to QuickBooks when you need manual control over your accounting records.
+
+## When you need this
+
+Use manual sync when:
+- QuickBooks connection was set up after payments were processed
+- You want to sync only specific transactions
+- Automatic sync failed for individual payments
+- You need to control timing of accounting entries
+
+<Note>
+Manual sync requires an active Pro subscription and QuickBooks Online connection. Set up QuickBooks integration first in [Settings → Integrations](/settings/integrations/quickbooks).
+</Note>
+
+## Sync a payment
+
+1. Go to an invoice with payment activity
+2. Find the payment in the Payment Activity table
+3. Click **Sync Payment** next to the payment
+4. Wait for sync to complete (button shows loading spinner)
+
+What happens next: The payment syncs to QuickBooks as an invoice, payment record, and bank deposit. The sync button disappears and shows a QuickBooks icon.
+
+## Sync a refund
+
+1. Go to an invoice with refund activity
+2. Find the refund in the Payment Activity table
+3. Click **Sync Refund** next to the refund
+4. Wait for sync to complete
+
+What happens next: The refund syncs to QuickBooks as a refund record. You'll see a QuickBooks icon showing the sync is complete.
+
+## Prerequisites
+
+Before syncing payments, verify these settings in QuickBooks integration:
+
+- **Deposit bank account**: Where payments are deposited
+- **Fee expense account**: For processing fees
+- **Refund bank account**: For refund transactions (refunds only)
+
+<Warning>
+Missing account mappings will cause sync to fail. Check your QuickBooks integration settings if sync doesn't work.
+</Warning>
+
+## Common issues
+
+- **Sync button not visible**: Check you have Pro subscription and QuickBooks connected
+- **"Already synced" error**: Payment was previously synced to QuickBooks
+- **"Invoice already paid" error**: QuickBooks invoice has zero balance remaining
+- **Account mapping missing**: Set up required bank and expense accounts in QuickBooks settings
+
+## What gets created in QuickBooks
+
+**For payments:**
+- Invoice record (if not already exists)
+- Payment record linked to invoice
+- Bank deposit with fee deductions
+
+**For refunds:**
+- Refund record
+- Bank account deduction
+
+## Limitations
+
+- Can only sync payments with valid amounts greater than $0
+- Previously synced payments can't be synced again
+- Requires customer email to match or create QuickBooks customer
+- Stripe fees and flashquotes fees are automatically calculated and recorded
+
+## Related topics
+
+- [QuickBooks Integration Setup](/settings/integrations/quickbooks)
+- [Payment Management](/finance/payments)
+- [Processing Refunds](/invoices/refunds)

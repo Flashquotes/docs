@@ -1,0 +1,146 @@
+---
+title: "Google Calendar Sync"
+description: "Automatically sync booked events to Google Calendar"
+---
+
+<Note>
+Google Calendar synchronization requires Flashquotes Plus or Pro.
+</Note>
+
+Automatically sync your Flashquotes booked events to Google Calendar to maintain a unified view of your schedule.
+
+## What gets synced
+
+**Event details:**
+- Event name and description
+- Shift start and end time
+- Event start and end time
+- Event location/venue address
+- Links back to Flashquotes event details and brief
+
+**Benefits:**
+- See Flashquotes events in Google Calendar
+- Automatic updates when you change events
+- Share availability with team members by inviting them to the GCal event
+- Avoid double-booking with personal events
+
+## Enable calendar sync
+
+<Steps>
+  <Step title="Upgrade to Plus">
+    Ensure your account has an active Flashquotes Plus or Pro subscription
+  </Step>
+  <Step title="Connect Google Calendar access">
+    If your Google account isn't already connected with Calendar permissions:
+    1. Go to Settings > Integrations
+    2. Click "Reconnect" next to an existing account
+    3. Grant the additional permissions
+  </Step>
+  <Step title="Configure calendar sync per location">
+    1. In Settings > Integrations, click "Configure" next to Google
+    2. For each location, select which Google account should receive calendar events
+    3. Choose "None" if you don't want calendar sync for a location
+  </Step>
+  <Step title="Events sync automatically">
+    All future booked events will automatically create events in your selected Google Calendar
+  </Step>
+</Steps>
+
+## How calendar sync works
+
+**Events are created when:**
+- A quote is booked by your customer
+- You create a manual booking in Flashquotes
+- You copy a booking with events
+
+**Events are updated when:**
+- You change booking details (date, time, location)
+- Event name or description changes
+- Shift times change
+
+**Events are deleted when:**
+- You cancel or delete a booking in Flashquotes
+- You disconnect a Google account that was syncing to calendar
+- You change which Google account syncs calendar for a location
+
+**Event details included:**
+- **Title:** Event name
+- **Time:** Shift start/end
+- **Location:** Event venue address
+- **Description:** Event details and link to Flashquotes
+- **Source:** Shows "Flashquotes" as the event source
+
+## View sync status and trigger manual sync
+
+You can check calendar sync status and manually trigger syncs directly from Flashquotes.
+
+**Where to find sync status:**
+- The Google Calendar icon in the event logistics and calendar event details conveys the status
+- If the event is synced, the icon will be solid and will display the sync date on hover
+- If the event is **not** synced, the icon will be transparent and you can click on it to trigger a manual sync
+
+<img src="/images/gcal-sync.webp" alt="Calendar sync status indicators" />
+
+<Tip>
+If an event shows "Failed" status, try the manual sync button before reconnecting your entire Google account.
+</Tip>
+
+## Manage calendar sync
+
+**Change which calendar receives events:**
+1. Go to Settings > Integrations > Configure Google
+2. Select a different Google account for a location
+3. Flashquotes will:
+   - Remove future events from the old calendar
+   - Create events in the new calendar for all future bookings
+
+**Disable calendar sync for a location:**
+1. Go to Settings > Integrations > Configure Google
+2. Select "None" for the location
+3. All future events will be removed from Google Calendar for that location
+
+**Disconnect Google Calendar:**
+- When you disconnect a Google account, all future calendar events created by Flashquotes are removed
+- Past events remain in your calendar but won't receive further updates
+
+<Warning>
+Changing calendar sync settings affects all future events for that location. Review which locations use which Google accounts regularly.
+</Warning>
+
+## Best practices
+
+1. **Configure calendar per company location** - Link calendars to company locations appropriately
+2. **Don't manually edit synced events** - Changes in Google Calendar won't sync back; edit in Flashquotes
+3. **Review sync settings regularly** - Ensure the right accounts sync to the right locations
+4. **Use one calendar per business unit** - Keep different services or locations in separate calendars if needed
+
+## Troubleshooting
+
+### Calendar events not syncing
+- Confirm you have an active Plus or Pro subscription
+- Verify "Calendar Sync" permission is granted
+- Check that calendar sync is configured for the location in Settings > Integrations > Configure
+- Ensure this is a booked event (quotes don't sync)
+- Try reconnecting your Google account
+
+### Events not updating
+- Verify your Google account is still connected
+- Check that you're editing the booking in Flashquotes (not in Google Calendar)
+- Allow a few minutes for updates to sync
+- Reconnect your account if issues persist
+
+### Events appearing in wrong calendar
+- Check location calendar configuration in Settings > Integrations > Configure
+- Update the Google account selection for that location
+- Events will migrate to the correct calendar
+
+### Events disappeared
+- Check if your Google account was disconnected
+- Verify calendar sync is still configured for the location
+- Reconnect your account to resume syncing
+
+## Next steps
+
+- [Enable full Gmail integration](/settings/integrations/google-gmail-read) to sync customer emails (Plus/Pro)
+- [Set up location defaults](/settings/general)
+- [Upgrade to Plus](https://flashquotes.com/pricing) if you don't have it yet

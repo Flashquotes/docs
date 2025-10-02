@@ -146,7 +146,16 @@
                 "pages": [
                   "settings/integrations/overview",
                   "settings/integrations/email-provider",
-                  "settings/integrations/google",
+                  {
+                    "group": "Google Integration",
+                    "pages": [
+                      "settings/integrations/google",
+                      "settings/integrations/google-gmail-send",
+                      "settings/integrations/google-gmail-read",
+                      "settings/integrations/google-calendar"
+                    ]
+                  },
+                  "settings/integrations/quickbooks",
                   "settings/integrations/zapier"
                 ]
               }
