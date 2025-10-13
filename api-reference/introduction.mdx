@@ -5,7 +5,7 @@ description: "Welcome to the Flashquotes API documentation"
 
 ## Welcome to the Flashquotes API
 
-The Flashquotes API enables you to programmatically access and manage your events, bookings, forms, and invoices. Our REST API provides endpoints for retrieving event data, managing form responses, and accessing invoice information.
+The Flashquotes API enables you to programmatically access and manage your events, bookings, forms, invoices, and tasks. Our REST API provides endpoints for retrieving event data, creating tasks, managing form responses, and accessing invoice information.
 
 <Tip>
 	API access is limited to Flashquotes Pro plan customers. You can easily
@@ -38,9 +38,13 @@ https://app.flashquotes.com/api
 
 Our API provides several endpoint groups:
 
-<CardGroup cols={3}>
+<CardGroup cols={2}>
 <Card title="Event Endpoints" icon="calendar">
   Manage events, retrieve event details, and list events within date ranges
+</Card>
+
+<Card title="Task Endpoints" icon="list-check">
+  Create and manage tasks on events programmatically
 </Card>
 
 <Card title="Form Response Endpoints" icon="clipboard">

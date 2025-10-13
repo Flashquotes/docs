@@ -1,0 +1,96 @@
+---
+title: "Create Task"
+description: "Create a task for a specific event"
+openapi: "POST /api/task/create"
+---
+
+This endpoint creates a task on an event. Tasks are automatically added to the event's Admin checklist.
+
+### Request Body
+
+The request body should be a JSON object with the following fields:
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `eventId` | string | Yes | The ID of the event to create the task on |
+| `description` | string | Yes | The task description |
+| `dueDate` | string | No | Due date for the task in ISO 8601 format (e.g., `2025-10-20T00:00:00Z`) |
+
+### Example Request
+
+```bash
+curl -X POST https://app.flashquotes.com/api/task/create \
+  -H "x-api-key: your_api_key_here" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "eventId": "cm123abc456",
+    "description": "Call venue to confirm table and chair arrangements",
+    "dueDate": "2025-10-20T00:00:00Z"
+  }'
+```
+
+### Example Response
+
+```json
+{
+  "success": true,
+  "task": {
+    "id": "cm456def789",
+    "description": "Call venue to confirm table and chair arrangements",
+    "dueDate": "2025-10-20T00:00:00.000Z",
+    "eventId": "cm123abc456",
+    "completed": false,
+    "createdAt": "2025-10-13T14:22:00.000Z"
+  }
+}
+```
+
+### Response Fields
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `success` | boolean | Whether the task was created successfully |
+| `task.id` | string | Unique identifier for the created task |
+| `task.description` | string | The task description |
+| `task.dueDate` | string \| null | Due date in ISO 8601 format, or null if not provided |
+| `task.eventId` | string | ID of the event this task belongs to |
+| `task.completed` | boolean | Whether the task is completed (always `false` for new tasks) |
+| `task.createdAt` | string | Timestamp when the task was created |
+
+### Common Use Cases
+
+- Automatically create follow-up tasks from external systems
+- Trigger task creation based on booking events or customer actions
+- Bulk import tasks from spreadsheets or other systems
+- Automatically create additional tasks after event booking
+
+### Error Responses
+
+**400 Bad Request** - Invalid request body or date format
+```json
+{
+  "error": "Invalid request body",
+  "details": {
+    "description": {
+      "_errors": ["Task description is required"]
+    }
+  }
+}
+```
+
+**404 Not Found** - Event doesn't exist or doesn't belong to your company
+```json
+{
+  "error": "Event not found"
+}
+```
+
+**500 Internal Server Error** - Unexpected error occurred
+```json
+{
+  "error": "Internal server error"
+}
+```
+
+### Notes
+Date format must be valid ISO 8601 (e.g., `2025-10-20T00:00:00Z`)
