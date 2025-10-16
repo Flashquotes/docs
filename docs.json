@@ -182,6 +182,10 @@
             ]
           },
           {
+            "group": "Task endpoints",
+            "pages": ["api-reference/task/create"]
+          },
+          {
             "group": "Form Response endpoints",
             "pages": ["api-reference/form-response/get"]
           },
