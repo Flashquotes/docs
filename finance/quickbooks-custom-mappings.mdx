@@ -1,0 +1,92 @@
+---
+title: "Custom item mapping"
+description: "Map specific services, add-ons, and service charges to QuickBooks items"
+---
+
+Override default QuickBooks item mappings for specific services, add-ons, and service charges. Use this when certain items need different accounting treatment than your defaults.
+
+## When you need this
+
+**Common scenarios:**
+- Service requires different income account
+- Add-on must track to a specific category
+- Service charge must track to specific expense account
+- Package pricing needs separate tracking
+
+Default mappings handle most cases. Only create custom mappings when specific items need different QuickBooks items.
+
+<Note>
+Requires QuickBooks Online integration and Pro subscription. [Set up QuickBooks](/settings/integrations/quickbooks) first.
+</Note>
+
+## How mappings work
+
+**Priority order:**
+1. Custom mapping (if exists) → uses specified QuickBooks item
+2. Default mapping → uses line item type default
+3. No mapping → uses QuickBooks default mapping (usually "Sales")
+
+**Example:** You have "Coffee Cart" service mapped to "Premium Catering" item. All other services use the default "Catering Services" item.
+
+## Create a custom mapping
+
+1. Go to Settings > Integrations > QuickBooks
+2. Scroll to Line Item Custom Mapping section
+3. Click **Add Mapping**
+4. Select type: Service, Add-on, or Service Charge
+5. Choose Flashquotes item from dropdown
+6. Select QuickBooks item from dropdown
+7. Mapping saves automatically
+
+What happens next: Future syncs use the custom QuickBooks item for that specific Flashquotes item. Existing invoices in QuickBooks aren't changed.
+
+## View existing mappings
+
+All custom mappings appear in the Line Item Custom Mapping card.
+
+**What you see:**
+- Type (Service, Add-on, or Service Charge)
+- Flashquotes item name
+- Mapped QuickBooks item name
+- Delete button (hover to reveal)
+
+## Delete a mapping
+
+1. Go to Settings > Integrations > QuickBooks
+2. Find the mapping in Line Item Custom Mapping
+3. Hover over the row
+4. Click trash icon
+
+What happens next: Future syncs use the default mapping for that line item type. Existing QuickBooks records aren't changed.
+
+## Mapping rules
+
+**One mapping per item:**
+- Each Flashquotes item can have one custom mapping
+- Updating a mapping replaces the previous one
+- Multiple items can map to the same QuickBooks item
+
+**Deletions:**
+- Deleting a Flashquotes item removes its custom mapping
+- Deleted mappings can't be recovered
+- Default mapping takes over immediately
+
+## Common issues
+
+- **Mapping not saving**: Check you selected both Flashquotes item and QuickBooks item
+- **Wrong item syncing**: Custom mappings override defaults - check custom mappings first
+- **Can't find QuickBooks item**: Click Refresh button to update QuickBooks data
+- **Mapping disappeared**: Flashquotes item may have been deleted
+
+## Best practices
+
+1. **Start with defaults** - Only create custom mappings when needed
+2. **Document your mappings** - Note why specific items need custom treatment
+3. **Review quarterly** - Ensure mappings still make sense
+4. **Test with one invoice** - Verify mapping works before bulk syncing
+
+## Related topics
+
+- [QuickBooks Integration Setup](/settings/integrations/quickbooks)
+- [Manual Payment Sync](/finance/quickbooks-sync)
+- [Service Charges](/settings/service-charges)

@@ -77,6 +77,10 @@
                   {
                     "group": "Invoice Management",
                     "pages": ["invoices/reminders", "invoices/refunds"]
+                  },
+                  {
+                    "group": "QuickBooks",
+                    "pages": ["finance/quickbooks-sync", "finance/quickbooks-custom-mappings"]
                   }
                 ]
               },
