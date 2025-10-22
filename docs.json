@@ -97,7 +97,8 @@
                       "forms/real-time-availability",
                       "forms/booking",
                       "forms/payment-schedules",
-                      "forms/compatibility"
+                      "forms/compatibility",
+                      "forms/wix-embeds"
                     ]
                   },
                   {

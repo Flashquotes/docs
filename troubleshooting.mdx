@@ -66,6 +66,28 @@ icon: "circle-question"
     For more information on customizing booking forms, see [Forms → Booking](/forms/booking).
 
   </Accordion>
+
+  <Accordion title="My form doesn't display correctly on mobile in Wix. What should I do?">
+    Wix has unique technical constraints that affect how iframe embeds display on mobile devices, particularly a 320px width limit and sandboxed rendering.
+
+    **Recommended Solution:**
+    Use a hybrid approach - embed the form for desktop users, but on mobile, use a button that links to your form's hosted Share Link page.
+
+    **Implementation:**
+    1. Create a [Share Link](/forms/share-links) in your Flashquotes dashboard
+    2. In Wix's mobile editor, hide the HTML iframe element
+    3. Add a button like "Get Custom Pricing" or "Request Quote"
+    4. Link the button to your Share Link URL
+
+    This ensures mobile users get the full, responsive form experience without Wix's display constraints.
+
+    **If you prefer to embed on mobile:**
+    Follow the mobile optimization steps in our [Wix Embed Best Practices](/forms/wix-embeds) guide, including using fixed dimensions and testing on real devices.
+
+    <Tip>
+      For the best mobile conversion rates, we strongly recommend using Share Links for Wix mobile users instead of embedded iframes.
+    </Tip>
+  </Accordion>
 </AccordionGroup>
 
 ---

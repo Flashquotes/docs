@@ -1,0 +1,69 @@
+---
+title: "Wix Embed Best Practices"
+description: "How to successfully embed Flashquotes forms on Wix websites, including mobile optimization and workarounds for platform limitations"
+---
+
+## Overview
+
+Wix has technical constraints that affect how embedded forms display, especially on mobile devices. This guide covers best practices for embedding Flashquotes forms on Wix sites and solutions to common issues.
+
+<Warning>
+Wix enforces a 320px width limit on mobile iframes and uses sandboxed rendering that can break responsive design. Test your embed on mobile before going live.
+</Warning>
+
+## Known Wix Limitations
+
+### Mobile Display Issues
+
+Wix's mobile rendering differs from other website builders:
+
+- **320px width constraint**: All mobile content displays at 320px width regardless of device capabilities
+- **Non-responsive preview**: Chrome Developer Tools cannot accurately preview Wix mobile layouts
+- **Sandboxed iframes**: Wix wraps embeds in an additional iframe that prevents natural responsive behavior
+- **Fixed height containers**: Dynamic height adjustments may not work as expected
+
+### What This Means for Your Forms
+
+- Multi-step forms may appear cramped on mobile
+- Form fields might not scale properly
+- Scrolling within the iframe may be required
+- Dynamic height changes between form steps may not function
+
+## Recommended Approach: Mobile Button Alternative
+
+For the best user experience, use a hybrid approach:
+
+### Desktop: Full Embed
+Embed your Flashquotes form normally for desktop users where space isn't constrained.
+
+### Mobile: Link to Hosted Form
+Replace the iframe with a button that links to your form's Share Link.
+
+**Implementation steps:**
+1. Generate a [Share Link](/forms/share-links) in your Flashquotes dashboard
+2. In Wix's mobile editor, [hide the HTML iframe element](https://support.wix.com/en/article/wix-mobile-apps-showing-or-hiding-elements-on-different-mobile-operating-systems)
+3. Add a button with text like "Get Custom Pricing" or "Request Quote"
+4. Link the button to your Share Link URL
+
+This ensures mobile users get the full, responsive form experience without Wix's constraints.
+
+**Additional Wix resources:**
+- [Making your Wix site mobile friendly](https://www.wix.com/blog/how-to-make-website-mobile-friendly)
+- [Wix's guidance on mobile embeds](https://support.wix.com/en/article/wix-editor-adding-embeds-and-custom-elements-to-your-mobile-site) (recommends hiding iframes on mobile)
+- [Video tutorial: How to fix iframes on Wix mobile](https://www.youtube.com/watch?v=bglXXJ9Az-k)
+
+## If You Choose to Embed on Mobile
+
+If you prefer to keep the iframe embed on mobile, follow these optimization steps:
+
+- Ensure the embed code is wrapped in a div with at least 320px width and 650px height
+- Test the embed on actual mobile devices, not just Wix's mobile preview
+
+## Next Steps
+
+After setting up your Wix embed:
+
+- [Configure form settings](/forms/lead-intake)
+- [Create Share Links](/forms/share-links) for mobile users
+- [Test platform compatibility](/forms/compatibility)
+- Monitor form submissions in [Leads](/leads/managing)
