@@ -38,11 +38,48 @@ Templates include shortcodes that automatically insert your data:
 
 Learn more about [shortcodes](/workflows/shortcodes/overview).
 
+## Customizing Your Workflow
+
+While templates come pre-configured and ready to use, you have full control to customize them to fit your business needs:
+
+### Adding New Steps
+
+You can add additional steps to your workflow at any position:
+
+1. Navigate to **Workflows** in the sidebar
+2. Click on the Quote Follow-up workflow
+3. Click **Add Step** between existing steps or at the end
+4. The system automatically calculates a smart delay based on surrounding steps
+5. Customize the email subject and message content for your new step
+
+### Editing Step Content
+
+Each workflow step includes an email template that you can customize:
+
+1. Click on any workflow step to edit
+2. Modify the subject line and message body
+3. Use shortcodes to personalize content with lead and quote data
+4. Changes are saved automatically
+
+### Deleting Steps
+
+Remove steps that don't fit your follow-up strategy:
+
+1. Click on the workflow step you want to remove
+2. Click the **Delete** button in the step editor
+3. Confirm deletion - this will soft-delete the step and its message template
+
+<Note>
+Deleting a step will **immediately** prevent that step from being sent, even for active workflows.
+</Note>
+
+<Warning>
+Adding a step only impacts **future workflow enrollments**. The new step will **not** be added to existing active workflows.
+</Warning>
+
 ## How Templates Work
 
 Templates are pre-configured and automatically activated when you:
 1. Send a quote with "Enroll in workflow" enabled
 2. The system sends emails according to the preset schedule
 3. Each email uses the appropriate template for that step
-
-No customization required - templates are ready to use.
