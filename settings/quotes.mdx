@@ -15,6 +15,15 @@ Quote settings control how your quotes are presented to clients and set default 
   <Accordion icon="clock" title="Expiration Settings">
     Configure default quote expiration settings that apply to all new quotes. When quotes expire, customers can no longer book them directly - they'll be prompted to request a new quote or contact your company.
 
+    ### How Quote Expiration Works
+
+    When a quote is created, its expiration date is automatically set to whichever comes **first**:
+
+    1. **Standard Expiration**: Current date + configured expiration days (default: 14 days)
+    2. **Event-Based Expiration**: Midnight of the day before the event (in the event location's timezone)
+
+    **Example:** If an event is scheduled for October 27 at 2:00 PM MST, the quote will expire on October 26 at 12:00 AM MST. This ensures customers have until the end of the day before the event to book, while giving you time to prepare.
+
     <Warning>
       Expired quotes cannot be booked. Customers viewing expired quotes will see options to request a fresh quote or contact you directly.
     </Warning>
