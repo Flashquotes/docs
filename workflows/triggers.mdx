@@ -5,6 +5,39 @@ description: "Understanding workflow triggers and automation in Flashquotes"
 
 ## Available Triggers
 
+### Quote Requested
+
+The Quote Requested trigger automatically enrolls leads in workflows when they submit a quote request through your lead intake forms. This allows you to engage leads immediately after they express interest, before you even send a formal quote.
+
+**How it works:**
+
+1. A lead submits your lead intake form
+2. Flashquotes automatically enrolls them in any active Quote Requested workflows
+3. The email sequence begins immediately based on your configured timing
+4. Workflows continue until the lead books or you stop them manually
+
+**Key Features:**
+- **Automatic Enrollment**: No manual action required - leads are enrolled as soon as they submit the form
+- **Immediate Engagement**: Connect with leads during the critical window between request and quote delivery
+- **Gmail Account Selection**: Choose which connected Gmail account sends the workflow emails
+- **Customizable Templates**: Create email sequences tailored to new lead inquiries
+
+**Common Use Cases:**
+- Send immediate acknowledgment confirming quote request receipt
+- Share your company story and build trust while preparing their quote
+- Provide helpful event planning tips and resources
+- Set expectations about your quote preparation timeline
+- Answer common questions proactively
+
+**Setting Up Quote Requested Workflows:**
+
+To create a Quote Requested workflow:
+1. Navigate to Workflows from your main navigation
+2. Create a new workflow
+3. Select "Quote Requested" as the trigger type
+4. Add email steps with your desired timing and content
+5. Publish the workflow to activate automatic enrollment
+
 ### Quote Sent
 
 The Quote Sent trigger automatically starts the workflow when you send a quote with "Enroll in workflow" enabled.
@@ -16,13 +49,24 @@ The Quote Sent trigger automatically starts the workflow when you send a quote w
 	/>
 </Frame>
 
-How it works:
+**How it works:**
 
 1. Send a quote from the quotes page
 2. Toggle "Enroll in workflow" before sending
 3. The 7-step email sequence begins automatically
 4. Emails send at preset intervals over 30 days
 
-## Other Triggers
+**Key Features:**
+- **Manual Control**: Choose whether to enroll each quote individually
+- **Pre-configured Sequence**: Comes with 7 optimized follow-up emails
+- **Customizable**: Modify timing, content, and number of steps to match your sales process
 
-Additional triggers are in development and not yet available through the user interface.
+## Workflow Trigger Comparison
+
+| Feature | Quote Requested | Quote Sent |
+|---------|----------------|------------|
+| **Activation** | Automatic on form submission | Manual toggle when sending quote |
+| **Timing** | Starts immediately after form submission | Starts when you send the quote |
+| **Use Case** | Initial engagement and acknowledgment | Quote follow-up and conversion |
+| **Default Templates** | None (you create custom sequences) | 7 pre-configured follow-up emails |
+| **Enrollment** | Automatic for all form submissions | Optional per quote |
