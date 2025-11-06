@@ -62,13 +62,9 @@ Quote settings control how your quotes are presented to clients and set default 
 
 <AccordionGroup>
   <Accordion icon="pen-to-square" title="Custom Quote Email Subject">
-    Set a custom subject line for all quote emails you send. Personalize your subject lines using lead-specific shortcodes to increase open rates and engagement.
-    
-    **Available Shortcodes:**
-    - `{{lead.first_name}}` - Lead's first name (e.g., "John")
-    - `{{lead.last_name}}` - Lead's last name (e.g., "Doe") 
-    - `{{lead.full_name}}` - Lead's full name (e.g., "John Doe")
-    - `{{lead.company_name}}` - Lead's company name (e.g., "Acme Inc")
+    Set a custom subject line for all quote emails you send. You can use any shortcode from the Quote Sent workflow to personalize subject lines (like `{{lead.first_name}}` or `{{company.name}}`).
+
+    [See all available shortcodes →](/workflows/shortcodes/overview)
 
     **Example Subject Lines:**
     - `☕ {{lead.first_name}}, your quote is ready!`
@@ -79,17 +75,35 @@ Quote settings control how your quotes are presented to clients and set default 
     </Tip>
 
     <Note>
-      If no custom subject is set, Flashquotes will use a default subject line. You can always edit the subject when sending individual quotes.
+      If no custom subject is set, flashquotes will use a default subject line. You can always edit the subject when sending individual quotes.
     </Note>
   </Accordion>
 
   <Accordion icon="pen-to-square" title="Custom Quote Email Body">
-    Click `Update` on *Custom quote email body* to set a custom text to use as your default for all quote emails you send.
-    
-    Emoji are welcome! 😃
+    Set a custom default email body for all quote emails. You can use any shortcode from the Quote Sent workflow to personalize your message (like `{{lead.first_name}}` or `{{company.name}}`).
+
+    [See all available shortcodes →](/workflows/shortcodes/overview)
+
+    **Example Email Body:**
+    ```
+    Hi {{lead.first_name}},
+
+    Thanks for requesting a quote! I've put together custom pricing for your event.
+
+    Click the link below to review details and book online in minutes.
+
+    Let me know if you have questions!
+    ```
+
+    **Live Preview:**
+    As you type, the preview shows how your email will look with real lead data. This helps you verify formatting and personalization before saving.
+
+    <Tip>
+      Emoji work great in email bodies! They make messages feel personal and friendly. 😃
+    </Tip>
 
     <Note>
-      Want to use a different email body for quote? No problem, just edit it when sending the quote email.
+      You can edit the email body when sending individual quotes if you need custom messaging for specific leads.
     </Note>
 
   </Accordion>
