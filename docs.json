@@ -34,8 +34,7 @@
                     "pages": ["leads/quotes", "leads/autodraft", "leads/service-days", "leads/quote-view-v2"]
                   },
                   "leads/sending-quotes",
-                  "leads/instant-pricing",
-                  "leads/export-data"
+                  "leads/instant-pricing"
                 ]
               },
               {
@@ -85,6 +84,14 @@
                 ]
               },
               "reports",
+              {
+                "group": "Imports & Exports",
+                "pages": [
+                  "imports-exports/overview",
+                  "imports-exports/export-leads",
+                  "imports-exports/export-bookings"
+                ]
+              },
               {
                 "group": "Automations",
                 "pages": [
@@ -241,5 +248,12 @@
       "x": "https://x.com/flashquoteshq",
       "linkedin": "https://linkedin.com/company/flashquotes"
     }
-  }
+  },
+  "redirects": [
+    {
+      "source": "/leads/export-data",
+      "destination": "/imports-exports/export-leads",
+      "permanent": true
+    }
+  ]
 }

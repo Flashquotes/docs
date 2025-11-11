@@ -1,0 +1,128 @@
+---
+title: "Export Bookings to CSV"
+description: "Export confirmed booking data with event details, client information, and revenue metrics"
+---
+
+## Overview
+
+Export your confirmed bookings to CSV format for financial reporting, client management, and operational planning. The export includes comprehensive booking information including event details, client contact data, service selections, and revenue metrics.
+
+## How to Export Bookings
+
+<Steps>
+  <Step title="Navigate to Bookings">
+    Go to the [Bookings](https://app.flashquotes.com/bookings) page in your Flashquotes dashboard.
+  </Step>
+
+  <Step title="Click Export Button">
+    Click the **Export to CSV** button in the top toolbar.
+  </Step>
+
+  <Step title="Download Your File">
+    Your browser will automatically download a CSV file containing your bookings with all their associated data.
+  </Step>
+</Steps>
+
+## What's Included
+
+The booking export includes comprehensive information about each confirmed event:
+
+<AccordionGroup>
+  <Accordion icon="calendar-check" title="Event Information">
+    - Booking ID
+    - Event date and time
+    - Event type
+    - Venue and location details
+    - Guest count
+    - Event status
+  </Accordion>
+
+  <Accordion icon="user" title="Client Details">
+    - Client name
+    - Email address
+    - Phone number
+    - Company name
+    - Special requests and notes
+  </Accordion>
+
+  <Accordion icon="utensils" title="Service Details">
+    - Selected core services
+    - Add-ons and upgrades
+    - Staff assignments
+    - Equipment and resources
+    - Custom line items
+  </Accordion>
+
+  <Accordion icon="dollar-sign" title="Financial Data">
+    - Total booking value
+    - Deposit amount and status
+    - Payment schedule
+    - Outstanding balance
+    - Payment method
+  </Accordion>
+</AccordionGroup>
+
+## Common Use Cases
+
+### Financial Reporting
+
+Import booking data into accounting software or spreadsheets to:
+- Generate revenue reports by period
+- Track deposit collection rates
+- Analyze profit margins by event type
+- Forecast cash flow
+
+### Operational Planning
+
+Use exports for logistics and scheduling:
+- Create staff assignment schedules
+- Plan equipment allocation
+- Track venue utilization
+- Manage inventory needs
+
+### Client Relationship Management
+
+Export booking history to:
+- Maintain client records in external CRM systems
+- Track repeat customer patterns
+- Identify upsell opportunities
+- Generate anniversary reminders
+
+## File Format
+
+The CSV file follows RFC 4180 standards:
+- UTF-8 encoding
+- Comma-separated values
+- Double-quoted text fields
+- Header row with column names
+- Compatible with Excel, Google Sheets, and all major data tools
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion icon="exclamation-triangle" title="Export button not appearing">
+    Ensure you have the appropriate permissions. Booking exports require Admin or Member role access.
+  </Accordion>
+
+  <Accordion icon="file-excel" title="File won't open in Excel">
+    If special characters appear incorrectly:
+    1. Open Excel first
+    2. Use Data → Import from Text/CSV
+    3. Select UTF-8 encoding
+    4. Choose comma as delimiter
+  </Accordion>
+
+  <Accordion icon="filter" title="Missing bookings in export">
+    Check your active filters - the export respects all current filters including:
+    - Date range
+    - Event type
+    - Booking status
+    - Assigned team member
+  </Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+- [Imports & Exports Overview](/imports-exports/overview)
+- [Export Leads](/imports-exports/export-leads)
+- [Managing Bookings](/bookings)
