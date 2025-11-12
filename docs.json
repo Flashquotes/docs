@@ -88,6 +88,7 @@
                 "group": "Imports & Exports",
                 "pages": [
                   "imports-exports/overview",
+                  "imports-exports/import-bookings",
                   "imports-exports/export-leads",
                   "imports-exports/export-bookings"
                 ]

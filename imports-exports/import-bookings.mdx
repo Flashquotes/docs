@@ -1,0 +1,131 @@
+---
+title: "Import Bookings from CSV"
+description: "Bulk import up to 100 bookings at once using a CSV template"
+---
+
+## Overview
+
+Import multiple bookings at once when migrating from another system or adding historical data. You can import up to 100 bookings per file.
+
+## How to Import Bookings
+
+<Steps>
+  <Step title="Download the CSV Template">
+    Go to [Bookings](https://app.flashquotes.com/bookings) and click **Import from CSV**. Download the template with example rows.
+  </Step>
+
+  <Step title="Fill Out Your Data">
+    Add your bookings to the template. Each row is one booking. Keep the header row unchanged.
+  </Step>
+
+  <Step title="Upload and Map Columns">
+    Upload your CSV. The system will show a preview. Map any columns that don't match automatically.
+  </Step>
+
+  <Step title="Review Validation Errors">
+    Fix any errors shown in red before importing. Common issues are date/time formats and missing required fields.
+  </Step>
+
+  <Step title="Start Import">
+    Click **Import**. The process runs in the background, processing 5 bookings at a time.
+  </Step>
+</Steps>
+
+## What Happens After Import
+
+- You'll see a results page with success/failure counts
+- Successfully imported bookings appear in your bookings list
+- Timeline entries are created automatically
+- Event brief tasks trigger if configured
+- No email notifications or webhooks are sent (to prevent duplicates)
+
+## Required Fields
+
+All bookings must include:
+- Entity to Invoice
+- Full Name
+- Payment Method
+- Total Price (Dollars)
+- Event Date (YYYY-MM-DD format)
+- Start Time (h:mm a format, e.g., 10:00 AM)
+- End Time
+- Number of Days (integer)
+- Guest Count
+- Event Address
+- Staff Number
+- Resource Number
+- Location Name
+- Location ID
+
+## Optional Fields
+
+Include these if you have the data:
+- Email
+- Phone
+- Event Description
+- Site Contact Name
+- Site Contact Phone
+- Additional Location Info
+- Parking Info
+- Staff Dress Code
+- Special Instructions
+
+## Format Requirements
+
+<AccordionGroup>
+  <Accordion icon="calendar" title="Dates and Times">
+    - Dates: YYYY-MM-DD (e.g., 2025-02-15)
+    - Times: h:mm a with space (e.g., 10:00 AM, 2:00 PM)
+    - Must use uppercase AM/PM with space before
+  </Accordion>
+
+  <Accordion icon="hashtag" title="Numbers">
+    - Number of Days: Whole number (e.g., 1, 2, 3)
+    - Guest Count: Whole number
+    - Staff Number: Whole number
+    - Resource Number: Whole number
+    - Total Price: Number format (e.g., 1500 for $1,500.00)
+  </Accordion>
+
+  <Accordion icon="map-pin" title="Location Fields">
+    - Location ID is required and must match an existing location in your account
+    - Location Name should match the ID's location
+    - Event Address can be different from the location address
+  </Accordion>
+</AccordionGroup>
+
+## Common Validation Errors
+
+<AccordionGroup>
+  <Accordion icon="exclamation-triangle" title="Date format incorrect">
+    Dates must be YYYY-MM-DD format. 02/15/2025 won't work. Use 2025-02-15 instead.
+  </Accordion>
+
+  <Accordion icon="clock" title="Time format incorrect">
+    Times need space before AM/PM. Use "10:00 AM" not "10:00AM". Must be lowercase h:mm a format.
+  </Accordion>
+
+  <Accordion icon="calculator" title="Integer required">
+    Number of Days, Guest Count, Staff Number, and Resource Number must be whole numbers. No decimals.
+  </Accordion>
+
+  <Accordion icon="map-marker-alt" title="Location ID missing or invalid">
+    Location ID is required and must match an existing location in Settings → Locations. Check your location IDs before importing.
+  </Accordion>
+
+  <Accordion icon="dollar-sign" title="Invalid price value">
+    Total Price must be a number. Use 1500 for $1,500.00. Don't include dollar signs or commas.
+  </Accordion>
+</AccordionGroup>
+
+## Import Limits
+
+<Note>
+  Maximum 100 bookings per import. For larger datasets, split into multiple files and import in batches.
+</Note>
+
+## Related Articles
+
+- [Imports & Exports Overview](/imports-exports/overview)
+- [Export Bookings](/imports-exports/export-bookings)
+- [Managing Bookings](/bookings)
