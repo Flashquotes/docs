@@ -15,10 +15,10 @@ Short codes are formatted as `{{entity.attribute}}` and must be surrounded by `{
 
 ## Available Shortcodes by Trigger
 
-Specific shortcodes are only available for certain triggers - for example, `{{invoice.due_date}}` wouldn't be available for a **Quote Sent** trigger before there's a booking and invoice.
+Specific shortcodes are only available for certain triggers based on what data is available at that stage of the customer journey.
 
 <Tabs>
-  <Tab title="Quote Sent">
+  <Tab title="Quote Sent / Quote Requested">
     ### Lead Information
     | Shortcode | Description | Example |
     |-----------|-------------|---------|
@@ -42,23 +42,70 @@ Specific shortcodes are only available for certain triggers - for example, `{{in
     | Shortcode | Description | Example |
     |-----------|-------------|---------|
     | `{{quote.amount}}` | Quote amount | $1,500.00 |
-    | `{{quote.event_start_date}}` | Quote event start date | March 25, 2025 |
+    | `{{quote.event_start_date}}` | Quote event start date | May 1, 2025 |
     | `{{quote.event_start_time}}` | Quote event start time | 10:00 AM |
-    | `{{quote.event_end_date}}` | Quote event end date | March 26, 2025 |
-    | `{{quote.event_end_time}}` | Quote event end time | 1:00 PM |
+    | `{{quote.event_end_date}}` | Quote event end date | May 2, 2025 |
+    | `{{quote.event_end_time}}` | Quote event end time | 10:00 PM |
     | `{{quote.event_address}}` | Quote event address | 123 Main St, Anytown, USA |
     | `{{quote.guest_count}}` | Quote guest count | 10 |
     | `{{quote.number_of_days}}` | Quote number of days | 2 |
     | `{{quote.number_of_staff}}` | Quote number of staff | 2 |
     | `{{quote.number_of_resources}}` | Quote number of resources | 2 |
-    | `{{quote.expiration_date}}` | Quote expiration date | April 11, 2025 |
+    | `{{quote.expiration_date}}` | Quote expiration date | May 30, 2025 |
+    | `{{quote.service_duration_hours}}` | Service duration in hours | 4 |
 
   </Tab>
-  
-  <Tab title="More Triggers Coming Soon">
-    Additional triggers and their associated shortcodes will be available in future updates.
+
+  <Tab title="Quote Booked / First Event Start / Last Event End">
+    ### Lead Information
+    | Shortcode | Description | Example |
+    |-----------|-------------|---------|
+    | `{{lead.first_name}}` | Lead's first name | John |
+    | `{{lead.last_name}}` | Lead's last name | Doe |
+    | `{{lead.full_name}}` | Lead's full name | John Doe |
+    | `{{lead.email}}` | Lead's email address | john@example.com |
+    | `{{lead.company_name}}` | Lead's company name | Acme Inc |
+    | `{{lead.phone}}` | Lead's phone number | +1 234-567-890 |
+    | `{{lead.city}}` | Lead's city | New York |
+
+    ### Company Information
+    This is information about your company
+    | Shortcode | Description | Example |
+    |-----------|-------------|---------|
+    | `{{company.name}}` | Company name | Acme Inc |
+    | `{{company.contact_email}}` | Company contact email | contact@acmeinc.com |
+    | `{{company.contact_phone}}` | Company contact phone number | +1 234-567-890 |
+
+    ### Booking Information
+    These shortcodes are available for booking-based workflow triggers
+    | Shortcode | Description | Example |
+    |-----------|-------------|---------|
+    | `{{booking.full_name}}` | Booking contact full name | John Doe |
+    | `{{booking.email}}` | Booking contact email | john@example.com |
+    | `{{booking.phone}}` | Booking contact phone | +1 234-567-890 |
+    | `{{booking.first_event_start_date}}` | First event start date | May 1, 2025 |
+    | `{{booking.first_event_start_time}}` | First event start time | 10:00 AM |
+    | `{{booking.last_event_end_date}}` | Last event end date | May 2, 2025 |
+    | `{{booking.last_event_end_time}}` | Last event end time | 10:00 PM |
+    | `{{booking.number_of_events}}` | Number of events in booking | 3 |
+    | `{{booking.created_date}}` | Date booking was created | April 15, 2025 |
+
+    <Note>
+    Booking shortcodes are only available for **First Event Start** and **Last Event End** triggers. These triggers require a Plus or Pro subscription.
+    </Note>
+
   </Tab>
+
 </Tabs>
+
+## Shortcode Availability Matrix
+
+| Shortcode Category | Quote Requested | Quote Sent | First Event Start | Last Event End |
+|-------------------|----------------|------------|-------------------|----------------|
+| **Lead** | ✓ | ✓ | - | - |
+| **Company** | ✓ | ✓ | ✓ | ✓ |
+| **Quote** | ✓ | ✓ | - | - |
+| **Booking** | - | - | ✓ | ✓ |
 
 <Info>
 	Ready to become a shortcodes power user? Check out our [Helper

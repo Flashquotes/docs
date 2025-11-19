@@ -3,7 +3,11 @@ title: "Triggers"
 description: "Understanding workflow triggers and automation in Flashquotes"
 ---
 
+import { PlusBadge } from "/snippets/badge.mdx";
+
 ## Available Triggers
+
+Flashquotes offers multiple workflow triggers to automate customer communications at different stages of the customer journey. Each trigger has access to specific shortcodes relevant to that stage.
 
 ### Quote Requested
 
@@ -61,12 +65,101 @@ The Quote Sent trigger automatically starts the workflow when you send a quote w
 - **Pre-configured Sequence**: Comes with 7 optimized follow-up emails
 - **Customizable**: Modify timing, content, and number of steps to match your sales process
 
+### First Event Start <PlusBadge />
+
+The First Event Start trigger allows you to send workflow emails based on when the first event in a booking begins. This is perfect for time-sensitive communications that need to happen before, during, or after the event starts.
+
+**How it works:**
+
+1. Create a workflow with the First Event Start trigger
+2. Add email steps with delays relative to the event start time (e.g., "2 days before" or "1 hour after")
+3. Publish the workflow
+4. When bookings are created, they're automatically enrolled
+5. Emails are scheduled based on the actual first event start time
+6. If event date change the workflow emails automatically reschedule
+
+**Key Features:**
+- **Automatic Enrollment**: Bookings enroll automatically when created
+- **Dynamic Scheduling**: Emails schedule based on actual event start times
+- **Automatic Rescheduling**: Updates when event dates change
+- **Booking Shortcodes**: Access booking-specific details in email templates
+- **Gmail Integration**: Send from your connected Gmail account
+
+**Common Use Cases:**
+- Remind clients of their upcoming service
+- Send details and set expectations with clients
+- Morning-of message with setup information
+- Immediate post-event thank you message
+
+**Scheduling Details:**
+- Steps can be scheduled before or after the event start time
+- Rescheduling happens automatically when event date change
+
+**Requirements:**
+- [Plus or Pro subscription](https://flashquotes.com/pricing)
+
+### Last Event End <PlusBadge />
+
+The Last Event End trigger allows you to send workflow emails based on when the final event in a booking concludes. This is ideal for post-event follow-ups, review requests, and re-engagement campaigns.
+
+**How it works:**
+
+1. Create a workflow with the Last Event End trigger
+2. Add email steps with delays relative to the event end time (e.g., "1 day after" or "7 days after")
+3. Publish the workflow
+4. When bookings are created, they're automatically enrolled
+5. Emails are scheduled based on the actual last event end time
+6. If event date change the workflow emails automatically reschedule
+
+**Key Features:**
+- **Automatic Enrollment**: Bookings enroll automatically when created
+- **Dynamic Scheduling**: Emails schedule based on actual event end times
+- **Automatic Rescheduling**: Updates when event dates change
+- **Booking Shortcodes**: Access booking-specific details in email templates
+- **Gmail Integration**: Send from your connected Gmail account
+
+**Common Use Cases:**
+- Thank you email immediately after the last event
+- Review request 1-2 days after event completion
+- Feedback survey request 1 week after event
+- Re-booking campaign 30-60 days after event
+
+**Scheduling Details:**
+- Steps are typically scheduled after the event end time
+- Rescheduling happens automatically when event date change
+
+**Requirements:**
+- [Plus or Pro subscription](https://flashquotes.com/pricing)
+
 ## Workflow Trigger Comparison
 
-| Feature | Quote Requested | Quote Sent |
-|---------|----------------|------------|
-| **Activation** | Automatic on form submission | Manual toggle when sending quote |
-| **Timing** | Starts immediately after form submission | Starts when you send the quote |
-| **Use Case** | Initial engagement and acknowledgment | Quote follow-up and conversion |
-| **Default Templates** | None (you create custom sequences) | 7 pre-configured follow-up emails |
-| **Enrollment** | Automatic for all form submissions | Optional per quote |
+| Feature | Quote Requested | Quote Sent | First Event Start | Last Event End |
+|---------|----------------|------------|-------------------|----------------|
+| **Activation** | Automatic on form submission | Manual toggle when sending quote | Automatic when booking created | Automatic when booking created |
+| **Timing** | Immediately after form submission | When you send the quote | Relative to first event start | Relative to last event end |
+| **Use Case** | Initial engagement | Quote follow-up | Pre/during/post first event | Post-event follow-up |
+| **Default Templates** | None (create custom) | 7 pre-configured emails | None (create custom) | None (create custom) |
+| **Enrollment** | Automatic for all forms | Optional per quote | Automatic for all bookings | Automatic for all bookings |
+| **Subscription** | All plans | All plans | Plus/Pro only | Plus/Pro only |
+| **Available Shortcodes** | Lead, Company, Quote | Lead, Company, Quote | Company, Booking | Company, Booking |
+| **Rescheduling** | No | No | Yes (on event date change) | Yes (on event date change) |
+
+## Choosing the Right Trigger
+
+### For Lead Engagement
+- **Quote Requested**: First touchpoint when lead shows interest
+- **Quote Sent**: Follow up after presenting your proposal
+
+### For Post-Booking Communication
+- **First Event Start**: Time-sensitive pre-event and day-of communications
+- **Last Event End**: Post-event follow-up and relationship building
+
+## Available Shortcodes by Trigger
+
+Different triggers have access to different shortcodes based on what information is available at that stage:
+
+- **All Triggers**: Company shortcodes (`{{company.name}}`, `{{company.contact_email}}`, etc.)
+- **Quote-Based** (Quote Requested, Quote Sent): Lead and Quote shortcodes
+- **Booking-Based** (First Event Start, Last Event End): Lead and Booking shortcodes
+
+[View complete shortcodes reference →](/workflows/shortcodes/overview)

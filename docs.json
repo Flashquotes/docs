@@ -29,6 +29,7 @@
                 "group": "Leads",
                 "pages": [
                   "leads/managing",
+                  "inbox",
                   {
                     "group": "Creating Quotes",
                     "pages": ["leads/quotes", "leads/autodraft", "leads/service-days", "leads/quote-view-v2"]
