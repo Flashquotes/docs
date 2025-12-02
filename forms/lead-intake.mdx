@@ -7,11 +7,59 @@ description: "Configure and optimize your lead capture form"
 
 The Lead Intake Form is optimized for high conversion rates, collecting only essential information needed to generate accurate quotes. This form automatically generates when you create your account and can be embedded on your website.
 
+## Form Editor
+
+The form editor displays all questions in the left panel, organized by page. Click any question to select it and view its settings in the right panel.
+
+<AccordionGroup>
+  <Accordion icon="grid-2-plus" title="Adding Questions">
+    Click **Add question** below any page to open the question picker:
+
+    **Connected Questions** sync data to Flashquotes fields:
+    - **SMS Opt-in** - Capture text message consent
+    - **Lead Source** - Track how leads found you (pre-populated options)
+    - **Add-ons** - Let leads select from your add-ons list
+    - **Services** - Let leads choose from your services
+
+    **Custom Questions** collect any information you need:
+    - **Text** - Short answer input
+    - **Multiple Choice** - Single selection from options
+    - **Multi-Select** - Multiple selections allowed
+    - **Dropdown** - Single selection from a dropdown menu
+
+    <Tip>
+      Connected questions already exist in your form? They'll appear greyed out with a checkmark.
+    </Tip>
+  </Accordion>
+
+  <Accordion icon="grip-vertical" title="Reordering Questions">
+    Drag questions to reorder them within a page or move them to a different page:
+
+    1. Click and hold any question in the left panel
+    2. Drag to the desired position
+    3. Release to drop
+
+    Moving questions between pages works the same way—just drag to the target page.
+  </Accordion>
+
+  <Accordion icon="files" title="Page Management">
+    **Adding pages:** Click the **+** button in the Pages header to add a new page.
+
+    **Deleting pages:** Empty pages show a kebab menu (⋮) with a delete option. Pages with questions cannot be deleted until all questions are removed or moved.
+
+    **Hiding pages:** Pages containing Add-ons or Services questions can be hidden via their kebab menu. Hidden pages won't appear to customers but retain their configuration.
+  </Accordion>
+
+  <Accordion icon="trash-2" title="Removing Questions">
+    Non-system questions can be deleted via the kebab menu (⋮) on each question row. System-required questions (like contact fields) cannot be removed.
+  </Accordion>
+</AccordionGroup>
+
 ## Form Structure
 
 <AccordionGroup>
   <Accordion icon="page" title="Page-by-Page Breakdown">
-    The lead intake form is optimized with minimal, essential questions:
+    The default lead intake form includes these pages (fully customizable):
 
     1. **Service Details**
        - Service length (configurable min/max hours)
@@ -41,67 +89,53 @@ The Lead Intake Form is optimized for high conversion rates, collecting only ess
        - Referral source
 
     7. **Contact Details**
-       - First name
-       - Last name
-       - Email
-       - Phone number
-       - SMS opt-in consent
+       - First name, last name, email, phone
+       - SMS opt-in consent (if enabled)
 
   </Accordion>
 
-{" "}
+  <Accordion icon="gear" title="Form Settings">
+    Customize form behavior:
+    - Set redirect URLs post-submission
+    - Configure submission messages
+    - Configure Instant Pricing and Quoting modes
 
-<Accordion icon="gear" title="Form Settings">
-  Customize form behavior: - Set redirect URLs post-submission - Configure
-  submission messages - Adjust form fields - Configure Instant Pricing and
-  Quoting modes - Enable SMS opt-in collection
-  <Note>
-    If no redirect URL is specified and Instant Quoting is disabled, the form
-    displays a default submission message.
-  </Note>
-</Accordion>
+    <Note>
+      If no redirect URL is specified and Instant Quoting is disabled, the form displays a default submission message.
+    </Note>
+  </Accordion>
 
-{" "}
-<Accordion icon="asterisk" title="Required Questions">
-  Control which questions are mandatory for form submission:
+  <Accordion icon="asterisk" title="Required Questions">
+    Control which questions are mandatory for form submission. Select a question and use the required toggle in the settings panel.
 
-  1. Open a question in the form editor
-  2. Find the "Required" toggle in the question settings
-  3. Toggle on to make the question mandatory, or off to make it optional
+    **System-Required Questions:**
+    - Some questions are required by Flashquotes and cannot be changed
+    - These show "This question is required by Flashquotes" instead of a toggle
 
-  **System-Required Questions:**
-  - Some questions are required by Flashquotes and cannot be changed
-  - These questions show "This question is required by Flashquotes" instead of a toggle
-  - System-required questions ensure essential data is collected for quote generation
+    **User-Required Questions:**
+    - You can mark custom questions as required or optional
+    - Required questions must be completed before form submission
 
-  **User-Required Questions:**
-  - You can mark custom questions as required or optional
-  - Required questions must be completed before form submission
-  - Optional questions allow customers to skip if not applicable
+    <Tip>
+      Making too many questions required can reduce conversion rates. Only require fields essential for accurate quotes.
+    </Tip>
+  </Accordion>
 
-  <Tip>
-    Making too many questions required can reduce conversion rates. Only require fields that are essential for generating accurate quotes.
-  </Tip>
-</Accordion>
+  <Accordion icon="message-circle" title="SMS Opt-in">
+    Add SMS opt-in to collect text message consent:
 
-{" "}
+    1. Click **Add question** on any page
+    2. Select **SMS Opt-in** from Connected Questions
+    3. The question is automatically placed on the Contact Details page
 
-<Accordion icon="message-circle" title="SMS Opt-in Configuration">
-  Enable SMS opt-in collection on your lead intake form: 1. Navigate to your
-  lead intake form editor 2. Go to the Contact Details page settings 3. Expand
-  the "SMS Opt-in" section 4. Toggle "Enable SMS opt-in" to activate the feature
-  When enabled: - A checkbox appears asking "Can we text you?" - Leads can
-  opt-in to receive SMS messages about their quote and event - Opt-in status is
-  tracked in lead management - SMS badge appears on lead cards for opted-in
-  contacts
-  <Note>
-    SMS opt-in is only available on forms that include a phone number field.
-  </Note>
-  <Tip>
-    Customize the question title and acknowledgement text to match your brand
-    voice and compliance requirements.
-  </Tip>
-    </Accordion>
+    When enabled, leads see a checkbox asking "Can we text you?" and opted-in leads display an SMS badge in lead management.
+
+    <Note>
+      SMS opt-in requires a phone number field on your form.
+    </Note>
+
+    [Learn more about SMS opt-in →](/forms/sms-opt-in)
+  </Accordion>
 
   <Accordion icon="magic-wand-sparkles" title="Flashquotes AutoDraft">
     Automatically pre-build draft quotes from every lead:
@@ -119,17 +153,17 @@ The Lead Intake Form is optimized for high conversion rates, collecting only ess
     1. Click the "Pricing settings" button in your form editor
     2. Toggle "Quoting Mode" to "Instant Quoting"
     3. Configure fallback service and pricing rules
-    
+
     **How pricing works:**
     - **With service selection questions**: Uses the service the customer selects
     - **Without service selection questions**: Uses the fallback service (fixed pricing)
     - **No service selected**: Falls back to the configured default service
-    
+
     When enabled:
     - Quotes are generated instantly upon form submission
     - Clients are redirected to the quote presentation page
     - "Book Now" option is immediately available
-    
+
     <Note>
       Instant Quoting is a [Pro plan](https://app.flashquotes.com/settings/plans) feature that enables clients to inquire, receive quotes, and book in a single session.
     </Note>
@@ -141,16 +175,16 @@ The Lead Intake Form is optimized for high conversion rates, collecting only ess
 
   <Accordion icon="plus-circle" title="Add-ons & Services Customization">
     Control how add-ons and services appear to your customers:
-    
+
     **Drag-and-Drop Reordering:**
     - Drag items up or down in the form builder to set display order
     - The order you set affects how items appear to customers
     - Most important items should be positioned at the top
-    
+
     **Default Ordering:**
     - Items without custom ordering display alphabetically
     - Mix of ordered and unordered items shows ordered items first
-    
+
     <Tip>
       Position your most popular or profitable add-ons at the top to increase selection rates.
     </Tip>
@@ -192,24 +226,25 @@ The Lead Intake Form is optimized for high conversion rates, collecting only ess
 
 <AccordionGroup>
   <Accordion icon="code" title="Form Embedding">
-    To embed the lead intake form: 1. Click the `Embed Form` button 2. Select
-    your website builder 3. Copy the provided code 4. Paste into your website's
-    contact form location
+    To embed the lead intake form:
+    1. Click the **Embed Form** button
+    2. Select your website builder
+    3. Copy the provided code
+    4. Paste into your website's contact form location
+
     <Info>
-      Flashquotes forms are compatible with virtually all website platforms. See
-      our [Platform Compatibility](/forms/compatibility) guide for details on
-      embedding in specific platforms.
+      Flashquotes forms are compatible with virtually all website platforms. See our [Platform Compatibility](/forms/compatibility) guide for details on embedding in specific platforms.
     </Info>
+
     <Warning>
-      Wix websites require specific embedding code. Select 'Wix' from the
-      dropdown for correct code. For mobile optimization, see our [Wix Embed Best Practices](/forms/wix-embeds) guide.
+      Wix websites require specific embedding code. Select 'Wix' from the dropdown for correct code. For mobile optimization, see our [Wix Embed Best Practices](/forms/wix-embeds) guide.
     </Warning>
   </Accordion>
 
   <Accordion icon="share" title="Share Links & Hosted Forms">
     Share your form without embedding it on your website:
 
-    1. Navigate to the **Publish** tab in your form editor
+    1. Navigate to the **Share** tab in your form editor
     2. Customize your landing page headline and subheadline
     3. Copy your share link or use the QR code for offline materials
     4. Share via social media, email, or SMS
