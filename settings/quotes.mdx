@@ -40,6 +40,70 @@ Quote settings control how your quotes are presented to clients and set default 
   </Accordion>
 </AccordionGroup>
 
+## Pricing Rules
+
+Configure automated pricing calculations used for instant quotes and travel fees.
+
+<AccordionGroup>
+  <Accordion icon="car" title="Travel Fee Calculation">
+    Configure automatic travel fee calculations based on distance to event venues:
+
+    ### Price Per Mile
+    Set the rate charged per mile of travel. This rate applies to round-trip distance for each day and each [core resource](/resources).
+
+    ### Minimum Travel Fee
+    Set a minimum travel fee that applies per core resource per day. If the calculated distance-based fee is lower than this minimum, the minimum fee is used instead.
+
+    ### How Travel Fees Are Calculated
+
+    Travel fees use a per-resource, per-day formula:
+
+    ```
+    Travel Fee = MAX(
+      Round Trip Miles × Days × Resources × Price Per Mile,
+      Minimum Fee × Resources × Days
+    )
+    ```
+
+    **Example**: For an event 28 miles away with 2 resources over 2 days:
+    - Distance-based: 28 mi × 2 (round trip) × 2 days × 2 resources × \$0.75/mi = **$168**
+    - Minimum-based: \$35 minimum × 2 resources × 2 days = **$140**
+    - Final fee: **$168** (uses the higher of the two)
+
+    <Note>
+      Travel fees are automatically included in quote requests through your lead intake form when a location and event address are provided. The fee is distributed across service line items.
+    </Note>
+  </Accordion>
+
+  <Accordion icon="bolt" title="Instant Quoting Settings">
+    Control how instant quotes behave when generated from your lead intake forms.
+
+    ### Auto-Enroll in Workflow
+    When enabled, all instant quotes are automatically enrolled in your quote follow-up workflow. This ensures consistent follow-up for every lead without manual intervention.
+
+    <Tip>
+      Combine auto-enrollment with a well-designed [quote follow-up workflow](/workflows) to maximize conversion rates on instant quotes.
+    </Tip>
+
+    ### High Ticket Threshold
+    Set a maximum quote value for instant quoting. When a quote exceeds this threshold, it's routed to manual review instead of being sent automatically.
+
+    **How it works:**
+    - Quotes **at or below** the threshold are sent instantly to the customer
+    - Quotes **above** the threshold are saved as drafts for your review
+    - Leave empty to allow instant quotes at any price
+
+    <Warning>
+      The threshold is based on the quote subtotal (before taxes and discounts). Set this value carefully to balance automation with oversight on larger deals.
+    </Warning>
+
+    **Example**: With a $2,000 threshold:
+    - $1,500 quote → Sent instantly to customer
+    - $2,000 quote → Sent instantly to customer
+    - $2,500 quote → Saved as draft for manual quoting
+  </Accordion>
+</AccordionGroup>
+
 ## Quote Presentation
 
 <AccordionGroup>
