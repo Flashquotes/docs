@@ -20,7 +20,7 @@
         "groups": [
           {
             "group": "Get Started",
-            "pages": ["introduction", "quickstart"]
+            "pages": ["introduction", "settings/plans", "quickstart"]
           },
           {
             "group": "Core Features",
