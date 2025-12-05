@@ -39,6 +39,15 @@ Each service can use any combination of these pricing elements:
     **Example**: $15 per guest for appetizer service
   </Accordion>
 
+  <Accordion icon="boxes-stacked" title="Price per Resource">
+    Resource-based pricing:
+    - Charged for each resource (equipment, machine, station) needed
+    - Automatically multiplies by number of resources on the quote
+    - Perfect for equipment rentals and multi-unit setups
+
+    **Example**: $50 per espresso machine
+  </Accordion>
+
   <Accordion icon="shield-check" title="Minimum Price">
     Protect your profitability:
     - Sets the absolute minimum you'll accept
@@ -55,7 +64,7 @@ Your service price is calculated as:
 
 ```
 Final Price = MAX(
-  Base Price + (Staff × Hours × Hourly Rate) + (Guests × Per Guest Rate),
+  Base Price + (Staff × Hours × Hourly Rate) + (Guests × Per Guest Rate) + (Resources × Per Resource Rate),
   Minimum Price
 )
 ```
@@ -90,6 +99,16 @@ This ensures you're always paid at least your minimum while allowing flexible pr
 - Catering: $500 base + $25 per guest
 - Covers fixed costs + variable food costs
 - Profitable at any event size
+
+### Per-Resource Services
+
+**Setup**: Base price for labor/setup, per-resource for equipment
+
+**Example**:
+- Photo Booth Rental:
+  - $200 base (delivery/setup)
+  - $150 per booth
+  - Scales with equipment count
 
 ### Hybrid Pricing
 

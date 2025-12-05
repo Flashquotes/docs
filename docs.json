@@ -76,7 +76,7 @@
                   "settings/service-charges",
                   {
                     "group": "Invoice Management",
-                    "pages": ["invoices/reminders", "invoices/refunds"]
+                    "pages": ["invoices/reminders", "invoices/refunds", "invoices/voiding"]
                   },
                   {
                     "group": "QuickBooks",

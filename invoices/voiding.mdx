@@ -1,0 +1,102 @@
+---
+title: "Voiding Invoices"
+description: "Learn when and how to void an invoice to cancel it while maintaining records for accounting"
+---
+
+## Overview
+
+Voiding an invoice marks it as canceled while keeping it visible in your records. This preserves your audit trail for accounting purposes while ensuring the invoice is excluded from revenue statistics and reports.
+
+<Info>
+Voided invoices remain searchable and visible in your invoice list, but display a "Void" status badge.
+</Info>
+
+## Void vs. Delete
+
+Choose the right action based on your situation:
+
+| Action | Use When | Result |
+|--------|----------|--------|
+| **Void** | You need to cancel an invoice but want to keep a record | Invoice shows "Void" status, stays in your records |
+| **Delete** | The invoice was created by mistake and never sent | Invoice is permanently removed |
+
+<Tip>
+**Best practice**: If an invoice was sent to a customer or referenced anywhere, void it instead of deleting. This maintains a clear audit trail.
+</Tip>
+
+## Requirements for Voiding
+
+Before you can void an invoice:
+
+- **No payments recorded** - The invoice must have no payments against it
+- **Not already voided** - You cannot void an invoice that's already voided
+
+<Warning>
+If an invoice has payments recorded, you'll need to delete or refund those payments first before voiding the invoice.
+</Warning>
+
+## How to Void an Invoice
+
+<AccordionGroup>
+  <Accordion icon="list" title="From the Invoices List">
+    <Steps>
+      <Step title="Navigate to Invoices">
+        Go to **Invoices** in your Flashquotes dashboard
+      </Step>
+      <Step title="Find the Invoice">
+        Locate the invoice you want to void
+      </Step>
+      <Step title="Open the Menu">
+        Click the three-dot menu (⋮) on the invoice row
+      </Step>
+      <Step title="Select Void">
+        Click **"Void invoice"**
+      </Step>
+      <Step title="Confirm">
+        Confirm your action in the modal that appears
+      </Step>
+    </Steps>
+  </Accordion>
+
+  <Accordion icon="file-invoice" title="From the Invoice Detail Page">
+    <Steps>
+      <Step title="Open the Invoice">
+        Click on an invoice to open its detail page
+      </Step>
+      <Step title="Access the Dropdown">
+        Click the dropdown menu in the invoice header
+      </Step>
+      <Step title="Select Void">
+        Click **"Void invoice"**
+      </Step>
+      <Step title="Confirm">
+        Confirm your action in the modal that appears
+      </Step>
+    </Steps>
+  </Accordion>
+</AccordionGroup>
+
+## What Happens After Voiding
+
+When you void an invoice:
+
+- **Status changes** - The invoice displays a "Void" status badge
+- **Excluded from statistics** - The invoice amount is excluded from overdue totals, open amounts, and revenue reports
+- **Remains visible** - The invoice stays in your invoice list and remains searchable
+- **Reminders canceled** - Any scheduled payment reminders for this invoice are automatically stopped
+
+<Note>
+**QuickBooks users**: Voiding an invoice in Flashquotes does not automatically void the corresponding invoice in QuickBooks. You'll need to void it separately in QuickBooks if needed.
+</Note>
+
+## Can I Un-Void an Invoice?
+
+No, voiding is permanent. Once an invoice is voided, it cannot be restored to its original state.
+
+If you need to bill the customer again, create a new invoice with the same details.
+
+## Related Resources
+
+- [Invoice Management](/invoices)
+- [Processing Refunds](/invoices/refunds)
+- [Invoice Reminders](/invoices/reminders)
