@@ -233,12 +233,6 @@
     "decoration": "windows"
   },
   "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:support@flashquotes.com"
-      }
-    ],
     "primary": {
       "type": "button",
       "label": "Dashboard",
