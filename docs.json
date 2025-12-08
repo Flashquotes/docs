@@ -32,7 +32,7 @@
                   "inbox",
                   {
                     "group": "Creating Quotes",
-                    "pages": ["leads/quotes", "leads/autodraft", "leads/service-days", "leads/quote-view-v2"]
+                    "pages": ["leads/quotes", "leads/autodraft", "leads/service-days", "leads/quote-view"]
                   },
                   "leads/sending-quotes",
                   "leads/instant-pricing"
@@ -255,6 +255,11 @@
     {
       "source": "/leads/export-data",
       "destination": "/imports-exports/export-leads",
+      "permanent": true
+    },
+    {
+      "source": "/leads/quote-view-v2",
+      "destination": "/leads/quote-view",
       "permanent": true
     }
   ]
