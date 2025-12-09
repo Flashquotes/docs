@@ -1,0 +1,334 @@
+---
+title: "Quote Templates"
+description: "Create reusable quote designs for consistent branding across all your quotes"
+---
+
+## Overview
+
+Quote templates allow you to create reusable designs for your quotes, making it easy to maintain consistent branding and presentation across all your quotes. You can create multiple templates, customize each one with your own images, testimonials, and add-ons, and quickly apply them to any quote.
+
+<CardGroup cols={2}>
+  <Card title="Create Templates" icon="plus">
+    Design multiple templates for different event types or services
+  </Card>
+  <Card title="Customize Elements" icon="palette">
+    Configure gallery images, testimonials, add-ons, and more
+  </Card>
+  <Card title="Apply to Quotes" icon="file-invoice">
+    Quickly assign templates to any quote
+  </Card>
+  <Card title="Set Defaults" icon="star">
+    Choose a default template for new quotes
+  </Card>
+</CardGroup>
+
+## Creating a Quote Template
+
+You can create a new quote template in two ways:
+
+### From the Templates Page
+
+<Steps>
+  <Step title="Navigate to Templates">
+    Go to **Templates** → **Quote Templates** in the main navigation.
+  </Step>
+  <Step title="Create New Template">
+    Click the **Create Template** button in the top right.
+  </Step>
+  <Step title="Customize">
+    You'll be taken to the template editor where you can customize your new template.
+  </Step>
+</Steps>
+
+### From a Quote Page
+
+<Steps>
+  <Step title="Open Any Quote">
+    Open any quote detail page.
+  </Step>
+  <Step title="Go to Quote Template Tab">
+    Click on the **Quote Template** tab.
+  </Step>
+  <Step title="Create from Dropdown">
+    In the template selector dropdown, click **Create new template**.
+  </Step>
+  <Step title="Customize">
+    You'll be redirected to the template editor to customize your new template.
+  </Step>
+</Steps>
+
+When you create a template, it starts with default settings. You can then customize it with your own images, testimonials, add-ons, and other elements.
+
+## Editing a Quote Template
+
+To edit an existing template:
+
+<Steps>
+  <Step title="Navigate to Quote Templates">
+    Go to **Templates** → **Quote Templates**.
+  </Step>
+  <Step title="Select Template">
+    Click on the template card you want to edit.
+  </Step>
+  <Step title="Make Changes">
+    Use the template editor to customize gallery images, testimonials, add-ons, and other settings.
+  </Step>
+</Steps>
+
+The template editor provides a live preview of how your quote will look with the current template settings. You can toggle between desktop and mobile views to see how your template appears on different devices.
+
+### Editing the Template Name
+
+1. In the template editor, click on the template name at the top of the page
+2. Type the new name
+3. Press **Enter** or click the checkmark to save, or **Escape** to cancel
+
+The template name is saved automatically.
+
+## What You Can Edit on Templates
+
+<AccordionGroup>
+  <Accordion icon="images" title="Gallery Images">
+    Add up to multiple images that will be displayed in a gallery on your quote page. These images help showcase your services, products, or past events.
+
+    - **Adding Images**: Click on an empty image slot in the gallery section, then select an image from your image library
+    - **Replacing Images**: Click on an existing image slot to replace it with a different image
+    - **Removing Images**: Click the remove button on any image to remove it from the gallery
+    - **Reordering**: Images are displayed in the order they appear in your template settings
+
+    <Tip>
+      Use high-quality images at 1200×900px (4:3 ratio) for best results. Include a mix of service results, your team in action, and equipment shots.
+    </Tip>
+  </Accordion>
+
+  <Accordion icon="list" title="Service Details">
+    Customize the service description text that appears on your quotes. You can add multiple lines of text, and each line supports Handlebars template variables to dynamically insert quote-specific information.
+
+    - **Adding Lines**: Click the "Add line" button to add a new service detail line
+    - **Editing Lines**: Click on any existing line to edit its text
+    - **Removing Lines**: Click the remove button next to any line to delete it
+    - **Reordering**: Drag and drop lines to change their display order
+
+    **Available Shortcodes:**
+    - `{{quote.guest_count}}` - Number of guests
+    - `{{quote.staff_count}}` - Number of staff
+    - `{{quote.service_duration_hours}}` - Service duration
+    - `{{quote.event_address}}` - Event location
+  </Accordion>
+
+  <Accordion icon="star" title="Reviews">
+    Configure how reviews appear on your quotes to build trust with potential customers.
+
+    - **Show/Hide Reviews**: Toggle whether to display your company's review rating and count
+    - **Rating Value**: Set your company's average rating (typically from Google Business Profile)
+    - **Rating Count**: Set the total number of reviews
+  </Accordion>
+
+  <Accordion icon="quote-left" title="Testimonials">
+    Add customer testimonials that will be displayed on your quotes.
+
+    - **Adding Testimonials**: Click "Add testimonial" to create a new testimonial with customer name and quote text
+    - **Editing Testimonials**: Click the edit button on any testimonial to modify it
+    - **Removing Testimonials**: Click the delete button to remove a testimonial
+    - **Reordering**: Drag and drop testimonials to change their display order
+
+    <Tip>
+      Add 3-5 compelling testimonials for best results. Use specific, detailed testimonials that mention results.
+    </Tip>
+  </Accordion>
+
+  <Accordion icon="puzzle-piece" title="Add-ons">
+    Control which add-ons are displayed on quotes using this template.
+
+    - **Enabling Add-ons**: Toggle add-ons on or off to include or exclude them from quotes
+    - **Reordering**: Drag and drop enabled add-ons to change their display order
+    - **Creating New Add-ons**: Click "Create add-on" to add a new add-on to your company's add-on library
+
+    <Note>
+      Add-ons configured here are the default for this template. You can still customize add-ons for individual quotes.
+    </Note>
+  </Accordion>
+
+  <Accordion icon="message" title="Hero Message">
+    The hero message is a customizable text message that appears prominently at the top of your quote. You can edit this directly in the template editor to create a compelling introduction for your quotes.
+  </Accordion>
+</AccordionGroup>
+
+## Assigning a Template to a Quote
+
+You can change which template is assigned to a quote at any time:
+
+<Steps>
+  <Step title="Open Quote">
+    Open the quote detail page for the quote you want to update.
+  </Step>
+  <Step title="Go to Quote Template Tab">
+    Click on the **Quote Template** tab.
+  </Step>
+  <Step title="Select Template">
+    In the template selector dropdown at the top, select the template you want to use.
+  </Step>
+  <Step title="Automatic Update">
+    The quote will automatically update to use the selected template.
+  </Step>
+</Steps>
+
+The template selector shows:
+
+- All available templates for your company
+- Which template is currently assigned (marked with a checkmark)
+- Which template is set as the default (marked with a star icon)
+- An option to create a new template
+
+When you change a quote's template, the quote immediately reflects the new template's settings, including gallery images, testimonials, add-ons, and other visual elements.
+
+## Managing Templates
+
+### Viewing All Templates
+
+Navigate to **Templates** → **Quote Templates** to see all your quote templates. Each template card shows:
+
+- A thumbnail preview (using the first gallery image, if available)
+- The template name
+- How many quotes are currently using the template
+- When the template was last updated
+- Whether it's set as the default template
+
+### Setting a Default Template
+
+The default template is automatically applied to new quotes. To set a template as default:
+
+**From the Templates Page:**
+1. Go to **Templates** → **Quote Templates**
+2. Click the three-dot menu (⋮) on the template card
+3. Select **Set as default**
+
+**From the Template Editor:**
+1. Click the three-dot menu in the top right
+2. Select **Set as default**
+
+<Note>
+  Only one template can be the default at a time. Setting a new default automatically removes the default status from the previous default template.
+</Note>
+
+### Duplicating a Template
+
+To create a copy of an existing template:
+
+<Steps>
+  <Step title="Navigate to Templates">
+    Go to **Templates** → **Quote Templates**.
+  </Step>
+  <Step title="Open Menu">
+    Click the three-dot menu (⋮) on the template you want to duplicate.
+  </Step>
+  <Step title="Select Duplicate">
+    Select **Duplicate**.
+  </Step>
+  <Step title="Name Your Copy">
+    Enter a name for the new template.
+  </Step>
+  <Step title="Confirm">
+    Click **Duplicate Template**.
+  </Step>
+</Steps>
+
+The new template will be an exact copy of the original, including all gallery images, testimonials, add-ons, and other settings. You can then edit the duplicate independently.
+
+### Deleting a Template
+
+To delete a template:
+
+1. Go to **Templates** → **Quote Templates**
+2. Click the three-dot menu (⋮) on the template you want to delete
+3. Select **Delete**
+4. Confirm the deletion
+
+<Warning>
+  You cannot delete the default template. You must set another template as default first.
+</Warning>
+
+<Info>
+  Deleting a template does not affect existing quotes that were created using that template. Those quotes will continue to display with the template settings they had when they were created.
+</Info>
+
+## Default Templates
+
+Every company has one default template. The default template is:
+
+- Automatically applied to new quotes when they're created
+- Marked with a star icon and "Default" badge
+- Protected from deletion (you must set another template as default first)
+
+When you create your first template, it automatically becomes the default. You can change the default template at any time, and only one template can be the default at once.
+
+## Tips for Using Templates
+
+<AccordionGroup>
+  <Accordion icon="tags" title="Create Specialized Templates">
+    Consider creating different templates for different types of events or services. For example:
+    - "Wedding Package" with romantic imagery and wedding-focused testimonials
+    - "Corporate Event" with professional photos and business testimonials
+    - "Coffee Service" with product-focused images
+  </Accordion>
+
+  <Accordion icon="font" title="Use Descriptive Names">
+    Give your templates clear, descriptive names so you can easily identify which one to use for each quote. Good examples:
+    - "Premium Wedding Package"
+    - "Corporate Catering"
+    - "Festival & Large Events"
+  </Accordion>
+
+  <Accordion icon="mobile" title="Test on Mobile">
+    Always preview your templates in mobile view to ensure they look good on all devices. Many customers will view quotes on their phones.
+  </Accordion>
+
+  <Accordion icon="arrows-rotate" title="Keep Templates Updated">
+    Regularly review and update your templates to ensure they reflect your current branding and offerings. Update testimonials and images seasonally.
+  </Accordion>
+
+  <Accordion icon="bullseye" title="Use Testimonials Strategically">
+    Add testimonials that are relevant to the type of quote you're sending. Wedding testimonials for wedding templates, corporate testimonials for business templates.
+  </Accordion>
+</AccordionGroup>
+
+## Frequently Asked Questions
+
+<AccordionGroup>
+  <Accordion icon="circle-question" title="Can I edit a template after quotes have been created with it?">
+    Yes, you can edit templates at any time. However, changes to a template only affect new quotes that use it. Existing quotes retain the template settings they had when they were created.
+  </Accordion>
+
+  <Accordion icon="circle-question" title="What happens if I delete a template that's being used by quotes?">
+    Existing quotes are not affected. They will continue to display with the template settings they had when they were created.
+  </Accordion>
+
+  <Accordion icon="circle-question" title="Can I have multiple templates?">
+    Yes! You can create as many templates as you need. This is useful for different event types, service packages, or branding variations.
+  </Accordion>
+
+  <Accordion icon="circle-question" title="How do I know which template a quote is using?">
+    On the quote detail page, go to the **Quote Template** tab. The currently selected template will be shown in the template selector dropdown.
+  </Accordion>
+
+  <Accordion icon="circle-question" title="Can I customize a template for a specific quote?">
+    Templates are shared across all quotes. If you need quote-specific customizations, you can create a new template or duplicate an existing one and modify it for that specific use case.
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Create Your First Quote" href="/leads/quotes" icon="file-invoice-dollar">
+    Learn how to create and send quotes to leads
+  </Card>
+  <Card title="Configure Add-ons" href="/services/add-ons" icon="puzzle-piece">
+    Set up add-ons to include in your templates
+  </Card>
+  <Card title="Quote Settings" href="/settings/quotes" icon="gear">
+    Configure default quote settings and delivery options
+  </Card>
+  <Card title="Sending Quotes" href="/leads/sending-quotes" icon="paper-plane">
+    Learn best practices for sending quotes to customers
+  </Card>
+</CardGroup>
