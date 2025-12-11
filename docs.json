@@ -32,7 +32,7 @@
                   "inbox",
                   {
                     "group": "Creating Quotes",
-                    "pages": ["leads/quotes", "leads/autodraft", "leads/service-days", "leads/quote-view"]
+                    "pages": ["leads/quotes", "leads/autodraft", "leads/service-days", "leads/booking-flow", "leads/quote-view"]
                   },
                   "leads/sending-quotes",
                   "leads/instant-pricing"
@@ -109,7 +109,6 @@
                       "forms/sms-opt-in",
                       "forms/real-time-availability",
                       "forms/booking",
-                      "forms/payment-schedules",
                       "forms/compatibility",
                       "forms/wix-embeds"
                     ]
@@ -258,6 +257,11 @@
     {
       "source": "/leads/quote-view-v2",
       "destination": "/leads/quote-view",
+      "permanent": true
+    },
+    {
+      "source": "/forms/payment-schedules",
+      "destination": "/leads/booking-flow",
       "permanent": true
     }
   ]

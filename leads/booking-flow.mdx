@@ -1,0 +1,251 @@
+---
+title: "Booking Flow"
+description: "Configure how customers complete their booking after accepting your quote"
+---
+
+## Overview
+
+The Booking Flow controls how customers complete their booking after accepting your quote. Configure which booking form collects customer information and which payment terms apply directly from the quote editor.
+
+<Frame>
+  <img
+    src="/images/leads/quotes/booking-flow.webp"
+    alt="Booking Flow section showing booking form selection and payment terms configuration"
+  />
+</Frame>
+
+## How It Works
+
+The booking flow consists of three steps:
+
+1. **Booking Form** - The form customers complete when booking (required)
+2. **Contract** - Digital contract signing *(coming soon)*
+3. **Payment Terms** - How and when payments are collected
+
+## Payment Terms
+
+Payment terms define your payment schedule for each quote. Select from your configured options or create new terms directly from the quote editor.
+
+### Selecting payment terms
+
+<Steps>
+  <Step title="Open the Booking Flow section">
+    Scroll to the **Booking Flow** section in the quote editor.
+  </Step>
+  <Step title="Select payment terms">
+    Click the Payment Terms dropdown to choose from your configured options.
+  </Step>
+  <Step title="Create new terms (optional)">
+    Click **Add new payment terms** to create custom terms directly from the quote editor.
+  </Step>
+</Steps>
+
+### Payment Schedule Types
+
+<AccordionGroup>
+  <Accordion icon="circle-dollar-to-slot" title="Full Payment">
+    **Best for:** Events that require complete payment upfront
+
+    **How it works:**
+    - Clients pay 100% of the quote total when booking
+    - No additional payments needed
+
+    **Configuration options:**
+    - No additional configuration needed
+    - Clients will be charged the full quote amount at booking
+  </Accordion>
+
+  <Accordion icon="coins" title="Deposit + Balance">
+    **Best for:** Events that require an upfront deposit to secure the booking
+
+    **How it works:**
+    - Clients pay a deposit amount when booking
+    - Remaining balance is invoiced and due before the event
+
+    **Configuration options:**
+    - **Deposit Type:** Choose between:
+      - **Fixed Amount:** Set a specific dollar amount (e.g., $500)
+      - **Percentage:** Set a percentage of the total quote (e.g., 25%)
+    - **Deposit Amount:** Enter the fixed dollar amount or percentage value
+    - **Balance Due:** Set when the remaining balance is due (days before/after event)
+  </Accordion>
+
+  <Accordion icon="file-invoice" title="Invoice Only">
+    **Best for:** Corporate clients or situations where payment is handled through traditional invoicing
+
+    **How it works:**
+    - No payment collected through Flashquotes at booking
+    - Booking is confirmed without payment
+    - Invoice is generated and sent to the client
+
+    **Configuration options:**
+    - **Invoice Due:** Set when payment is due (days before/after event)
+  </Accordion>
+
+  <Accordion icon="credit-card" title="Card on File">
+    **Best for:** Events where you want to authorize a card for later charges
+
+    **How it works:**
+    - Client's card is authorized but not charged at booking
+    - Card is charged by you when you're ready to collect payment
+    - Invoice is generated with the payment due date
+
+    **Configuration options:**
+    - **Invoice Due:** Set when payment is due (days before/after event)
+  </Accordion>
+</AccordionGroup>
+
+### Editing Payment Terms
+
+Click the **Edit** button next to any payment terms option to modify:
+
+- Payment schedule type
+- Deposit amount or percentage
+- Invoice due timing
+- Set as company default
+
+<Info>
+  Changes to payment terms apply to all quotes using those terms.
+</Info>
+
+## Default Payment Terms
+
+Set a default payment terms to automatically apply to all new quotes.
+
+<Steps>
+  <Step title="Open payment terms dropdown">
+    Click the Payment Terms dropdown in any quote's Booking Flow section.
+  </Step>
+  <Step title="Edit a payment terms">
+    Click **Edit** next to the payment terms you want as default.
+  </Step>
+  <Step title="Set as default">
+    Toggle **Set as company default** and save.
+  </Step>
+</Steps>
+
+<Tip>
+  Your default payment terms will apply to all new quotes. You can always change the payment terms on individual quotes.
+</Tip>
+
+## Using Multiple Payment Terms
+
+Different client types often require different payment terms:
+
+<CardGroup cols={3}>
+  <Card title="Corporate Clients" icon="building">
+    Invoice only with payment due after the event
+  </Card>
+
+  <Card title="Private Events" icon="party-horn">
+    25-50% deposit required upfront
+  </Card>
+
+  <Card title="Last-minute Bookings" icon="clock">
+    Full payment upfront
+  </Card>
+</CardGroup>
+
+### Common Scenarios
+
+<CardGroup cols={2}>
+  <Card title="Wedding Catering" icon="heart">
+    **Standard:** 25% deposit to secure date, balance due 2 weeks before event
+
+    **Premium:** 50% deposit for peak season dates
+  </Card>
+
+  <Card title="Corporate Catering" icon="briefcase">
+    **Standard:** Invoice only, due 30 days after event
+
+    **New Clients:** Full payment required for first booking
+  </Card>
+</CardGroup>
+
+## Booking Form
+
+The booking form collects customer information when they book. Select from your configured booking forms or edit them directly from the dropdown.
+
+### Selecting a booking form
+
+- Click the Booking Form dropdown to see available forms
+- Forms marked "Default" are automatically selected for new quotes
+- Click **Edit** to modify form questions
+- Click **Go to forms** to manage all forms
+
+<Info>
+  Configure your booking forms in [Forms settings](/forms/booking).
+</Info>
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion icon="tag" title="Name Payment Terms Clearly">
+    Use descriptive names that indicate the payment schedule:
+
+    <Tabs>
+      <Tab title="Good Examples">
+        - "25% Deposit - Balance Due Before Event"
+        - "Full Payment Upfront"
+        - "Corporate Net 30"
+        - "Card on File - Due Day Before"
+      </Tab>
+
+      <Tab title="Bad Examples">
+        - "Payment Terms 1"
+        - "Option A"
+        - "New Terms"
+      </Tab>
+    </Tabs>
+  </Accordion>
+
+  <Accordion icon="users" title="Consider Your Client Types">
+    Create payment terms that match your common scenarios:
+    - Regular clients who know your payment terms
+    - New clients who might need flexible options
+    - Corporate clients with procurement processes
+    - Last-minute bookings requiring immediate payment
+  </Accordion>
+
+  <Accordion icon="star" title="Set Smart Defaults">
+    - Choose your most common payment schedule as the default
+    - This saves time when creating quotes
+    - You can always override on individual quotes
+  </Accordion>
+
+  <Accordion icon="shield" title="Protect High-Value Events">
+    - Use larger deposits for expensive events
+    - Require full payment for last-minute bookings
+    - Consider card on file for recurring clients
+  </Accordion>
+</AccordionGroup>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion icon="question" title="Can I change payment terms after sending a quote?">
+    Yes! You can change payment terms on any unsent or sent quote. Navigate to the quote, update the payment terms in the Booking Flow section, and the quote will reflect the new terms.
+  </Accordion>
+
+  <Accordion icon="calculator" title="Wrong deposit amount calculated?">
+    - For percentage deposits, verify the percentage is entered correctly (e.g., 25 not 0.25)
+    - Check that the quote total is accurate
+    - Edit the payment terms to adjust the deposit amount
+  </Accordion>
+
+  <Accordion icon="eye-slash" title="Payment terms not showing?">
+    - Make sure you have at least one payment terms configured
+    - Check that payment terms aren't deleted
+    - Try creating a new payment terms from the dropdown
+  </Accordion>
+
+  <Accordion icon="question" title="How do refunds work with different payment terms?">
+    Refunds are processed based on what the client has actually paid, regardless of the original payment terms.
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+- [Create quotes](/leads/quotes)
+- [Send quotes](/leads/sending-quotes)
+- [Configure booking forms](/forms/booking)
