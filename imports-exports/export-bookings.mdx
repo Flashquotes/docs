@@ -25,40 +25,33 @@ Export your confirmed bookings to CSV format for financial reporting, client man
 
 ## What's Included
 
-The booking export includes comprehensive information about each confirmed event:
+The booking export includes the following columns:
 
 <AccordionGroup>
   <Accordion icon="calendar-check" title="Event Information">
     - Booking ID
-    - Event date and time
-    - Event type
-    - Venue and location details
-    - Guest count
-    - Event status
+    - Booking Date
+    - Created At
+    - Booking Status (Active or Cancelled)
+    - Cancelled Date
+    - Event Count
+    - First Service Date
+    - Last Service Date
+    - Location(s)
   </Accordion>
 
   <Accordion icon="user" title="Client Details">
-    - Client name
-    - Email address
-    - Phone number
-    - Company name
-    - Special requests and notes
-  </Accordion>
-
-  <Accordion icon="utensils" title="Service Details">
-    - Selected core services
-    - Add-ons and upgrades
-    - Staff assignments
-    - Equipment and resources
-    - Custom line items
+    - Client Name
+    - Client Email
+    - Company Name
+    - Lead Source
   </Accordion>
 
   <Accordion icon="dollar-sign" title="Financial Data">
-    - Total booking value
-    - Deposit amount and status
-    - Payment schedule
-    - Outstanding balance
-    - Payment method
+    - Total Price
+    - Payment Method
+    - Payment Status (Paid, Partial, or Unpaid)
+    - Invoice Status
   </Accordion>
 </AccordionGroup>
 
@@ -69,7 +62,7 @@ The booking export includes comprehensive information about each confirmed event
 Import booking data into accounting software or spreadsheets to:
 - Generate revenue reports by period
 - Track deposit collection rates
-- Analyze profit margins by event type
+- Analyze revenue by location or lead source
 - Forecast cash flow
 
 ### Operational Planning
@@ -115,9 +108,8 @@ The CSV file follows RFC 4180 standards:
   <Accordion icon="filter" title="Missing bookings in export">
     Check your active filters - the export respects all current filters including:
     - Date range
-    - Event type
     - Booking status
-    - Assigned team member
+    - Location
   </Accordion>
 </AccordionGroup>
 
