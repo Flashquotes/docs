@@ -5,24 +5,26 @@ description: "Learn how to manage your business assets and equipment in Flashquo
 
 ## Overview
 
-Resources in Flashquotes represent your physical business assets - from core service equipment to transportation vehicles. Proper resource management ensures accurate availability tracking and efficient event delivery.
+Resources in Flashquotes represent your physical business assets - from core service equipment to transportation vehicles. Tracking resources helps you monitor availability and assign the right equipment to events.
 
-## Resource Types
+## Resource Categories
+
+Resources are organized into three categories:
 
 <AccordionGroup>
   <Accordion icon="truck" title="Core Service Assets">
-    Essential business resources:
+    Primary equipment used to deliver your services:
     - Coffee carts
     - Mobile bars
     - Service trailers
-    - Primary equipment
-    
+    - Primary service equipment
+
     <Warning>
-      At least one core resource must be added to enable proper availability tracking on booking forms.
+      Core resources are used for availability tracking on booking forms and the Service Asset Utilization report.
     </Warning>
   </Accordion>
 
-  <Accordion icon="van-shuttle" title="Transportation Assets">
+  <Accordion icon="van-shuttle" title="Transport">
     Vehicles used for event logistics:
     - Vans
     - Trucks
@@ -30,103 +32,87 @@ Resources in Flashquotes represent your physical business assets - from core ser
     - Delivery vehicles
   </Accordion>
 
-  <Accordion icon="blender" title="Equipment Assets">
-    Specialized equipment tracking:
-    - Espresso machines
-    - Grinders
-    - Service equipment
-    - Specialized tools
+  <Accordion icon="box" title="Other">
+    Additional equipment and assets:
+    - Supplementary equipment
+    - Backup items
+    - Miscellaneous assets
   </Accordion>
 </AccordionGroup>
 
-## Resource Management
+## Managing Resources
 
 <AccordionGroup>
-  <Accordion icon="plus" title="Adding Resources">
+  <Accordion icon="plus" title="Adding a Resource">
     To add a new resource:
-    1. Click `Add Resource` in the top right
-    2. Enter resource details:
-       - Name (e.g., "Cart One", "White Cart")
-       - Type selection
-       - Location assignment
-       - Availability status
-    
+    1. Go to **Resources** in the sidebar
+    2. Click **Add Resource**
+    3. Enter the resource details:
+       - **Name** - A unique identifier (e.g., "Cart One", "White Van")
+       - **Category** - Core Service Asset, Transport, or Other
+       - **Location** - Which business location this resource belongs to
+       - **Status** - Available or Unavailable
+       - **Description** - Optional details about the resource (up to 300 characters)
+
     <Tip>
-      Consider using themed names for resources to make them memorable and distinctive.
+      Consider using memorable, themed names for resources to make them easy to identify.
     </Tip>
   </Accordion>
 
-  <Accordion icon="pen" title="Resource Details">
-    Configure client-facing information:
-    - Space requirements
-    - Power needs
-    - Event type suitability
-    - Special features
-    - Setup requirements
+  <Accordion icon="image" title="Resource Photos">
+    Upload a photo for each resource to:
+    - Display the resource option in resource picker questions on booking forms
+    - Help clients visually select their preferred service asset
+    - Provide visual reference when assigning resources to events
   </Accordion>
 
-  <Accordion icon="image" title="Resource Images">
-    Upload photos to:
-    - Help clients make selections
-    - Provide visual reference
-    - Enhance booking form experience
-    - Document equipment condition
+  <Accordion icon="pen" title="Editing Resources">
+    Click on any resource in the list to edit its details, update its status, or change its location assignment.
   </Accordion>
 </AccordionGroup>
 
-## Availability Management
+## Availability Tracking
 
-<AccordionGroup>
-  <Accordion icon="clock" title="Real-Time Tracking">
-    Monitor resource status:
-    - Current availability
-    - Future bookings
-    - Maintenance periods
-    - Location tracking
-  </Accordion>
+Resources are tracked for availability based on event assignments:
 
-  <Accordion icon="calendar-days" title="Resource Calendar">
-    Track resource scheduling:
-    - Event assignments
-    - Blocked dates
-    - Service windows
-    - Travel time
-  </Accordion>
-</AccordionGroup>
+- **Available status**: The resource can be assigned to new events
+- **Unavailable status**: The resource is out of service and won't appear as an option for event assignment
+- **Event conflicts**: When assigning resources to events, the system shows which resources are already booked for that date
 
-## Resource Assignment
+<Info>
+Core service assets are used to calculate availability shown on booking forms. If you need accurate availability tracking, make sure to add your core resources.
+</Info>
 
-<AccordionGroup>
-  <Accordion icon="arrows-split-up-and-left" title="Event Distribution">
-    Manage resource allocation:
-    - Event matching
-    - Location optimization
-    - Equipment pairing
-    - Load balancing
-  </Accordion>
+## Assigning Resources to Events
 
-  <Accordion icon="map-location-dot" title="Location Management">
-    Track resource locations:
-    - Storage locations
-    - Event venues
-    - Transit status
-    - Return scheduling
-  </Accordion>
-</AccordionGroup>
+Resources can be assigned to events from the event detail page. When selecting resources:
+- Only resources marked as "Available" are shown
+- Resources already booked on that date are hidden to prevent double-booking
+- Resources are filtered by the event's location
+
+<Tip>
+Assign resources to every event to keep your availability accurate and avoid overbooking.
+</Tip>
+
+## Utilization Reporting
+
+Monitor your core service asset utilization on the [Reports](/reports#service-asset-utilization) page:
+- View daily utilization across a date range
+- See booked vs quoted capacity
+- Identify your busiest days
+- Track average daily utilization
 
 ## Best Practices
 
-1. Add core resources immediately
-2. Keep availability current
-3. Update resource photos regularly
-4. Monitor resource utilization with the [Service Asset Utilization report](/reports#service-asset-utilization)
-5. Track maintenance needs
-6. Use reports to forecast busy periods and optimize resource allocation
+1. **Add all core service assets** to enable accurate availability tracking
+2. **Keep status current** - mark resources as unavailable when they're out of service
+3. **Upload photos** to help with quick identification
+4. **Assign resources to events** to maintain accurate utilization data
+5. **Review the utilization report** to understand capacity and plan for busy periods
 
 ## Next Steps
 
 After setting up resources:
-- [Configure booking forms](/forms)
-- [Manage events](/events)
-- Review resource allocation
-- Monitor equipment status 
+- [Configure booking forms](/forms) to show availability
+- [Create events](/events) and assign resources
+- [Review utilization reports](/reports) to monitor capacity
