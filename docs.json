@@ -20,7 +20,7 @@
         "groups": [
           {
             "group": "Get Started",
-            "pages": ["introduction", "settings/plans", "quickstart"]
+            "pages": ["introduction", "settings/plans", "quickstart", "embed-form"]
           },
           {
             "group": "Core Features",
@@ -104,6 +104,7 @@
                   {
                     "group": "Forms",
                     "pages": [
+                      "forms/embed-your-form",
                       "forms/lead-intake",
                       "forms/share-links",
                       "forms/sms-opt-in",
