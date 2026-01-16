@@ -77,6 +77,20 @@ Flashquotes offers tools to remind customers about their outstanding invoices:
 
 ## Payment Processing
 
+### Payment Breakdown
+
+The invoice view displays a detailed breakdown of all payments made toward the invoice:
+
+- **Payment history**: Each payment shows the date, method, and amount paid
+- **Card details**: Stripe payments display the card brand and last 4 digits (e.g., Visa •••• 4242)
+- **Payment status**: Clearly distinguishes between pending and completed payments
+- **Receipt links**: Payments made through Stripe include a clickable receipt link — click the payment amount to view the Stripe receipt
+- **Refunds**: Refunded amounts appear in the breakdown with negative values
+
+<Tip>
+  The payment breakdown is also included when customers download or print the invoice PDF, making it easy for them to maintain records.
+</Tip>
+
 ### Payment Options
 
 <AccordionGroup>
@@ -87,7 +101,7 @@ Flashquotes offers tools to remind customers about their outstanding invoices:
     - Stripe Bank Transfer
     - Manual payment recording
     - Scheduled payments
-    
+
     <Info>
       Bank transfers do not settle immediately and show pending status while processing
     </Info>
