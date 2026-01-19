@@ -100,6 +100,19 @@ Refunds are processed through Stripe, which may take 5-10 business days to
 appear in your customer's account. See [Stripe's documentation](https://support.stripe.com/questions/where-is-my-customers-refund)
 for more information on the refund process.
 
+## Invoice Status After Refunds
+
+When you refund the full net payment amount, the invoice status changes to "Refunded".
+
+Refunded invoices:
+- Don't count toward outstanding amounts
+- Don't appear in overdue totals
+- Keep your financial summaries accurate
+
+<Note>
+Partial refunds don't change the invoice status. Only full net payment refunds mark an invoice as "Refunded".
+</Note>
+
 ## Related Resources
 
 - [Invoice Management](/invoices)
