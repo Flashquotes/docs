@@ -3,6 +3,8 @@ title: "Booking Flow"
 description: "Configure how customers complete their booking after accepting your quote"
 ---
 
+import { PlusBadge } from "/snippets/badge.mdx";
+
 ## Overview
 
 The Booking Flow controls how customers complete their booking after accepting your quote. Configure which booking form collects customer information and which payment terms apply directly from the quote editor.
@@ -19,7 +21,7 @@ The Booking Flow controls how customers complete their booking after accepting y
 The booking flow consists of three steps:
 
 1. **Booking Form** - The form customers complete when booking (required)
-2. **Contract** - Digital contract signing *(coming soon)*
+2. **Contract** - Digital contract signing (Plus/Pro)
 3. **Payment Terms** - How and when payments are collected
 
 ## Payment Terms
@@ -161,6 +163,23 @@ Different client types often require different payment terms:
     **New Clients:** Full payment required for first booking
   </Card>
 </CardGroup>
+
+## Contract <PlusBadge />
+
+Add digital contracts to your booking flow. Customers review and sign contracts electronically before payment.
+
+### Assigning a contract
+
+1. Click the Contract dropdown in the Booking Flow section
+2. Select a contract template
+3. Click **Edit** to modify the contract
+4. Toggle **Set as default** to auto-assign to new quotes
+
+Contracts appear after customers fill out the booking form but before payment. Customers must complete all signature blocks before proceeding to payment.
+
+<Info>
+  Plus subscribers can create up to 2 contract templates. Pro subscribers get unlimited templates. [Learn more about contracts →](/templates/contracts/overview)
+</Info>
 
 ## Booking Form
 

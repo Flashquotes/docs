@@ -1,0 +1,211 @@
+---
+title: "Contract Shortcodes"
+description: "Use dynamic shortcodes to personalize your contracts"
+---
+
+## Overview
+
+Shortcodes automatically insert quote and lead information into your contracts. They ensure accurate, personalized contracts without manual data entry.
+
+Shortcodes are formatted as `{{entity.attribute}}` and appear as highlighted tags in the editor.
+
+## Available Shortcodes
+
+Contracts support the same shortcodes available in [workflow emails](/workflows/shortcodes/overview) for the Quote Sent trigger.
+
+### Lead Information
+
+| Shortcode | Description | Example |
+|-----------|-------------|---------|
+| `{{lead.first_name}}` | Lead's first name | John |
+| `{{lead.last_name}}` | Lead's last name | Doe |
+| `{{lead.full_name}}` | Lead's full name | John Doe |
+| `{{lead.email}}` | Lead's email address | john@example.com |
+| `{{lead.company_name}}` | Lead's company name | Acme Inc |
+| `{{lead.phone}}` | Lead's phone number | +1 234-567-890 |
+| `{{lead.city}}` | Lead's city | New York |
+
+### Company Information
+
+| Shortcode | Description | Example |
+|-----------|-------------|---------|
+| `{{company.name}}` | Your company name | Bean Scene Coffee |
+| `{{company.contact_email}}` | Your contact email | hello@beanscene.com |
+| `{{company.contact_phone}}` | Your contact phone | +1 234-567-890 |
+
+### Quote Information
+
+| Shortcode | Description | Example |
+|-----------|-------------|---------|
+| `{{quote.event_start_date}}` | Event start date | May 1, 2025 |
+| `{{quote.event_start_time}}` | Event start time | 10:00 AM |
+| `{{quote.event_end_date}}` | Event end date | May 2, 2025 |
+| `{{quote.event_end_time}}` | Event end time | 10:00 PM |
+| `{{quote.event_address}}` | Event location | 123 Main St, Anytown, USA |
+| `{{quote.guest_count}}` | Number of guests | 150 |
+| `{{quote.number_of_days}}` | Number of days | 2 |
+| `{{quote.number_of_staff}}` | Number of staff | 3 |
+| `{{quote.service_duration_hours}}` | Service duration | 4 |
+
+## Using Shortcodes
+
+1. Position your cursor where you want the shortcode
+2. Type the shortcode exactly as shown (case-sensitive)
+3. The shortcode highlights automatically when recognized
+4. Preview your contract to verify shortcodes render correctly
+
+<Tip>
+  Shortcodes are case-sensitive. Use exactly as shown in the tables above.
+</Tip>
+
+## Common Use Cases
+
+<AccordionGroup>
+  <Accordion icon="handshake" title="Party Identification">
+    Identify the parties entering the agreement:
+
+    ```
+    This agreement is made between {{company.name}} ("Service Provider")
+    and {{lead.full_name}} ("Client") on this date.
+    ```
+
+    **Renders as:**
+    "This agreement is made between Bean Scene Coffee ("Service Provider") and John Smith ("Client") on this date."
+  </Accordion>
+
+  <Accordion icon="calendar" title="Event Details">
+    Reference specific event dates and times:
+
+    ```
+    Services will be provided on {{quote.event_start_date}} from
+    {{quote.event_start_time}} to {{quote.event_end_time}} at
+    {{quote.event_address}}.
+    ```
+
+    **Renders as:**
+    "Services will be provided on May 1, 2025 from 10:00 AM to 4:00 PM at 123 Main St, Anytown, USA."
+  </Accordion>
+
+  <Accordion icon="users" title="Service Scope">
+    Describe the scope of services:
+
+    ```
+    Service Provider will provide coffee catering services for
+    {{quote.guest_count}} guests with {{quote.number_of_staff}} staff
+    members for {{quote.service_duration_hours}} hours.
+    ```
+
+    **Renders as:**
+    "Service Provider will provide coffee catering services for 150 guests with 3 staff members for 4 hours."
+  </Accordion>
+
+  <Accordion icon="phone" title="Contact Information">
+    Include contact details for both parties:
+
+    ```
+    Client Contact: {{lead.full_name}}
+    Email: {{lead.email}}
+    Phone: {{lead.phone}}
+
+    Service Provider Contact: {{company.name}}
+    Email: {{company.contact_email}}
+    Phone: {{company.contact_phone}}
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Sample Contract with Shortcodes
+
+Here's a basic service agreement structure using shortcodes:
+
+```
+SERVICE AGREEMENT
+
+This Service Agreement ("Agreement") is entered into between
+{{company.name}} ("Service Provider") and {{lead.full_name}}
+("Client") for services to be provided on {{quote.event_start_date}}.
+
+EVENT DETAILS
+Date: {{quote.event_start_date}}
+Time: {{quote.event_start_time}} to {{quote.event_end_time}}
+Location: {{quote.event_address}}
+Guest Count: {{quote.guest_count}}
+
+SERVICES PROVIDED
+Service Provider will provide coffee catering services including
+{{quote.number_of_staff}} trained staff members for
+{{quote.service_duration_hours}} hours of service.
+
+PAYMENT TERMS
+Client agrees to pay the total amount specified in the quote.
+Payment terms and schedule are outlined in the booking confirmation.
+
+CANCELLATION POLICY
+[Your cancellation terms here]
+
+CONTACT INFORMATION
+Client: {{lead.full_name}}
+Email: {{lead.email}}
+Phone: {{lead.phone}}
+
+Service Provider: {{company.name}}
+Email: {{company.contact_email}}
+Phone: {{company.contact_phone}}
+
+[Add signature block here]
+```
+
+## Shortcode Best Practices
+
+<AccordionGroup>
+  <Accordion icon="check" title="Always preview">
+    Use the preview feature to verify shortcodes render correctly before assigning the contract to quotes.
+  </Accordion>
+
+  <Accordion icon="text" title="Use full names in formal sections">
+    Use `{{lead.full_name}}` instead of `{{lead.first_name}}` in legal text and signature sections.
+  </Accordion>
+
+  <Accordion icon="location-dot" title="Include complete addresses">
+    Use `{{quote.event_address}}` for the full address rather than just city.
+  </Accordion>
+
+  <Accordion icon="clock" title="Show both start and end times">
+    Include both `{{quote.event_start_time}}` and `{{quote.event_end_time}}` to clarify the service window.
+  </Accordion>
+
+  <Accordion icon="triangle-exclamation" title="Handle missing data">
+    Some shortcodes may be empty if that information wasn't collected. Test with various quote types to ensure your contract reads well even with missing optional fields.
+  </Accordion>
+</AccordionGroup>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion icon="question" title="Shortcode not highlighting?">
+    - Check spelling and capitalization (they're case-sensitive)
+    - Ensure you have both opening `{{` and closing `}}`
+    - Verify you're using a valid shortcode from the tables above
+  </Accordion>
+
+  <Accordion icon="question" title="Shortcode shows as text in preview?">
+    - The shortcode may not be recognized - check the spelling
+    - Some fields may be empty if data wasn't collected
+    - Verify you're using quote-level shortcodes (contracts don't support booking-level shortcodes)
+  </Accordion>
+
+  <Accordion icon="question" title="Need shortcodes that aren't listed?">
+    Contracts support the same shortcodes as Quote Sent workflow emails. Check the [workflow shortcodes documentation](/workflows/shortcodes/overview) for the complete list.
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Contract Editor" icon="pen-to-square" href="/templates/contracts/editor">
+    Build and format your contract template
+  </Card>
+  <Card title="Workflow Shortcodes" icon="brackets-curly" href="/workflows/shortcodes/overview">
+    See all available shortcodes in detail
+  </Card>
+</CardGroup>

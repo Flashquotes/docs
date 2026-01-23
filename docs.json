@@ -58,7 +58,17 @@
               },
               {
                 "group": "Templates",
-                "pages": ["templates/quote-templates"]
+                "pages": [
+                  "templates/quote-templates",
+                  {
+                    "group": "Contracts",
+                    "pages": [
+                      "templates/contracts/overview",
+                      "templates/contracts/editor",
+                      "templates/contracts/shortcodes"
+                    ]
+                  }
+                ]
               },
               "bookings",
               {
@@ -71,6 +81,43 @@
                 ]
               },
               "calendar",
+              {
+                "group": "Forms",
+                "pages": [
+                  "forms/embed-your-form",
+                  "forms/lead-intake",
+                  "forms/share-links",
+                  "forms/sms-opt-in",
+                  "forms/real-time-availability",
+                  "forms/booking",
+                  "forms/compatibility",
+                  "forms/wix-embeds"
+                ]
+              },
+              {
+                "group": "Workflows",
+                "pages": [
+                  "workflows/overview",
+                  "workflows/templates",
+                  "workflows/workflow-enrollments",
+                  "workflows/triggers",
+                  {
+                    "group": "Shortcodes",
+                    "pages": [
+                      "workflows/shortcodes/overview",
+                      "workflows/shortcodes/helpers",
+                      {
+                        "group": "Available Helpers",
+                        "pages": [
+                          "workflows/shortcodes/helpers/default",
+                          "workflows/shortcodes/helpers/if-else",
+                          "workflows/shortcodes/helpers/unless"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
               {
                 "group": "Finance",
                 "pages": [
@@ -96,48 +143,6 @@
                   "imports-exports/import-bookings",
                   "imports-exports/export-leads",
                   "imports-exports/export-bookings"
-                ]
-              },
-              {
-                "group": "Automations",
-                "pages": [
-                  {
-                    "group": "Forms",
-                    "pages": [
-                      "forms/embed-your-form",
-                      "forms/lead-intake",
-                      "forms/share-links",
-                      "forms/sms-opt-in",
-                      "forms/real-time-availability",
-                      "forms/booking",
-                      "forms/compatibility",
-                      "forms/wix-embeds"
-                    ]
-                  },
-                  {
-                    "group": "Workflows",
-                    "pages": [
-                      "workflows/overview",
-                      "workflows/templates",
-                      "workflows/workflow-enrollments",
-                      "workflows/triggers",
-                      {
-                        "group": "Shortcodes",
-                        "pages": [
-                          "workflows/shortcodes/overview",
-                          "workflows/shortcodes/helpers",
-                          {
-                            "group": "Available Helpers",
-                            "pages": [
-                              "workflows/shortcodes/helpers/default",
-                              "workflows/shortcodes/helpers/if-else",
-                              "workflows/shortcodes/helpers/unless"
-                            ]
-                          }
-                        ]
-                      }
-                    ]
-                  }
                 ]
               },
               {

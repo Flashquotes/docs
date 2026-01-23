@@ -1,0 +1,163 @@
+---
+title: "Contract Editor"
+description: "Build professional contracts with the rich text editor"
+---
+
+## Overview
+
+The contract editor provides a rich text toolbar for creating professional contracts with dynamic content. Use headers, lists, and signature blocks to build clear, well-organized contracts.
+
+## Editor Toolbar
+
+<Frame>
+  <img src="/images/contracts/editor-toolbar.webp" alt="Contract editor toolbar showing formatting options" />
+</Frame>
+
+The toolbar includes text formatting, structural elements, and special contract features.
+
+### Text Formatting
+
+Format text with standard controls:
+
+- **Bold** and *Italic* text
+- Underline and strikethrough
+- Links to external resources or policies
+- Text alignment (left, center, right)
+- Line dividers to separate sections
+
+### Headers
+
+Use headers to organize your contract into clear sections. Headers create visual hierarchy and make contracts easier to scan.
+
+**Common sections:**
+- Services Provided
+- Payment Terms
+- Cancellation Policy
+- Liability and Insurance
+- Terms and Conditions
+
+### Lists
+
+**Bullet lists** work well for:
+- Terms and conditions
+- Included services
+- Customer responsibilities
+
+**Numbered lists** work well for:
+- Sequential steps
+- Ordered clauses
+- Priority items
+
+### Signature Block
+
+The signature block is where customers sign electronically. Click the signature icon in the toolbar to insert one anywhere in your contract.
+
+**What signature blocks show:**
+- Signer name (entered by customer)
+- Electronic signature (adopted style)
+- Date signed (automatic timestamp)
+
+Customers click the signature block to open a modal where they enter their name, initials, and email. They acknowledge that electronic signatures are legally binding. Multiple signature blocks are supported if needed.
+
+<Frame>
+  <img src="/images/contracts/editor-signature-stamp.webp" alt="Signature block in the contract editor" />
+</Frame>
+
+<Warning>
+  All contracts must have at least one signature block to be used successfully in the booking flow.
+</Warning>
+
+### Page Breaks
+
+Insert page breaks to control where pages break when printed or downloaded as PDF. Page breaks are hidden when viewing on screen but honored in PDF and print output.
+
+**When to use page breaks:**
+- Before major sections
+- To keep related content together
+- To start signature blocks on a clean page
+
+## Using Shortcodes
+
+Insert shortcodes to personalize contracts with customer and quote data. Shortcodes appear as highlighted tags in the editor and automatically populate when customers view the contract.
+
+**Example:** `{{lead.full_name}}` becomes "John Smith" in the signed contract.
+
+[Learn about all available shortcodes →](/templates/contracts/shortcodes)
+
+## Preview Your Contract
+
+Click **Preview** to see how your contract will appear to customers. In preview mode, you can select a recent quote to see exactly how the contract would be presented for that specific quote, with all shortcodes populated with real data. This helps you verify formatting and content before assigning the contract to quotes.
+
+## Tips for Effective Contracts
+
+<AccordionGroup>
+  <Accordion icon="align-left" title="Keep language clear">
+    Use simple, direct language. Avoid legal jargon when plain English works better. Your customers should understand what they're signing.
+  </Accordion>
+
+  <Accordion icon="list-check" title="Use headers to organize">
+    Break your contract into logical sections with clear headers. This makes it easier for customers to find specific terms and for you to update sections later.
+  </Accordion>
+
+  <Accordion icon="signature" title="Place signature block at the end">
+    Put the signature block after all terms and conditions. Customers should read everything before signing.
+  </Accordion>
+
+  <Accordion icon="eye" title="Test with preview">
+    Always preview your contract before using it. Check that shortcodes render correctly and the layout looks professional.
+  </Accordion>
+
+  <Accordion icon="mobile" title="Think mobile-first">
+    Many customers will sign contracts on their phones. Keep paragraphs short and avoid wide tables or images.
+  </Accordion>
+</AccordionGroup>
+
+## Common Contract Structures
+
+<Tabs>
+  <Tab title="Service Contract">
+    **Structure for service-based businesses:**
+
+    1. **Introduction** - Brief statement of agreement
+    2. **Services Provided** - What you'll deliver
+    3. **Payment Terms** - When and how much
+    4. **Cancellation Policy** - Refund and cancellation rules
+    5. **Liability** - Limits on responsibility
+    6. **Signatures** - Electronic signature block
+  </Tab>
+
+  <Tab title="Event Agreement">
+    **Structure for event businesses:**
+
+    1. **Event Details** - Date, time, location (use shortcodes)
+    2. **Services Included** - What's provided
+    3. **Client Responsibilities** - Venue access, permits, etc.
+    4. **Payment Schedule** - Deposit and balance terms
+    5. **Changes and Cancellations** - How changes are handled
+    6. **Force Majeure** - Uncontrollable circumstances
+    7. **Signatures** - Electronic signature block
+  </Tab>
+
+  <Tab title="Rental Agreement">
+    **Structure for equipment rental:**
+
+    1. **Rental Items** - What's being rented
+    2. **Rental Period** - Pickup and return times
+    3. **Fees and Charges** - Rental fee, damage fees, late fees
+    4. **Care and Responsibility** - How to handle equipment
+    5. **Damage and Loss** - Customer liability
+    6. **Return Requirements** - Condition expectations
+    7. **Signatures** - Electronic signature block
+  </Tab>
+</Tabs>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Contract Shortcodes" icon="brackets-curly" href="/templates/contracts/shortcodes">
+    Insert dynamic customer and event data
+  </Card>
+  <Card title="Assign to Quotes" icon="arrow-progress" href="/leads/booking-flow">
+    Add contracts to the booking flow
+  </Card>
+</CardGroup>
