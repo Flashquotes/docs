@@ -1,0 +1,161 @@
+---
+title: "Google Tag Manager"
+description: "Use GTM for advanced analytics tracking on lead forms"
+---
+
+<Note>
+**Pro subscription required.** Analytics tracking is available on the Flashquotes Pro plan. [Learn more about upgrading](https://flashquotes.com/pricing).
+</Note>
+
+Google Tag Manager (GTM) lets you manage multiple tracking pixels and analytics tools from one place. Use GTM when you need to track conversions across multiple platforms like Facebook, LinkedIn, or TikTok.
+
+## Why use Google Tag Manager
+
+GTM is ideal when you need to:
+
+- **Track multiple platforms** - Send conversion data to Facebook Pixel, LinkedIn Insight Tag, TikTok Pixel, etc.
+- **Use advanced triggers** - Fire tags based on specific form events or custom conditions
+- **Manage tracking centrally** - Update all your tracking from one GTM container
+- **A/B test tracking** - Experiment with different tracking configurations
+
+<Tip>
+If you only need Google Analytics 4 tracking, the simpler [GA4 direct integration](/settings/integrations/google-analytics) may be all you need.
+</Tip>
+
+## Events pushed to dataLayer
+
+Flashquotes pushes these events to the GTM dataLayer when visitors interact with your lead intake forms:
+
+| Event | When it fires | What it tells you |
+|-------|---------------|-------------------|
+| `form_view` | Form page loads | How many people see your form |
+| `form_start` | First field interaction | How many people start filling out your form |
+| `generate_lead` | Successful submission | How many leads you captured |
+
+Each event includes this data in the dataLayer:
+
+```javascript
+{
+  event: 'form_view', // or 'form_start' or 'generate_lead'
+  form_id: 'abc123',
+  form_name: 'Wedding Inquiry Form',
+  utm_source: 'facebook',
+  utm_medium: 'paid',
+  utm_campaign: 'summer_promo',
+  utm_term: 'wedding photographer',
+  utm_content: 'video_ad'
+}
+```
+
+The `generate_lead` event also includes:
+- **lead_id** - The Flashquotes lead ID
+- **quote_id** - The associated quote ID (if created)
+
+## Set up GTM tracking
+
+<Steps>
+  <Step title="Get your GTM Container ID">
+    Your Container ID looks like `GTM-XXXXXXX`. Find it in Google Tag Manager:
+    1. Go to [Google Tag Manager](https://tagmanager.google.com)
+    2. Select your container (or create one)
+    3. Your Container ID appears at the top of the workspace
+
+    [Google's guide to finding your Container ID](https://support.google.com/tagmanager/answer/6103696)
+  </Step>
+  <Step title="Add to Flashquotes">
+    1. Go to **Settings > Integrations**
+    2. Find the **Analytics Tracking** section
+    3. Paste your Container ID in the **GTM Container ID** field
+    4. Click **Save**
+  </Step>
+  <Step title="Create triggers in GTM">
+    In your GTM container, create triggers for each Flashquotes event:
+    1. Go to **Triggers > New**
+    2. Choose **Custom Event** as the trigger type
+    3. Set **Event name** to match (e.g., `generate_lead`)
+    4. Save the trigger
+    5. Repeat for `form_view` and `form_start`
+  </Step>
+  <Step title="Connect triggers to your tags">
+    1. Create or edit your conversion tag (e.g., Facebook Pixel)
+    2. Under **Triggering**, add your new trigger
+    3. Save and publish your container
+  </Step>
+</Steps>
+
+## Example: Facebook Pixel setup
+
+Here's how to track Flashquotes leads as Facebook conversions:
+
+### 1. Create variables for form data
+
+In GTM, go to **Variables > User-Defined Variables > New**:
+
+| Variable Name | Variable Type | Data Layer Variable Name |
+|--------------|---------------|-------------------------|
+| FQ - Form ID | Data Layer Variable | `form_id` |
+| FQ - Form Name | Data Layer Variable | `form_name` |
+| FQ - Lead ID | Data Layer Variable | `lead_id` |
+
+### 2. Create the trigger
+
+1. Go to **Triggers > New**
+2. Choose **Custom Event**
+3. Set **Event name** to `generate_lead`
+4. Name it "FQ - Lead Generated"
+
+### 3. Create the Facebook Pixel tag
+
+1. Go to **Tags > New**
+2. Choose **Facebook Pixel** (or Custom HTML if not available)
+3. Configure the Lead event with your Pixel ID
+4. Add the "FQ - Lead Generated" trigger
+5. Save and publish
+
+### 4. Test in Preview mode
+
+1. Click **Preview** in GTM
+2. Open your Flashquotes form
+3. Submit a test lead
+4. Verify the tag fires in GTM's debug panel
+
+## Best practices
+
+1. **Use GTM Preview mode** - Always test new tags before publishing
+2. **Name things clearly** - Use prefixes like "FQ -" for Flashquotes-related items
+3. **Document your setup** - Note which tags use which triggers
+4. **Test conversions end-to-end** - Verify data appears in your ad platforms
+5. **Don't double-track** - If using GTM, don't also add GA4 directly in Flashquotes
+
+## Troubleshooting
+
+### Events not appearing in GTM Preview
+
+1. **Check Container ID format** - Must be `GTM-` followed by 6-10 alphanumeric characters
+2. **Refresh the page** - GTM loads on page load
+3. **Check for conflicts** - Ensure GTM isn't also loaded by your website
+
+### Tags not firing
+
+1. **Verify trigger setup** - Event names are case-sensitive (`generate_lead` not `Generate_Lead`)
+2. **Check trigger conditions** - Make sure there are no extra conditions blocking the trigger
+3. **Test in Preview mode** - GTM Preview shows exactly why tags fire or don't fire
+
+### Data not appearing in ad platform
+
+1. **Allow time for sync** - Some platforms take hours to show conversion data
+2. **Check pixel/tag setup** - Verify your ad platform tag is configured correctly
+3. **Test with platform tools** - Use Facebook Pixel Helper, LinkedIn Insight Tag debugger, etc.
+
+### Using both GA4 and GTM
+
+If you add both GA4 and GTM IDs in Flashquotes:
+- Both will receive events
+- Make sure you're not sending duplicate data to GA4 (once directly, once via GTM)
+- Choose one method: either direct GA4 or GA4 via GTM
+
+## Next steps
+
+- [Set up direct GA4 tracking](/settings/integrations/google-analytics) if you only need Google Analytics
+- [Learn about form embedding](/forms/embed-your-form) to add forms to your website
+- [View your leads](/leads/managing) to see captured form submissions

@@ -175,7 +175,9 @@
                       "settings/integrations/google",
                       "settings/integrations/google-gmail-send",
                       "settings/integrations/google-gmail-read",
-                      "settings/integrations/google-calendar"
+                      "settings/integrations/google-calendar",
+                      "settings/integrations/google-analytics",
+                      "settings/integrations/google-tag-manager"
                     ]
                   },
                   "settings/integrations/quickbooks",

@@ -1,0 +1,120 @@
+---
+title: "Google Analytics (GA4)"
+description: "Track lead form conversions with Google Analytics 4"
+---
+
+<Note>
+**Pro subscription required.** Analytics tracking is available on the Flashquotes Pro plan. [Learn more about upgrading](https://flashquotes.com/pricing).
+</Note>
+
+Track when leads view your forms, start filling them out, and successfully submit. This data flows directly to Google Analytics 4 so you can measure your marketing effectiveness.
+
+## What gets tracked
+
+Flashquotes automatically sends these events to your GA4 property when visitors interact with your lead intake forms:
+
+| Event | When it fires | What it tells you |
+|-------|---------------|-------------------|
+| `form_view` | Form page loads | How many people see your form |
+| `form_start` | First field interaction | How many people start filling out your form |
+| `generate_lead` | Successful submission | How many leads you captured |
+
+Each event includes:
+- **form_id** - The unique identifier for your form
+- **form_name** - The name you gave your form in Flashquotes
+- **UTM parameters** - utm_source, utm_medium, utm_campaign, utm_term, utm_content (when present in URL)
+
+The `generate_lead` event also includes:
+- **lead_id** - The Flashquotes lead ID
+- **quote_id** - The associated quote ID (if created)
+
+## Set up GA4 tracking
+
+<Steps>
+  <Step title="Get your GA4 Measurement ID">
+    Your Measurement ID looks like `G-XXXXXXXXXX`. Find it in your Google Analytics account:
+    1. Go to [Google Analytics](https://analytics.google.com)
+    2. Click **Admin** (gear icon)
+    3. Under **Property**, click **Data streams**
+    4. Select your web stream
+    5. Copy the **Measurement ID** (starts with `G-`)
+
+    [Google's guide to finding your Measurement ID](https://support.google.com/analytics/answer/9539598)
+  </Step>
+  <Step title="Add to Flashquotes">
+    1. Go to **Settings > Integrations**
+    2. Find the **Analytics Tracking** section
+    3. Paste your Measurement ID in the **GA4 Measurement ID** field
+    4. Click **Save**
+  </Step>
+  <Step title="Verify tracking is working">
+    1. Open your lead intake form in a new browser tab
+    2. In Google Analytics, go to **Reports > Realtime**
+    3. You should see a `form_view` event appear within a few seconds
+    4. Fill out a test field to trigger `form_start`
+    5. Submit the form to trigger `generate_lead`
+  </Step>
+</Steps>
+
+## Using UTM parameters
+
+Flashquotes automatically captures UTM parameters from your form URLs and includes them in all events. This lets you track which marketing campaigns drive the most leads.
+
+**Example URL with UTM parameters:**
+```
+https://yoursite.com/get-quote?utm_source=facebook&utm_medium=paid&utm_campaign=summer_promo
+```
+
+These parameters will be included in all three events (form_view, form_start, generate_lead), so you can build reports showing:
+- Which sources drive the most form views
+- Which campaigns have the best form completion rates
+- Which channels generate the most leads
+
+## Build reports in GA4
+
+### Create a conversion funnel
+
+1. In GA4, go to **Explore**
+2. Create a new **Funnel exploration**
+3. Add steps: form_view → form_start → generate_lead
+4. See your form conversion rates
+
+### Track lead sources
+
+1. Go to **Reports > Acquisition > Traffic acquisition**
+2. Add a secondary dimension of "Event name"
+3. Filter to show only `generate_lead` events
+4. See which sources drive the most leads
+
+## Best practices
+
+1. **Test before launching campaigns** - Submit a test lead and verify events appear in GA4 Realtime before spending on ads
+2. **Use consistent UTM parameters** - Create a UTM naming convention for your team
+3. **Set up GA4 conversions** - Mark `generate_lead` as a conversion event in GA4 for easier reporting
+4. **Connect Google Ads** - Link GA4 to Google Ads to import conversions for better ad optimization
+
+## Troubleshooting
+
+### Events not appearing in GA4
+
+1. **Check Measurement ID format** - Must start with `G-` followed by 6-12 alphanumeric characters
+2. **Wait a few minutes** - GA4 can have a slight delay; use Realtime reports for faster verification
+3. **Check for ad blockers** - Browser extensions may block GA4 tracking
+4. **Verify Pro subscription** - Analytics tracking requires Flashquotes Pro
+
+### Duplicate events
+
+- Each page load should trigger one `form_view`
+- If you see duplicates, check that you haven't also added GA4 tracking manually to the page
+
+### UTM parameters not tracking
+
+- UTM parameters must be in the URL when the form loads
+- Check that your marketing links include the UTM parameters
+- Parameters are case-sensitive
+
+## Next steps
+
+- [Set up Google Tag Manager](/settings/integrations/google-tag-manager) for advanced tracking needs
+- [Learn about form embedding](/forms/embed-your-form) to add forms to your website
+- [View your leads](/leads/managing) to see captured form submissions
