@@ -3,6 +3,8 @@ title: "Managing Leads"
 description: "Learn how to track and manage leads in Flashquotes"
 ---
 
+import { PlusBadge } from "/snippets/badge.mdx";
+
 ## Overview
 
 The Leads section in Flashquotes helps you track and manage potential clients from initial inquiry through quote acceptance. Each lead contains essential event details and client information needed for quote generation.
@@ -16,10 +18,12 @@ The Leads section in Flashquotes helps you track and manage potential clients fr
 
     This is the best place to manage your active leads and will be your go-to workflow for quoting and converting leads to bookings.
 
+    The table includes pipeline metrics like Open Inquiries, Open Quotes, Upcoming Bookings, and Latest Communication. All columns are sortable, and summary statistics above the table show your overall pipeline health with tooltips explaining each metric.
+
     ### Filters
-    - Filter leads by status, source, or date range
-    - Search for leads by common fields like name, email, or phone number
     - Click on status cards to easily quick filter leads by status
+    - Filter leads source, lead owner, or date range
+    - Search for leads by common fields like name, email, or phone number
     - Reference *Booking percentage* to measure how well you're converting leads to bookings
 
     <img src="../images/leads/lead-dashboard.png" alt="Lead dashboard filters"/>
@@ -97,6 +101,23 @@ The Leads section in Flashquotes helps you track and manage potential clients fr
     <Warning>
       Remember that expired quotes cannot be booked by customers. They'll see a message prompting them to request a new quote or contact you directly.
     </Warning>
+  </Accordion>
+
+  <Accordion icon="user-plus" title="Lead Assignment">
+    <PlusBadge /> Assign leads to specific team members for better accountability and follow-up tracking.
+
+    ### To assign a lead owner
+
+    1. Open a lead from the Leads page
+    2. Click **Edit Lead** in the lead header
+    3. Select a team member from the **Lead Owner** dropdown
+    4. Click **Save**
+
+    The lead owner appears in the lead header and leads table, and can be used as a filter to view only your assigned leads.
+
+    <Info>
+      Internal support accounts are automatically hidden from the lead owner dropdown to keep your team list clean.
+    </Info>
   </Accordion>
 </AccordionGroup>
 

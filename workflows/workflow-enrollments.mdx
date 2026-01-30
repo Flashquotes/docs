@@ -5,6 +5,14 @@ description: "Learn how to enroll leads in workflows and manage active enrollmen
 
 ## Enrolling Leads in Workflows
 
+### Automatic Enrollment
+
+Leads are automatically enrolled in workflows based on the trigger type:
+
+- **Quote Requested**: Leads enroll when they submit your lead intake form
+- **Quote Sent**: Enroll leads when sending quotes (toggle in send quote modal)
+- **First Event Start** / **Last Event End**: Bookings enroll automatically when created
+
 ### During Quote Sending
 
 1. Navigate to the Send Quote modal when preparing to send a quote
@@ -18,6 +26,38 @@ description: "Learn how to enroll leads in workflows and manage active enrollmen
 		alt="Quote sending modal with enroll in workflow toggle"
 	/>
 </Frame>
+
+## Bulk Enrolling Bookings
+
+For workflows with First Event Start or Last Event End triggers, you can enroll multiple existing bookings at once. This saves time when you create a new workflow and want to include existing upcoming bookings.
+
+**To bulk enroll bookings:**
+
+1. Navigate to Workflows from your main navigation
+2. Click on a published workflow with event-based triggers
+3. Select the **Enrollments** tab
+4. Click the **Enroll Upcoming Bookings** button in the top right
+5. Review the list of eligible bookings
+6. Select the bookings you want to enroll
+7. Click **Enroll Selected**
+
+**Eligible bookings:**
+- Have at least one future event (event hasn't occurred yet)
+- Are not already enrolled in this workflow
+- Match the workflow's trigger type (First Event Start or Last Event End)
+
+**What you'll see:**
+- Booking name
+- Event name
+- Event date and time (in the location's timezone)
+- Checkbox to select for enrollment
+
+**When to use bulk enrollment:**
+- You created a new workflow and want to include existing upcoming bookings
+
+<Note>
+Bulk enrollment is only available for published workflows. Draft workflows must be published first before you can enroll bookings.
+</Note>
 
 ## Tracking Enrollments
 
