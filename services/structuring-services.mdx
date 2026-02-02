@@ -1,0 +1,222 @@
+---
+title: "Structuring Your Services"
+description: "How to design services that are simple, powerful, and easy to quote"
+---
+
+Services in Flashquotes work best when they represent clear, bookable experiences—not every variation or add-on. This guide walks through how to design them so your menu stays simple, powerful, and easy to quote.
+
+## What Is a Service?
+
+A **Service** is a core package or experience that a client can book on its own.
+
+<Tip>
+  **The litmus test:** If a client saw this on your site, could they book *just this* and have it make sense?
+</Tip>
+
+A good service describes an **experience**—what happens, for how long, for what kind of event—not just a single line item.
+
+<AccordionGroup>
+  <Accordion icon="check" title="Good service examples">
+    - Espresso Bar Experience
+    - Hot Chocolate Cart
+    - Matcha & Tea Bar
+    - Premium Coffee & Pastry Station
+    - Full Mobile Bar Service
+
+    Each is a distinct, bookable experience.
+  </Accordion>
+
+  <Accordion icon="xmark" title="These should NOT be services">
+    - Additional Hour
+    - Extra Barista
+    - Custom Cups
+    - Logo Cup Sleeves
+    - Whipped Cream Topping
+
+    These belong as [add-ons](/services/add-ons) or [pricing rules](/services/pricing), layered onto a core service.
+  </Accordion>
+</AccordionGroup>
+
+## The Basic Structure of a Service
+
+Every service should answer three questions:
+
+| Question | What to include |
+|----------|-----------------|
+| **What is the experience?** | Simple, clear name and a short description of who it's for and what guests get |
+| **What's included by default?** | Drinks/food offered, typical duration, standard staffing, and basics (cups, syrups, milks) |
+| **What can change with pricing rules?** | Duration, guest counts, event types—the price changes, but the service stays the same |
+
+## One Service, Many Prices
+
+Instead of creating separate services like:
+
+<CodeGroup>
+```text Don't do this
+Espresso Bar – 2 Hours
+Espresso Bar – 3 Hours  
+Espresso Bar – Wedding
+Espresso Bar – Corporate
+```
+
+```text Do this instead
+Espresso Bar Experience (one service)
+├── Pricing rules for duration (2, 3, 4 hours)
+├── Pricing rules for guest count brackets
+└── Pricing rules for event types (Pro)
+```
+</CodeGroup>
+
+### Example: Espresso Bar Service
+
+<Card>
+**Service name:** Espresso Bar Experience
+
+**Description:** A full-service espresso cart with handcrafted lattes, cappuccinos, and more, served by professional baristas at your event.
+
+**What's included:**
+- 2 hours of service
+- Unlimited espresso-based drinks
+- Dairy + one non-dairy milk
+- 3 standard syrups
+
+**Pricing rules handle:**
+- Additional hours (+$X per hour)
+- Guest count brackets (0-50, 51-100, 101-200)
+- Event type premiums/discounts (Pro feature)
+</Card>
+
+All of this stays under **one service**, so your menu is clean and easy for clients to understand.
+
+## When to Use Add-ons Instead
+
+Use an [add-on](/services/add-ons) when:
+
+- It only makes sense on top of another service
+- A client wouldn't book it by itself
+- It describes extra time, upgrades, or customizations
+
+<AccordionGroup>
+  <Accordion icon="puzzle-piece" title="Common add-ons">
+    - Extra hours of service
+    - Additional barista or staff
+    - Custom cups, sleeves, or branding
+    - Upgraded syrups or premium milk options
+    - Photo backdrop or decor upgrades
+    - Travel fees or special setup charges
+  </Accordion>
+</AccordionGroup>
+
+<Warning>
+  If you catch yourself naming something like "Espresso Bar – Extra Hour" as a service, that's a signal it should be an add-on instead.
+</Warning>
+
+## How Many Services Should I Have?
+
+You'll get the best results with a **small, focused set** of services and more flexibility in add-ons and pricing rules.
+
+| Business stage | Typical service count |
+|----------------|----------------------|
+| Side hustle / simple menu | 1-2 services |
+| Growing business | 3-5 services |
+| Multi-concept operations | More, but grouped by distinct experiences |
+
+**Example lineup for a coffee caterer:**
+- Espresso Bar Experience
+- Hot Chocolate Cart
+- Matcha & Tea Bar
+- Bottled Lattes / Coffee To-Go
+
+Each can have many internal pricing variations, but clients see a short, understandable list.
+
+## Naming and Descriptions That Convert
+
+### Naming tips
+
+<CardGroup cols={2}>
+  <Card title="Do this" icon="check">
+    - Classic Espresso Bar Experience
+    - Hot Chocolate & S'mores Cart
+    - Cold Brew & Iced Tea Station
+
+    Clear, experience-focused names.
+  </Card>
+  <Card title="Avoid this" icon="xmark">
+    - Package 1
+    - Service A
+    - Espresso 2hr – Corporate (100-150 guests)
+
+    Vague or overloaded with details.
+  </Card>
+</CardGroup>
+
+### Description tips
+
+In 2-4 sentences, cover who it's for, what's included, and why it's special:
+
+<Card>
+  "Bring a full café experience to your event with our Espresso Bar. Guests enjoy handcrafted lattes, cappuccinos, and more, made to order by a professional barista. Includes a stylish mobile cart, premium beans, dairy and non-dairy milks, and three house syrups."
+</Card>
+
+Let your pricing rules and add-ons handle the details on hours, guest counts, and upgrades.
+
+## Common Mistakes and Fixes
+
+<AccordionGroup>
+  <Accordion icon="copy" title="Mistake: Every variation is a service">
+    **Problem:**
+    - "Espresso Bar – 2 Hours"
+    - "Espresso Bar – 3 Hours"
+    - "Espresso Bar – Wedding"
+
+    **Fix:** Keep one "Espresso Bar Experience" service. Use [pricing rules](/services/pricing) for hours and event types.
+  </Accordion>
+
+  <Accordion icon="layer-group" title="Mistake: Add-ons modeled as services">
+    **Problem:**
+    - "Additional Hour"
+    - "Add Second Cart"
+    - "Logo Cups"
+
+    **Fix:** Attach these as [add-ons](/services/add-ons) to the relevant services instead.
+  </Accordion>
+
+  <Accordion icon="clone" title="Mistake: Too many overlapping services">
+    **Problem:**
+    - "Standard Espresso Bar"
+    - "Premium Espresso Bar"
+    - "Deluxe Espresso Bar"
+
+    **Fix:** Consider one "Espresso Bar Experience" with add-ons or pricing rules for premium upgrades, unless they're truly distinct experiences.
+  </Accordion>
+</AccordionGroup>
+
+## Service Structure Checklist
+
+Before you publish, review each service:
+
+<Steps>
+  <Step title="Standalone test">
+    Could a client book this on its own and immediately understand what they're getting?
+  </Step>
+  <Step title="Experience test">
+    Does it describe an experience, not just a single line item?
+  </Step>
+  <Step title="Variations test">
+    Are duration, guest counts, and event types handled by pricing rules instead of separate services?
+  </Step>
+  <Step title="Extras test">
+    Are extras (more time, more staff, more customization) handled as add-ons?
+  </Step>
+  <Step title="Clarity test">
+    Does the name make sense at a glance to someone who's never met you?
+  </Step>
+</Steps>
+
+If you can answer "yes" to all of these, your service structure is in great shape.
+
+## Next Steps
+
+- [Configure pricing rules](/services/pricing) to handle variations
+- [Create add-ons](/services/add-ons) for extras and upgrades
+- [Set up your first service](/services/core-services)

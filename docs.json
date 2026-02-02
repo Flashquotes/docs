@@ -42,6 +42,7 @@
                 "group": "Services",
                 "pages": [
                   "services",
+                  "services/structuring-services",
                   {
                     "group": "Core Services",
                     "pages": ["services/core-services"]
