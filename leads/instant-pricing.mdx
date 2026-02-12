@@ -36,7 +36,7 @@ Navigate to the Services tab and either create a new service or edit an existing
 
 - **Base Price**: Starting price for the service before any adjustments
 - **Hourly Rate Per Staff**: Rate charged per staff member per hour
-- **Price Per Guest**: Additional charge per guest (optional)
+- **Price Per Guest**: Additional charge that scales with guests. On the service pricing page you can choose **Per guest** (rate × guests) or **Per guest per hour** (rate × guests × hours).
 - **Minimum Price**: The lowest price that will ever be quoted for this service
 
 <Note>
@@ -55,8 +55,10 @@ For an event with:
 The total price would be calculated as:
 
 ```
-Total = Base Price + (Hourly Rate × Staff × Hours) + (Price Per Guest × Guests)
+Total = Base Price + (Hourly Rate × Staff × Hours) + Guest Component
 ```
+
+The **Guest Component** depends on the guest pricing mode set on the service: either (Price per guest × Guests) or (Price per guest × Guests × Hours).
 
 <Tip>
   If the calculated total is less than the Minimum Price, the system will
@@ -137,7 +139,7 @@ When Instant Quoting is enabled:
    - **Without service selection question**: Uses the fallback service configured in settings
    - **No service selected**: Falls back to the configured default service
 3. **Calculates the price using the selected service's pricing rules:**
-   - Base price + (Hourly rate × Staff × Hours) + (Price per guest × Guests)
+   - Base price + (Hourly rate × Staff × Hours) + guest component (per guest or per guest per hour, depending on the service's guest pricing mode)
    - Applies minimum price threshold if calculated total is lower
 4. **Automatically redirects client to quote presentation page**
 5. **Client can review the quote and click "Book Now" immediately**

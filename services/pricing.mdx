@@ -35,12 +35,13 @@ Each service can use any combination of these pricing elements:
   </Accordion>
 
   <Accordion icon="users" title="Price per Guest">
-    Scale with event size:
-    - Added cost for each attendee
-    - Great for consumption-based services
-    - Helps cover variable costs
+    Scale with event size. Choose how the guest rate is applied:
 
-    **Example**: $15 per guest for appetizer service
+    - **Per guest**: Flat rate multiplied by guest count. Great for per-person food, favors, or fixed per-head costs.
+    - **Per guest per hour**: Rate multiplied by guest count and event duration. Ideal when consumption or service scales with both attendance and time.
+
+    **Example (Per guest)**: $15 per guest for appetizer service — 50 guests = $750
+    **Example (Per guest per hour)**: $3/guest/hr for bar service — 50 guests × 4 hours = $600
   </Accordion>
 
   <Accordion icon="boxes-stacked" title="Price per Resource">
@@ -68,10 +69,15 @@ Your service price is calculated as:
 
 ```
 Final Price = MAX(
-  Base Price + (Staff × Hours × Hourly Rate) + (Guests × Per Guest Rate) + (Resources × Per Resource Rate),
+  Base Price + (Staff × Hours × Hourly Rate) + Guest Component + (Resources × Per Resource Rate),
   Minimum Price
 )
 ```
+
+The **Guest Component** depends on the guest pricing mode set on the service:
+
+- **Per guest**: `Guests × Per Guest Rate`
+- **Per guest per hour**: `Guests × Hours × Per Guest Rate`
 
 This ensures you're always paid at least your minimum while allowing flexible pricing based on event specifics.
 
@@ -103,6 +109,15 @@ This ensures you're always paid at least your minimum while allowing flexible pr
 - Catering: $500 base + $25 per guest
 - Covers fixed costs + variable food costs
 - Profitable at any event size
+
+### Per-Person Per-Hour Services
+
+**Setup**: Per-guest rate that also scales with event duration (use "Per guest per hour" mode on the service)
+
+**Example**:
+- Bar or beverage service: $4/guest/hr
+- 75 guests × 5 hours = $1,500 from the guest component alone
+- Ideal when consumption or service intensity scales with both attendance and time
 
 ### Per-Resource Services
 
