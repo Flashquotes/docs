@@ -26,11 +26,12 @@ Add-ons are extras and upsells that customers can add to their bookings. Navigat
     - Display name
     - Description
     - Pricing structure
-    - Quantity limits (for per unit pricing)
+    - Quantity limits (for Per unit, Per unit per hour, and Per unit per guest)
+    - Minimum price (optional, for variable-rate add-ons)
     - Add-on image
 
     ### Quantity Limits
-    For "Per Unit" priced add-ons, set minimum and maximum quantity controls:
+    For **Per unit**, **Per unit per hour**, and **Per unit per guest** add-ons, set minimum and maximum quantity controls:
 
     - **Min Quantity**: Enforce minimum order requirements
     - **Max Quantity**: Prevent over-ordering or resource conflicts
@@ -42,7 +43,7 @@ Add-ons are extras and upsells that customers can add to their bookings. Navigat
     - Photo booth props: Min 5, Max 25 (package deals)
 
     <Note>
-      Quantity limits only apply to per-unit pricing. Flat rate and other pricing models don't use these controls.
+      Quantity limits only apply to Per unit, Per unit per hour, and Per unit per guest. Flat rate and other pricing models don't use these controls. Flat and Per unit do not use minimum price.
     </Note>
   </Accordion>
 
@@ -54,6 +55,10 @@ Add-ons are extras and upsells that customers can add to their bookings. Navigat
     - **Per hour**: Price based on service duration
     - **Per resource**: Price based on resources used
     - **Per unit per hour**: Combined unit and hourly pricing
+    - **Per unit per guest**: Price per unit scaled by guest count (and number of days); quantity is applied at line level (e.g. per-guest cocktail pricing with multiple options)
+
+    ### Minimum Price (Optional)
+    For variable-rate add-ons (**Per guest**, **Per hour**, **Per resource**, **Per unit per hour**, **Per unit per guest**), you can set an optional minimum price. If the calculated price is below this amount, the minimum is used. Leave blank for no minimum. Flat rate and Per unit do not use minimum price.
 
     <Tip>
       Choose pricing models that align with your operational costs and market positioning.
@@ -85,6 +90,10 @@ Add-ons are extras and upsells that customers can add to their bookings. Navigat
 
 <AccordionGroup>
   <Accordion icon="calculator" title="How Pricing Works">
+    **Per unit per guest**: Unit price × guests × days, then × quantity (e.g. $1 per guest per cocktail × 100 guests × 1 day = $100 per unit; quantity 3 = $300 total).
+
+    **Minimum price**: If you set a minimum price, the line total will never be less than that amount for variable-rate add-ons.
+
     ### How Quantity Limits Work
 
     **Minimum Quantity**:

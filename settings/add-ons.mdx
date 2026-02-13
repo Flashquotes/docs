@@ -21,13 +21,14 @@ Go to Operations > Add-ons to create and manage additional services for your quo
     - Display name
     - Description
     - Pricing structure
-    - Quantity limits (for per unit pricing)
+    - Quantity limits (for Per unit, Per unit per hour, and Per unit per guest)
+    - Minimum price (optional, for variable-rate add-ons)
     - Availability rules
   </Step>
 </Steps>
     
 ### Quantity limits
-For "Per Unit" priced add-ons, set minimum and maximum quantity controls:
+For **Per unit**, **Per unit per hour**, and **Per unit per guest** add-ons, set minimum and maximum quantity controls:
 
 - **Min Quantity**: Enforce minimum order requirements
 - **Max Quantity**: Prevent over-ordering or resource conflicts
@@ -39,7 +40,7 @@ For "Per Unit" priced add-ons, set minimum and maximum quantity controls:
 - Photo booth props: Min 5, Max 25 (package deals)
 
 <Note>
-Quantity limits only apply to per-unit pricing. Flat rate and other pricing models don't use these controls.
+Quantity limits only apply to Per unit, Per unit per hour, and Per unit per guest. Flat rate and other pricing models don't use these controls.
 </Note>
 
 <Note>
@@ -49,10 +50,14 @@ Unique IDs are essential for automation workflows and integrations.
 ## Pricing options
 
 Configure pricing models:
-- Per unit pricing
 - Flat rate pricing
-- Hourly rates
-- Resource-based pricing
+- Per unit pricing
+- Per guest pricing
+- Per hour pricing
+- Per resource pricing
+- Per unit per hour pricing
+- Per unit per guest pricing (quantity × guest count × days)
+- Minimum price (optional) for variable-rate add-ons — ensures the calculated price never goes below that floor
 
 <Tip>
 Choose pricing models that align with your operational costs and market positioning.
@@ -87,8 +92,9 @@ Maintain consistent IDs across all integrated platforms.
 </Warning>
 
 **Pricing rules**:
-- Quantity limits for per-unit add-ons
+- Quantity limits for Per unit, Per unit per hour, and Per unit per guest add-ons
 - Minimum and maximum order requirements
+- Minimum price for variable-rate add-ons (Per guest, Per hour, Per resource, Per unit per hour, Per unit per guest) so the calculated price never goes below that floor
 - Bundle discounts
 - Special pricing conditions
 
