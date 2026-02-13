@@ -1,21 +1,25 @@
 ---
-title: "Manual syncing"
-description: "Manually sync individual payments and refunds to QuickBooks Online"
+title: "QuickBooks Sync"
+description: "How payments, deposits, and refunds sync between Flashquotes and QuickBooks Online"
 ---
 
-Sync specific payments and refunds to QuickBooks when you need manual control over your accounting records.
-
-## When you need this
-
-Use manual sync when:
-- QuickBooks connection was set up after payments were processed
-- You want to sync only specific transactions
-- Automatic sync failed for individual payments
-- You need to control timing of accounting entries
+Flashquotes syncs payments, deposits, and refunds to QuickBooks Online. This page covers how sync works and how to manually sync individual transactions.
 
 <Note>
-Manual sync requires an active Pro subscription and QuickBooks Online connection. Set up QuickBooks integration first in [Settings → Integrations](/settings/integrations/quickbooks).
+QuickBooks sync requires an active Pro subscription and QuickBooks Online connection. Set up QuickBooks integration first in [Settings → Integrations](/settings/integrations/quickbooks).
 </Note>
+
+## How deposits work
+
+Flashquotes creates QuickBooks deposits differently depending on the payment method:
+
+**Stripe payments** — Deposits are created automatically when Stripe sends the payout to your bank. Multiple payments from the same payout are grouped into a single aggregate deposit that matches your bank statement. Each deposit includes the Stripe payout trace ID in the memo field for easy bank reconciliation.
+
+**Manual payments** (cash, check) — Deposits are created immediately when you sync the payment to QuickBooks.
+
+### Failed payouts
+
+If a Stripe payout fails, Flashquotes automatically removes the corresponding deposit from QuickBooks and clears the deposit link from affected payments. No manual cleanup is needed.
 
 ## Sync a payment
 
@@ -24,7 +28,7 @@ Manual sync requires an active Pro subscription and QuickBooks Online connection
 3. Click **Sync Payment** next to the payment
 4. Wait for sync to complete (button shows loading spinner)
 
-What happens next: The payment syncs to QuickBooks as an invoice, payment record, and bank deposit. The sync button disappears and shows a QuickBooks icon.
+What happens next: The payment syncs to QuickBooks as an invoice and payment record. For manual payments (cash, check), a bank deposit is also created immediately. For Stripe payments, the deposit is created later when the payout arrives. The sync button disappears and shows a QuickBooks icon.
 
 ## Sync a refund
 
@@ -34,6 +38,14 @@ What happens next: The payment syncs to QuickBooks as an invoice, payment record
 4. Wait for sync to complete
 
 What happens next: The refund syncs to QuickBooks as a refund record. You'll see a QuickBooks icon showing the sync is complete.
+
+## When to use manual sync
+
+Use manual sync when:
+- QuickBooks connection was set up after payments were processed
+- You want to sync only specific transactions
+- Automatic sync failed for individual payments
+- You need to control timing of accounting entries
 
 ## Prerequisites
 
@@ -53,13 +65,19 @@ Missing account mappings will cause sync to fail. Check your QuickBooks integrat
 - **"Already synced" error**: Payment was previously synced to QuickBooks
 - **"Invoice already paid" error**: QuickBooks invoice has zero balance remaining
 - **Account mapping missing**: Set up required bank and expense accounts in QuickBooks settings
+- **Deposit not appearing yet**: For Stripe payments, deposits are created when the payout reaches your bank (typically 1-2 business days)
 
 ## What gets created in QuickBooks
 
 **For payments:**
 - Invoice record (if not already exists)
 - Payment record linked to invoice
-- Bank deposit with fee deductions
+- Bank deposit (immediately for manual payments; on payout for Stripe payments)
+
+**For Stripe payout deposits:**
+- Single aggregate deposit grouping all payments from the payout
+- Stripe processing fees recorded as expense line items
+- Payout trace ID in the deposit memo for bank reconciliation
 
 **For refunds:**
 - Refund record
@@ -70,10 +88,11 @@ Missing account mappings will cause sync to fail. Check your QuickBooks integrat
 - Can only sync payments with valid amounts greater than $0
 - Previously synced payments can't be synced again
 - Requires customer email to match or create QuickBooks customer
-- Stripe fees and flashquotes fees are automatically calculated and recorded
+- Stripe fees and Flashquotes fees are automatically calculated and recorded
 
 ## Related topics
 
 - [QuickBooks Integration Setup](/settings/integrations/quickbooks)
+- [Custom Line Item Mappings](/finance/quickbooks-custom-mappings)
 - [Payment Management](/finance/payments)
 - [Processing Refunds](/invoices/refunds)

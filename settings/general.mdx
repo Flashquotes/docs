@@ -55,6 +55,35 @@ Steps:
 - Incorrect drive times: Verify headquarters address is where equipment is stored
 - Wrong timezone: Events will display incorrect times to clients
 
+## Currency and Locale
+
+Flashquotes supports multiple currencies and locales for businesses operating in different countries. Currency and locale are set during company onboarding based on your country and determine how amounts are formatted across quotes, invoices, payments, and reports.
+
+### Supported currencies
+
+| Currency | Code | Regions |
+|----------|------|---------|
+| US Dollar (USD) | USD | United States |
+| British Pound (GBP) | GBP | United Kingdom |
+| Australian Dollar (AUD) | AUD | Australia, New Zealand |
+| Canadian Dollar (CAD) | CAD | Canada |
+
+### Supported locales
+
+| Locale | Code | Formatting Example |
+|--------|------|--------------------|
+| English (United States) | en-US | $1,250.00 |
+| English (United Kingdom) | en-GB | £1,250.00 |
+| English (Australia) | en-AU | $1,250.00 |
+| English (Canada) | en-CA | $1,250.00 |
+| English (Ireland) | en-IE | €1,250.00 |
+
+Your locale controls how currency symbols, decimal separators, and number grouping appear throughout the application. All amounts are stored in the smallest currency unit (cents/pence) for precision.
+
+<Note>
+Currency and locale are configured during onboarding. You can change your currency and locale anytime in Company Settings.
+</Note>
+
 ## Best Practices
 
 1. Connect Stripe before launching any forms

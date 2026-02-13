@@ -17,7 +17,59 @@ This changelog documents product updates and new features in Flashquotes. These 
 - **Minimum price for add-ons** — Optional floor for variable-rate add-ons; if the calculated price is below the minimum, the minimum is used. [Learn more →](/services/add-ons)
 - **Per guest per hour service pricing** — Service price scales with both guest count and event duration (e.g. $3/guest/hr for bar service). [Learn more →](/services/pricing)
 
+---
+
+## QuickBooks Deposit Sync Improvements <ProBadge />
+
+QuickBooks deposits now sync based on actual Stripe payouts instead of being created immediately with each payment. This aligns your QuickBooks records with real bank deposits for easier reconciliation.
+
+**What changed:**
+- **Stripe payments**: Deposits are created automatically when Stripe sends the payout to your bank, grouping multiple payments into a single deposit that matches your bank statement
+- **Manual payments** (cash, check): Continue to create deposits immediately when synced
+- **Payout trace ID**: Each deposit includes the Stripe trace ID for automatic bank reconciliation
+- **Failed payouts**: If a Stripe payout fails, the corresponding deposit is automatically removed
+
+[QuickBooks sync docs →](/finance/quickbooks-sync) | [QuickBooks integration →](/settings/integrations/quickbooks)
+
+---
+
+## Saved Filters & Sorting on Leads Table
+
+Your lead table filters and sort preferences are now automatically saved and restored when you return to the page. No more re-applying the same filters every time you navigate away.
+
+**What's saved:**
+- Date range filter
+- Lead status filter
+- Source filter
+- Location filter
+- Lead owner filter
+- Sort column and direction
+
+Preferences are saved per company, so switching between companies loads the right view for each. Click **Clear filters** to reset everything back to defaults.
+
+[Learn about managing leads →](/leads/managing)
 </Update>
+
+
+<Update label="February 11, 2026">
+
+## Global Currency Support
+
+Flashquotes now supports multiple currencies and locales, enabling businesses outside the United States to quote, invoice, and accept payments in their local currency.
+
+**Supported Currencies:**
+| Currency | Code | Symbol | Locales |
+|----------|------|--------|---------|
+| US Dollar | USD | $ | en-US |
+| British Pound | GBP | £ | en-GB |
+| Australian Dollar | AUD | $ | en-AU |
+| Canadian Dollar | CAD | $ | en-CA |
+
+Currency and locale are configured during company onboarding based on your country. All amounts — quotes, invoices, payments, and reports — display in your company's currency with locale-appropriate formatting.
+
+[Learn about company settings →](/settings/general#currency-and-locale)
+
+</Update >
 
 <Update label="January 29, 2026">
 

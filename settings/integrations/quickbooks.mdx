@@ -57,6 +57,12 @@ Invoices sync automatically when created or updated in Flashquotes.
 - Payment status
 - Manual sync for individual payments and refunds
 
+**Deposit sync**:
+- Stripe payments: deposits created automatically when Stripe sends the payout to your bank
+- Manual payments (cash, check): deposits created immediately when synced
+- Aggregate deposits group multiple payments from the same Stripe payout
+- Payout trace ID included for bank reconciliation
+
 ## How sync works
 
 **Sync behavior**:
