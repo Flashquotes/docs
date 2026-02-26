@@ -9,6 +9,35 @@ import { PlusBadge, ProBadge } from "/snippets/badge.mdx";
 This changelog documents product updates and new features in Flashquotes. These updates are rolled out directly to the live application - no separate changelog feature exists within the app itself.
 </Note>
 
+<Update label="February 26, 2026">
+
+## Service-Specific Add-ons
+
+You can now restrict which add-ons are available for each service. When a customer selects services on a quote request form, only the add-ons linked to those services are shown. If no add-ons are linked, all add-ons remain available.
+
+- **Configure per service** — On the service detail page, use the new "Available Add-ons" section to select which add-ons apply
+- **Multiple services** — When multiple services are selected, the customer sees every add-on allowed by any of the selected services
+- Add-on options update instantly as customers change their service selection on forms
+
+[Learn more →](/services/core-services#service-specific-add-ons)
+
+---
+
+## Service-Specific Resources
+
+You can now restrict which resources are eligible for each service, ensuring the right equipment is matched to the right services.
+
+- **Configure per service** — On the service detail page, use the new "Available Resources" section to select which resources can fulfill the service
+- **Date selection** — The date picker on your lead intake form now reflects only the resources eligible for the selected services
+- **Availability badges** — Quote presentation and booking form availability badges update based on eligible resources
+- **Multi-day events** — The date picker checks that eligible resources are available for every consecutive day, not just the start date
+- **Multiple services** — When a quote includes multiple restricted services, only resources eligible for all services count toward availability
+
+[Learn more →](/services/core-services#service-specific-resources)
+
+
+</Update>
+
 <Update label="February 25, 2026">
 
 ## Conditional Logic for Booking Forms <PlusBadge />

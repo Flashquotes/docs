@@ -83,6 +83,22 @@ Resources are tracked for availability based on event assignments:
 Core service assets are used to calculate availability shown on booking forms. If you need accurate availability tracking, make sure to add your core resources.
 </Info>
 
+## Service-Specific Resources
+
+If certain resources should only be assigned to specific services, you can restrict them from the service detail page. Navigate to **Services**, click on a service, and use the **Available Resources** section to select which resources can fulfill that service. Leaving the list empty means all resources remain eligible.
+
+**How restrictions affect availability:**
+- **Lead intake form date picker** — shows availability based only on eligible resources for the selected services
+- **Quote presentation and booking form availability badges** — reflect whether enough eligible resources are free
+- **Multi-day events** — the date picker checks that eligible resources are available for every consecutive day, not just the start date
+- **Multiple services** — when a quote includes multiple restricted services, only resources eligible for **all** services count
+
+<Warning>
+If you restrict a service to specific resources, make sure to keep the list up to date as you add new equipment. New resources are not automatically included in existing restrictions.
+</Warning>
+
+[Configure service restrictions →](/services/core-services#service-specific-resources)
+
 ## Assigning Resources to Events
 
 Resources can be assigned to events from the event detail page. When selecting resources:
