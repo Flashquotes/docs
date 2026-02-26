@@ -1,0 +1,65 @@
+---
+title: "Conditional Form Logic"
+description: "Show or hide booking form pages based on which service or add-on a customer selects"
+---
+
+import { PlusBadge } from "/snippets/badge.mdx";
+
+## Conditional Form Logic <PlusBadge />
+
+Show different form pages to different customers based on their selections. A customer who picks your espresso bar sees espresso-specific questions. A customer who picks your photo booth doesn't.
+
+<Note>
+  Conditional logic is only available on **booking forms**, not lead intake forms. It requires a **Plus** plan or higher. Essentials users will see an upgrade prompt in the Logic tab.
+</Note>
+
+## Set up rules on a page
+
+<Steps>
+  <Step title="Open your booking form editor">
+    Go to **Settings → Forms** and open your booking form.
+  </Step>
+
+  <Step title="Click the Logic tab">
+    At the top of the editor, switch from the **Build** tab to the **Logic** tab.
+  </Step>
+
+  <Step title="Find the page you want to control">
+    Each form page shows a card with its name, question count, and current status — either **Always visible** or **N rules**.
+  </Step>
+
+  <Step title="Add a rule">
+    Click the page card to expand it. Select a rule type:
+
+    - **Service rule** — show this page when a specific service is selected
+    - **Add-on rule** — show this page when a specific add-on is selected
+
+    Then pick the service or add-on from the dropdown.
+  </Step>
+
+  <Step title="Add more rules if needed">
+    Add as many rules as you want. A page shows if **any** rule matches — not all of them.
+  </Step>
+</Steps>
+
+## How rules work
+
+- **No rules set** — the page is always visible to every customer
+- **One or more rules** — the page only shows when at least one rule matches
+- **Multiple rules use OR logic** — match any rule, not all rules
+
+<Info>
+  Example: set two rules on your "Espresso Questions" page — one for your Espresso Bar service and one for your Latte Add-on. The page appears for either selection.
+</Info>
+
+## What customers see
+
+When a customer fills out the booking form, pages whose conditions aren't met are automatically skipped. Required fields on hidden pages are also skipped — customers won't get stuck on a question that doesn't apply to them.
+
+## Upgrade to Plus
+
+Conditional logic is a **Plus** plan feature. If you're on Essentials, you'll see a prompt to upgrade when you click the Logic tab.
+
+<Card title="View Plans" icon="bolt" href="https://app.flashquotes.com/settings/plans">
+  Upgrade to Plus to unlock conditional form logic
+</Card>
