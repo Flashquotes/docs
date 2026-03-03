@@ -3,6 +3,8 @@ title: "Resources"
 description: "Learn how to manage your business assets and equipment in Flashquotes"
 ---
 
+import { PlusBadge } from "/snippets/badge.mdx";
+
 ## Overview
 
 Resources in Flashquotes represent your physical business assets - from core service equipment to transportation vehicles. Tracking resources helps you monitor availability and assign the right equipment to events.
@@ -85,19 +87,19 @@ Core service assets are used to calculate availability shown on booking forms. I
 
 ## Service-Specific Resources
 
-If certain resources should only be assigned to specific services, you can restrict them from the service detail page. Navigate to **Services**, click on a service, and use the **Available Resources** section to select which resources can fulfill that service. Leaving the list empty means all resources remain eligible.
+<PlusBadge />
 
-**How restrictions affect availability:**
-- **Lead intake form date picker** — shows availability based only on eligible resources for the selected services
-- **Quote presentation and booking form availability badges** — reflect whether enough eligible resources are free
-- **Multi-day events** — the date picker checks that eligible resources are available for every consecutive day, not just the start date
-- **Multiple services** — when a quote includes multiple restricted services, only resources eligible for **all** services count
+Resources are automatically linked to all existing services when created. To restrict a resource to specific services, configure the links from the service detail page. Navigate to **Services**, click on a service, and use the **Linked Resources** section to select which resources can fulfill that service.
 
-<Warning>
-If you restrict a service to specific resources, make sure to keep the list up to date as you add new equipment. New resources are not automatically included in existing restrictions.
-</Warning>
+If no resources are linked to a service, none will count toward availability for that service.
 
-[Configure service restrictions →](/services/core-services#service-specific-resources)
+**How links affect availability:**
+- **Lead intake form date picker** — shows availability based only on linked resources for the selected services
+- **Quote presentation and booking form availability badges** — reflect whether enough linked resources are free
+- **Multi-day events** — the date picker checks that linked resources are available for every consecutive day, not just the start date
+- **Multiple services** — when a quote includes multiple services, only resources linked to **all** selected services count
+
+[Configure service links →](/services/core-services#service-specific-resources)
 
 ## Assigning Resources to Events
 

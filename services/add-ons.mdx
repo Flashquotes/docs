@@ -3,6 +3,8 @@ title: "Add-ons"
 description: "Create upsells and extras to boost booking revenue"
 ---
 
+import { PlusBadge } from "/snippets/badge.mdx";
+
 ## Overview
 
 Add-ons are extras and upsells that customers can add to their bookings. Navigate to **Add-ons** in the main menu to create and manage these additional services. Each add-on can be configured with specific pricing models and quantity limits.
@@ -115,18 +117,20 @@ Add-ons are extras and upsells that customers can add to their bookings. Navigat
 
 ## Service-Specific Add-ons
 
-If certain add-ons only apply to specific services, you can restrict them from the service detail page. Navigate to **Services**, click on a service, and use the **Available Add-ons** section to select which add-ons are relevant.
+<PlusBadge />
 
-When a customer selects that service on a quote request form, only the linked add-ons will be shown. Leaving the list empty means all add-ons remain available.
+Add-ons are automatically linked to all existing services when created. To restrict an add-on to specific services, configure the links from the service detail page. Navigate to **Services**, click on a service, and use the **Linked Add-ons** section to select which add-ons apply.
 
-- **Multiple services** — the customer sees every add-on allowed by any of the selected services
+When a customer selects a service on a quote request form, only linked add-ons are shown. If no add-ons are linked to a service, none will appear for that service.
+
+- **Multiple services** — the customer sees every add-on linked to any of the selected services
 - **Add-on options update instantly** as customers change their service selection on forms
 
 <Note>
-Add-ons that an admin has already added as line items on a quote are always shown, regardless of service restrictions.
+Add-ons that an admin has already added as line items on a quote are always shown, regardless of service links.
 </Note>
 
-[Configure service restrictions →](/services/core-services#service-specific-add-ons)
+[Configure service links →](/services/core-services#service-specific-add-ons)
 
 ## Best Practices
 
