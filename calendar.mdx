@@ -1,87 +1,84 @@
 ---
 title: "Calendar"
-description: "Learn how to use the calendar view for managing events and tracking leads in Flashquotes"
+description: "View and manage all your events, quotes, tasks, and payments in one place with the Flashquotes calendar."
 ---
 
-## Overview
+Use the calendar to see everything happening in your business — booked events, open quotes, tasks, payments, and more — across day, week, month, or agenda views.
 
-The Calendar in Flashquotes provides a comprehensive visual overview of your upcoming events and leads. It serves as both an event management tool and a lightweight CRM, helping you track both confirmed bookings and potential business opportunities.
+## Switch calendar views
 
-## Calendar Features
+The calendar defaults to **Week** view. To change it:
 
-### Event Display
+1. Click the **view selector dropdown** in the top-right corner of the calendar.
+2. Choose **Day**, **Week**, **Month**, or **Agenda**.
 
-<AccordionGroup>
-  <Accordion icon="calendar-check" title="Booked Events">
-    Confirmed bookings appear as solid blocks and include:
-    - Event date and time
-    - Client information
-    - Quick access to event details
-    
-    <Tip>
-      Click any booked event to view a slide-out panel with event details or access the full event editing interface.
-    </Tip>
-  </Accordion>
+<Info>
+On mobile, only **Day** and **Agenda** views are available.
+</Info>
 
-  <Accordion icon="calendar-days" title="Potential Leads">
-    Unbooked leads appear as dashed-line blocks and show:
-    - Requested date
-    - Lead information
-    - Quote status
-    
-    <Info>
-      This visualization helps identify follow-up opportunities with leads who have received quotes but haven't confirmed bookings.
-    </Info>
-  </Accordion>
-</AccordionGroup>
+## Navigate dates
 
+- Click **Today** to jump back to the current date.
+- Use the **back/forward arrows** to move by day, week, or month.
+- Click the **date heading** to open a date picker and jump to a specific date.
 
-## Best Practices
+## Show or hide item types
 
-1. Regularly review the calendar for upcoming leads and bookings
-2. Monitor lead-to-booking conversion opportunities
-3. Plan follow-ups based on unbooked lead visibility
-4. Use the weekly view to plan staffing and resources
-5. Check calendar regularly for scheduling conflicts
+The left sidebar lets you toggle what appears on the calendar.
 
-## Calendar Navigation
+| Item | Color |
+|---|---|
+| Events | Indigo (solid) |
+| Quotes (unbooked leads) | Indigo (dashed border) |
+| Blocked dates | Slate |
+| Invoice due dates | Rose |
+| Tasks | Amber |
+| Scheduled payments | Teal |
+| Quote expirations | Slate |
 
-<AccordionGroup>
-  <Accordion icon="calendar-week" title="Weekly View">
-    The calendar displays your schedule in a weekly format, showing:
-    - All events for the current week
-    - Quick navigation to previous/next weeks
-    - Date selection for jumping to specific weeks
-    - Clear visual distinction between booked events and leads
-  </Accordion>
+Toggle any item type on or off using the checkboxes in the **Calendar items** section. Your preferences save automatically.
 
-  <Accordion icon="filter" title="Filtering Options">
-    Filter calendar entries by:
-    - Booking status (confirmed/lead)
-    - Location
-    - Date range selection
-  </Accordion>
-</AccordionGroup>
+## Filter by location, staff, or resource
 
-## Calendar Management
+In the **Filters** section of the left sidebar:
 
-Access the calendar at [Events → Calendar](https://app.flashquotes.com/events/calendar/week) to:
-- [Block calendar dates](/calendar-blocked-dates) to prevent inquiries
-- View upcoming events and leads by date
-- Filter by location
+1. Select one or more **locations** to scope the calendar.
+2. Use **Staff** and **Resources** filters to narrow further — these are faceted by the locations you selected.
+3. Click **Clear all** to reset all filters.
 
-## Integration with Other Features
+<Info>
+The location filter only appears if you have multiple locations set up.
+</Info>
 
-The calendar integrates with other Flashquotes features:
-- Direct access to [Events dashboard](/events)
-- Connection to [Booking management](/bookings)
-- Links to [Invoice system](/invoices)
-- Integration with [Lead tracking](/leads)
+## Block out dates
 
-## Next Steps
+1. Click **Block out dates** at the top of the left sidebar.
+2. Fill in the date range and reason.
+3. Save. The blocked period appears on the calendar in slate.
 
-After mastering the calendar view:
-- [Learn about invoicing](/invoices)
-- Set up regular reporting schedules
-- Establish follow-up protocols for unbooked leads
-- Create resource planning workflows 
+To remove a blocked date, click it on the calendar and select **Delete** in the slideover.
+
+[Learn more about blocked dates →](/calendar-blocked-dates)
+
+## Open item details
+
+Click any calendar item to see its details.
+
+| Item type | What happens |
+|---|---|
+| Booked event | Opens a detail slideover |
+| Quote | Navigates to the quote detail page |
+| Blocked date | Opens slideover to view or delete |
+| Task, invoice, payment, or quote expiry | Opens a detail slideover |
+
+## Switch timezones
+
+In **Day** or **Week** view, a timezone button appears in the calendar header. Click it to switch the displayed timezone.
+
+## Connect Google Calendar
+
+To sync your calendar with Google Calendar, upgrade to Flashquotes Plus. The upsell option appears at the bottom of the left sidebar.
+
+<Tip>
+The calendar auto-scrolls to the current time when you first open it in Day or Week view — no need to scroll manually to find your next event.
+</Tip>
