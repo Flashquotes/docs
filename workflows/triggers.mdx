@@ -44,7 +44,7 @@ To create a Quote Requested workflow:
 
 ### Quote Sent
 
-The Quote Sent trigger automatically starts the workflow when you send a quote with "Enroll in workflow" enabled.
+The Quote Sent trigger automatically starts the workflow when you send a quote with "Enroll in workflow" enabled. You can create multiple Quote Sent workflows and choose which one to use for each quote.
 
 <Frame>
 	<img
@@ -57,13 +57,43 @@ The Quote Sent trigger automatically starts the workflow when you send a quote w
 
 1. Send a quote from the quotes page
 2. Toggle "Enroll in workflow" before sending
-3. The 7-step email sequence begins automatically
-4. Emails send at preset intervals over 30 days
+3. Select which workflow to use from the dropdown (the default is pre-selected)
+4. The email sequence begins automatically based on the selected workflow
 
 **Key Features:**
+- **Multiple Workflows**: Create different follow-up sequences for different situations
+- **Default Workflow**: Set a default that's pre-selected in the send modal — the first workflow created is automatically set as default
 - **Manual Control**: Choose whether to enroll each quote individually
-- **Pre-configured Sequence**: Comes with 7 optimized follow-up emails
 - **Customizable**: Modify timing, content, and number of steps to match your sales process
+
+**Managing Defaults:**
+- Navigate to any Quote Sent workflow and click **Set as default** in the header
+- The default workflow shows a "Default" badge in the workflows list
+- If you delete the default workflow, the next oldest is automatically promoted
+
+### Quote Booked
+
+The Quote Booked trigger fires automatically when a customer completes a booking. Use this to send post-booking communications like confirmation details, next steps, or onboarding information.
+
+**How it works:**
+
+1. Create a workflow with the Quote Booked trigger
+2. Add email steps with your desired timing and content
+3. Publish the workflow
+4. When a quote is booked, the lead is automatically enrolled
+
+**Key Features:**
+- **Automatic Enrollment**: Leads enroll as soon as their quote is booked
+- **Lead & Booking Shortcodes**: Access lead, company, and booking details in email templates
+- **Gmail Integration**: Send from your connected Gmail account
+- **Customizable Templates**: Create sequences tailored to post-booking communications
+
+**Common Use Cases:**
+- Send booking confirmation with event details
+- Share preparation guides and next steps
+- Deliver important information and links
+- Begin onboarding communications
+- Request additional information needed for the event
 
 ### First Event Start <PlusBadge />
 
@@ -133,16 +163,16 @@ The Last Event End trigger allows you to send workflow emails based on when the 
 
 ## Workflow Trigger Comparison
 
-| Feature | Quote Requested | Quote Sent | First Event Start | Last Event End |
-|---------|----------------|------------|-------------------|----------------|
-| **Activation** | Automatic on form submission | Manual toggle when sending quote | Automatic when booking created | Automatic when booking created |
-| **Timing** | Immediately after form submission | When you send the quote | Relative to first event start | Relative to last event end |
-| **Use Case** | Initial engagement | Quote follow-up | Pre/during/post first event | Post-event follow-up |
-| **Default Templates** | None (create custom) | 7 pre-configured emails | None (create custom) | None (create custom) |
-| **Enrollment** | Automatic for all forms | Optional per quote | Automatic for all bookings | Automatic for all bookings |
-| **Subscription** | All plans | All plans | Plus/Pro only | Plus/Pro only |
-| **Available Shortcodes** | Lead, Company, Quote | Lead, Company, Quote | Company, Booking | Company, Booking |
-| **Rescheduling** | No | No | Yes (on event date change) | Yes (on event date change) |
+| Feature | Quote Requested | Quote Sent | Quote Booked | First Event Start | Last Event End |
+|---------|----------------|------------|--------------|-------------------|----------------|
+| **Activation** | Automatic on form submission | Manual toggle when sending quote | Automatic when booked | Automatic when booking created | Automatic when booking created |
+| **Timing** | Immediately after form submission | When you send the quote | When quote is booked | Relative to first event start | Relative to last event end |
+| **Use Case** | Initial engagement | Quote follow-up | Post-booking comms | Pre/during/post first event | Post-event follow-up |
+| **Default Templates** | None (create custom) | 7 pre-configured emails | None (create custom) | None (create custom) | None (create custom) |
+| **Enrollment** | Automatic for all forms | Optional per quote | Automatic for all bookings | Automatic for all bookings | Automatic for all bookings |
+| **Subscription** | All plans | All plans | All plans | Plus/Pro only | Plus/Pro only |
+| **Available Shortcodes** | Lead, Company, Quote | Lead, Company, Quote | Lead, Company, Booking | Company, Booking | Company, Booking |
+| **Rescheduling** | No | No | No | Yes (on event date change) | Yes (on event date change) |
 
 ## Choosing the Right Trigger
 
@@ -151,6 +181,7 @@ The Last Event End trigger allows you to send workflow emails based on when the 
 - **Quote Sent**: Follow up after presenting your proposal
 
 ### For Post-Booking Communication
+- **Quote Booked**: Immediate post-booking confirmation and onboarding
 - **First Event Start**: Time-sensitive pre-event and day-of communications
 - **Last Event End**: Post-event follow-up and relationship building
 
@@ -160,6 +191,6 @@ Different triggers have access to different shortcodes based on what information
 
 - **All Triggers**: Company shortcodes (`{{company.name}}`, `{{company.contact_email}}`, etc.)
 - **Quote-Based** (Quote Requested, Quote Sent): Lead and Quote shortcodes
-- **Booking-Based** (First Event Start, Last Event End): Lead and Booking shortcodes
+- **Booking-Based** (Quote Booked, First Event Start, Last Event End): Lead and Booking shortcodes
 
 [View complete shortcodes reference →](/workflows/shortcodes/overview)

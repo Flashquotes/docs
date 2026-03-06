@@ -3,6 +3,8 @@ title: "Workflow Enrollments"
 description: "Learn how to enroll leads in workflows and manage active enrollments"
 ---
 
+import { PlusBadge } from "/snippets/badge.mdx";
+
 ## Enrolling Leads in Workflows
 
 ### Automatic Enrollment
@@ -10,15 +12,21 @@ description: "Learn how to enroll leads in workflows and manage active enrollmen
 Leads are automatically enrolled in workflows based on the trigger type:
 
 - **Quote Requested**: Leads enroll when they submit your lead intake form
-- **Quote Sent**: Enroll leads when sending quotes (toggle in send quote modal)
+- **Quote Sent**: Enroll leads when sending quotes (toggle in send quote modal, then select a workflow)
+- **Quote Booked**: Leads enroll automatically when a quote is booked
 - **First Event Start** / **Last Event End**: Bookings enroll automatically when created
 
 ### During Quote Sending
 
 1. Navigate to the Send Quote modal when preparing to send a quote
 2. At the top of the modal, locate the "Enroll in workflow" toggle
-3. Enable the toggle to automatically enroll the lead in the quote follow-up workflow
-4. Send the quote as normal
+3. Enable the toggle to enroll the lead in a follow-up workflow
+4. Select which workflow to use from the dropdown — your default workflow is pre-selected
+5. Send the quote as normal
+
+<Tip>
+  You can create multiple Quote Sent workflows for different follow-up strategies. Set a default workflow from the workflow detail page so it's always pre-selected when sending quotes.
+</Tip>
 
 <Frame>
 	<img

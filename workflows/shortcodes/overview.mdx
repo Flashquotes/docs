@@ -56,6 +56,7 @@ Specific shortcodes are only available for certain triggers based on what data i
   </Tab>
 
   <Tab title="Quote Booked / First Event Start / Last Event End">
+
     ### Lead Information
     | Shortcode | Description | Example |
     |-----------|-------------|---------|
@@ -88,11 +89,17 @@ Specific shortcodes are only available for certain triggers based on what data i
     | `{{booking.first_event_start_time}}` | First event start time | 10:00 AM |
     | `{{booking.last_event_end_date}}` | Last event end date | May 2, 2025 |
     | `{{booking.last_event_end_time}}` | Last event end time | 10:00 PM |
+    | `{{booking.first_event_end_date}}` | First event end date | May 1, 2025 |
+    | `{{booking.first_event_end_time}}` | First event end time | 4:00 PM |
+    | `{{booking.last_event_start_date}}` | Last event start date | May 2, 2025 |
+    | `{{booking.last_event_start_time}}` | Last event start time | 9:00 AM |
+    | `{{booking.first_event_address}}` | First event venue address | 123 Main St, Anytown, USA |
+    | `{{booking.first_event_guest_count}}` | First event guest count (shows "TBD" if not set) | 50 |
     | `{{booking.number_of_events}}` | Number of events in booking | 3 |
     | `{{booking.created_date}}` | Date booking was created | April 15, 2025 |
 
     <Note>
-    Booking shortcodes are only available for **First Event Start** and **Last Event End** triggers. These triggers require a Plus or Pro subscription.
+    Booking shortcodes are available for **Quote Booked**, **First Event Start**, and **Last Event End** triggers. First Event Start and Last Event End require a Plus or Pro subscription.
     </Note>
 
   </Tab>
@@ -101,12 +108,12 @@ Specific shortcodes are only available for certain triggers based on what data i
 
 ## Shortcode Availability Matrix
 
-| Shortcode Category | Quote Requested | Quote Sent | First Event Start | Last Event End |
-|-------------------|----------------|------------|-------------------|----------------|
-| **Lead** | ✓ | ✓ | - | - |
-| **Company** | ✓ | ✓ | ✓ | ✓ |
-| **Quote** | ✓ | ✓ | - | - |
-| **Booking** | - | - | ✓ | ✓ |
+| Shortcode Category | Quote Requested | Quote Sent | Quote Booked | First Event Start | Last Event End |
+|-------------------|----------------|------------|--------------|-------------------|----------------|
+| **Lead** | ✓ | ✓ | ✓ | - | - |
+| **Company** | ✓ | ✓ | ✓ | ✓ | ✓ |
+| **Quote** | ✓ | ✓ | - | - | - |
+| **Booking** | - | - | ✓ | ✓ | ✓ |
 
 <Info>
 	Ready to become a shortcodes power user? Check out our [Helper

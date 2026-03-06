@@ -9,6 +9,81 @@ import { PlusBadge, ProBadge } from "/snippets/badge.mdx";
 This changelog documents product updates and new features in Flashquotes. These updates are rolled out directly to the live application - no separate changelog feature exists within the app itself.
 </Note>
 
+<Update label="March 6, 2026">
+
+## Quote PDF Download
+
+Download or print any quote as a PDF. Open a quote and click the menu icon to find the new **Download PDF** and **Print** options. The PDF includes your full quote details, line items, and pricing — ready to share offline.
+
+[Learn more about the quote page →](/leads/quote-view)
+
+</Update>
+
+<Update label="March 5, 2026">
+
+## Pay Full Balance at Booking
+
+Customers with a deposit payment schedule now see a **"Pay full balance today"** checkbox on the booking form. When toggled, the full invoice amount due is charged in a single transaction instead of a deposit with a later balance payment.
+
+[Learn more about payment terms →](/leads/booking-flow)
+
+---
+
+## Quote Booked Workflow Trigger
+
+Create workflows that fire automatically when a quote is booked. Select "When a quote is booked" as the trigger when creating a new workflow. Use booking and lead shortcodes in your message templates to personalize post-booking communications.
+
+[Learn more about triggers →](/workflows/triggers)
+
+---
+
+## Hide Services from Lead Intake Form
+
+Control which services appear on your public lead intake form. In the form builder, each service now has a toggle switch to show or hide it. Hidden services won't appear to customers but stay available for quotes you build manually.
+
+[Learn more about the lead intake form →](/forms/lead-intake)
+
+---
+
+## New Booking Shortcodes
+
+Six new shortcodes are available for booking-based workflow templates:
+
+- `{{booking.first_event_end_date}}` and `{{booking.first_event_end_time}}` — end of the first event
+- `{{booking.last_event_start_date}}` and `{{booking.last_event_start_time}}` — start of the last event
+- `{{booking.first_event_address}}` — venue address
+- `{{booking.first_event_guest_count}}` — guest count (shows "TBD" if not set)
+
+[View all shortcodes →](/workflows/shortcodes/overview)
+
+</Update>
+
+<Update label="March 4, 2026">
+
+## Multiple Quote Follow-Up Workflows <PlusBadge />
+
+Create as many Quote Sent workflows as you need. Previously limited to one, you can now build different follow-up sequences for different situations — and choose which workflow to enroll a quote in when sending.
+
+- Designate a default workflow per trigger type
+- Default is pre-selected in the send quote modal
+- Switch workflows per quote as needed
+
+[Learn more about workflows →](/workflows/overview)
+
+</Update>
+
+<Update label="March 2, 2026">
+
+## Per Guest Per Hour Add-on Pricing
+
+A new add-on pricing type lets you charge based on guest count and service duration combined. Set a per-guest-per-hour rate, and the price calculates automatically: rate x guests x hours.
+
+**Example**: $2/guest/hr add-on with 50 guests, 1 day, 4 hours = $400
+
+[Learn more about add-on pricing →](/services/add-ons)
+
+</Update>
+
 <Update label="March 5, 2026">
 
 ## Calendar Month View
