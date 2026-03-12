@@ -51,6 +51,19 @@ The `generate_lead` event also includes:
     You can also access this setting from **Forms > [Your Form] > Settings** under the **Tracking & Analytics** section.
     </Tip>
   </Step>
+  <Step title="Add an API Secret (optional, recommended for Shopify)">
+    An API Secret enables server-side tracking for the `generate_lead` event. This is required if your form is embedded on a Shopify site.
+
+    1. In GA4, go to **Admin > Data Streams**
+    2. Select your web stream
+    3. Under **Measurement Protocol API secrets**, click **Create**
+    4. Give it a nickname (e.g. "Flashquotes") and copy the secret value
+    5. Back in Flashquotes, paste it into the **API Secret** field and click **Save**
+
+    <Tip>
+    Not on Shopify? The API Secret is still recommended — server-side tracking is more reliable than client-side in general.
+    </Tip>
+  </Step>
   <Step title="Verify tracking is working">
     1. Open your lead intake form in a new browser tab
     2. In Google Analytics, go to **Reports > Realtime**
@@ -59,6 +72,31 @@ The `generate_lead` event also includes:
     5. Submit the form to trigger `generate_lead`
   </Step>
 </Steps>
+
+## Server-side tracking (Shopify)
+
+Shopify sandboxes third-party scripts inside iframes. This blocks client-side GA4 tracking — your `generate_lead` events won't reach GA4 when your form is embedded on a Shopify page.
+
+Adding a GA4 API Secret fixes this. Flashquotes sends `generate_lead` events directly from its server to GA4 using the Measurement Protocol, bypassing the iframe entirely.
+
+**What fires client-side vs. server-side:**
+
+| Event | How it's sent |
+|-------|---------------|
+| `form_view` | Client-side |
+| `form_start` | Client-side |
+| `generate_lead` | Server-side (when API Secret is set) |
+
+**If you also use Google Tag Manager:** GTM events continue to fire normally alongside server-side tracking. There's no conflict.
+
+**To enable server-side tracking:**
+
+1. In GA4, go to **Admin > Data Streams**
+2. Select your web stream
+3. Scroll to **Measurement Protocol API secrets** and click **Create**
+4. Name it (e.g. "Flashquotes") and copy the secret value
+5. In Flashquotes, go to **Settings > Integrations > Google Analytics**
+6. Paste the value into the **API Secret** field and click **Save**
 
 ## Using UTM parameters
 
@@ -109,6 +147,10 @@ These parameters will be included in all three events (form_view, form_start, ge
 2. **Wait a few minutes** - GA4 can have a slight delay; use Realtime reports for faster verification
 3. **Check for ad blockers** - Browser extensions may block GA4 tracking
 4. **Verify Pro subscription** - Analytics tracking requires Flashquotes Pro
+
+### Events not tracking on Shopify
+
+Shopify sandboxes GA4 in iframes, which blocks client-side event tracking. Add your GA4 API Secret to switch `generate_lead` to server-side delivery. See [Server-side tracking (Shopify)](#server-side-tracking-shopify) for setup steps.
 
 ### Duplicate events
 
