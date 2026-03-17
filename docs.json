@@ -179,6 +179,7 @@
             "group": "Settings",
             "pages": [
               "settings/general",
+              "settings/supported-countries",
               "settings/members",
               "settings/my-profile",
               "settings/tasks",

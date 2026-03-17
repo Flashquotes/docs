@@ -1,0 +1,78 @@
+---
+title: "Supported Countries & Tax IDs"
+description: "Learn which countries Flashquotes supports and how to provide your tax ID"
+---
+
+## Overview
+
+Flashquotes is currently available for businesses in **four countries**. During signup, your country is detected from your business address. Non-US businesses must provide a valid tax identification number to connect to Stripe and accept payments.
+
+## Supported Countries
+
+| Country | Currency | Tax ID Required? |
+|---------|----------|-----------------|
+| United States | USD | No |
+| United Kingdom | GBP | Yes — VAT Number |
+| Canada | CAD | Yes — GST/HST Number |
+| Australia | AUD | Yes — ABN |
+
+<Note>
+Your country, currency, and locale are set automatically based on the business address you enter during onboarding. You can update your currency and locale anytime in **Settings → Company**.
+</Note>
+
+## Tax ID Formats
+
+If your business is in the UK, Canada, or Australia, you must provide a valid tax ID. Flashquotes validates the format before saving.
+
+<AccordionGroup>
+  <Accordion title="United Kingdom — VAT Number">
+    - **Format:** `GB` followed by 9 or 12 digits
+    - **Example:** `GB123456789` or `GB123456789012`
+    - Your VAT number is issued by HMRC. You can find it on your VAT registration certificate or in your HMRC online account.
+  </Accordion>
+
+  <Accordion title="Canada — GST/HST Number">
+    - **Format:** 9-digit Business Number + `RT` + 4-digit account number
+    - **Example:** `123456789RT0001`
+    - Your GST/HST number is issued by the CRA. You can find it on your GST/HST registration confirmation or in your CRA Business Account.
+  </Accordion>
+
+  <Accordion title="Australia — ABN">
+    - **Format:** 11 digits (no spaces or dashes)
+    - **Example:** `12345678901`
+    - Your ABN is issued by the Australian Business Register. You can look it up at [abr.business.gov.au](https://abr.business.gov.au).
+  </Accordion>
+</AccordionGroup>
+
+<Warning>
+A valid tax ID is required before you can connect to Stripe and accept payments. Make sure to enter it exactly in the format shown above — no spaces, dashes, or extra characters.
+</Warning>
+
+## How to Add or Update Your Tax ID
+
+### During signup
+
+When you enter a business address in the UK, Canada, or Australia during onboarding, a tax ID field appears automatically. Enter your tax ID before proceeding.
+
+### From the banner or settings
+
+If your account is missing a tax ID, you will see an amber banner at the top of your dashboard prompting you to add it.
+
+1. Click **Update** in the banner
+2. Enter your tax ID in the modal
+3. Click **Save**
+
+You can also update your tax ID anytime from **Settings → Company** in the billing information section.
+
+## Unsupported Countries
+
+If your business is located outside the four supported countries, you will see a message during signup that Flashquotes is not yet available in your region.
+
+<Info>
+Want to be notified when Flashquotes expands to your country? Email [support@flashquotes.com](mailto:support@flashquotes.com?subject=Waitlist — Country Expansion) to join the waitlist.
+</Info>
+
+## Next Steps
+
+- [Company Settings](/settings/general) — configure your company details and Stripe connection
+- [Payments](/finance/payments) — learn how payments work in Flashquotes
