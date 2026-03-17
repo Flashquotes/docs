@@ -46,7 +46,16 @@ When a user receives an invitation:
 
 ## Team Roles and Permissions
 
-Flashquotes supports two team member roles with different access levels:
+flashquotes has three team roles. The hierarchy is: **Owner > Admin > Member**.
+
+### Owner Role
+
+Every company has exactly one Owner. The Owner has full Admin access, plus:
+
+- Can remove Admins from the team
+- Can transfer company ownership to another member
+
+The Owner can't be removed from the team — they must transfer ownership first. You can't assign the Owner role through the role dropdown; ownership only changes via a transfer.
 
 ### Admin Role
 
@@ -57,24 +66,25 @@ Flashquotes supports two team member roles with different access levels:
 - All lead and quote management
 - Company settings and configuration
 - **Aggregate financial data** (revenue totals, payment statistics, etc.)
-- Member management (invite, promote, demote other members)
+- Member management: invite, promote, demote, and remove Members and Admin
+- Can view and restore removed members
 
 ### Member Role
 
 **Full access to all features except:**
 
 - Aggregate financial data (revenue totals, payment statistics)
-- Member management (cannot invite, promote, or demote other members)
+- Member management (can't invite, promote, demote, or remove other members)
 
 <Note>
   Members can still see individual invoice amounts and booking details, but they
-  cannot see aggregate financial statistics like total revenue, overdue amounts,
+  can't see aggregate financial statistics like total revenue, overdue amounts,
   or payment summaries.
 </Note>
 
 ### Changing Member Roles
 
-Only admins can change member roles:
+Only Admins and Owners can change member roles. You can't assign the Owner role through this dropdown — use Transfer Ownership instead.
 
 1. Go to **Settings** → **Members**
 2. Find the member you want to modify
@@ -82,9 +92,39 @@ Only admins can change member roles:
 4. Select **Promote to Admin** or **Demote to Member**
 
 <Warning>
-  Be careful when promoting members to admin roles, as they will gain access to
-  all financial data and member management capabilities.
+  Be careful when promoting members to Admin, as they'll gain access to all
+  financial data and member management capabilities.
 </Warning>
+
+## Transferring Ownership
+
+Only the current Owner can transfer ownership to another member.
+
+1. Go to **Settings** → **Members**
+2. Find the member you want to make Owner
+3. Click the dropdown menu (⋮) next to their name
+4. Select **Transfer Ownership**
+5. Type "transfer" to confirm
+
+After the transfer, the selected member becomes Owner and you're demoted to Admin. You can only regain ownership if the new Owner transfers it back to you.
+
+<Warning>
+  This action is immediate and can't be undone by you.
+</Warning>
+
+## Removing Team Members
+
+Admins and Owners can remove Members from the team. Only the Owner can remove Admins. The Owner can't be removed — they must transfer ownership first.
+
+Removed members lose access immediately.
+
+1. Go to **Settings** → **Members**
+2. Click the dropdown menu (⋮) next to the member's name
+3. Select **Remove from team**
+
+Removed members appear in a **Removed Members** section at the bottom of the page. You can restore a removed member from that section at any time.
+
+If you re-invite a previously removed member, their membership is automatically restored.
 
 ## Managing Invitations
 
@@ -108,6 +148,6 @@ If an invited user can't find their invitation:
 
 After adding team members:
 
-- Help them get familiar with [Flashquotes basics](/quickstart)
+- Help them get familiar with [flashquotes basics](/quickstart)
 - Set up their [profile settings](/settings/my-profile)
 - Review [company settings](/settings/general) together

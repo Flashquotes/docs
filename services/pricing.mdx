@@ -53,6 +53,15 @@ Each service can use any combination of these pricing elements:
     **Example**: $50 per espresso machine
   </Accordion>
 
+  <Accordion icon="cubes" title="Per Unit">
+    Charge per individual item your customer selects:
+    - Set a unit name (e.g., "churro", "paleta", "espresso shot")
+    - Configure a price per unit and optional min/max quantity constraints
+    - Customers choose their quantity on the lead intake form
+
+    **Example**: \$3 per espresso shot, min 50, max 200 — a customer who enters 75 shots adds \$225 to their quote
+  </Accordion>
+
   <Accordion icon="shield-check" title="Minimum Price">
     Protect your profitability:
     - Sets the absolute minimum you'll accept
@@ -69,7 +78,7 @@ Your service price is calculated as:
 
 ```
 Final Price = MAX(
-  Base Price + (Staff × Hours × Hourly Rate) + Guest Component + (Resources × Per Resource Rate),
+  Base Price + (Staff × Hours × Hourly Rate) + Guest Component + (Resources × Per Resource Rate) + (Units × Per Unit Rate),
   Minimum Price
 )
 ```
@@ -129,6 +138,16 @@ This ensures you're always paid at least your minimum while allowing flexible pr
   - $150 per booth
   - Scales with equipment count
 
+### Per-Unit Services
+
+**Setup**: Base price for setup/travel, per-unit for item count the customer selects
+
+**Example**:
+- Balloon Twisting:
+  - $150 base (setup/travel)
+  - $3 per balloon, min 50, max 300
+  - Ideal when consumption doesn't scale with attendance and you'd rather have the customer order a specific quantity
+
 ### Hybrid Pricing
 
 **Setup**: Combine all elements for sophisticated pricing
@@ -138,6 +157,7 @@ This ensures you're always paid at least your minimum while allowing flexible pr
   - $300 base (equipment/setup)
   - $75/hour per bartender (labor)
   - $12 per guest (supplies)
+  - $5 per signature cocktail kit (per unit, min 10)
   - $1,000 minimum
 
 ## Setting Your Prices
