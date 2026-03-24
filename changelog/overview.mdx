@@ -44,21 +44,6 @@ Additionally, you can now export both Invoice and Payments to CSV to support acc
 
 </Update>
 
-<Update label="March 12, 2026">
-
-## Server-Side GA4 Event Tracking <ProBadge />
-
-Flashquotes now sends `generate_lead` events directly to GA4 from the server using the Measurement Protocol. This fixes a common tracking gap on Shopify sites where GA4 is sandboxed in iframes and client-side events never reach GA4.
-
-- **Add a GA4 API Secret** in Settings → Integrations → Google Analytics to enable server-side tracking
-- When configured, `generate_lead` fires from the server the moment a lead is submitted — no browser required
-- Client-side events (`form_view`, `form_start`) continue to fire alongside server-side tracking
-- GTM dataLayer events still fire client-side regardless
-
-[Learn more about GA4 tracking →](/settings/integrations/google-analytics)
-
-</Update>
-
 <Update label="March 6, 2026">
 
 ## Quote PDF Download
