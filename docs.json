@@ -57,7 +57,7 @@
                   "services/core-services",
                   "services/pricing",
                   "services/add-ons",
-                  "services/staff-resource-calculator"
+                  "services/staff-resource-rules"
                 ]
               },
               {
