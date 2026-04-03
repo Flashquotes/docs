@@ -54,18 +54,10 @@
                 "pages": [
                   "services",
                   "services/structuring-services",
-                  {
-                    "group": "Core Services",
-                    "pages": ["services/core-services"]
-                  },
-                  {
-                    "group": "Pricing",
-                    "pages": ["services/pricing"]
-                  },
-                  {
-                    "group": "Add-ons",
-                    "pages": ["services/add-ons"]
-                  }
+                  "services/core-services",
+                  "services/pricing",
+                  "services/add-ons",
+                  "services/staff-resource-calculator"
                 ]
               },
               {

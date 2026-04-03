@@ -1,0 +1,156 @@
+---
+title: "Staff & Resource Calculator"
+description: "Configure per-service staffing rules to automatically calculate staff and resource quantities for quotes"
+---
+
+## Overview
+
+The Staff & Resource Calculator lets you define staffing rules at the service level. When a customer fills out your lead intake form, Flashquotes automatically calculates how many staff and resources are needed — based on guest count, duration, or both — and applies those quantities directly to your quote pricing.
+
+Each service gets its own calculator. When a quote is created, Flashquotes calculates the price for each service individually using that service's calculated staff and resource quantities.
+
+<Note>
+If a selected service doesn't have a staffing rule configured, Flashquotes falls back to the [form-level staffing calculator](/forms/staffing-calculator) settings.
+</Note>
+
+## Calculator Modes
+
+Each service's calculator uses one of four modes. Choose the one that matches how your staffing scales.
+
+### Simple
+
+The default mode. Uses a formula based on guest count, service duration, and a capacity ratio.
+
+**How it works:**
+- Set how many items (drinks, servings, etc.) one staff member can handle per hour
+- Flashquotes divides total demand by that capacity to get the staff count
+- Optionally set a minimum and maximum staff count
+- Set a staff-per-resource ratio (e.g., 1 resource for every 2 staff)
+
+**Example:** A coffee catering company sets capacity to 50 drinks/hour/staff and staff-per-resource ratio at 2 staff to 1 resource. For 200 guests over 3 hours: `200 guests / 3 hours / 50 per hour = 2 staff needed and 1 resource needed`.
+
+<Frame>
+  <img src="/images/services/calculator-simple.png" alt="Simple calculator mode configuration" />
+</Frame>
+
+### Guest Count
+
+Maps guest count ranges to fixed staff and resource quantities.
+
+**How it works:**
+- Define guest count ranges (e.g., 1 – 75, 75 – 150, 150 –300)
+- For each range, specify how many staff and resources are needed
+- The customer's guest count determines which range applies
+
+**Example:** A photo booth company needs 1 attendant for up to 100 guests, 2 for 100–250, and 3 for 250+. Three ranges, done.
+
+<Frame>
+  <img src="/images/services/calculator-guest-count.png" alt="Guest count calculator mode with range table" />
+</Frame>
+
+### Duration Only
+
+Maps service duration ranges to staff and resource quantities.
+
+**How it works:**
+- Define duration ranges (e.g., 1–2 hours, 2–4 hours, 4–8 hours)
+- For each range, specify staff and resource counts
+- The customer's selected service length determines which range applies
+
+**Example:** A DJ service needs 1 DJ for events up to 4 hours, 2 DJs for anything longer. Two ranges cover it.
+
+<Frame>
+  <img src="/images/services/calculator-duration.png" alt="Duration only calculator mode with range table" />
+</Frame>
+
+### Staff Duration Matrix
+
+A two-dimensional table that factors in both guest count and service duration at the same time.
+
+**How it works:**
+- Define guest count ranges along the rows
+- Define duration ranges along the columns
+- Each cell specifies staff and resource counts for that combination
+- Both the guest count and duration must match for a cell to apply
+
+**Example:** A bartending company staffs differently based on crowd size and event length:
+
+| | 1–2 hours | 2–4 hours | 4+ hours |
+|---|---|---|---|
+| **1–50 guests** | 1 staff | 1 staff | 2 staff |
+| **50–150 guests** | 2 staff | 2 staff | 3 staff |
+| **150+ guests** | 3 staff | 4 staff | 5 staff |
+
+<Frame>
+  <img src="/images/services/calculator-matrix.png" alt="Staff duration matrix with guest count rows and duration columns" />
+</Frame>
+
+## Setting Up a Calculator
+
+<Steps>
+  <Step title="Navigate to Your Service">
+    Go to **Services**, then select the service you want to configure.
+  </Step>
+
+  <Step title="Open the Pricing Tab">
+    Click the **Pricing** tab, then find the **Staff & Equipment** section.
+  </Step>
+
+  <Step title="Open the Calculator">
+    Click **Configure calculator** to open the calculator editor.
+  </Step>
+
+  <Step title="Choose a Mode">
+    Select **Simple** or **Advanced**. Under Advanced, choose Guest Count, Duration Only, or Staff Duration Matrix.
+  </Step>
+
+  <Step title="Define Your Rules">
+    Fill in your ranges, capacities, or matrix values. Changes save automatically.
+  </Step>
+
+  <Step title="Test Your Configuration">
+    Use the **Test** panel on the right to enter sample guest counts and durations. It shows calculated staff and resource counts in real time.
+  </Step>
+</Steps>
+
+## How Rules Apply to Quotes
+
+When a quote is created — from a lead intake form or manually — Flashquotes resolves staffing like this:
+
+1. For each selected service with a staffing rule, the calculator runs using the event's guest count and duration
+2. Each service's price is calculated using its own staff and resource quantities
+3. The quote reflects the per-service pricing based on those calculated quantities
+
+For range-based modes, each range includes its minimum value but excludes its maximum. A range of 50–100 guests covers 50 through 99 — a guest count of exactly 100 falls into the next range.
+
+If a guest count or duration falls outside your defined ranges, the calculator uses the **highest range** as a fallback. If your guest count table tops out at 300 and a customer enters 400, the 300+ range applies.
+
+## Copying Rules Between Services
+
+If multiple services share similar staffing needs, you can copy a calculator configuration from one service to another:
+
+1. Open the calculator for the service you want to configure
+2. Click **Copy from service**
+3. Select the source service
+4. The full rule configuration (mode, ranges, and values) is copied over
+
+## Form-Level Fallback
+
+The [form-level staffing calculator](/forms/staffing-calculator) uses its own simple formula to determine staff counts. It's the legacy approach and works fine for basic setups.
+
+When any selected service on a lead intake form has a staffing rule configured, those **service-level rules take priority**. The form-level calculator only runs when no selected services have rules defined.
+
+<Tip>
+Configure calculators at the service level for more accurate, flexible staffing. Form-level settings are a fallback, not the primary tool.
+</Tip>
+
+## Common Questions
+
+**What if only some of my services have calculators?**
+Services without a defined rule will fallback to using the [form-level staffing calculator](/forms/staffing-calculator) when calculating the service price.
+
+**Can I use different modes for different services?**
+Yes. Each service has its own independent calculator. One service can use Simple mode while another uses the Staff Duration Matrix.
+
+**How do I remove a staffing rule from a service?**
+You can just use the Simple Mode configuration for this service, which matches the logic of the form-level rules.
