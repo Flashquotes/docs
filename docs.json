@@ -56,6 +56,7 @@
                   "services/structuring-services",
                   "services/core-services",
                   "services/pricing",
+                  "services/travel-fees",
                   "services/add-ons",
                   "services/staff-resource-rules"
                 ]

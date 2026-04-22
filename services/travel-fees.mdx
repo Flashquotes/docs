@@ -1,0 +1,68 @@
+---
+title: "Travel Fees"
+sidebarTitle: "Travel Fees"
+description: "Configure automatic travel fee calculations per service"
+---
+
+import { PlusBadge } from "/snippets/badge.mdx";
+
+# Travel Fees
+
+Each service on a quote gets its own travel fee based on its [core resources](/resources) and distance to the event.
+
+## Company-Wide Settings
+
+These settings apply across all services and are configured on each service page.
+
+### Service Area Radius
+
+How far you'll travel for events, in units applicable to your country. Leads with an address outside this radius are warned about potential additional travel fees.
+
+### Free Travel Radius <PlusBadge />
+
+Distance around your business with no travel charge. Events beyond this radius are charged a travel fee based on the full distance.
+
+<Note>
+  These are different settings. Service area controls how far you'll travel. Free travel radius controls where travel fees start.
+</Note>
+
+## Per-Service Settings <PlusBadge />
+
+- **Price Per Mile**: Rate per mile, applied to round-trip distance per day per core resource
+- **Minimum Travel Fee**: Floor amount per core resource per day — used when higher than the distance-based fee
+
+<Tip>
+  Each service can have different price per mile and minimum — useful if one service needs a larger vehicle or more equipment.
+</Tip>
+
+## How It's Calculated
+
+If the event is **within** the free travel radius, no travel fee applies. If it's **outside** the radius, the fee is calculated on the full round-trip distance:
+
+```
+Service Travel Fee = MAX(
+  Round Trip Miles × Days × Service Resources × Price Per Mile,
+  Minimum Fee × Service Resources × Days
+)
+```
+
+- **Round Trip Miles** = one-way distance × 2
+- **Service Resources** = core resources on that service line item
+- **Days** = number of event days
+
+**Example**: Espresso Bar — 28 miles away (outside 10-mile free radius), 2 resources, 2 days:
+- Distance-based: 28 mi × 2 (round trip) × 2 days × 2 resources × \$0.75/mi = **$168**
+- Minimum-based: \$35 minimum × 2 resources × 2 days = **$140**
+- Result: **$168** (higher of the two)
+
+## Editing on Quotes
+
+Travel fees show as line items on each service. You can:
+
+- **View the breakdown** — see distance, resources, rate, and free radius
+- **Edit the amount** — override the calculated fee on any service line item
+- **Remove it** — delete the travel fee from a specific service
+
+<Note>
+  Travel fees are auto-calculated on quote requests from your lead intake form when a location and event address are provided. Each service gets its own fee based on its core resource count.
+</Note>

@@ -301,6 +301,7 @@ Everything in Plus, plus enterprise-grade features for scaling your business.
 | Instant quoting | – | – | ✅ |
 | Invoice generation | ✅ | ✅ | ✅ |
 | Stripe payments | ✅ | ✅ | ✅ |
+| Automated travel fee | – | ✅ | ✅ |
 | **Contracts** | | | |
 | Digital contracts | – | Up to 2 | Unlimited |
 | **Event Management** | | | |
@@ -339,6 +340,14 @@ You control whether the fee is passed to your customer or absorbed by your busin
 
 - **Pass to customer (default):** The fee is added on top of the invoice total as a separate line item, visible to your customer on the payment page. There is no cost to you.
 - **Absorb the fee:** The fee is deducted from your proceeds and is not visible to your customer. Your quoted prices and invoice totals remain unchanged.
+
+#### Quote-Level Override
+
+Override the company default on any individual quote. When editing a quote, change the platform fee setting to pass or absorb for that quote only.
+
+This allows quote and customer-level flexibility on whether you want to show the fee or not.
+
+This only affects that quote and its invoice — your company default stays the same.
 
 <Note>
 International businesses (United Kingdom, Canada & Australia) are required to absorb the platform fee. The fee is deducted from your proceeds and is not displayed to your customer.
@@ -395,6 +404,8 @@ When you issue a full refund to a customer, Stripe processing fees and Flashquot
 
   <Accordion icon="eye-slash" title="Can I cover the fee so my customers don't see it?">
     Yes. In **Settings → Company**, choose to absorb the platform fee. The fee will be deducted from your proceeds instead of being added to your customer's total. You can switch between passing and absorbing at any time.
+
+    You can also override this on individual quotes — absorb the fee on a specific quote without changing your company-wide default.
   </Accordion>
 
   <Accordion icon="comments" title="How should I set expectations with my customers?">

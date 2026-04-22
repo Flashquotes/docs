@@ -9,6 +9,33 @@ import { PlusBadge, ProBadge } from "/snippets/badge.mdx";
 This changelog documents product updates and new features in Flashquotes. These updates are rolled out directly to the live application - no separate changelog feature exists within the app itself.
 </Note>
 
+<Update label="April 20, 2026">
+
+## Service-Level Travel Fees <PlusBadge />
+
+Travel fees are now configured and calculated **per service** — each service on a quote gets its own travel fee based on its core resources.
+
+- **Free Travel Radius**: Set a radius around your business with no travel charge — events outside the radius are charged on the full distance
+- **Per-Service Settings**: Each service has its own price per mile and minimum fee
+- **Resource-Aware**: Fees calculate from the resources needed for that specific service
+- **Editable Line Items**: View the calculation breakdown and edit or remove travel fees per service
+
+[Learn about travel fee settings →](/services/travel-fees)
+
+</Update>
+
+<Update label="April 14, 2026">
+
+## Platform Fee Flexibility
+
+You set how to pay for the platform fee - either pass it to the end customer (**default**) or absorb it. Easily override your company's platform fee setting to absorb or pass the fee at a customer quote level.
+
+For example, you can choose to absorb and not show any fee to certain customers.
+
+[Learn about platform fee options →](/settings/plans#platform-fee)
+
+</Update>
+
 <Update label="April 2, 2026">
 
 ## Staff & Resource Rules
@@ -500,7 +527,7 @@ Cancel invoices while keeping them in your records for accounting purposes. Void
 
 Travel fees now scale with the number of core resources on your quotes. The updated formula calculates fees per resource per day, ensuring accurate pricing for multi-resource events. The minimum fee also scales accordingly - for example, a \$35 minimum with 2 resources over 2 days results in a \$140 effective minimum *(\$35 x 2 x 2)*.
 
-[Learn about travel fee settings →](/settings/quotes#travel-fee-calculation)
+[Learn about travel fee settings →](/services/travel-fees)
 
 </Update>
 

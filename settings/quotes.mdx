@@ -33,48 +33,11 @@ Quote settings control how your quotes are presented to clients and set default 
     </Tip>
   </Accordion>
 
-  <Accordion icon="map-location-dot" title="Service Area">
-    Define service area radius:
-    - Service radius limits in miles
-    - Leads that have an address outside of this radius will be warned that there may be additional fees for travel
-  </Accordion>
 </AccordionGroup>
 
 ## Pricing Rules
 
-Configure automated pricing calculations used for instant quotes and travel fees.
-
 <AccordionGroup>
-  <Accordion icon="car" title="Travel Fee Calculation">
-    Configure automatic travel fee calculations based on distance to event venues:
-
-    ### Price Per Mile
-    Set the rate charged per mile of travel. This rate applies to round-trip distance for each day and each [core resource](/resources).
-
-    ### Minimum Travel Fee
-    Set a minimum travel fee that applies per core resource per day. If the calculated distance-based fee is lower than this minimum, the minimum fee is used instead.
-
-    ### How Travel Fees Are Calculated
-
-    Travel fees use a per-resource, per-day formula:
-
-    ```
-    Travel Fee = MAX(
-      Round Trip Miles × Days × Resources × Price Per Mile,
-      Minimum Fee × Resources × Days
-    )
-    ```
-
-    **Example**: For an event 28 miles away with 2 resources over 2 days:
-    - Distance-based: 28 mi × 2 (round trip) × 2 days × 2 resources × \$0.75/mi = **$168**
-    - Minimum-based: \$35 minimum × 2 resources × 2 days = **$140**
-    - Final fee: **$168** (uses the higher of the two)
-
-    <Note>
-      Travel fees are automatically included in quote requests through your lead intake form when a location and event address are provided. The fee is distributed across service line items.
-    </Note>
-  </Accordion>
-
   <Accordion icon="bolt" title="Instant Quoting Settings">
     Control how instant quotes behave when generated from your lead intake forms.
 
