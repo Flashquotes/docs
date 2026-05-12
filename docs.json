@@ -13,6 +13,18 @@
       "appId": "m2cqoqa0"
     }
   },
+  "api": {
+    "playground": {
+      "display": "interactive",
+      "proxy": true
+    },
+    "examples": {
+      "languages": ["bash", "javascript", "python", "ruby", "go", "php"],
+      "defaults": "required",
+      "prefill": true,
+      "autogenerate": true
+    }
+  },
   "navigation": {
     "tabs": [
       {
@@ -210,22 +222,29 @@
             "pages": ["api-reference/introduction"]
           },
           {
-            "group": "Event endpoints",
+            "group": "Events",
             "pages": [
               "api-reference/event/get",
-              "api-reference/event/list-events"
+              "api-reference/event/list-events",
+              {
+                "group": "Legacy (deprecated)",
+                "pages": [
+                  "api-reference/event/get-legacy",
+                  "api-reference/event/list-events-legacy"
+                ]
+              }
             ]
           },
           {
-            "group": "Task endpoints",
+            "group": "Tasks",
             "pages": ["api-reference/task/create"]
           },
           {
-            "group": "Form Response endpoints",
+            "group": "Form Responses",
             "pages": ["api-reference/form-response/get"]
           },
           {
-            "group": "Invoice endpoints",
+            "group": "Invoices",
             "pages": ["api-reference/invoice/list-invoices"]
           }
         ]

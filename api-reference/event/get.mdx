@@ -1,34 +1,76 @@
 ---
 title: "Get Event"
-description: "Retrieve detailed information about a specific event"
-openapi: "GET /api/event/getEventData/{event_id}"
+description: "Retrieve a single event, optionally expanding related objects"
+openapi: "GET /events/{id}"
 ---
 
-This endpoint returns comprehensive information about a specific event, including its location, resources, staff assignments, and associated booking details.
+Retrieves the event with the given id.
 
-### Response
+By default the response includes the event's own scalar fields plus the foreign-key ids for related objects (`bookingId`, `locationId`, `eventBriefId`). Relations are inlined only when requested via `expand[]`.
 
-The response includes a detailed event object containing:
+## Expanding related objects
 
-- Event identification and basic details
-- Location information (venue name, address)
-- Assigned resources (equipment, machines)
-- Staff assignments
-- Associated addons
-- Booking status and details
-- Event brief reference
+Pass one or more `expand[]` query parameters to inline related objects. On this endpoint, paths are written as-is — no prefix.
 
-### Common Use Cases
+```bash
+curl "https://app.flashquotes.com/api/events/evt_8K3aN1qV2x?expand[]=booking.lead&expand[]=services" \
+  -H "x-api-key: $FLASHQUOTES_API_KEY"
+```
 
-- Retrieving event details for display
-- Checking resource and staff assignments
-- Verifying event location and timing
-- Accessing booking information
-- Confirming addon selections
+Allow-listed expand paths:
 
-### Notes
+| Path | Adds |
+|------|------|
+| `location` | The event's `location` object |
+| `services` | The event's `services` array |
+| `staff` | The event's `staff` array |
+| `addons` | The event's `addons` array |
+| `resources` | The event's `resources` array |
+| `booking` | The parent `booking` object |
+| `booking.lead` | `lead` inside `booking` (auto-promotes `booking`) |
+| `booking.eventType` | `eventType` inside `booking` (auto-promotes `booking`) |
+| `booking.invoices` | `invoices` array inside `booking` (auto-promotes `booking`) |
 
-- The event ID must be valid and associated with your company
-- Returns a 404 error if the event is not found
-- All event times are returned in ISO 8601 format with timezone
-- Access requires a valid API key with appropriate permissions
+<Note>
+  Requesting any nested `booking.*` path automatically expands `booking` itself — you do not need to list `booking` separately.
+</Note>
+
+### Expanded response
+
+With `expand[]=booking.lead&expand[]=booking.invoices`, the response inlines the nested objects under `booking`:
+
+```json
+{
+  "object": "event",
+  "id": "evt_8K3aN1qV2x",
+  "booking": {
+    "object": "booking",
+    "id": "bkg_4F2yL8",
+    "lead": {
+      "object": "lead",
+      "id": "led_2T7nC4",
+      "companyName": "Acme",
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "email": "jane@acme.com"
+    },
+    "invoices": [
+      {
+        "object": "invoice",
+        "id": "inv_9P5xK3",
+        "status": "Paid",
+        "total": 250000,
+        "amountPaid": 250000,
+        "amountDue": 0,
+        "url": "https://app.flashquotes.com/invoice/..."
+      }
+    ]
+  }
+}
+```
+
+### Limits
+
+- Maximum **20** expand paths per request (duplicates are deduplicated).
+- Maximum nesting depth of **4** segments.
+- Unknown or malformed paths return `400`.

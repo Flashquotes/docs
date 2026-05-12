@@ -21,10 +21,471 @@
     }
   ],
   "paths": {
+    "/events": {
+      "get": {
+        "summary": "List Events",
+        "description": "Paginated list of events for your company, newest first. Supports range filters on service_start_time and created_at, equality filters on location_id and booking_id, cursor pagination, and inline expansion of related objects via expand[].",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Page size. Default 10, maximum 100.",
+            "example": 25,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 10
+            }
+          },
+          {
+            "name": "starting_after",
+            "in": "query",
+            "required": false,
+            "description": "Cursor — the id of the last event from the previous page.",
+            "example": "evt_8K3aN1qV2x",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "service_start_time[gt]",
+            "in": "query",
+            "required": false,
+            "description": "Events whose service_start_time is strictly after this ISO 8601 datetime (must include timezone, e.g. 2026-06-01T00:00:00Z).",
+            "example": "2026-06-01T00:00:00Z",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "service_start_time[gte]",
+            "in": "query",
+            "required": false,
+            "description": "Events whose service_start_time is at or after this ISO 8601 datetime.",
+            "example": "2026-06-01T00:00:00Z",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "service_start_time[lt]",
+            "in": "query",
+            "required": false,
+            "description": "Events whose service_start_time is strictly before this ISO 8601 datetime.",
+            "example": "2026-07-01T00:00:00Z",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "service_start_time[lte]",
+            "in": "query",
+            "required": false,
+            "description": "Events whose service_start_time is at or before this ISO 8601 datetime.",
+            "example": "2026-07-01T00:00:00Z",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "created_at[gt]",
+            "in": "query",
+            "required": false,
+            "description": "Events created strictly after this ISO 8601 datetime.",
+            "example": "2026-05-01T00:00:00Z",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "created_at[gte]",
+            "in": "query",
+            "required": false,
+            "description": "Events created at or after this ISO 8601 datetime.",
+            "example": "2026-05-01T00:00:00Z",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "created_at[lt]",
+            "in": "query",
+            "required": false,
+            "description": "Events created strictly before this ISO 8601 datetime.",
+            "example": "2026-06-01T00:00:00Z",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "created_at[lte]",
+            "in": "query",
+            "required": false,
+            "description": "Events created at or before this ISO 8601 datetime.",
+            "example": "2026-06-01T00:00:00Z",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "location_id",
+            "in": "query",
+            "required": false,
+            "description": "Filter to events at this location.",
+            "example": "loc_7H2pQ9",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "booking_id",
+            "in": "query",
+            "required": false,
+            "description": "Filter to events on this booking.",
+            "example": "bkg_4F2yL8",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "expand[]",
+            "in": "query",
+            "required": false,
+            "description": "Inline related objects. On list endpoints each path must be prefixed with `data.` (e.g. `data.booking.lead`). Allow-listed paths: data.location, data.services, data.staff, data.addons, data.resources, data.booking, data.booking.lead, data.booking.eventType, data.booking.invoices. Max 20 paths, max depth 4.",
+            "explode": true,
+            "example": ["data.booking.lead", "data.location"],
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Events retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventList"
+                },
+                "examples": {
+                  "Default": {
+                    "summary": "Default (no expand)",
+                    "value": {
+                      "object": "list",
+                      "url": "/api/events",
+                      "hasMore": true,
+                      "data": [
+                        {
+                          "object": "event",
+                          "id": "evt_8K3aN1qV2x",
+                          "name": "Acme launch party",
+                          "serviceStartTime": "2026-06-12T18:00:00.000Z",
+                          "serviceEndTime": "2026-06-12T23:00:00.000Z",
+                          "bookingId": "bkg_4F2yL8",
+                          "locationId": "loc_7H2pQ9",
+                          "eventBriefId": "ebf_3R9wM1",
+                          "eventBriefUrl": "https://app.flashquotes.com/event-briefs/ebf_3R9wM1"
+                        }
+                      ]
+                    }
+                  },
+                  "WithExpand": {
+                    "summary": "With expand[]=data.location&expand[]=data.booking.lead",
+                    "value": {
+                      "object": "list",
+                      "url": "/api/events",
+                      "hasMore": false,
+                      "data": [
+                        {
+                          "object": "event",
+                          "id": "evt_8K3aN1qV2x",
+                          "name": "Acme launch party",
+                          "serviceStartTime": "2026-06-12T18:00:00.000Z",
+                          "bookingId": "bkg_4F2yL8",
+                          "locationId": "loc_7H2pQ9",
+                          "location": {
+                            "object": "location",
+                            "id": "loc_7H2pQ9",
+                            "name": "Pier 27",
+                            "streetAddress": "500 Market St",
+                            "city": "San Francisco",
+                            "state": "CA",
+                            "zip": "94105",
+                            "timeZone": "America/Los_Angeles"
+                          },
+                          "booking": {
+                            "object": "booking",
+                            "id": "bkg_4F2yL8",
+                            "fullName": "Jane Doe",
+                            "email": "jane@acme.com",
+                            "lead": {
+                              "object": "lead",
+                              "id": "led_2T7nC4",
+                              "firstName": "Jane",
+                              "lastName": "Doe",
+                              "companyName": "Acme"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid query parameter (limit, date format, or expand path)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "examples": {
+                  "InvalidLimit": {
+                    "summary": "limit out of range",
+                    "value": {
+                      "error": {
+                        "type": "invalid_request_error",
+                        "code": "invalid_parameter",
+                        "message": "limit must be an integer between 1 and 100",
+                        "param": "limit"
+                      }
+                    }
+                  },
+                  "InvalidDate": {
+                    "summary": "Bad ISO 8601 date",
+                    "value": {
+                      "error": {
+                        "type": "invalid_request_error",
+                        "code": "invalid_parameter",
+                        "message": "service_start_time[gte] must be a valid ISO 8601 date",
+                        "param": "service_start_time[gte]"
+                      }
+                    }
+                  },
+                  "InvalidExpand": {
+                    "summary": "Missing data. prefix on list endpoint",
+                    "value": {
+                      "error": {
+                        "type": "invalid_request_error",
+                        "code": "invalid_parameter",
+                        "message": "expand path 'booking.lead' must be prefixed with 'data.' on list endpoints",
+                        "param": "expand"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "error": {
+                    "type": "authentication_error",
+                    "code": "missing_or_invalid_api_key",
+                    "message": "Unauthorized, invalid or missing API key"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/events/{id}": {
+      "get": {
+        "summary": "Get Event",
+        "description": "Retrieve a single event by id. By default returns the event's own scalar fields and foreign-key ids; pass expand[] to inline related objects.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The event id.",
+            "example": "evt_8K3aN1qV2x",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "expand[]",
+            "in": "query",
+            "required": false,
+            "description": "Inline related objects. Allow-listed paths: location, services, staff, addons, resources, booking, booking.lead, booking.eventType, booking.invoices. Requesting any `booking.*` path auto-promotes `booking`. Max 20 paths, max depth 4.",
+            "explode": true,
+            "example": ["booking.lead", "location"],
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Event retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Event"
+                },
+                "examples": {
+                  "Default": {
+                    "summary": "Default (no expand)",
+                    "value": {
+                      "object": "event",
+                      "id": "evt_8K3aN1qV2x",
+                      "name": "Acme launch party",
+                      "clientName": "Jane Doe",
+                      "clientEmail": "jane@acme.com",
+                      "clientPhone": "+15555550123",
+                      "serviceStartTime": "2026-06-12T18:00:00.000Z",
+                      "serviceEndTime": "2026-06-12T23:00:00.000Z",
+                      "staffNumber": 4,
+                      "resourceNumber": 2,
+                      "guestCount": 120,
+                      "companyId": "cmp_a1b2c3",
+                      "locationId": "loc_7H2pQ9",
+                      "bookingId": "bkg_4F2yL8",
+                      "eventBriefId": "ebf_3R9wM1",
+                      "eventBriefUrl": "https://app.flashquotes.com/event-briefs/ebf_3R9wM1",
+                      "multiDay": false,
+                      "tipJarAllowed": true,
+                      "outdoors": false,
+                      "createdAt": "2026-05-01T14:23:11.000Z",
+                      "updatedAt": "2026-05-08T09:12:44.000Z"
+                    }
+                  },
+                  "WithExpand": {
+                    "summary": "With expand[]=booking.lead&expand[]=booking.invoices",
+                    "value": {
+                      "object": "event",
+                      "id": "evt_8K3aN1qV2x",
+                      "name": "Acme launch party",
+                      "serviceStartTime": "2026-06-12T18:00:00.000Z",
+                      "bookingId": "bkg_4F2yL8",
+                      "locationId": "loc_7H2pQ9",
+                      "booking": {
+                        "object": "booking",
+                        "id": "bkg_4F2yL8",
+                        "fullName": "Jane Doe",
+                        "email": "jane@acme.com",
+                        "phone": "+15555550123",
+                        "totalPriceCents": 250000,
+                        "currency": { "isoCode": "USD" },
+                        "lead": {
+                          "object": "lead",
+                          "id": "led_2T7nC4",
+                          "firstName": "Jane",
+                          "lastName": "Doe",
+                          "email": "jane@acme.com",
+                          "companyName": "Acme"
+                        },
+                        "invoices": [
+                          {
+                            "object": "invoice",
+                            "id": "inv_9P5xK3",
+                            "invoiceNumber": "INV-1042",
+                            "status": "Paid",
+                            "total": 250000,
+                            "amountPaid": 250000,
+                            "amountDue": 0,
+                            "dueDate": "2026-06-01T00:00:00.000Z",
+                            "taxable": true,
+                            "bookingId": "bkg_4F2yL8",
+                            "currency": { "isoCode": "USD" },
+                            "url": "https://app.flashquotes.com/invoice/9P5xK3..."
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid expand path",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "error": {
+                    "type": "invalid_request_error",
+                    "code": "invalid_parameter",
+                    "message": "Unknown expand path: 'booking.foo'",
+                    "param": "expand"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "error": {
+                    "type": "authentication_error",
+                    "code": "missing_or_invalid_api_key",
+                    "message": "Unauthorized, invalid or missing API key"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Event not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "error": {
+                    "type": "invalid_request_error",
+                    "code": "not_found",
+                    "message": "Event not found",
+                    "param": "id"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/event/getEventData/{event_id}": {
       "get": {
-        "summary": "Get Event Details",
-        "description": "Retrieve comprehensive details for a specific event",
+        "summary": "Get Event Details (Legacy)",
+        "description": "Legacy endpoint returning the original flat event shape. Maintained for backwards compatibility. New integrations should use GET /events/{id}.",
+        "deprecated": true,
         "parameters": [
           {
             "name": "event_id",
@@ -42,7 +503,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Event"
+                  "$ref": "#/components/schemas/LegacyEvent"
                 }
               }
             }
@@ -58,8 +519,9 @@
     },
     "/event/get-events": {
       "get": {
-        "summary": "List Events",
-        "description": "Retrieve a list of events within a specified date range (maximum 7 days)",
+        "summary": "List Events (Legacy)",
+        "description": "Legacy endpoint returning the original wrapped event list shape. Capped at a 7-day window. Maintained for backwards compatibility. New integrations should use GET /events.",
+        "deprecated": true,
         "parameters": [
           {
             "name": "event_starts_after",
@@ -95,7 +557,7 @@
                       "event": {
                         "type": "array",
                         "items": {
-                          "$ref": "#/components/schemas/EventSummary"
+                          "$ref": "#/components/schemas/LegacyEventSummary"
                         }
                       }
                     }
@@ -174,7 +636,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Invoice"
+                    "$ref": "#/components/schemas/LegacyInvoice"
                   }
                 }
               }
@@ -200,41 +662,384 @@
       }
     },
     "schemas": {
+      "EventList": {
+        "type": "object",
+        "example": {
+          "object": "list",
+          "url": "/api/events",
+          "hasMore": true,
+          "data": [
+            {
+              "object": "event",
+              "id": "evt_8K3aN1qV2x",
+              "name": "Acme launch party",
+              "serviceStartTime": "2026-06-12T18:00:00.000Z",
+              "serviceEndTime": "2026-06-12T23:00:00.000Z",
+              "bookingId": "bkg_4F2yL8",
+              "locationId": "loc_7H2pQ9",
+              "eventBriefId": "ebf_3R9wM1",
+              "eventBriefUrl": "https://app.flashquotes.com/event-briefs/ebf_3R9wM1"
+            }
+          ]
+        },
+        "properties": {
+          "object": {
+            "type": "string",
+            "enum": ["list"]
+          },
+          "url": {
+            "type": "string",
+            "example": "/api/events"
+          },
+          "hasMore": {
+            "type": "boolean",
+            "description": "Whether more pages are available. If true, use the id of the last item in `data` as `starting_after` to fetch the next page."
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Event"
+            }
+          }
+        },
+        "required": ["object", "url", "hasMore", "data"]
+      },
       "Event": {
         "type": "object",
+        "description": "Default response includes only the fields below plus foreign-key ids (bookingId, locationId, eventBriefId). Related objects (location, services, staff, addons, resources, booking) appear only when requested via expand[].",
+        "example": {
+          "object": "event",
+          "id": "evt_8K3aN1qV2x",
+          "name": "Acme launch party",
+          "clientName": "Jane Doe",
+          "clientEmail": "jane@acme.com",
+          "clientPhone": "+15555550123",
+          "siteContactName": "Mark Site",
+          "siteContactPhone": "+15555550199",
+          "eventDescription": "Evening reception with passed apps",
+          "eventAddress": "500 Market St, San Francisco, CA 94105",
+          "additionalLocationInfo": "Load in via rear loading dock",
+          "specialNotes": "No nuts in any service items",
+          "parkingLoadingInfo": "Free street parking after 6pm",
+          "serviceStartTime": "2026-06-12T18:00:00.000Z",
+          "serviceEndTime": "2026-06-12T23:00:00.000Z",
+          "staffNumber": 4,
+          "resourceNumber": 2,
+          "companyId": "cmp_a1b2c3",
+          "locationId": "loc_7H2pQ9",
+          "bookingId": "bkg_4F2yL8",
+          "eventBriefId": "ebf_3R9wM1",
+          "eventBriefUrl": "https://app.flashquotes.com/event-briefs/ebf_3R9wM1",
+          "createdAt": "2026-05-01T14:23:11.000Z",
+          "updatedAt": "2026-05-08T09:12:44.000Z",
+          "staffDressCode": "Black tie",
+          "customData": { "internal_ref": "ACME-Q2" },
+          "multiDay": false,
+          "guestCount": 120,
+          "loadingTime": 30,
+          "setupTime": 60,
+          "breakdownTime": 45,
+          "unloadingTime": 30,
+          "shiftStartTime": "2026-06-12T16:30:00.000Z",
+          "shiftEndTime": "2026-06-12T23:45:00.000Z",
+          "specialPrepTime": 15,
+          "travelToEventTime": 45,
+          "travelFromEventTime": 45,
+          "tipJarAllowed": true,
+          "outdoors": false
+        },
         "properties": {
-          "id": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "startDate": {
+          "object": {
             "type": "string",
-            "format": "date-time"
+            "enum": ["event"]
           },
-          "endDate": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "clientName": { "type": "string" },
+          "clientEmail": { "type": "string" },
+          "clientPhone": { "type": "string" },
+          "siteContactName": { "type": "string" },
+          "siteContactPhone": { "type": "string" },
+          "eventDescription": { "type": "string" },
+          "eventAddress": { "type": "string" },
+          "additionalLocationInfo": { "type": "string" },
+          "specialNotes": { "type": "string" },
+          "parkingLoadingInfo": { "type": "string" },
+          "serviceStartTime": { "type": "string", "format": "date-time" },
+          "serviceEndTime": { "type": "string", "format": "date-time" },
+          "staffNumber": { "type": "integer" },
+          "resourceNumber": { "type": "integer" },
+          "companyId": { "type": "string" },
+          "locationId": { "type": "string" },
+          "bookingId": { "type": "string", "nullable": true },
+          "eventBriefId": { "type": "string", "nullable": true },
+          "eventBriefUrl": {
             "type": "string",
-            "format": "date-time"
+            "nullable": true,
+            "description": "Public URL to view the event brief, or null if no brief exists."
           },
+          "createdAt": { "type": "string", "format": "date-time" },
+          "updatedAt": { "type": "string", "format": "date-time" },
+          "staffDressCode": { "type": "string", "nullable": true },
+          "customData": { "description": "Arbitrary JSON metadata attached to the event." },
+          "multiDay": { "type": "boolean" },
+          "guestCount": { "type": "integer", "nullable": true },
+          "loadingTime": { "type": "integer", "nullable": true, "description": "Minutes." },
+          "setupTime": { "type": "integer", "nullable": true, "description": "Minutes." },
+          "breakdownTime": { "type": "integer", "nullable": true, "description": "Minutes." },
+          "unloadingTime": { "type": "integer", "nullable": true, "description": "Minutes." },
+          "shiftStartTime": { "type": "string", "format": "date-time", "nullable": true },
+          "shiftEndTime": { "type": "string", "format": "date-time", "nullable": true },
+          "specialPrepTime": { "type": "integer", "nullable": true, "description": "Minutes." },
+          "travelToEventTime": { "type": "integer", "nullable": true, "description": "Minutes." },
+          "travelFromEventTime": { "type": "integer", "nullable": true, "description": "Minutes." },
+          "tipJarAllowed": { "type": "boolean" },
+          "outdoors": { "type": "boolean" },
+          "location": {
+            "$ref": "#/components/schemas/Location",
+            "description": "Present only when `expand[]=location` (or `data.location` on list)."
+          },
+          "services": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/Service" },
+            "description": "Present only when expanded."
+          },
+          "staff": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/Staff" },
+            "description": "Present only when expanded."
+          },
+          "addons": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/Addon" },
+            "description": "Present only when expanded."
+          },
+          "resources": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/Resource" },
+            "description": "Present only when expanded."
+          },
+          "booking": {
+            "$ref": "#/components/schemas/Booking",
+            "description": "Present only when expanded (auto-promoted by any `booking.*` expand)."
+          }
+        },
+        "required": ["object", "id", "locationId", "bookingId"]
+      },
+      "Location": {
+        "type": "object",
+        "properties": {
+          "object": { "type": "string", "enum": ["location"] },
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "streetAddress": { "type": "string" },
+          "city": { "type": "string" },
+          "state": { "type": "string" },
+          "zip": { "type": "string" },
+          "timeZone": { "type": "string" }
+        }
+      },
+      "Service": {
+        "type": "object",
+        "properties": {
+          "object": { "type": "string", "enum": ["service"] },
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "description": { "type": "string", "nullable": true },
+          "imageUrl": { "type": "string", "nullable": true }
+        }
+      },
+      "Staff": {
+        "type": "object",
+        "properties": {
+          "object": { "type": "string", "enum": ["staff"] },
+          "id": { "type": "string" },
+          "firstName": { "type": "string" },
+          "lastName": { "type": "string" },
+          "email": { "type": "string" },
+          "phone": { "type": "string", "nullable": true },
+          "role": { "type": "string", "nullable": true },
+          "status": { "type": "string" }
+        }
+      },
+      "Addon": {
+        "type": "object",
+        "properties": {
+          "object": { "type": "string", "enum": ["addon"] },
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "description": { "type": "string", "nullable": true },
+          "imageUrl": { "type": "string", "nullable": true },
+          "unitPriceCents": { "type": "integer" }
+        }
+      },
+      "Resource": {
+        "type": "object",
+        "properties": {
+          "object": { "type": "string", "enum": ["resource"] },
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "description": { "type": "string", "nullable": true },
+          "imageUrl": { "type": "string", "nullable": true },
+          "category": { "type": "string", "nullable": true },
+          "status": { "type": "string" }
+        }
+      },
+      "Booking": {
+        "type": "object",
+        "properties": {
+          "object": { "type": "string", "enum": ["booking"] },
+          "id": { "type": "string" },
+          "quoteId": { "type": "string", "nullable": true },
+          "leadId": { "type": "string", "nullable": true },
+          "entityToInvoice": { "type": "string" },
+          "fullName": { "type": "string" },
+          "email": { "type": "string" },
+          "phone": { "type": "string" },
+          "paymentMethod": { "type": "string", "nullable": true },
+          "billingNotes": { "type": "string", "nullable": true },
+          "cardOnFile": { "type": "boolean" },
+          "totalPriceCents": { "type": "integer" },
+          "gratuityAmountCents": { "type": "integer", "nullable": true },
+          "eventTypeId": { "type": "string", "nullable": true },
+          "canceledAt": { "type": "string", "format": "date-time", "nullable": true },
+          "createdAt": { "type": "string", "format": "date-time" },
+          "updatedAt": { "type": "string", "format": "date-time" },
+          "currency": {
+            "type": "object",
+            "properties": {
+              "isoCode": { "type": "string", "example": "USD" }
+            }
+          },
+          "lead": {
+            "$ref": "#/components/schemas/Lead",
+            "description": "Present only when `expand[]=booking.lead`."
+          },
+          "eventType": {
+            "$ref": "#/components/schemas/EventType",
+            "description": "Present only when `expand[]=booking.eventType`."
+          },
+          "invoices": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/Invoice" },
+            "description": "Present only when `expand[]=booking.invoices`."
+          }
+        }
+      },
+      "Lead": {
+        "type": "object",
+        "properties": {
+          "object": { "type": "string", "enum": ["lead"] },
+          "id": { "type": "string" },
+          "firstName": { "type": "string", "nullable": true },
+          "lastName": { "type": "string", "nullable": true },
+          "email": { "type": "string", "nullable": true },
+          "phone": { "type": "string", "nullable": true },
+          "companyName": { "type": "string", "nullable": true }
+        }
+      },
+      "EventType": {
+        "type": "object",
+        "properties": {
+          "object": { "type": "string", "enum": ["eventType"] },
+          "id": { "type": "string" },
+          "name": { "type": "string" }
+        }
+      },
+      "Invoice": {
+        "type": "object",
+        "description": "Slim invoice shape used everywhere invoices appear in the public API.",
+        "properties": {
+          "object": { "type": "string", "enum": ["invoice"] },
+          "id": { "type": "string" },
+          "invoiceNumber": { "type": "string" },
+          "description": { "type": "string", "nullable": true },
+          "notes": { "type": "string", "nullable": true },
+          "poNumber": { "type": "string", "nullable": true },
+          "dueDate": { "type": "string", "format": "date-time" },
+          "voidedAt": { "type": "string", "format": "date-time", "nullable": true },
+          "taxable": { "type": "boolean" },
+          "discountAmountCents": { "type": "integer", "nullable": true },
+          "createdAt": { "type": "string", "format": "date-time" },
+          "updatedAt": { "type": "string", "format": "date-time" },
+          "bookingId": { "type": "string" },
+          "leadId": { "type": "string", "nullable": true },
+          "currency": {
+            "type": "object",
+            "properties": {
+              "isoCode": { "type": "string" }
+            }
+          },
+          "url": {
+            "type": "string",
+            "description": "Encrypted public URL to view the invoice."
+          },
+          "status": {
+            "type": "string",
+            "description": "Computed invoice status (e.g. Draft, Open, Paid, Overdue, PartiallyPaid)."
+          },
+          "total": { "type": "integer", "description": "Total amount in the smallest currency unit (cents)." },
+          "amountPaid": { "type": "integer", "description": "Amount paid excluding failed payments, in cents." },
+          "amountDue": { "type": "integer", "description": "Outstanding amount in cents." }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "example": {
+          "error": {
+            "type": "invalid_request_error",
+            "code": "invalid_parameter",
+            "message": "limit must be an integer between 1 and 100",
+            "param": "limit"
+          }
+        },
+        "properties": {
+          "error": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "api_error",
+                  "invalid_request_error",
+                  "authentication_error",
+                  "permission_error",
+                  "rate_limit_error",
+                  "idempotency_error"
+                ]
+              },
+              "code": {
+                "type": "string",
+                "description": "Machine-readable error code (e.g. `not_found`, `invalid_parameter`, `missing_or_invalid_api_key`)."
+              },
+              "message": { "type": "string" },
+              "param": {
+                "type": "string",
+                "description": "Name of the offending parameter, when applicable.",
+                "nullable": true
+              }
+            },
+            "required": ["type", "code", "message"]
+          }
+        },
+        "required": ["error"]
+      },
+      "LegacyEvent": {
+        "type": "object",
+        "description": "Legacy event shape returned by GET /event/getEventData/{event_id}.",
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "startDate": { "type": "string", "format": "date-time" },
+          "endDate": { "type": "string", "format": "date-time" },
           "location": {
             "type": "object",
             "properties": {
-              "name": {
-                "type": "string"
-              },
-              "address": {
-                "type": "string"
-              },
-              "city": {
-                "type": "string"
-              },
-              "state": {
-                "type": "string"
-              },
-              "zip": {
-                "type": "string"
-              }
+              "name": { "type": "string" },
+              "address": { "type": "string" },
+              "city": { "type": "string" },
+              "state": { "type": "string" },
+              "zip": { "type": "string" }
             }
           },
           "resources": {
@@ -242,15 +1047,9 @@
             "items": {
               "type": "object",
               "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "quantity": {
-                  "type": "integer"
-                }
+                "id": { "type": "string" },
+                "name": { "type": "string" },
+                "quantity": { "type": "integer" }
               }
             }
           },
@@ -259,18 +1058,10 @@
             "items": {
               "type": "object",
               "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "firstName": {
-                  "type": "string"
-                },
-                "lastName": {
-                  "type": "string"
-                },
-                "email": {
-                  "type": "string"
-                }
+                "id": { "type": "string" },
+                "firstName": { "type": "string" },
+                "lastName": { "type": "string" },
+                "email": { "type": "string" }
               }
             }
           },
@@ -279,36 +1070,20 @@
             "items": {
               "type": "object",
               "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "quantity": {
-                  "type": "integer"
-                },
-                "price": {
-                  "type": "number"
-                }
+                "id": { "type": "string" },
+                "name": { "type": "string" },
+                "quantity": { "type": "integer" },
+                "price": { "type": "number" }
               }
             }
           },
           "booking": {
             "type": "object",
             "properties": {
-              "id": {
-                "type": "string"
-              },
-              "entityToInvoice": {
-                "type": "string"
-              },
-              "email": {
-                "type": "string"
-              },
-              "phone": {
-                "type": "string"
-              }
+              "id": { "type": "string" },
+              "entityToInvoice": { "type": "string" },
+              "email": { "type": "string" },
+              "phone": { "type": "string" }
             }
           },
           "eventBriefUrl": {
@@ -317,29 +1092,16 @@
           }
         }
       },
-      "EventSummary": {
+      "LegacyEventSummary": {
         "type": "object",
+        "description": "Legacy event summary shape returned by GET /event/get-events.",
         "properties": {
-          "id": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "startDate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "endDate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "location": {
-            "type": "string"
-          },
-          "status": {
-            "type": "string"
-          }
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "startDate": { "type": "string", "format": "date-time" },
+          "endDate": { "type": "string", "format": "date-time" },
+          "location": { "type": "string" },
+          "status": { "type": "string" }
         }
       },
       "FormResponse": {
@@ -355,8 +1117,9 @@
           "Event Location": "123 Main St, City, State"
         }
       },
-      "Invoice": {
+      "LegacyInvoice": {
         "type": "object",
+        "description": "Legacy invoice shape returned by GET /invoice/{booking_id}.",
         "properties": {
           "id": {
             "type": "string"

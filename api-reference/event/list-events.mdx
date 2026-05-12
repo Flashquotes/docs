@@ -1,36 +1,52 @@
 ---
 title: "List Events"
-description: "Retrieve events within a specified date range"
-openapi: "GET /api/event/get-events"
+description: "List events with cursor pagination, date-range filters, and optional expand"
+openapi: "GET /events"
 ---
 
-This endpoint returns a list of events that fall within the specified date range. You can optionally filter events by location.
+Returns a paginated list of events for your company, newest first. Supports Stripe-style range filters on `service_start_time` and `created_at`, equality filters on `location_id` and `booking_id`, cursor-based pagination, and inline expansion of related objects.
 
-### Response
+```bash
+curl "https://app.flashquotes.com/api/events?limit=25&service_start_time[gte]=2026-06-01T00:00:00Z&expand[]=data.location" \
+  -H "x-api-key: $FLASHQUOTES_API_KEY"
+```
 
-The response includes an array of event objects containing:
+## Pagination
 
-- Event identification and basic details
-- Location information (venue name, address)
-- Assigned resources (equipment, machines)
-- Staff assignments
-- Associated addons
-- Booking status and details
-- Event brief reference
+List endpoints use cursor-based pagination — pass the `id` of the last event in the previous page as `starting_after`:
 
-### Common Use Cases
+```bash
+# First page
+GET /api/events?limit=25
 
-- Retrieving events for a specific time period
-- Checking event schedules by location
-- Planning resource and staff allocation
-- Reviewing upcoming bookings
-- Generating event reports
+# Next page
+GET /api/events?limit=25&starting_after=evt_8K3aN1qV2x
+```
 
-### Notes
+The response includes a `hasMore` flag indicating whether further pages exist.
 
-- Date ranges must be provided in ISO 8601 format with timezone offset (e.g., `2024-01-01T00:00:00-05:00`)
-- **Maximum date range span is 7 days**
-- Results are ordered by event start time
-- Returns a 400 error if date format is invalid or date range exceeds 7 days
-- The response format is optimized for Zapier integration (wrapped in an array)
-- Access requires a valid API key with appropriate permissions
+## Date-range filters
+
+`service_start_time` and `created_at` accept Stripe-style bracket-notation operators (`gt`, `gte`, `lt`, `lte`). Values must be full ISO 8601 datetimes with a timezone designator (`Z` or `±HH:MM`):
+
+```
+?service_start_time[gte]=2026-06-01T00:00:00Z
+&service_start_time[lt]=2026-07-01T00:00:00Z
+```
+
+Bare dates like `2026-06-01` are rejected — include the time and offset. Multiple operators on the same field combine as a range.
+
+## Expanding related objects
+
+`expand[]` accepts the same allow-list as the [single-event endpoint](/api-reference/event/get), with one difference: **every path must be prefixed with `data.`** because the objects you're expanding live inside the envelope's `data` array.
+
+```
+?expand[]=data.location
+&expand[]=data.booking.lead
+```
+
+Limits: 20 paths max per request, depth 4 max (counted after stripping the `data.` prefix). Unknown, malformed, or un-prefixed paths return `400`.
+
+## Sort order
+
+Results are always returned sorted by `createdAt desc`. Sort order is not configurable.

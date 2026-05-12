@@ -1,0 +1,48 @@
+---
+title: "Get Event (Legacy)"
+description: "Legacy single-event endpoint — use Get Event for new integrations"
+openapi: "GET /event/getEventData/{event_id}"
+---
+
+<Warning>
+  **Deprecated.** This endpoint returns the original flat response shape. It is maintained for backwards compatibility only. For new integrations, use [`GET /events/{id}`](/api-reference/event/get), which supports the standard public API conventions (`object` discriminators, `expand[]`, slim canonical shapes, and the standard error envelope).
+</Warning>
+
+This endpoint returns comprehensive information about a specific event, including its location, resources, staff assignments, and associated booking details.
+
+### Response
+
+The response includes a detailed event object containing:
+
+- Event identification and basic details
+- Location information (venue name, address)
+- Assigned resources (equipment, machines)
+- Staff assignments
+- Associated addons
+- Booking status and details
+- Event brief reference
+
+### Common Use Cases
+
+- Retrieving event details for display
+- Checking resource and staff assignments
+- Verifying event location and timing
+- Accessing booking information
+- Confirming addon selections
+
+### Notes
+
+- The event ID must be valid and associated with your company
+- Returns a 404 error if the event is not found
+- All event times are returned in ISO 8601 format with timezone
+- Access requires a valid API key with appropriate permissions
+
+### Migrating to `GET /events/{id}`
+
+The new endpoint returns a slim default body with foreign-key ids; relations move behind `expand[]`. Key mappings:
+
+| Legacy (top-level flat) | v2 (nested via expand) |
+|-------------------------|------------------------|
+| `leadCompanyName` | `booking.lead.companyName` (with `expand[]=booking.lead`) |
+| `booking.eventTypeName` | `booking.eventType.name` (with `expand[]=booking.eventType`) |
+| `location`, `resources`, `staff`, `addons` (always present) | Available via `expand[]=location`, `expand[]=resources`, etc. |

@@ -1,0 +1,53 @@
+---
+title: "List Events (Legacy)"
+description: "Legacy date-range list endpoint — use List Events for new integrations"
+openapi: "GET /event/get-events"
+---
+
+<Warning>
+  **Deprecated.** This endpoint returns the original wrapped response shape and is capped at a 7-day window. It is maintained for backwards compatibility only. For new integrations, use [`GET /events`](/api-reference/event/list-events), which supports cursor pagination, broader date-range filters, equality filters, and `expand[]` for related objects.
+</Warning>
+
+This endpoint returns a list of events that fall within the specified date range. You can optionally filter events by location.
+
+### Response
+
+The response includes an array of event objects containing:
+
+- Event identification and basic details
+- Location information (venue name, address)
+- Assigned resources (equipment, machines)
+- Staff assignments
+- Associated addons
+- Booking status and details
+- Event brief reference
+
+### Common Use Cases
+
+- Retrieving events for a specific time period
+- Checking event schedules by location
+- Planning resource and staff allocation
+- Reviewing upcoming bookings
+- Generating event reports
+
+### Notes
+
+- Date ranges must be provided in ISO 8601 format with timezone offset (e.g., `2024-01-01T00:00:00-05:00`)
+- **Maximum date range span is 7 days**
+- Results are ordered by event start time
+- Returns a 400 error if date format is invalid or date range exceeds 7 days
+- Responses are wrapped in an array envelope
+- Access requires a valid API key with appropriate permissions
+
+### Migrating to `GET /events`
+
+The new endpoint uses Stripe-style range filters and cursor pagination instead of a single required date range:
+
+| Legacy parameter | v2 equivalent |
+|------------------|---------------|
+| `event_starts_after` (required) | `service_start_time[gte]` (optional) |
+| `event_starts_before` (required) | `service_start_time[lt]` (optional) |
+| (7-day cap) | No range cap — use `limit` (default 10, max 100) and `starting_after` to page |
+| `location` filter | `location_id` query parameter |
+
+The response is the standard list envelope (`{ object: "list", url, hasMore, data }`) rather than the legacy wrapped array.

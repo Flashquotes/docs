@@ -59,13 +59,105 @@ Our API provides several endpoint groups:
 
 All responses are returned in JSON format. Successful responses will have a 2xx status code, while errors will return appropriate 4xx or 5xx status codes with error details.
 
-## Rate Limiting
+### Conventions
 
-Currently, the Flashquotes API does not implement rate limiting. While this provides maximum flexibility for integration development, we recommend implementing reasonable request throttling in your applications to ensure optimal performance.
+The current public API follows Stripe-style conventions:
 
-<Note>
-Rate limiting may be added in future versions. We will provide advance notice of any changes to API usage policies.
-</Note>
+- **`snake_case` query parameters, `camelCase` response keys.**
+- Every returned object carries an **`object` discriminator** (e.g. `"object": "event"`) at the top of its JSON.
+- List endpoints return a standard envelope:
+
+  ```json
+  {
+    "object": "list",
+    "url": "/api/events",
+    "hasMore": true,
+    "data": [ /* ... */ ]
+  }
+  ```
+
+- Default responses include only an object's own scalar fields plus the foreign-key ids for its relations. Related objects are inlined only when explicitly requested via `expand[]`.
+
+### Expanding related objects
+
+By default, an endpoint returns the object's own scalar fields plus foreign-key ids (e.g. an event includes `bookingId`, `locationId`, `eventBriefId`, but not the booking or location objects themselves). To inline a related object, pass its path in `expand[]`:
+
+```bash
+GET /api/events/evt_123?expand[]=location&expand[]=booking.lead
+```
+
+**Dot notation** walks the object graph. `booking.lead` reads "expand the booking, then expand the lead inside that booking." Each path segment must be an allow-listed relation on its parent — unknown paths return `400`.
+
+```jsonc
+// expand[]=booking.lead → lead nested inside booking
+{
+  "object": "event",
+  "id": "evt_123",
+  "booking": {
+    "object": "booking",
+    "id": "bkg_456",
+    "lead": { "object": "lead", "id": "led_789", "...": "..." }
+  }
+}
+```
+
+**Parent auto-promote.** Requesting any nested path automatically expands its parents. `expand[]=booking.lead` includes `booking` in the response even if you don't list `booking` separately.
+
+**Multiple paths.** Repeat `expand[]` to combine paths. Comma-separated values are also accepted: `?expand[]=location,services`.
+
+#### `data.` prefix on list endpoints
+
+On list endpoints, each path **must** be prefixed with `data.` because the objects you're expanding live inside the envelope's `data` array, not at the top level:
+
+```bash
+# Single object — no prefix
+GET /api/events/evt_123?expand[]=booking.lead
+
+# List — every path is prefixed with data.
+GET /api/events?expand[]=data.booking.lead&expand[]=data.location
+```
+
+A list request that omits the `data.` prefix returns `400` with an `invalid_request_error` describing the offending path.
+
+#### Limits
+
+- Maximum **20** paths per request (duplicates are deduplicated, so `?expand[]=booking&expand[]=booking` counts once).
+- Maximum nesting depth of **4** segments. On list endpoints, the `data.` prefix doesn't count against the depth — `data.a.b.c.d` is allowed.
+- Paths must use only allow-listed relation names; the allowed paths are documented on each endpoint.
+
+### Pagination
+
+List endpoints use cursor-based pagination:
+
+- `limit` — page size (default `10`, maximum `100`).
+- `starting_after` — the `id` of the last item from the previous page.
+
+The response `hasMore` flag indicates whether more pages are available.
+
+### Date-range filters
+
+Date fields on list endpoints accept Stripe-style bracket-notation operators: `[gt]`, `[gte]`, `[lt]`, `[lte]`. Values must be full ISO 8601 datetimes including a timezone designator (e.g. `2026-06-01T00:00:00Z` or `2026-06-01T00:00:00-05:00`).
+
+```
+?service_start_time[gte]=2026-06-01T00:00:00Z&service_start_time[lt]=2026-07-01T00:00:00Z
+```
+
+### Error envelope
+
+Errors return a structured envelope:
+
+```json
+{
+  "error": {
+    "type": "invalid_request_error",
+    "code": "invalid_parameter",
+    "message": "limit must be an integer between 1 and 100",
+    "param": "limit"
+  }
+}
+```
+
+The `type` field is one of `api_error`, `invalid_request_error`, `authentication_error`, `permission_error`, `rate_limit_error`, or `idempotency_error`. The `code` field is a machine-readable identifier and `param` (when present) names the offending parameter.
 
 ## Need Help?
 
