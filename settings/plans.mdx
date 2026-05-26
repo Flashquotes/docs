@@ -3,13 +3,13 @@ title: "Plans & Pricing"
 description: "Compare Flashquotes subscription plans and discover which features are included at each tier"
 ---
 
-import { PlusBadge, ProBadge } from "/snippets/badge.mdx";
+import { PlusBadge, ProBadge, ScaleBadge } from "/snippets/badge.mdx";
 
 ## Which Plan Is Right for Me?
 
 Flashquotes plans are designed to match your stage of business growth:
 
-<CardGroup cols={3}>
+<CardGroup cols={2}>
   <Card title="Starter" icon="seedling">
     For solo operators just getting started.
   </Card>
@@ -20,6 +20,10 @@ Flashquotes plans are designed to match your stage of business growth:
   
   <Card title="Pro" icon="crown">
     Move faster with automations and integrations.
+  </Card>
+
+  <Card title="Scale" icon="rocket">
+    For organizations seeking advanced control & flexibility.
   </Card>
 </CardGroup>
 
@@ -38,6 +42,7 @@ All plans include a 14-day free trial for paid tiers.
 | **Starter** | Free | Free<span style={{ display: "block", lineHeight: 1, marginTop: "2px", fontSize: "0.85em", visibility: "hidden" }} aria-hidden="true">Billed annually</span> | – |
 | **Plus** | $59/mo | $49/mo<span style={{ display: "block", lineHeight: 1, marginTop: "2px", fontSize: "0.85em", opacity: 0.6 }}>Billed annually</span> | 2 months free |
 | **Pro** | $119/mo | $99/mo<span style={{ display: "block", lineHeight: 1, marginTop: "2px", fontSize: "0.85em", opacity: 0.6 }}>Billed annually</span> | 2 months free |
+| **Scale** | $249/mo | $199/mo<span style={{ display: "block", lineHeight: 1, marginTop: "2px", fontSize: "0.85em", opacity: 0.6 }}>Billed annually</span> | 2 months free |
 
 <Tip>
   Get 2 months free with annual billing. [Upgrade your plan →](https://app.flashquotes.com/settings/plans)
@@ -218,27 +223,11 @@ Everything in Plus, plus enterprise-grade features for scaling your business.
     [Set up Zapier →](/settings/integrations/zapier)
   </Accordion>
   
-  <Accordion icon="code" title="API Access">
-    Build custom integrations with our REST API:
-    - Generate and manage [API keys](/api-reference/introduction)
-    - Access event, task, invoice, and form data
-    - Create custom workflows and integrations
-    - Full programmatic control of your data
-    
-    [View API documentation →](/api-reference/introduction)
-  </Accordion>
-  
   <Accordion icon="sparkles" title="White Label Branding">
     Remove Flashquotes branding from client-facing pages:
     - Quote views without "Powered by Flashquotes"
     - Booking forms without attribution
     - Professional, branded client experience
-  </Accordion>
-  
-  <Accordion icon="headset" title="VIP Priority Support">
-    Get faster responses from our support team:
-    - Priority email support queue
-    - Dedicated assistance for complex setups
   </Accordion>
 
   <Accordion icon="chart-line" title="Google Analytics & Tag Manager">
@@ -278,47 +267,82 @@ Everything in Plus, plus enterprise-grade features for scaling your business.
 
 ---
 
+## Scale <ScaleBadge />
+
+Everything in Pro, plus dynamic pricing tools and enterprise-grade API and support for high-volume operations.
+
+<AccordionGroup>
+  <Accordion icon="chart-line" title="Dynamic Pricing">
+    Adjust pricing based on demand, timing, and event type:
+    - **Surge pricing** for high-demand dates
+    - **Upcharge last-minute bookings** when lead time is short
+    - **Charge more (or less) for certain event types** to match how you actually price work
+  </Accordion>
+
+  <Accordion icon="code" title="Full API Access">
+    Build custom integrations with our REST API:
+    - Generate and manage [API keys](/api-reference/introduction)
+    - Access event, task, invoice, and form data
+    - Create custom workflows and integrations
+    - Full programmatic control of your data
+
+    [View API documentation →](/api-reference/introduction)
+  </Accordion>
+
+  <Accordion icon="headset" title="VIP Priority Support">
+    Get faster responses from our support team:
+    - Priority email support queue
+    - Dedicated assistance for complex setups
+  </Accordion>
+</AccordionGroup>
+
+---
+
 ## Feature Comparison
 
-| Feature | Starter | Plus | Pro |
-|---------|:-------:|:----:|:---:|
-| **Services & Pricing** | | | |
-| [Services](/services/structuring-services) | 1 | 5 | Unlimited |
-| [Add-ons](/services/add-ons) | Unlimited | Unlimited | Unlimited |
-| **Lead Capture** | | | |
-| Lead intake forms | ✅ | ✅ | ✅ |
-| Booking forms | ✅ | ✅ | ✅ |
-| Conditional form logic | – | ✅ | ✅ |
-| **Quoting & Invoicing** | | | |
-| Quote creation & delivery | ✅ | ✅ | ✅ |
-| Quote templates | 1 | Up to 3 | Unlimited |
-| Instant quoting | – | – | ✅ |
-| Invoice generation | ✅ | ✅ | ✅ |
-| Stripe payments | ✅ | ✅ | ✅ |
-| Automated travel fee | – | ✅ | ✅ |
-| **Contracts** | | | |
-| Digital contracts | – | Up to 2 | Unlimited |
-| **Event Management** | | | |
-| Event management | ✅ | ✅ | ✅ |
-| Checklist templates | – | ✅ | ✅ |
-| Staff auto-invite to calendar | – | – | ✅ |
-| **CRM** | | | |
-| Lead owner assignment | – | ✅ | ✅ |
-| **Automation** | | | |
-| Basic workflow triggers | ✅ | ✅ | ✅ |
-| Advanced workflow triggers | – | ✅ | ✅ |
-| **Integrations** | | | |
-| Gmail integration | – | ✅ | ✅ |
-| Google Calendar sync | – | ✅ | ✅ |
-| Service-specific add-ons | – | ✅ | ✅ |
-| Service-specific resources | – | ✅ | ✅ |
-| QuickBooks integration | – | – | ✅ |
-| Google Analytics & GTM | – | – | ✅ |
-| Zapier integration | – | – | ✅ |
-| API access | – | – | ✅ |
-| **Support & Branding** | | | |
-| Remove branding | – | – | ✅ |
-| VIP support | – | – | ✅ |
+| Feature | Starter | Plus | Pro | Scale |
+|---------|:-------:|:----:|:---:|:-----:|
+| **Services & Pricing** | | | | |
+| [Services](/services/structuring-services) | 1 | 5 | Unlimited | Unlimited |
+| [Add-ons](/services/add-ons) | Unlimited | Unlimited | Unlimited | Unlimited |
+| Dynamic pricing | – | – | – | ✅ |
+| Surge pricing | – | – | – | ✅ |
+| Last-minute upcharges | – | – | – | ✅ |
+| Event-type pricing | – | – | – | ✅ |
+| **Lead Capture** | | | | |
+| Lead intake forms | ✅ | ✅ | ✅ | ✅ |
+| Booking forms | ✅ | ✅ | ✅ | ✅ |
+| Conditional form logic | – | ✅ | ✅ | ✅ |
+| **Quoting & Invoicing** | | | | |
+| Quote creation & delivery | ✅ | ✅ | ✅ | ✅ |
+| Quote templates | 1 | Up to 3 | Unlimited | Unlimited |
+| Instant quoting | – | – | ✅ | ✅ |
+| Invoice generation | ✅ | ✅ | ✅ | ✅ |
+| Stripe payments | ✅ | ✅ | ✅ | ✅ |
+| Automated travel fee | – | ✅ | ✅ | ✅ |
+| **Contracts** | | | | |
+| Digital contracts | – | Up to 2 | Unlimited | Unlimited |
+| **Event Management** | | | | |
+| Event management | ✅ | ✅ | ✅ | ✅ |
+| Checklist templates | – | ✅ | ✅ | ✅ |
+| Staff auto-invite to calendar | – | – | ✅ | ✅ |
+| **CRM** | | | | |
+| Lead owner assignment | – | ✅ | ✅ | ✅ |
+| **Automation** | | | | |
+| Basic workflow triggers | ✅ | ✅ | ✅ | ✅ |
+| Advanced workflow triggers | – | ✅ | ✅ | ✅ |
+| **Integrations** | | | | |
+| Gmail integration | – | ✅ | ✅ | ✅ |
+| Google Calendar sync | – | ✅ | ✅ | ✅ |
+| Service-specific add-ons | – | ✅ | ✅ | ✅ |
+| Service-specific resources | – | ✅ | ✅ | ✅ |
+| QuickBooks integration | – | – | ✅ | ✅ |
+| Google Analytics & GTM | – | – | ✅ | ✅ |
+| Zapier integration | – | – | ✅ | ✅ |
+| Full API access | – | – | – | ✅ |
+| **Support & Branding** | | | | |
+| Remove branding | – | – | ✅ | ✅ |
+| VIP support | – | – | – | ✅ |
 
 ---
 
@@ -367,7 +391,7 @@ When you issue a full refund to a customer, Stripe processing fees and Flashquot
   </Accordion>
   
   <Accordion icon="clock" title="How does the free trial work?">
-    Both Plus and Pro plans include a 14-day free trial. You'll have full access to all features during the trial. If you don't subscribe before the trial ends, you'll be moved to the Starter plan.
+    Plus, Pro, and Scale plans include a 14-day free trial. You'll have full access to all features during the trial. If you don't subscribe before the trial ends, you'll be moved to the Starter plan.
   </Accordion>
   
   <Accordion icon="users" title="Are there per-user fees?">
@@ -379,7 +403,7 @@ When you issue a full refund to a customer, Stripe processing fees and Flashquot
   </Accordion>
   
   <Accordion icon="star" title="How do service limits work?">
-    Each plan includes a set number of [services](/services/structuring-services): Starter includes 1, Plus includes 5, and Pro includes unlimited. A service is a distinct, bookable offering (like "Espresso Bar" or "Hot Chocolate Cart"). 
+    Each plan includes a set number of [services](/services/structuring-services): Starter includes 1, Plus includes 5, and Pro and Scale include unlimited. A service is a distinct, bookable offering (like "Espresso Bar" or "Hot Chocolate Cart"). 
     
     Most businesses need only 1-3 services—use [pricing rules](/services/pricing) for variations (duration, guest count) and [add-ons](/services/add-ons) for extras (custom cups, additional hours). All plans include unlimited add-ons.
   </Accordion>
