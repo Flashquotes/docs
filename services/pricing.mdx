@@ -3,6 +3,8 @@ title: "Service Pricing"
 description: "Configure pricing for your services using flexible pricing components"
 ---
 
+import { PlusBadge, ScaleBadge } from "/snippets/badge.mdx";
+
 ## How Service Pricing Works
 
 In Flashquotes, pricing is configured directly on each service. You can combine multiple pricing components to create the perfect pricing structure for your business.
@@ -28,10 +30,15 @@ Each service can use any combination of these pricing elements:
   <Accordion icon="clock" title="Hourly Rate per Staff">
     Labor-based pricing:
     - Charged per hour, per staff member
+    - Choose how hours are counted: **shift hours** (on-site time only) or **full hours** (including travel time)
     - Automatically multiplies by hours and staff count
     - Perfect for services requiring skilled labor
 
-    **Example**: $75/hour per bartender
+    **Example**: $75/hour per bartender, shift-hours mode — a 4-hour event = $300 per bartender, regardless of drive time
+
+    <Tip>
+      Use **shift hours** when you bill travel separately via [travel fees](/services/travel-fees). Use **full hours** when labor and travel are billed together.
+    </Tip>
   </Accordion>
 
   <Accordion icon="users" title="Price per Guest">
@@ -42,6 +49,16 @@ Each service can use any combination of these pricing elements:
 
     **Example (Per guest)**: $15 per guest for appetizer service — 50 guests = $750
     **Example (Per guest per hour)**: $3/guest/hr for bar service — 50 guests × 4 hours = $600
+  </Accordion>
+
+  <Accordion icon="layer-group" title="Tiered Per-Guest Pricing">
+    Offer volume discounts as guest counts grow. Replaces a flat per-guest rate with rate bands.
+
+    - Set per-guest tiers (e.g. $20/guest for 1–49, $15/guest for 50–99, $12/guest for 100+)
+    - Works with both **Per guest** and **Per guest per hour** modes
+    - Optional **minimum hourly guests** floor — bill against a minimum guest count for short, low-attendance events
+
+    **Example**: $20/guest under 50, $15/guest at 50+ — a 75-guest event bills $15 × 75 = $1,125
   </Accordion>
 
   <Accordion icon="boxes-stacked" title="Price per Resource">
@@ -200,6 +217,32 @@ This ensures you're always paid at least your minimum while allowing flexible pr
   </Card>
 </CardGroup>
 
+## Dynamic Pricing <ScaleBadge />
+
+Adjust prices automatically based on demand, lead time, and event type. Dynamic modifiers stack on top of your base pricing.
+
+<AccordionGroup>
+  <Accordion icon="chart-line" title="Surge Pricing">
+    Charge more for high-demand dates:
+    - Set premium rates for specific dates or recurring patterns (Saturdays in June, holiday weekends)
+    - Apply as a percentage uplift or fixed amount
+    - Auto-applies on any quote for matching dates
+  </Accordion>
+
+  <Accordion icon="clock-rotate-left" title="Days-Out Modifier">
+    Upcharge last-minute bookings:
+    - Set tiers based on days between the booking and the event (e.g. +30% within 7 days, +15% within 30 days)
+    - Encourages earlier bookings and offsets the cost of rush jobs
+  </Accordion>
+
+  <Accordion icon="tags" title="Pricing by Event Type">
+    Charge differently for the same service depending on event type — wedding, corporate, festival, and more:
+    - Set per-(service × event type) price modifiers
+    - Bump or discount specific event types
+    - Captured from the [Event Type form question](/forms/lead-intake) on your lead intake form
+  </Accordion>
+</AccordionGroup>
+
 ## Add-On Pricing
 
 In addition to service pricing, you can create add-ons with their own pricing models:
@@ -225,10 +268,10 @@ Navigate to **Settings → Service Charges** to configure these additional fees.
 ## Common Questions
 
 **Q: Can I have different prices for different event types?**
-A: Use event type conditional pricing (Pro feature) to apply different rates for weddings, corporate events, etc.—all within a single service. See [Structuring Your Services](/services/structuring-services) for best practices.
+A: Yes — use [Pricing by Event Type](#dynamic-pricing) <ScaleBadge /> to apply different rates for weddings, corporate events, festivals, and more, all within a single service. See [Structuring Your Services](/services/structuring-services) for best practices.
 
 **Q: How do I handle peak season pricing?**
-A: Adjust quotes manually for peak season, or use conditional pricing rules when available.
+A: Use [Surge Pricing](#dynamic-pricing) <ScaleBadge /> to set premium rates on high-demand dates or recurring patterns. Modifiers apply automatically on matching quotes.
 
 **Q: What if my costs vary by location?**
 A: Use the minimum price to ensure you cover base costs, and configure travel fees as an add-on or manual adjustment.

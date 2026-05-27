@@ -30,10 +30,21 @@ Distance around your business with no travel charge. Events beyond this radius a
 
 - **Price Per Mile**: Rate per mile, applied to round-trip distance per day per core resource
 - **Minimum Travel Fee**: Floor amount per core resource per day — used when higher than the distance-based fee
+- **Per-Staff-Hour Travel**: Optionally bill drive time per staff member instead of (or alongside) per-mile pricing — travel costs scale with crew size
 
 <Tip>
   Each service can have different price per mile and minimum — useful if one service needs a larger vehicle or more equipment.
 </Tip>
+
+### Per-Staff-Hour Travel Billing <PlusBadge />
+
+Charge for drive time per staff member rather than per vehicle. Useful when you pay your crew for travel hours and want to recover that cost on the quote.
+
+- Set an **hourly travel rate per staff member**
+- Drive time is calculated from your business location to the event address
+- Bills round-trip drive time × staff count per service
+
+**Example**: 1 hour each way × 3 staff × $25/hour = $150 travel labor on the quote
 
 ## How It's Calculated
 
@@ -66,3 +77,11 @@ Travel fees show as line items on each service. You can:
 <Note>
   Travel fees are auto-calculated on quote requests from your lead intake form when a location and event address are provided. Each service gets its own fee based on its core resource count.
 </Note>
+
+## Auto-Calculation in the Quote Editor <PlusBadge />
+
+When you add a service to a quote in the quote editor, the travel fee is calculated and added automatically — no extra step required.
+
+- Fees recalculate when you change services or the event address
+- Drive-time directions are cached so subsequent edits stay fast
+- Override or remove a calculated fee at any time on the line item

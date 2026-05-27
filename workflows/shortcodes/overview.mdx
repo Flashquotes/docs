@@ -3,7 +3,7 @@ title: "Overview"
 description: "Understanding and using shortcodes in Flashquotes workflows"
 ---
 
-Shortcodes are dynamic placeholders that automatically insert relevant information into your workflow emails. They help personalize your messages and ensure accurate information is always included.
+Shortcodes are dynamic placeholders that automatically insert relevant information into your workflow emails and quote line items. They help personalize content and ensure accurate information is always included.
 
 Short codes are formatted as `{{entity.attribute}}` and must be surrounded by `{{}}` to be translated to a dynamic value.
 
@@ -12,6 +12,13 @@ Short codes are formatted as `{{entity.attribute}}` and must be surrounded by `{
 	it](/workflows/templates#testing-your-templates) with a quote to make sure
 	they work as expected
 </Tip>
+
+## Where Shortcodes Work
+
+Shortcodes resolve in:
+
+- **Workflow email templates** — Quote Sent, Quote Booked, First Event Start, Last Event End
+- **Quote line item descriptions** — Service and Add-on descriptions on a quote. Personalize each line with guest count, event date, customer name, and more using the same `{{entity.attribute}}` syntax. Shortcodes resolve when the quote is delivered.
 
 ## Available Shortcodes by Trigger
 
