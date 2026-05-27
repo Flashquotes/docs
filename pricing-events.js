@@ -2,12 +2,13 @@
   if (typeof window === "undefined") return;
 
   const SURFACE = "docs";
-  const PRICE_VERSION = "2026-05-26";
-  const PLAN_NAMES = ["starter", "plus", "pro"];
+  const PRICE_VERSION = "2026-05-27";
+  const PLAN_NAMES = ["starter", "plus", "pro", "scale"];
   const PLAN_PRICES = {
     starter: { monthly: 0, yearly: 0 },
     plus: { monthly: 59, yearly: 49 },
     pro: { monthly: 119, yearly: 99 },
+    scale: { monthly: 249, yearly: 199 },
   };
 
   const CTA_PLAN_BY_PAGE = {
@@ -15,7 +16,7 @@
     "/forms/booking": "plus",
     "/forms/lead-intake": "pro",
     "/leads/instant-pricing": "pro",
-    "/api-reference/introduction": "pro",
+    "/api-reference/introduction": "scale",
   };
 
   const CTA_HREF_PATTERN = /app\.flashquotes\.com\/settings\/(plans|billing)/i;
@@ -48,7 +49,7 @@
     lastViewedPath = path;
     ph()?.capture("pricing_page_viewed", {
       ...base(),
-      plans_displayed: ["starter", "plus", "pro"],
+      plans_displayed: ["starter", "plus", "pro", "scale"],
     });
   }
 

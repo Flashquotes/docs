@@ -3,11 +3,53 @@ title: "Product Updates"
 description: "New features and improvements to Flashquotes are released **every week**."
 ---
 
-import { PlusBadge, ProBadge } from "/snippets/badge.mdx";
+import { PlusBadge, ProBadge, ScaleBadge } from "/snippets/badge.mdx";
 
 <Note>
 This changelog documents product updates and new features in Flashquotes. These updates are rolled out directly to the live application - no separate changelog feature exists within the app itself.
 </Note>
+
+<Update label="May 21, 2026">
+
+## Auto-Calculate Travel Fee When Adding Services <PlusBadge />
+
+Add a service to a quote and the travel fee calculates automatically — no second step, no manual math.
+
+- Auto-calculate travel fees when adding a new service line item to a quote
+- Override or remove the calculated fee on any line item
+- Configure per-service calculation with [service-level travel fees](/services/travel-fees)
+
+[Learn about travel fees →](/services/travel-fees)
+
+</Update>
+
+<Update label="May 19, 2026">
+
+## Resource Availability and Calendar Improvements
+
+See exactly when your resources are free, and view the calendar the way you actually work.
+
+- **Resource availability** in the quote editor and on the calendar — spot conflicts before they happen
+- **Service time vs. shift time** toggle on the calendar to plan around setup and teardown
+- **Multi-day events** render cleanly across both days
+
+[Learn more about resources →](/resources) and [calendar →](/calendar)
+
+</Update>
+
+<Update label="May 18, 2026">
+
+## Shortcodes in Line Item Descriptions
+
+Use [quote shortcodes](/workflows/shortcodes/overview) inside Service and Add-on line item descriptions on your quotes.
+
+- Personalize each line with guest count, event date, customer name, and more
+- Edit descriptions inline with a rich text editor
+- Shortcodes resolve when the quote is created
+
+[Learn about shortcodes →](/workflows/shortcodes/overview)
+
+</Update>
 
 <Update label="May 14, 2026">
 
@@ -28,6 +70,86 @@ You can now edit the CTA button copy on your lead intake form directly in the fo
 In the form editor, hover the button to highlight it, click to edit, then press **Enter** or click outside to save. Leave it blank to restore the default. Labels are capped at 100 characters.
 
 [Learn how to edit button labels →](/forms/lead-intake)
+
+</Update>
+
+<Update label="May 12, 2026">
+
+## Pricing by Event Type <ScaleBadge />
+
+Charge differently for the same service depending on the event type — wedding pricing, corporate pricing, festival pricing, set once per service.
+
+- Set a price modifier for any event type
+- Applies everywhere prices are calculated, including instant quoting
+- Pairs with the new [Event Type form question](/forms/lead-intake)
+
+[Learn about pricing →](/services/pricing)
+
+</Update>
+
+<Update label="May 8, 2026">
+
+## Event Type on Quotes and Booked Events
+
+Ask customers what kind of event they're hosting, then surface that answer where it matters.
+
+- New **Event Type** lead intake form question — configure and sort your own options
+- Event type displays on the quote, the event details page, and booked events
+- Use it for filtering, reporting, and event-type pricing
+
+[Learn about lead intake forms →](/forms/lead-intake)
+
+</Update>
+
+<Update label="May 4, 2026">
+
+## Tiered Pricing for Volume Discounts
+
+Offer volume discounts on services and add-ons by setting per-guest pricing tiers.
+
+- **Service tiers** — drop the per-guest rate as guest counts climb, with an optional minimum hourly guests floor
+- **Add-on tiers** — the same volume-discount logic applies to add-ons
+
+[Learn about service pricing →](/services/pricing) and [add-ons →](/services/add-ons)
+
+</Update>
+
+<Update label="May 1, 2026">
+
+## Surge Pricing and Days-Out Modifier <ScaleBadge />
+
+Charge more when resource availability is low or when bookings come in late — automatically.
+
+- **Surge pricing** — percentage uplift triggered when [resources linked to a service](/resources#service-specific-resources) are scarce on the event date (service-aware, no flat-fee option)
+- **Days-out modifier** — modify pricing based on event lead time (upcharge rush jobs, premium-price far-out reservations, or both)
+
+[See Scale plan features →](/settings/plans)
+
+</Update>
+
+<Update label="April 30, 2026">
+
+## Per-Staff-Hour Travel Billing <PlusBadge />
+
+Bill drive time per staff member in addition to your per-mile, per-resource travel fee.
+
+- Travel labor scales with crew size — the per-mile, per-resource charge still covers the vehicles
+- Added on top of the existing travel fee (not subject to the mileage minimum)
+
+[Learn about travel fees →](/services/travel-fees)
+
+</Update>
+
+<Update label="April 30, 2026">
+
+## Per-Shift-Hour Labor Pricing
+
+Choose how hourly labor is counted on each service — by **shift hours** (full on-site time, including setup and teardown) or **service hours** (the customer-facing window only).
+
+- Both modes exclude travel — bill drive time separately via [travel fees](/services/travel-fees)
+- Pairs naturally with [per-staff-hour travel billing](/services/travel-fees) to itemize travel as its own line
+
+[Learn about service pricing →](/services/pricing)
 
 </Update>
 
