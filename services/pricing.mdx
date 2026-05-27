@@ -24,20 +24,20 @@ Each service can use any combination of these pricing elements:
     - Use for setup fees, minimum charges, or equipment costs
     - Can be the entire price for simple flat-rate services
 
-    **Example**: $500 base for photo booth rental
+    **Example**: \$500 base for photo booth rental
   </Accordion>
 
   <Accordion icon="clock" title="Hourly Rate per Staff">
     Labor-based pricing:
     - Charged per hour, per staff member
-    - Choose how hours are counted: **shift hours** (on-site time only) or **full hours** (including travel time)
+    - Choose how hours are counted: **shift hours** (full crew shift — packing, unloading, on-site setup, service, and teardown) or **service hours** (the customer-facing service window only)
+    - Both modes exclude travel — bill drive time separately via [travel fees](/services/travel-fees)
     - Automatically multiplies by hours and staff count
-    - Perfect for services requiring skilled labor
 
-    **Example**: $75/hour per bartender, shift-hours mode — a 4-hour event = $300 per bartender, regardless of drive time
+    **Example**: \$75/hour per bartender. A 4-hour service with 1 hour packing/unloading and 30 min setup + 30 min teardown bills **6 shift hours** (\$450) or **4 service hours** (\$300) per bartender.
 
     <Tip>
-      Use **shift hours** when you bill travel separately via [travel fees](/services/travel-fees). Use **full hours** when labor and travel are billed together.
+      Use **shift hours** to charge for your crew's full on-the-clock time. Use **service hours** when you only want to bill the customer-facing portion of the event.
     </Tip>
   </Accordion>
 
@@ -47,27 +47,30 @@ Each service can use any combination of these pricing elements:
     - **Per guest**: Flat rate multiplied by guest count. Great for per-person food, favors, or fixed per-head costs.
     - **Per guest per hour**: Rate multiplied by guest count and event duration. Ideal when consumption or service scales with both attendance and time.
 
-    **Example (Per guest)**: $15 per guest for appetizer service — 50 guests = $750
-    **Example (Per guest per hour)**: $3/guest/hr for bar service — 50 guests × 4 hours = $600
+    **Example (Per guest)**: \$15 per guest for appetizer service — 50 guests = \$750
+
+    **Example (Per guest per hour)**: \$3/guest/hr for bar service — 50 guests × 4 hours = \$600
   </Accordion>
 
   <Accordion icon="layer-group" title="Tiered Per-Guest Pricing">
     Offer volume discounts as guest counts grow. Replaces a flat per-guest rate with rate bands.
 
-    - Set per-guest tiers (e.g. $20/guest for 1–49, $15/guest for 50–99, $12/guest for 100+)
-    - Works with both **Per guest** and **Per guest per hour** modes
+    - Set per-guest tiers (e.g. \$20/guest for 1–49, \$15/guest for 50–99, \$12/guest for 100+)
+    - Only works with the **Per guest** mode (not Per guest per hour)
     - Optional **minimum hourly guests** floor — bill against a minimum guest count for short, low-attendance events
 
-    **Example**: $20/guest under 50, $15/guest at 50+ — a 75-guest event bills $15 × 75 = $1,125
+    **Example**: \$20/guest under 50, \$15/guest at 50+ — a 75-guest event bills \$15 × 75 = \$1,125
   </Accordion>
 
   <Accordion icon="boxes-stacked" title="Price per Resource">
-    Resource-based pricing:
-    - Charged for each resource (equipment, machine, station) needed
-    - Automatically multiplies by number of resources on the quote
-    - Perfect for equipment rentals and multi-unit setups
+    Resource-based pricing. Choose how the resource rate is applied:
 
-    **Example**: $50 per espresso machine
+    - **Per resource**: Flat rate multiplied by resource count. Great for setup, delivery, or unit-based equipment fees.
+    - **Per resource per hour**: Rate multiplied by resource count and event duration. Useful for equipment that bills by run-time (machines, generators, espresso bars).
+
+    **Example (Per resource)**: \$50 per espresso machine — 2 machines = \$100
+
+    **Example (Per resource per hour)**: \$25/machine/hr — 2 machines × 4 hours = \$200
   </Accordion>
 
   <Accordion icon="cubes" title="Per Unit">
@@ -85,7 +88,7 @@ Each service can use any combination of these pricing elements:
     - Overrides calculated price if it's too low
     - Ensures every booking meets your minimum requirements
 
-    **Example**: $800 minimum for any event
+    **Example**: \$800 minimum for any event
   </Accordion>
 </AccordionGroup>
 
@@ -95,7 +98,7 @@ Your service price is calculated as:
 
 ```
 Final Price = MAX(
-  Base Price + (Staff × Hours × Hourly Rate) + Guest Component + (Resources × Per Resource Rate) + (Units × Per Unit Rate),
+  Base Price + (Staff × Hours × Hourly Rate) + Guest Component + Resource Component + (Units × Per Unit Rate),
   Minimum Price
 )
 ```
@@ -104,6 +107,11 @@ The **Guest Component** depends on the guest pricing mode set on the service:
 
 - **Per guest**: `Guests × Per Guest Rate`
 - **Per guest per hour**: `Guests × Hours × Per Guest Rate`
+
+The **Resource Component** depends on the resource pricing mode:
+
+- **Per resource**: `Resources × Per Resource Rate`
+- **Per resource per hour**: `Resources × Hours × Per Resource Rate`
 
 This ensures you're always paid at least your minimum while allowing flexible pricing based on event specifics.
 
@@ -114,7 +122,7 @@ This ensures you're always paid at least your minimum while allowing flexible pr
 **Setup**: High base price, no hourly or per-guest charges
 
 **Example**:
-- DJ Service: $1,500 base price
+- DJ Service: \$1,500 base price
 - Covers up to 5 hours
 - Simple, predictable pricing
 
@@ -123,7 +131,7 @@ This ensures you're always paid at least your minimum while allowing flexible pr
 **Setup**: Low/no base price, strong hourly component
 
 **Example**:
-- Bartending: $100 base + $75/hour per bartender
+- Bartending: \$100 base + \$75/hour per bartender
 - Scales with event duration
 - Fair for both short and long events
 
@@ -132,7 +140,7 @@ This ensures you're always paid at least your minimum while allowing flexible pr
 **Setup**: Base price for minimums, per-guest for scaling
 
 **Example**:
-- Catering: $500 base + $25 per guest
+- Catering: \$500 base + \$25 per guest
 - Covers fixed costs + variable food costs
 - Profitable at any event size
 
@@ -141,8 +149,8 @@ This ensures you're always paid at least your minimum while allowing flexible pr
 **Setup**: Per-guest rate that also scales with event duration (use "Per guest per hour" mode on the service)
 
 **Example**:
-- Bar or beverage service: $4/guest/hr
-- 75 guests × 5 hours = $1,500 from the guest component alone
+- Bar or beverage service: \$4/guest/hr
+- 75 guests × 5 hours = \$1,500 from the guest component alone
 - Ideal when consumption or service intensity scales with both attendance and time
 
 ### Per-Resource Services
@@ -151,8 +159,8 @@ This ensures you're always paid at least your minimum while allowing flexible pr
 
 **Example**:
 - Photo Booth Rental:
-  - $200 base (delivery/setup)
-  - $150 per booth
+  - \$200 base (delivery/setup)
+  - \$150 per booth
   - Scales with equipment count
 
 ### Per-Unit Services
@@ -161,8 +169,8 @@ This ensures you're always paid at least your minimum while allowing flexible pr
 
 **Example**:
 - Balloon Twisting:
-  - $150 base (setup/travel)
-  - $3 per balloon, min 50, max 300
+  - \$150 base (setup/travel)
+  - \$3 per balloon, min 50, max 300
   - Ideal when consumption doesn't scale with attendance and you'd rather have the customer order a specific quantity
 
 ### Hybrid Pricing
@@ -171,11 +179,11 @@ This ensures you're always paid at least your minimum while allowing flexible pr
 
 **Example**:
 - Full Bar Service:
-  - $300 base (equipment/setup)
-  - $75/hour per bartender (labor)
-  - $12 per guest (supplies)
-  - $5 per signature cocktail kit (per unit, min 10)
-  - $1,000 minimum
+  - \$300 base (equipment/setup)
+  - \$75/hour per bartender (labor)
+  - \$12 per guest (supplies)
+  - \$5 per signature cocktail kit (per unit, min 10)
+  - \$1,000 minimum
 
 ## Setting Your Prices
 
@@ -223,41 +231,28 @@ Adjust prices automatically based on demand, lead time, and event type. Dynamic 
 
 <AccordionGroup>
   <Accordion icon="chart-line" title="Surge Pricing">
-    Charge more for high-demand dates:
-    - Set premium rates for specific dates or recurring patterns (Saturdays in June, holiday weekends)
-    - Apply as a percentage uplift or fixed amount
-    - Auto-applies on any quote for matching dates
+    Automatically charge more when **resource availability is low** for a service — high demand triggers a price uplift, no manual adjustment required.
+
+    - **Percentage modifier** added to the service price when availability dips
+    - **Service-aware** — references only the resources [linked to that service](/resources#service-specific-resources), so demand is measured per service rather than across all your resources
+    - Auto-applies on any quote for dates where the linked resources are scarce
   </Accordion>
 
   <Accordion icon="clock-rotate-left" title="Days-Out Modifier">
-    Upcharge last-minute bookings:
-    - Set tiers based on days between the booking and the event (e.g. +30% within 7 days, +15% within 30 days)
-    - Encourages earlier bookings and offsets the cost of rush jobs
+    Modify the service price based on **event lead time** — how far out the event is from the booking date. Use it to upcharge rush jobs, charge a premium for far-out reservations that lock up your calendar, or both.
+
+    - Set tiers by days between the booking and the event
+    - **Short lead time** — e.g. +30% within 7 days to cover the cost of rush jobs
+    - **Long lead time** — e.g. +10% beyond 12 months to price in the opportunity cost of holding the date
   </Accordion>
 
   <Accordion icon="tags" title="Pricing by Event Type">
     Charge differently for the same service depending on event type — wedding, corporate, festival, and more:
-    - Set per-(service × event type) price modifiers
+    - Set the price modifier for each event type on a service
     - Bump or discount specific event types
     - Captured from the [Event Type form question](/forms/lead-intake) on your lead intake form
   </Accordion>
 </AccordionGroup>
-
-## Add-On Pricing
-
-In addition to service pricing, you can create add-ons with their own pricing models:
-
-- **Flat rate**: Fixed price add-ons
-- **Per unit**: Quantity-based pricing
-- **Per guest**: Scales with attendance
-- **Per hour**: Time-based add-ons
-- **Per resource**: Resource-dependent pricing
-- **Per unit per hour**: Combined unit and hourly pricing
-- **Per unit per guest**: Quantity-based pricing scaled by guest count (and number of days)
-- **Per guest per hour**: Price based on guest count multiplied by service duration in hours
-- **Minimum price**: Optional floor for variable-rate add-ons (Per guest, Per hour, Per resource, Per unit per hour, Per unit per guest, Per guest per hour); if the calculated price is below the minimum, the minimum is used
-
-[Learn more about add-on pricing →](/services/add-ons)
 
 ## Service Charges
 
@@ -268,10 +263,10 @@ Navigate to **Settings → Service Charges** to configure these additional fees.
 ## Common Questions
 
 **Q: Can I have different prices for different event types?**
-A: Yes — use [Pricing by Event Type](#dynamic-pricing) <ScaleBadge /> to apply different rates for weddings, corporate events, festivals, and more, all within a single service. See [Structuring Your Services](/services/structuring-services) for best practices.
+A: Yes — use [Pricing by Event Type](#dynamic-pricing) to apply different rates for weddings, corporate events, festivals, and more, all within a single service. See [Structuring Your Services](/services/structuring-services) for best practices.
 
 **Q: How do I handle peak season pricing?**
-A: Use [Surge Pricing](#dynamic-pricing) <ScaleBadge /> to set premium rates on high-demand dates or recurring patterns. Modifiers apply automatically on matching quotes.
+A: Use [Surge Pricing](#dynamic-pricing) to set premium rates on high-demand dates. Modifiers apply automatically on matching quotes.
 
 **Q: What if my costs vary by location?**
 A: Use the minimum price to ensure you cover base costs, and configure travel fees as an add-on or manual adjustment.

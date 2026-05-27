@@ -38,13 +38,18 @@ Distance around your business with no travel charge. Events beyond this radius a
 
 ### Per-Staff-Hour Travel Billing <PlusBadge />
 
-Charge for drive time per staff member rather than per vehicle. Useful when you pay your crew for travel hours and want to recover that cost on the quote.
+Bill drive time per staff member **in addition to** the per-mile, per-resource travel fee. Useful when you pay your crew for travel hours and want to recover that cost on the quote alongside vehicle costs.
 
 - Set an **hourly travel rate per staff member**
 - Drive time is calculated from your business location to the event address
 - Bills round-trip drive time × staff count per service
+- Added on top of the per-mile, per-resource fee — not a replacement for it
 
-**Example**: 1 hour each way × 3 staff × $25/hour = $150 travel labor on the quote
+<Note>
+  The **Minimum Travel Fee** only applies to the mileage portion of the travel fee. Per-staff-hour travel billing is always added in full on top — it is not subject to the minimum.
+</Note>
+
+**Example**: 2 hours round-trip × 3 staff × \$25/hour = \$150 travel labor on the quote
 
 ## How It's Calculated
 
@@ -81,7 +86,3 @@ Travel fees show as line items on each service. You can:
 ## Auto-Calculation in the Quote Editor <PlusBadge />
 
 When you add a service to a quote in the quote editor, the travel fee is calculated and added automatically — no extra step required.
-
-- Fees recalculate when you change services or the event address
-- Drive-time directions are cached so subsequent edits stay fast
-- Override or remove a calculated fee at any time on the line item

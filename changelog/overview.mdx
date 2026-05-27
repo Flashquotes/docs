@@ -15,9 +15,9 @@ This changelog documents product updates and new features in Flashquotes. These 
 
 Add a service to a quote and the travel fee calculates automatically — no second step, no manual math.
 
-- Travel fees recalculate when services or addresses change
-- Drive-time directions are cached so the quote editor stays fast
-- Works alongside [service-level travel fees](/services/travel-fees)
+- Auto-calculate travel fees when adding a new service line item to a quote
+- Override or remove the calculated fee on any line item
+- Configure per-service calculation with [service-level travel fees](/services/travel-fees)
 
 [Learn about travel fees →](/services/travel-fees)
 
@@ -45,7 +45,7 @@ Use [quote shortcodes](/workflows/shortcodes/overview) inside Service and Add-on
 
 - Personalize each line with guest count, event date, customer name, and more
 - Edit descriptions inline with a rich text editor
-- Shortcodes resolve when the quote is delivered
+- Shortcodes resolve when the quote is created
 
 [Learn about shortcodes →](/workflows/shortcodes/overview)
 
@@ -79,7 +79,7 @@ In the form editor, hover the button to highlight it, click to edit, then press 
 
 Charge differently for the same service depending on the event type — wedding pricing, corporate pricing, festival pricing, set once per service.
 
-- Per (service × event type) price modifier
+- Set a price modifier for any event type
 - Applies everywhere prices are calculated, including instant quoting
 - Pairs with the new [Event Type form question](/forms/lead-intake)
 
@@ -93,7 +93,7 @@ Charge differently for the same service depending on the event type — wedding 
 
 Ask customers what kind of event they're hosting, then surface that answer where it matters.
 
-- New **Event Type** lead intake form question — configure your own options
+- New **Event Type** lead intake form question — configure and sort your own options
 - Event type displays on the quote, the event details page, and booked events
 - Use it for filtering, reporting, and event-type pricing
 
@@ -109,7 +109,6 @@ Offer volume discounts on services and add-ons by setting per-guest pricing tier
 
 - **Service tiers** — drop the per-guest rate as guest counts climb, with an optional minimum hourly guests floor
 - **Add-on tiers** — the same volume-discount logic applies to add-ons
-- Prices recalculate automatically as guest counts change
 
 [Learn about service pricing →](/services/pricing) and [add-ons →](/services/add-ons)
 
@@ -119,11 +118,10 @@ Offer volume discounts on services and add-ons by setting per-guest pricing tier
 
 ## Surge Pricing and Days-Out Modifier <ScaleBadge />
 
-Charge more for high-demand dates and last-minute bookings — automatically.
+Charge more when resource availability is low or when bookings come in late — automatically.
 
-- **Surge pricing** for peak dates (Saturdays in June, holiday weekends, etc.)
-- **Days-out modifier** to upcharge bookings made with short lead time
-- Modifiers stack and apply across all services on the quote
+- **Surge pricing** — percentage uplift triggered when [resources linked to a service](/resources#service-specific-resources) are scarce on the event date (service-aware, no flat-fee option)
+- **Days-out modifier** — modify pricing based on event lead time (upcharge rush jobs, premium-price far-out reservations, or both)
 
 [See Scale plan features →](/settings/plans)
 
@@ -133,10 +131,10 @@ Charge more for high-demand dates and last-minute bookings — automatically.
 
 ## Per-Staff-Hour Travel Billing <PlusBadge />
 
-Charge for drive time per staff member instead of per vehicle.
+Bill drive time per staff member in addition to your per-mile, per-resource travel fee.
 
-- Travel costs scale with crew size, not trips
-- Pairs with [service-level travel fees](/services/travel-fees)
+- Travel labor scales with crew size — the per-mile, per-resource charge still covers the vehicles
+- Added on top of the existing travel fee (not subject to the mileage minimum)
 
 [Learn about travel fees →](/services/travel-fees)
 
@@ -146,10 +144,10 @@ Charge for drive time per staff member instead of per vehicle.
 
 ## Per-Shift-Hour Labor Pricing
 
-Bill labor by the on-site shift hour, excluding travel time.
+Choose how hourly labor is counted on each service — by **shift hours** (full on-site time, including setup and teardown) or **service hours** (the customer-facing window only).
 
-- Hourly labor charges scoped to the shift, not the full trip
-- Use alongside [per-staff-hour travel billing](/services/travel-fees) to itemize travel separately
+- Both modes exclude travel — bill drive time separately via [travel fees](/services/travel-fees)
+- Pairs naturally with [per-staff-hour travel billing](/services/travel-fees) to itemize travel as its own line
 
 [Learn about service pricing →](/services/pricing)
 
