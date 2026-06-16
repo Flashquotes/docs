@@ -60,6 +60,43 @@ The `generate_lead` event also includes:
   </Step>
 </Steps>
 
+## Using Google Analytics on Wix
+
+Wix embeds your form inside a sandboxed iframe served from a separate Wix domain. Because of that sandbox, your form can't read the visitor's original traffic source or Google Ads click from the page it's embedded on — so GA4 records form events as **`direct`** instead of the campaign or ad that actually drove the visit.
+
+To fix attribution, add this script to your Wix site's header:
+
+```html
+<script src="https://app.flashquotes.com/wix-bridge.js"></script>
+```
+
+It passes the real traffic source from your page into the embedded form, so events are attributed correctly.
+
+<Note>
+Adding custom code requires a **paid Wix plan with a connected domain**.
+</Note>
+
+<Steps>
+  <Step title="Open Custom Code in Wix">
+    In your Wix dashboard, go to **Settings** > **Custom Code**, then click **+ Add Custom Code**.
+  </Step>
+  <Step title="Paste and place the script">
+    1. Paste the script above into the code box
+    2. Under **Add Code to Pages**, choose **All pages**
+    3. Under **Place Code in**, select **Head**
+    4. Click **Apply**
+  </Step>
+  <Step title="Verify attribution">
+    Visit your form's page with a test parameter like `?gclid=test123`, then submit a test lead. In GA4 **Reports > Realtime**, confirm the `generate_lead` event shows a source such as `google / cpc` instead of `direct`.
+
+    <Tip>
+    Use a fresh name, email, and phone number on each test — reusing the same details can merge into an existing lead and skip recording the source.
+    </Tip>
+  </Step>
+</Steps>
+
+Only Wix needs this script. WordPress, Squarespace, Webflow, and other builders place your form directly on the page, so attribution already works. See [Wix Embed Best Practices](/forms/wix-embeds) for more on Wix's constraints.
+
 ## Using UTM parameters
 
 Flashquotes automatically captures UTM parameters from your form URLs and includes them in all events. This lets you track which marketing campaigns drive the most leads.
