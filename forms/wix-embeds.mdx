@@ -68,6 +68,14 @@ If you prefer to keep the iframe embed on mobile, follow these optimization step
 - Ensure the embed code is wrapped in a div with at least 320px width and 650px height
 - Test the embed on actual mobile devices, not just Wix's mobile preview
 
+## Google Analytics and Ad Tracking
+
+Wix's sandboxed iframe also prevents your embedded form from reading the visitor's original traffic source, so Google Analytics records form events as `direct` instead of the campaign or Google Ads click that drove the visit. If you track conversions with Google Analytics, add the Flashquotes attribution script to your Wix header.
+
+<Card title="Fix Google Analytics attribution on Wix" icon="chart-line" href="/settings/integrations/google-analytics#using-google-analytics-on-wix">
+  Add one script to your Wix site's header so form events are attributed to the right source instead of `direct`.
+</Card>
+
 ## Next Steps
 
 After setting up your Wix embed:
