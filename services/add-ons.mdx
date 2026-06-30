@@ -60,10 +60,11 @@ Add-ons are extras and upsells that customers can add to their bookings. Navigat
     - **Per unit per hour**: Combined unit and hourly pricing
     - **Per unit per guest**: Price per unit scaled by guest count (and number of days); quantity is applied at line level (e.g. per-guest cocktail pricing with multiple options)
     - **Per guest per hour**: Price based on guest count multiplied by service duration in hours (and number of days); ideal for consumption-based add-ons that scale with both attendance and time
+    - **Per resource per hour**: Per-resource hourly rate, with an optional per-resource setup base and an optional per-resource-per-day minimum hours floor. Use for add-ons that scale by both resource count and time (e.g. additional bartenders billed by the hour with a setup fee per bartender). Customer-facing copy reads "$X per hour" (with the base shown as a leading term when set) — "resource" is hidden from the lead form.
     - **Tiered per guest**: Offer volume discounts on **Per guest** add-ons by setting rate bands (e.g. \$5/guest for 1–49, \$4/guest for 50–99, \$3/guest for 100+). The applicable tier is chosen based on the guest count on the quote.
 
     ### Minimum Price (Optional)
-    For variable-rate add-ons (**Per guest**, **Per hour**, **Per resource**, **Per unit per hour**, **Per unit per guest**), you can set an optional minimum price. If the calculated price is below this amount, the minimum is used. Leave blank for no minimum. Flat rate and Per unit do not use minimum price.
+    For variable-rate add-ons (**Per guest**, **Per hour**, **Per resource**, **Per unit per hour**, **Per unit per guest**, **Per resource per hour**), you can set an optional minimum price. If the calculated price is below this amount, the minimum is used. Leave blank for no minimum. Flat rate and Per unit do not use minimum price.
 
     <Tip>
       Choose pricing models that align with your operational costs and market positioning.
@@ -98,6 +99,8 @@ Add-ons are extras and upsells that customers can add to their bookings. Navigat
     **Per unit per guest**: Unit price × guests × days, then × quantity (e.g. \$1 per guest per cocktail × 100 guests × 1 day = \$100 per unit; quantity 3 = \$300 total).
 
     **Per guest per hour**: Unit price × guests × days × hours (e.g. \$2/guest/hr × 50 guests × 1 day × 4 hours = \$400).
+
+    **Per resource per hour**: (base + rate × effectiveHours × days) × resources. The optional per-resource-per-day minimum-hours floor applies to `effectiveHours` *before* the resource and day multipliers — e.g. a 2-hour floor at \$100/hr produces a \$200/resource/day minimum on the variable portion, then scales by resources and days. The per-resource setup base is added on top and is never floored by the minimum price.
 
     **Minimum price**: If you set a minimum price, the line total will never be less than that amount for variable-rate add-ons.
 
