@@ -3,16 +3,20 @@ title: "Introduction"
 description: "Welcome to the Flashquotes API documentation"
 ---
 
-import { ScaleBadge } from "/snippets/badge.mdx";
+import { ProBadge, ScaleBadge } from "/snippets/badge.mdx";
 
 ## Welcome to the Flashquotes API <ScaleBadge />
 
 The Flashquotes API enables you to programmatically access and manage your events, bookings, forms, invoices, and tasks. Our REST API provides endpoints for retrieving event data, creating tasks, managing form responses, and accessing invoice information.
 
-<Tip>
-	**Scale access required.** API access is limited to Flashquotes Scale plan customers. You can easily
-	upgrade in [Plan Settings](https://app.flashquotes.com/settings/plans).
-</Tip>
+## Plan access
+
+Flashquotes exposes two API surfaces, gated by plan:
+
+- **Full REST API** <ScaleBadge /> — every endpoint documented in this reference (everything under `/api/*`) is available on the **Scale** plan. This includes events, bookings, form responses, invoices, and tasks.
+- **Zapier endpoints** <ProBadge /> — the Zapier-specific endpoints under `/api/zapier/*` (used by the Flashquotes Zapier app) are available on the **Pro** plan and above. See the [Zapier integration](/settings/integrations/zapier) page for setup.
+
+You can upgrade your plan in [Plan Settings](https://app.flashquotes.com/settings/plans).
 
 ## Authentication
 
@@ -23,9 +27,7 @@ All API endpoints require authentication using an API key. You must include your
 ```
 
 <Note>
-	Keep your API key secure and never share it publicly. If you're subscribed to
-	the Scale plan, access your API key in the [Integrations
-	Settings](https://app.flashquotes.com/settings/integrations).
+	The API key shown in [Settings > Integrations](https://app.flashquotes.com/settings/integrations) is the **same key** used for both the full REST API and the Zapier endpoints. What it can call depends on your plan: Pro keys can call the Zapier endpoints; Scale keys can call the Zapier endpoints **and** the full REST API. Keep your API key secure and never share it publicly.
 </Note>
 
 ## Base URL
