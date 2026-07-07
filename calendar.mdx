@@ -90,7 +90,18 @@ Events that span more than one day render across each day they touch, so you can
 
 ## Resource availability
 
-Resource availability is displayed on each day to give you a snapshot view of which days have high resource availability and which days are nearly booked out.
+Each day in the calendar shows a quiet **capacity bar** under the date so you can spot which days are wide open and which are nearly booked out — without any traffic-light colors competing with your events.
+
+- **Empty day** — the bar is hidden. Nothing to look at means nothing is booked yet against your **core** resource pool.
+- **Filling up** — a thin indigo bar fills from left to right as core resources get booked for that day.
+- **Fully booked** — the bar flips to rose once every core resource is taken.
+- **Overbooked** — if the day exceeds your full core pool, a rose **+N** appears at the right end of the bar showing how many extra bookings there are.
+
+Hover the bar (or tap it on mobile) to see the exact **available / total** count in a tooltip.
+
+The bar reflects the **core** resource pool at your selected locations. When you filter the calendar to specific resources in the sidebar, the bars hide automatically — the denominator would mix pools and stop being meaningful. Clear the resource filter to bring the bars back.
+
+Resource availability is always on; there's no toggle to turn it off. Days at companies with no core resources simply render nothing.
 
 [Learn more about resources →](/resources)
 
