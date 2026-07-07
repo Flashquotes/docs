@@ -182,7 +182,7 @@
           },
           {
             "group": "Help & Support",
-            "pages": ["troubleshooting"]
+            "pages": ["command-palette", "troubleshooting"]
           },
           {
             "group": "Settings",
