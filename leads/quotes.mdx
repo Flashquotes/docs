@@ -289,7 +289,7 @@ Service charges let you add percentage or flat fees to quotes automatically or m
     - Modify or add line items for services
     - Add line items for add-ons (quantities respect configured min/max limits)
     - Apply tax rates
-    - Apply discounts
+    - Apply discounts (including [per-line-item discounts](#per-line-item-discounts))
     - Add service descriptions
 
     #### Visual elements
@@ -304,6 +304,27 @@ Service charges let you add percentage or flat fees to quotes automatically or m
 
   </Accordion>
 </AccordionGroup>
+
+## Per-line-item discounts
+
+Attach an existing discount to any single line item on a quote or invoice — useful when you want to mark down one service without touching the rest of the order.
+
+### Apply a discount to a line item
+
+1. Open the quote (or invoice) and edit the line item.
+2. In the line-item editor, open the **Discount** picker.
+3. Pick an existing discount, or choose **+ New discount** to create one inline — new discounts auto-apply to the line as soon as they're saved.
+4. Use **Manage discounts** in the picker to jump to Settings → Discounts.
+
+Totals, taxes, and QuickBooks sync all use the discounted amount, so your books reconcile automatically.
+
+### What customers see
+
+On the booking summary, quote view, payment page, and both PDFs, discounted line items show the original price with a strikethrough next to the discounted "now" price and the discount name.
+
+<Info>
+  Line-item discounts apply **before** any order-level discount, floor at $0 (a discount can never make a line negative), and are never applied to gratuity.
+</Info>
 
 ## Next Steps
 
