@@ -9,29 +9,6 @@ import { PlusBadge, ProBadge, ScaleBadge } from "/snippets/badge.mdx";
 This changelog documents product updates and new features in Flashquotes. These updates are rolled out directly to the live application - no separate changelog feature exists within the app itself.
 </Note>
 
-<Update label="July 10, 2026">
-
-## Full REST API on Scale <ScaleBadge />
-
-The full Flashquotes REST API is now available on the **Scale** plan — read and write events, bookings, form responses, invoices, and tasks straight from your own tools.
-
-- Endpoints for events, bookings, form responses, invoices, and task creation, with cursor-based pagination and `expand[]` for related objects
-- Stripe-style conventions: `snake_case` query params, `camelCase` responses, structured error envelope, and date-range filters (`[gte]`, `[lt]`, etc.)
-- One API key powers both Zapier and the REST API — generate it from **Settings → Integrations**
-
-[Read the API reference →](/api-reference/introduction)
-
-## Zapier now included on Pro <ProBadge />
-
-The Flashquotes Zapier app is now available on the **Pro** plan (previously higher-tier only), so more teams can automate lead, event, and invoice workflows across thousands of apps.
-
-- Same API key works for Zapier on Pro and for the REST API on Scale
-- Triggers for new leads, bookings, status changes, invoices, and payments
-
-[Set up Zapier →](/settings/integrations/zapier)
-
-</Update>
-
 <Update label="July 2, 2026">
 
 ## Per-Line-Item Discounts on Quotes and Invoices
