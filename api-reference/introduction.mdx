@@ -11,12 +11,12 @@ The Flashquotes API enables you to programmatically access and manage your event
 
 ## Plan access
 
-Flashquotes exposes two API surfaces, gated by plan:
+What you can use depends on your plan:
 
-- **Full REST API** <ScaleBadge /> — every endpoint documented in this reference (everything under `/api/*`) is available on the **Scale** plan. This includes events, bookings, form responses, invoices, and tasks.
-- **Zapier endpoints** <ProBadge /> — the Zapier-specific endpoints under `/api/zapier/*` (used by the Flashquotes Zapier app) are available on the **Pro** plan and above. See the [Zapier integration](/settings/integrations/zapier) page for setup.
+- **Full REST API** <ScaleBadge /> — every endpoint in this reference: events, bookings, form responses, invoices, and tasks. Needs the **Scale** plan.
+- **Zapier** <ProBadge /> — the endpoints the Flashquotes Zapier app uses. Included with **Pro** and above. [Set up Zapier →](/settings/integrations/zapier)
 
-You can upgrade your plan in [Plan Settings](https://app.flashquotes.com/settings/plans).
+Upgrade anytime in [Plan Settings](https://app.flashquotes.com/settings/plans).
 
 ## Authentication
 
@@ -27,7 +27,7 @@ All API endpoints require authentication using an API key. You must include your
 ```
 
 <Note>
-	The API key shown in [Settings > Integrations](https://app.flashquotes.com/settings/integrations) is the **same key** used for both the full REST API and the Zapier endpoints. What it can call depends on your plan: Pro keys can call the Zapier endpoints; Scale keys can call the Zapier endpoints **and** the full REST API. Keep your API key secure and never share it publicly.
+	You use one API key for everything. Find it in [Settings > Integrations](https://app.flashquotes.com/settings/integrations). On Pro, it works with the Zapier endpoints. On Scale, it also works with the full REST API. Keep it secret — never share it publicly.
 </Note>
 
 ## Base URL
