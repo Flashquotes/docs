@@ -3,16 +3,20 @@ title: "Introduction"
 description: "Welcome to the Flashquotes API documentation"
 ---
 
-import { ScaleBadge } from "/snippets/badge.mdx";
+import { ProBadge, ScaleBadge } from "/snippets/badge.mdx";
 
 ## Welcome to the Flashquotes API <ScaleBadge />
 
 The Flashquotes API enables you to programmatically access and manage your events, bookings, forms, invoices, and tasks. Our REST API provides endpoints for retrieving event data, creating tasks, managing form responses, and accessing invoice information.
 
-<Tip>
-	**Scale access required.** API access is limited to Flashquotes Scale plan customers. You can easily
-	upgrade in [Plan Settings](https://app.flashquotes.com/settings/plans).
-</Tip>
+## Plan access
+
+What you can use depends on your plan:
+
+- **Full REST API** <ScaleBadge /> — every endpoint in this reference: events, bookings, form responses, invoices, and tasks. Needs the **Scale** plan.
+- **Zapier** <ProBadge /> — the endpoints the Flashquotes Zapier app uses. Included with **Pro** and above. [Set up Zapier →](/settings/integrations/zapier)
+
+Upgrade anytime in [Plan Settings](https://app.flashquotes.com/settings/plans).
 
 ## Authentication
 
@@ -23,9 +27,7 @@ All API endpoints require authentication using an API key. You must include your
 ```
 
 <Note>
-	Keep your API key secure and never share it publicly. If you're subscribed to
-	the Scale plan, access your API key in the [Integrations
-	Settings](https://app.flashquotes.com/settings/integrations).
+	You use one API key for everything. Find it in [Settings > Integrations](https://app.flashquotes.com/settings/integrations). On Pro, it works with the Zapier endpoints. On Scale, it also works with the full REST API. Keep it secret — never share it publicly.
 </Note>
 
 ## Base URL
