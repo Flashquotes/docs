@@ -103,12 +103,18 @@ Specific shortcodes are only available for certain triggers based on what data i
     | `{{booking.last_event_start_time}}` | Last event start time | 9:00 AM |
     | `{{booking.first_event_address}}` | First event venue address | 123 Main St, Anytown, USA |
     | `{{booking.first_event_guest_count}}` | First event guest count (shows "TBD" if not set) | 50 |
+    | `{{booking.first_event_number_of_staff}}` | First event staff count | 2 |
+    | `{{booking.first_event_number_of_resources}}` | First event resource count | 2 |
     | `{{booking.number_of_events}}` | Number of events in booking | 3 |
     | `{{booking.created_date}}` | Date booking was created | April 15, 2025 |
 
     <Note>
     Booking shortcodes are available for **Quote Booked**, **First Event Start**, and **Last Event End** triggers. First Event Start and Last Event End require a Plus or Pro subscription.
     </Note>
+
+    <Warning>
+    Quote shortcodes like `{{quote.number_of_staff}}` and `{{quote.number_of_resources}}` are **not** available in booking-based triggers (First Event Start, Last Event End) — bookings can exist without a quote, so quote data isn't guaranteed. Use `{{booking.first_event_number_of_staff}}` and `{{booking.first_event_number_of_resources}}` instead.
+    </Warning>
 
   </Tab>
 
