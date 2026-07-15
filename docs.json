@@ -164,7 +164,10 @@
                   }
                 ]
               },
-              "reports",
+              {
+                "group": "Reports",
+                "pages": ["reports", "reports/sales-tax"]
+              },
               {
                 "group": "Imports & Exports",
                 "pages": [
