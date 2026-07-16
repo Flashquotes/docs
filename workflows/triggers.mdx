@@ -11,20 +11,20 @@ Flashquotes offers multiple workflow triggers to automate customer communication
 
 ### Quote Requested
 
-The Quote Requested trigger automatically enrolls leads in workflows when they submit a quote request through your lead intake forms. This allows you to engage leads immediately after they express interest, before you even send a formal quote.
+The Quote Requested trigger automatically enrolls contacts in workflows when they submit a quote request through your lead intake forms. This allows you to engage contacts immediately after they express interest, before you even send a formal quote.
 
 **How it works:**
 
-1. A lead submits your lead intake form
+1. A contact submits your lead intake form
 2. Flashquotes automatically enrolls them in any active Quote Requested workflows
 3. The email sequence begins immediately based on your configured timing
-4. Workflows continue until the lead books or you stop them manually
+4. Workflows continue until the contact books or you stop them manually
 
 **Key Features:**
-- **Automatic Enrollment**: No manual action required - leads are enrolled as soon as they submit the form
-- **Immediate Engagement**: Connect with leads during the critical window between request and quote delivery
+- **Automatic Enrollment**: No manual action required - contacts are enrolled as soon as they submit the form
+- **Immediate Engagement**: Connect with contacts during the critical window between request and quote delivery
 - **Gmail Account Selection**: Choose which connected Gmail account sends the workflow emails
-- **Customizable Templates**: Create email sequences tailored to new lead inquiries
+- **Customizable Templates**: Create email sequences tailored to new inquiries
 
 **Common Use Cases:**
 - Send immediate acknowledgment confirming quote request receipt
@@ -80,11 +80,11 @@ The Quote Booked trigger fires automatically when a customer completes a booking
 1. Create a workflow with the Quote Booked trigger
 2. Add email steps with your desired timing and content
 3. Publish the workflow
-4. When a quote is booked, the lead is automatically enrolled
+4. When a quote is booked, the contact is automatically enrolled
 
 **Key Features:**
-- **Automatic Enrollment**: Leads enroll as soon as their quote is booked
-- **Lead & Booking Shortcodes**: Access lead, company, and booking details in email templates
+- **Automatic Enrollment**: Contacts enroll as soon as their quote is booked
+- **Contact & Booking Shortcodes**: Access contact, company, and booking details in email templates
 - **Gmail Integration**: Send from your connected Gmail account
 - **Customizable Templates**: Create sequences tailored to post-booking communications
 
@@ -171,13 +171,13 @@ The Last Event End trigger allows you to send workflow emails based on when the 
 | **Default Templates** | None (create custom) | 7 pre-configured emails | None (create custom) | None (create custom) | None (create custom) |
 | **Enrollment** | Automatic for all forms | Optional per quote | Automatic for all bookings | Automatic for all bookings | Automatic for all bookings |
 | **Subscription** | All plans | All plans | All plans | Plus/Pro only | Plus/Pro only |
-| **Available Shortcodes** | Lead, Company, Quote | Lead, Company, Quote | Lead, Company, Booking | Company, Booking | Company, Booking |
+| **Available Shortcodes** | Contact, Company, Quote | Contact, Company, Quote | Contact, Company, Booking | Company, Booking | Company, Booking |
 | **Rescheduling** | No | No | No | Yes (on event date change) | Yes (on event date change) |
 
 ## Choosing the Right Trigger
 
-### For Lead Engagement
-- **Quote Requested**: First touchpoint when lead shows interest
+### For Contact Engagement
+- **Quote Requested**: First touchpoint when a contact shows interest
 - **Quote Sent**: Follow up after presenting your proposal
 
 ### For Post-Booking Communication
@@ -190,7 +190,7 @@ The Last Event End trigger allows you to send workflow emails based on when the 
 Different triggers have access to different shortcodes based on what information is available at that stage:
 
 - **All Triggers**: Company shortcodes (`{{company.name}}`, `{{company.contact_email}}`, etc.)
-- **Quote-Based** (Quote Requested, Quote Sent): Lead and Quote shortcodes
-- **Booking-Based** (Quote Booked, First Event Start, Last Event End): Lead and Booking shortcodes
+- **Quote-Based** (Quote Requested, Quote Sent): Contact and Quote shortcodes
+- **Booking-Based** (Quote Booked, First Event Start, Last Event End): Contact and Booking shortcodes
 
 [View complete shortcodes reference →](/workflows/shortcodes/overview)

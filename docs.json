@@ -47,22 +47,23 @@
             "group": "Core Features",
             "pages": [
               {
-                "group": "Leads",
+                "group": "Pipeline & Contacts",
                 "pages": [
-                  "leads/managing",
+                  "pipeline",
+                  "contacts",
                   "inbox",
                   {
                     "group": "Creating Quotes",
                     "pages": [
-                      "leads/quotes",
-                      "leads/autodraft",
-                      "leads/service-days",
-                      "leads/booking-flow",
-                      "leads/quote-view"
+                      "contacts/quotes",
+                      "contacts/autodraft",
+                      "contacts/service-days",
+                      "contacts/booking-flow",
+                      "contacts/quote-view"
                     ]
                   },
-                  "leads/sending-quotes",
-                  "leads/instant-pricing"
+                  "contacts/sending-quotes",
+                  "contacts/instant-pricing"
                 ]
               },
               {
@@ -173,7 +174,7 @@
                 "pages": [
                   "imports-exports/overview",
                   "imports-exports/import-bookings",
-                  "imports-exports/export-leads",
+                  "imports-exports/export-contacts",
                   "imports-exports/export-bookings"
                 ]
               },
@@ -298,18 +299,68 @@
   },
   "redirects": [
     {
+      "source": "/leads/managing",
+      "destination": "/contacts",
+      "permanent": true
+    },
+    {
       "source": "/leads/export-data",
-      "destination": "/imports-exports/export-leads",
+      "destination": "/imports-exports/export-contacts",
+      "permanent": true
+    },
+    {
+      "source": "/imports-exports/export-leads",
+      "destination": "/imports-exports/export-contacts",
       "permanent": true
     },
     {
       "source": "/leads/quote-view-v2",
-      "destination": "/leads/quote-view",
+      "destination": "/contacts/quote-view",
       "permanent": true
     },
     {
       "source": "/forms/payment-schedules",
-      "destination": "/leads/booking-flow",
+      "destination": "/contacts/booking-flow",
+      "permanent": true
+    },
+    {
+      "source": "/leads/quotes",
+      "destination": "/contacts/quotes",
+      "permanent": true
+    },
+    {
+      "source": "/leads/autodraft",
+      "destination": "/contacts/autodraft",
+      "permanent": true
+    },
+    {
+      "source": "/leads/service-days",
+      "destination": "/contacts/service-days",
+      "permanent": true
+    },
+    {
+      "source": "/leads/booking-flow",
+      "destination": "/contacts/booking-flow",
+      "permanent": true
+    },
+    {
+      "source": "/leads/quote-view",
+      "destination": "/contacts/quote-view",
+      "permanent": true
+    },
+    {
+      "source": "/leads/sending-quotes",
+      "destination": "/contacts/sending-quotes",
+      "permanent": true
+    },
+    {
+      "source": "/leads/instant-pricing",
+      "destination": "/contacts/instant-pricing",
+      "permanent": true
+    },
+    {
+      "source": "/leads",
+      "destination": "/contacts",
       "permanent": true
     }
   ]

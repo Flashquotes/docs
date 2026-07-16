@@ -25,7 +25,7 @@ Each event includes:
 - **UTM parameters** - utm_source, utm_medium, utm_campaign, utm_term, utm_content (when present in URL)
 
 The `generate_lead` event also includes:
-- **lead_id** - The Flashquotes lead ID
+- **lead_id** - The Flashquotes contact ID
 - **quote_id** - The associated quote ID (if created)
 
 ## Set up GA4 tracking
@@ -90,7 +90,7 @@ Adding custom code requires a **paid Wix plan with a connected domain**.
     Visit your form's page with a test parameter like `?gclid=test123`, then submit a test lead. In GA4 **Reports > Realtime**, confirm the `generate_lead` event shows a source such as `google / cpc` instead of `direct`.
 
     <Tip>
-    Use a fresh name, email, and phone number on each test — reusing the same details can merge into an existing lead and skip recording the source.
+    Use a fresh name, email, and phone number on each test — reusing the same details can merge into an existing contact and skip recording the source.
     </Tip>
   </Step>
 </Steps>
@@ -162,4 +162,4 @@ These parameters will be included in all three events (form_view, form_start, ge
 
 - [Set up Google Tag Manager](/settings/integrations/google-tag-manager) for advanced tracking needs
 - [Learn about form embedding](/forms/embed-your-form) to add forms to your website
-- [View your leads](/leads/managing) to see captured form submissions
+- [View your contacts](/contacts) to see captured form submissions

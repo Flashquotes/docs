@@ -9,6 +9,27 @@ import { PlusBadge, ProBadge, ScaleBadge } from "/snippets/badge.mdx";
 This changelog documents product updates and new features in Flashquotes. These updates are rolled out directly to the live application - no separate changelog feature exists within the app itself.
 </Note>
 
+<Update label="July 15, 2026">
+
+## Leads Is Now Pipeline and Contacts
+
+<Frame>
+  <img
+    src="/images/pipeline/pipeline-board.webp"
+    alt="The new Pipeline board showing quote cards organized into stages"
+  />
+</Frame>
+
+The Leads page has been split into two views built around how you actually work — quotes to win, and people to know.
+
+- **Pipeline** — every open quote on a kanban board, moving through stages from **New inquiry** to **Quote sent** to **Booked**. Drag cards between stages, spot 🔥 hot quotes where the client just engaged, and catch idle quotes before they go cold. Prefer rows? Flip to the list view.
+- **Custom stages** <PlusBadge /> — add, rename, and reorder stages to match your sales process
+- **Contacts** — everyone you've quoted or booked in one searchable directory, with quote and booking counts, last activity, filters, and CSV export
+
+[Explore the Pipeline →](/pipeline) · [Meet the Contacts page →](/contacts)
+
+</Update>
+
 <Update label="July 10, 2026">
 
 ## Reorganized Navigation
@@ -39,7 +60,7 @@ Mark down a single service without touching the rest of the order — attach any
 - Totals, taxes, and QuickBooks sync all use the discounted amount, so your books reconcile automatically
 - Line-item discounts apply before any order-level discount, floor at \$0, and are never applied to gratuity
 
-[Learn about per-line-item discounts →](/leads/quotes#per-line-item-discounts)
+[Learn about per-line-item discounts →](/contacts/quotes#per-line-item-discounts)
 
 </Update>
 
@@ -294,7 +315,7 @@ When hidden, the "Pre-paid gratuity" in the **Setup** section of the event brief
 
 Add notes directly to any lead. Create, edit, delete, and pin notes from the new **Notes** tab on the lead detail page. Pin important notes to keep them at the top, and use search to find what you need fast.
 
-[Learn more about managing leads →](/leads/managing)
+[Learn more about managing leads →](/contacts)
 
 </Update>
 
@@ -329,7 +350,7 @@ Additionally, you can now export both Invoice and Payments to CSV to support acc
 
 Download or print any quote as a PDF. Open a quote and click the menu icon to find the new **Download PDF** and **Print** options. The PDF includes your full quote details, line items, and pricing — ready to share offline.
 
-[Learn more about the quote page →](/leads/quote-view)
+[Learn more about the quote page →](/contacts/quote-view)
 
 </Update>
 
@@ -339,7 +360,7 @@ Download or print any quote as a PDF. Open a quote and click the menu icon to fi
 
 Customers with a deposit payment schedule now see a **"Pay full balance today"** checkbox on the booking form. When toggled, the full invoice amount due is charged in a single transaction instead of a deposit with a later balance payment.
 
-[Learn more about payment terms →](/leads/booking-flow)
+[Learn more about payment terms →](/contacts/booking-flow)
 
 ---
 
@@ -512,7 +533,7 @@ Your lead table filters and sort preferences are now automatically saved and res
 
 Preferences are saved per company, so switching between companies loads the right view for each. Click **Clear filters** to reset everything back to defaults.
 
-[Learn about managing leads →](/leads/managing)
+[Learn about managing leads →](/contacts)
 </Update>
 
 
@@ -581,7 +602,7 @@ We gave the lead table some love with faster data retrieval and more functionali
 
 The enhanced table gives you instant visibility into lead engagement and helps prioritize follow-up actions.
 
-[Learn about managing leads →](/leads)
+[Learn about managing leads →](/contacts)
 
 </Update>
 
@@ -620,7 +641,7 @@ Assign leads to specific team members for better accountability and organization
 
 Perfect for teams managing leads collaboratively or tracking individual team member performance.
 
-[Learn about managing leads →](/leads)
+[Learn about managing leads →](/contacts)
 
 </Update>
 
@@ -716,7 +737,7 @@ Create multiple reusable quote designs tailored to different event types, servic
 - **Faster quoting**: Apply templates instantly from the Quote Template tab on any quote, or set a default template for new quotes
 - **Consistent branding**: Maintain professional presentation across your team while still customizing for specific event types
 
-[Learn about quote templates →](/templates/quote-templates) | [Configure your quote page →](/leads/quote-view)
+[Learn about quote templates →](/templates/quote-templates) | [Configure your quote page →](/contacts/quote-view)
 
 ## Simplified Quote Payment Terms
 
@@ -727,7 +748,7 @@ Using the new **booking flow**, you can now:
 - Set a default payment terms to apply to all new quotes
 - Easily add new payment terms without needing a separate booking form
 
-[Learn about booking flow →](/leads/booking-flow)
+[Learn about booking flow →](/contacts/booking-flow)
 
 </Update>
 
@@ -1136,7 +1157,7 @@ We've enhanced how expired quotes work to protect your business from outdated pr
 - **Reactivate Expired Quotes**: Instantly make expired quotes bookable by setting a future date
 - **Remove Expiration**: For special clients, remove expiration entirely
 
-This update provides better protection for your business while maintaining flexibility to accommodate different sales scenarios. [Learn about managing expiration →](/leads/managing#managing-quote-expiration-dates) | [Configure quote settings →](/settings/quotes#expiration-settings) | [Handle expired quotes →](/leads/sending-quotes#handling-expired-quotes)
+This update provides better protection for your business while maintaining flexibility to accommodate different sales scenarios. [Learn about managing expiration →](/contacts#managing-quote-expiration-dates) | [Configure quote settings →](/settings/quotes#expiration-settings) | [Handle expired quotes →](/contacts/sending-quotes#handling-expired-quotes)
 
 ---
 
@@ -1229,7 +1250,7 @@ Export your business data to CSV format for powerful integrations with marketing
 
 The export feature respects your active filters, allowing you to export specific date ranges, statuses, or segments. Files are UTF-8 encoded and compatible with Excel, Google Sheets, and all major data platforms.
 
-Access the export feature from the toolbar on your [Leads](https://app.flashquotes.com/leads) or [Bookings](https://app.flashquotes.com/bookings) page.
+Access the export feature from the toolbar on your [Leads](https://app.flashquotes.com/contacts) or [Bookings](https://app.flashquotes.com/bookings) page.
 
 </Update>
 
@@ -1327,7 +1348,7 @@ Create complex multi-day quotes with our new Service Days editor. Add multiple d
 
 When clients book quotes with service days, each day automatically becomes a separate event in your booking system, making complex scheduling simple to manage.
 
-Learn more in our [Service Days guide](/leads/service-days).
+Learn more in our [Service Days guide](/contacts/service-days).
 
 </Update>
 
@@ -1386,7 +1407,7 @@ Key features include:
 
 The template is fully customizable through an intuitive visual editor, allowing you to configure galleries, testimonials, and add-ons to match your brand and service offerings.
 
-Ready to boost your booking rates? Learn how to configure your quote template in our comprehensive [setup guide](/leads/quote-view).
+Ready to boost your booking rates? Learn how to configure your quote template in our comprehensive [setup guide](/contacts/quote-view).
 
 </Update>
 
@@ -1471,7 +1492,7 @@ The system uses your existing instant pricing configurations to generate accurat
 
 Learn more about Instant Quoting in our documentation:
 
-- [Instant Pricing & Quoting Guide](/leads/instant-pricing)
+- [Instant Pricing & Quoting Guide](/contacts/instant-pricing)
 - [Lead Intake Form Configuration](/forms/lead-intake)
 - [Quote Settings](/settings/quotes)
 
@@ -1557,7 +1578,7 @@ Save time and ensure consistent pricing with our new Instant Pricing feature. No
 
 When leads submit your intake forms, Flashquotes automatically generates draft quotes using your predefined pricing rules. This ensures consistent pricing across your business while still giving you the flexibility to review and adjust quotes before sending them to clients.
 
-Check out our [Instant Pricing guide](/leads/instant-pricing) to learn how to set up automated pricing for your services.
+Check out our [Instant Pricing guide](/contacts/instant-pricing) to learn how to set up automated pricing for your services.
 
 </Update>
 
@@ -1584,7 +1605,7 @@ Track your lead engagement more effectively with our enhanced quote analytics. I
 
 These metrics appear as colored badges on both your lead list and quote details pages, making it easy to identify your hottest leads at a glance. Use these insights to time your follow-ups perfectly and focus on leads showing the strongest booking intent.
 
-Check out the [quote analytics documentation](/leads/sending-quotes#tracking-quote-performance) to learn more about using these new metrics.
+Check out the [quote analytics documentation](/contacts/sending-quotes#tracking-quote-performance) to learn more about using these new metrics.
 
 ## Event Reminders for Staff
 
@@ -1638,7 +1659,7 @@ Track how leads interact with your quotes through our new email analytics featur
 
 This visibility helps you time your follow-ups perfectly and focus on your most engaged leads.
 
-Check out the [email analytics docs](/leads/sending-quotes#tracking-quote-performance) for more details.
+Check out the [email analytics docs](/contacts/sending-quotes#tracking-quote-performance) for more details.
 
 </Update>
 

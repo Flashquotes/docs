@@ -1,26 +1,26 @@
 ---
 title: "Workflow Enrollments"
-description: "Learn how to enroll leads in workflows and manage active enrollments"
+description: "Learn how to enroll contacts in workflows and manage active enrollments"
 ---
 
 import { PlusBadge } from "/snippets/badge.mdx";
 
-## Enrolling Leads in Workflows <PlusBadge />
+## Enrolling Contacts in Workflows <PlusBadge />
 
 ### Automatic Enrollment
 
-Leads are automatically enrolled in workflows based on the trigger type:
+Contacts are automatically enrolled in workflows based on the trigger type:
 
-- **Quote Requested**: Leads enroll when they submit your lead intake form
-- **Quote Sent**: Enroll leads when sending quotes (toggle in send quote modal, then select a workflow)
-- **Quote Booked**: Leads enroll automatically when a quote is booked
+- **Quote Requested**: Contacts enroll when they submit your lead intake form
+- **Quote Sent**: Enroll contacts when sending quotes (toggle in send quote modal, then select a workflow)
+- **Quote Booked**: Contacts enroll automatically when a quote is booked
 - **First Event Start** / **Last Event End**: Bookings enroll automatically when created
 
 ### During Quote Sending
 
 1. Navigate to the Send Quote modal when preparing to send a quote
 2. At the top of the modal, locate the "Enroll in workflow" toggle
-3. Enable the toggle to enroll the lead in a follow-up workflow
+3. Enable the toggle to enroll the contact in a follow-up workflow
 4. Select which workflow to use from the dropdown — your default workflow is pre-selected
 5. Send the quote as normal
 
@@ -71,14 +71,14 @@ Bulk enrollment is only available for published workflows. Draft workflows must 
 
 ### Workflow-Level View
 
-View all active enrollments for a specific workflow from the Enrollments tab in the workflow details page. This gives you a complete overview of every lead currently enrolled in that workflow.
+View all active enrollments for a specific workflow from the Enrollments tab in the workflow details page. This gives you a complete overview of every contact currently enrolled in that workflow.
 
 From the Enrollments tab, you can:
 
-- **View all active enrollments**: See every lead currently enrolled in the workflow with their name and email
-- **Track progress**: See how many steps each lead has completed out of the total steps (e.g., "3/7")
-- **Monitor enrollment timing**: See when each lead was enrolled (e.g., "2 days ago")
-- **Quick navigation**: Click any enrollment row to jump directly to that lead's Workflows tab
+- **View all active enrollments**: See every contact currently enrolled in the workflow with their name and email
+- **Track progress**: See how many steps each contact has completed out of the total steps (e.g., "3/7")
+- **Monitor enrollment timing**: See when each contact was enrolled (e.g., "2 days ago")
+- **Quick navigation**: Click any enrollment row to jump directly to that contact's Workflows tab
 
 **To access workflow enrollments:**
 
@@ -94,7 +94,7 @@ From the Enrollments tab, you can:
 	/>
 </Frame>
 
-This view is especially useful for Quote Requested workflows where enrollments happen automatically, giving you visibility into how many leads are receiving your automated sequences and how far they've progressed through the steps.
+This view is especially useful for Quote Requested workflows where enrollments happen automatically, giving you visibility into how many contacts are receiving your automated sequences and how far they've progressed through the steps.
 
 ### Quote-Level View
 
@@ -112,9 +112,9 @@ From the quote details page, you can:
 	/>
 </Frame>
 
-### Lead-Level View
+### Contact-Level View
 
-The Lead Details View includes a dedicated Workflows tab that shows:
+The Contact Details View includes a dedicated Workflows tab that shows:
 
 - **Active Workflows**: Currently running sequences
 - **Completed Workflows**: Successfully finished sequences
@@ -130,18 +130,18 @@ From this view, you can:
 <Frame>
 	<img
 		src="/images/workflows/lead-workflow-tab.png"
-		alt="Lead details workflow tab showing active, completed and canceled workflows"
+		alt="Contact details workflow tab showing active, completed and canceled workflows"
 	/>
 </Frame>
 
-### Lead Quote List
+### Contact Quote List
 
-Within the quotes tab in the lead details view, you can easily identify quotes enrolled in a workflow with orange workflow enrollment icon and counter
+Within the quotes tab in the contact details view, you can easily identify quotes enrolled in a workflow with orange workflow enrollment icon and counter
 
 <Frame>
 	<img
 		src="/images/workflows/lead-quote-tab.png"
-		alt="Lead details quote tab showing quotes with an icon indicating active workflow enrollments"
+		alt="Contact details quote tab showing quotes with an icon indicating active workflow enrollments"
 	/>
 </Frame>
 
@@ -149,7 +149,7 @@ Within the quotes tab in the lead details view, you can easily identify quotes e
 
 ### Stopping Workflows
 
-You may want to stop an active workflow because the lead has replied and is engaging with your team or because they've said they no longer need your services.
+You may want to stop an active workflow because the contact has replied and is engaging with your team or because they've said they no longer need your services.
 
 You can stop workflows in several ways:
 
@@ -159,18 +159,18 @@ You can stop workflows in several ways:
 
 <Info>
 	The "Stop all" button stops workflow enrollments for this specific quote only.
-	It does not affect workflow enrollments for other quotes this lead may have.
+	It does not affect workflow enrollments for other quotes this contact may have.
 </Info>
 
-2. **From Lead Workflows Tab**:
+2. **From Contact Workflows Tab**:
    - Select individual workflows to stop
-   - You can easily click **Stop Workflow** on all active workflow for this lead
+   - You can easily click **Stop Workflow** on all active workflow for this contact
 
 ### Resuming Stopped Workflows
 
 If you've stopped a workflow but want to restart the automated follow-up sequence, you can easily resume it:
 
-1. Navigate to the **Lead Workflows Tab** in the lead details view
+1. Navigate to the **Contact Workflows Tab** in the contact details view
 2. Locate the stopped workflow in the "Canceled Workflows" section
 3. Click the **Resume Workflow** button (only visible if there are future scheduled steps)
 4. The workflow will reactivate and continue sending scheduled emails
@@ -180,26 +180,26 @@ You can only resume a workflow if it has scheduled steps in the future. Workflow
 </Note>
 
 **When to Resume Workflows:**
-- The lead initially showed no interest but has now re-engaged
+- The contact initially showed no interest but has now re-engaged
 - You accidentally stopped a workflow too early
-- The lead requested more time to consider and now wants to continue receiving information
+- The contact requested more time to consider and now wants to continue receiving information
 - A communication misunderstanding has been resolved
 
 ### Automatically Stopping Workflows
 
-When a lead books a quote, all active workflows for that lead will be stopped automatically
+When a contact books a quote, all active workflows for that contact will be stopped automatically
 
 This includes workflows across multiple quotes that may be active
 
-This automatic stopping ensures you maintain a professional relationship with your leads and don't continue sending sales-focused follow-ups after they've already decided to work with you.
+This automatic stopping ensures you maintain a professional relationship with your contacts and don't continue sending sales-focused follow-ups after they've already decided to work with you.
 
 <Warning>
-	If a lead engages with you **before** booking, all active workflows will
+	If a contact engages with you **before** booking, all active workflows will
 	continue until you stop them manually.
 </Warning>
 
 ## Best Practices
 
 - Regularly review active workflows to ensure relevance
-- Stop workflows if direct engagement begins with the lead
+- Stop workflows if direct engagement begins with the contact
 - Monitor email analytics to optimize workflow effectiveness
