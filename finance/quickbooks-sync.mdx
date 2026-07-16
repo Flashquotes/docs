@@ -30,7 +30,7 @@ If a Stripe payout fails, Flashquotes automatically removes the corresponding de
 1. Go to an invoice with payment activity
 2. Find the payment in the Payment Activity table
 3. Click **Sync Payment** next to the payment
-4. Wait for sync to complete (button shows loading spinner)
+4. Wait for sync to complete (button shows loading spinner); a toast confirms success or shows the QuickBooks error to act on
 
 What happens next: The payment syncs to QuickBooks as an invoice and payment record. For manual payments (cash, check), a bank deposit is also created immediately. For Stripe payments, the deposit is created later when the payout arrives. The sync button disappears and shows a QuickBooks icon.
 
@@ -39,7 +39,7 @@ What happens next: The payment syncs to QuickBooks as an invoice and payment rec
 1. Go to an invoice with refund activity
 2. Find the refund in the Payment Activity table
 3. Click **Sync Refund** next to the refund
-4. Wait for sync to complete
+4. Wait for sync to complete; a toast confirms success or shows the QuickBooks error to act on
 
 What happens next: The refund syncs to QuickBooks as a refund record. You'll see a QuickBooks icon showing the sync is complete.
 
@@ -70,6 +70,7 @@ Missing account mappings will cause sync to fail. Check your QuickBooks integrat
 - **"Invoice already paid" error**: QuickBooks invoice has zero balance remaining
 - **Account mapping missing**: Set up required bank and expense accounts in QuickBooks settings
 - **Deposit not appearing yet**: For Stripe payments, deposits are created when the payout reaches your bank (typically 1-2 business days)
+- **Sync failed with a QuickBooks error**: The toast shows the exact QuickBooks message. "Account Period Closed" means the books are closed for that period — fix it in QuickBooks and retry.
 
 ## What gets created in QuickBooks
 
