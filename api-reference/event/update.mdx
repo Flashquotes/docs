@@ -1,0 +1,101 @@
+---
+title: "Update Event"
+description: "Update an event's details and timeline constants with a partial JSON body"
+openapi: "POST /events/{id}"
+---
+
+Updates the event with the given id. Only the fields you include in the request body are changed — everything else is left untouched (Stripe-style partial update). Returns the updated event in the same shape as [Get Event](/api-reference/event/get).
+
+<Note>
+  The public REST API — including this endpoint — requires the **Scale** plan. See the [API introduction](/api-reference/introduction).
+</Note>
+
+```bash
+curl -X POST "https://app.flashquotes.com/api/events/evt_8K3aN1qV2x?expand[]=booking" \
+  -H "x-api-key: $FLASHQUOTES_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "clientName": "Jane Doe",
+    "guestCount": 140,
+    "serviceStartTime": "2026-06-12T18:00:00.000Z",
+    "serviceEndTime": "2026-06-12T23:00:00.000Z",
+    "setupTime": 60,
+    "breakdownTime": 45
+  }'
+```
+
+## Request body
+
+The body is a JSON object using the same **camelCase** field names as the response from [Get Event](/api-reference/event/get). At least one editable field must be provided.
+
+Editable fields:
+
+| Field | Type | Notes |
+|-------|------|-------|
+| `name` | string \| null | Event name |
+| `clientName` | string | Non-empty |
+| `clientEmail` | string \| null | Must be a valid email if provided |
+| `clientPhone` | string \| null | |
+| `siteContactName` | string \| null | |
+| `siteContactPhone` | string \| null | |
+| `eventDescription` | string \| null | Rich text (HTML is sanitized) |
+| `additionalLocationInfo` | string \| null | Rich text |
+| `parkingLoadingInfo` | string \| null | Rich text |
+| `specialNotes` | string \| null | Rich text |
+| `staffDressCode` | string \| null | |
+| `guestCount` | integer | ≥ 0 |
+| `tipJarAllowed` | boolean | |
+| `outdoors` | boolean | |
+| `serviceStartTime` | string | ISO 8601 datetime with timezone offset |
+| `serviceEndTime` | string | ISO 8601 datetime with timezone offset |
+| `loadingTime` | integer | Whole minutes ≥ 0 |
+| `setupTime` | integer | Whole minutes ≥ 0 |
+| `breakdownTime` | integer | Whole minutes ≥ 0 |
+| `unloadingTime` | integer | Whole minutes ≥ 0 |
+| `travelToEventTime` | integer | Whole minutes ≥ 0 |
+| `travelFromEventTime` | integer | Whole minutes ≥ 0 |
+
+### Unknown and immutable keys
+
+The body is strictly validated. Any key that is not in the table above — including server-computed or foreign-key fields like `bookingId`, `locationId`, `shiftStartTime`, `shiftEndTime`, `companyId`, `id` — returns `400` with the offending key echoed as `param`:
+
+```json
+{
+  "error": {
+    "type": "invalid_request_error",
+    "code": "invalid_parameter",
+    "message": "Unknown parameter: shiftStartTime",
+    "param": "shiftStartTime"
+  }
+}
+```
+
+### Service-time pair
+
+`serviceStartTime` and `serviceEndTime` must be provided **together**, and `serviceEndTime` must be strictly after `serviceStartTime`. Passing only one, or an inverted range, returns `400`.
+
+## Timeline recomputation
+
+When any timing field changes — `serviceStartTime` / `serviceEndTime`, any of `loadingTime`, `setupTime`, `breakdownTime`, `unloadingTime`, `travelToEventTime`, `travelFromEventTime` — the server recomputes the full event timeline. Fields you don't include keep their current values, and the derived shift window (`shiftStartTime`, `shiftEndTime`) is recomputed automatically. You cannot set the shift times directly.
+
+### Travel-time refetch
+
+When you change `serviceStartTime` and `serviceEndTime`, travel times to and from the event are refetched from Google Directions using the event's saved location.
+
+- If you provide **both** `travelToEventTime` and `travelFromEventTime` in the body, your explicit values are used and no refetch happens.
+- If you provide only one, the missing side is filled in from the refetch — your explicit value always wins.
+- For events whose service start is in the past, the refetch is skipped and the event keeps its existing travel times.
+
+## Query parameters
+
+<ParamField query="expand[]" type="string[]">
+  Inline related objects in the response, using the same allow-list as [Get Event](/api-reference/event/get) (`location`, `services`, `staff`, `addons`, `resources`, `booking`, `booking.lead`, `booking.eventType`, `booking.invoices`).
+</ParamField>
+
+## Response
+
+`200 OK` with the updated event, in the exact same shape as [Get Event](/api-reference/event/get) — including any relations you requested via `expand[]`.
+
+<Warning>
+  Editing pricing-relevant fields such as `guestCount` or service times **does not** recalculate `booking.totalPriceCents`. If you need pricing to reflect the change, update the booking totals separately.
+</Warning>

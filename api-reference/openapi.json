@@ -479,6 +479,231 @@
             }
           }
         }
+      },
+      "post": {
+        "summary": "Update Event",
+        "description": "Update an event with a Stripe-style partial JSON body — only the fields you include change. Unknown or immutable keys (`bookingId`, `shiftStartTime`, etc.) return 400 with the offending key as `param`. At least one editable field is required. `serviceStartTime` and `serviceEndTime` must be provided together, with `serviceEndTime` strictly after `serviceStartTime`. When any timing field changes the server recomputes the shift window and refetches travel times from Google Directions, unless both `travelToEventTime` and `travelFromEventTime` are supplied explicitly (explicit values always win; past events skip the refetch). Requires the Scale plan.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The event id.",
+            "example": "evt_8K3aN1qV2x",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "expand[]",
+            "in": "query",
+            "required": false,
+            "description": "Inline related objects in the response. Same allow-list as GET /events/{id}.",
+            "explode": true,
+            "example": ["booking"],
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "description": "Partial event update. At least one field is required.",
+                "properties": {
+                  "name": { "type": "string", "nullable": true },
+                  "clientName": { "type": "string", "minLength": 1 },
+                  "clientEmail": { "type": "string", "format": "email", "nullable": true },
+                  "clientPhone": { "type": "string", "nullable": true },
+                  "siteContactName": { "type": "string", "nullable": true },
+                  "siteContactPhone": { "type": "string", "nullable": true },
+                  "eventDescription": { "type": "string", "nullable": true, "description": "Rich text — HTML is sanitized." },
+                  "additionalLocationInfo": { "type": "string", "nullable": true, "description": "Rich text — HTML is sanitized." },
+                  "parkingLoadingInfo": { "type": "string", "nullable": true, "description": "Rich text — HTML is sanitized." },
+                  "specialNotes": { "type": "string", "nullable": true, "description": "Rich text — HTML is sanitized." },
+                  "staffDressCode": { "type": "string", "nullable": true },
+                  "guestCount": { "type": "integer", "minimum": 0 },
+                  "tipJarAllowed": { "type": "boolean" },
+                  "outdoors": { "type": "boolean" },
+                  "serviceStartTime": { "type": "string", "format": "date-time", "description": "ISO 8601 datetime with timezone offset. Must be provided together with serviceEndTime." },
+                  "serviceEndTime": { "type": "string", "format": "date-time", "description": "ISO 8601 datetime with timezone offset. Must be strictly after serviceStartTime." },
+                  "loadingTime": { "type": "integer", "minimum": 0, "description": "Whole minutes." },
+                  "setupTime": { "type": "integer", "minimum": 0, "description": "Whole minutes." },
+                  "breakdownTime": { "type": "integer", "minimum": 0, "description": "Whole minutes." },
+                  "unloadingTime": { "type": "integer", "minimum": 0, "description": "Whole minutes." },
+                  "travelToEventTime": { "type": "integer", "minimum": 0, "description": "Whole minutes. Overrides the Google Directions refetch." },
+                  "travelFromEventTime": { "type": "integer", "minimum": 0, "description": "Whole minutes. Overrides the Google Directions refetch." }
+                }
+              },
+              "examples": {
+                "DetailsOnly": {
+                  "summary": "Change client details and guest count",
+                  "value": {
+                    "clientName": "Jane Doe",
+                    "clientEmail": "jane@acme.com",
+                    "guestCount": 140,
+                    "tipJarAllowed": true
+                  }
+                },
+                "TimingChange": {
+                  "summary": "Move the event and adjust timeline",
+                  "value": {
+                    "serviceStartTime": "2026-06-12T18:00:00.000Z",
+                    "serviceEndTime": "2026-06-12T23:00:00.000Z",
+                    "setupTime": 60,
+                    "breakdownTime": 45
+                  }
+                },
+                "ExplicitTravel": {
+                  "summary": "Override travel times (skip Google Directions refetch)",
+                  "value": {
+                    "serviceStartTime": "2026-06-12T18:00:00.000Z",
+                    "serviceEndTime": "2026-06-12T23:00:00.000Z",
+                    "travelToEventTime": 30,
+                    "travelFromEventTime": 30
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Event updated successfully. Response has the same shape as GET /events/{id}, including any relations requested via expand[].",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Event"
+                },
+                "example": {
+                  "object": "event",
+                  "id": "evt_8K3aN1qV2x",
+                  "name": "Acme launch party",
+                  "clientName": "Jane Doe",
+                  "clientEmail": "jane@acme.com",
+                  "clientPhone": "+15555550123",
+                  "guestCount": 140,
+                  "serviceStartTime": "2026-06-12T18:00:00.000Z",
+                  "serviceEndTime": "2026-06-12T23:00:00.000Z",
+                  "shiftStartTime": "2026-06-12T16:30:00.000Z",
+                  "shiftEndTime": "2026-06-13T00:15:00.000Z",
+                  "loadingTime": 30,
+                  "setupTime": 60,
+                  "breakdownTime": 45,
+                  "unloadingTime": 30,
+                  "travelToEventTime": 45,
+                  "travelFromEventTime": 45,
+                  "tipJarAllowed": true,
+                  "outdoors": false,
+                  "companyId": "cmp_a1b2c3",
+                  "locationId": "loc_7H2pQ9",
+                  "bookingId": "bkg_4F2yL8",
+                  "eventBriefId": "ebf_3R9wM1",
+                  "eventBriefUrl": "https://app.flashquotes.com/event-briefs/ebf_3R9wM1",
+                  "createdAt": "2026-05-01T14:23:11.000Z",
+                  "updatedAt": "2026-05-08T09:12:44.000Z"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request body or query parameter",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "examples": {
+                  "UnknownParameter": {
+                    "summary": "Unknown or immutable body key",
+                    "value": {
+                      "error": {
+                        "type": "invalid_request_error",
+                        "code": "invalid_parameter",
+                        "message": "Unknown parameter: shiftStartTime",
+                        "param": "shiftStartTime"
+                      }
+                    }
+                  },
+                  "MissingServiceEnd": {
+                    "summary": "Only one side of the service-time pair",
+                    "value": {
+                      "error": {
+                        "type": "invalid_request_error",
+                        "code": "invalid_parameter",
+                        "message": "serviceStartTime and serviceEndTime must be provided together",
+                        "param": "serviceEndTime"
+                      }
+                    }
+                  },
+                  "InvertedRange": {
+                    "summary": "End is not after start",
+                    "value": {
+                      "error": {
+                        "type": "invalid_request_error",
+                        "code": "invalid_parameter",
+                        "message": "serviceEndTime must be after serviceStartTime",
+                        "param": "serviceEndTime"
+                      }
+                    }
+                  },
+                  "EmptyBody": {
+                    "summary": "No editable fields provided",
+                    "value": {
+                      "error": {
+                        "type": "invalid_request_error",
+                        "code": "invalid_parameter",
+                        "message": "At least one editable field must be provided"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "error": {
+                    "type": "authentication_error",
+                    "code": "missing_or_invalid_api_key",
+                    "message": "Unauthorized, invalid or missing API key"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Event not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "error": {
+                    "type": "invalid_request_error",
+                    "code": "not_found",
+                    "message": "Event not found",
+                    "param": "id"
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/event/getEventData/{event_id}": {

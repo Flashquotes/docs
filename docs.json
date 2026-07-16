@@ -233,6 +233,7 @@
             "group": "Events",
             "pages": [
               "api-reference/event/get",
+              "api-reference/event/update",
               "api-reference/event/list-events",
               {
                 "group": "Legacy (deprecated)",
