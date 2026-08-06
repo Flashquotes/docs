@@ -3,6 +3,16 @@
 
   const SURFACE = "docs";
   const PRICE_VERSION = "2026-05-27";
+
+  // Mintlify's built-in PostHog integration (docs.json -> integrations.posthog)
+  // loads its own bundled recorder from ph.mintlify.com and never assigns
+  // window.posthog, so this file had no client to capture with. We load our own
+  // posthog-js against the same project key, with session recording and
+  // autocapture off so we don't duplicate what Mintlify already sends.
+  const POSTHOG_KEY = "phc_vPoaIVndlcrDfAzd0ia1M8XtiXaewzoXUX6RvINtCRT";
+  const POSTHOG_HOST = "https://us.i.posthog.com";
+  const POSTHOG_ASSET_HOST = "https://us-assets.i.posthog.com";
+
   const PLAN_NAMES = ["starter", "plus", "pro", "scale"];
   const PLAN_PRICES = {
     starter: { monthly: 0, yearly: 0 },
@@ -24,8 +34,39 @@
 
   let lastViewedPath = null;
 
+  let client = null;
+
   function ph() {
-    return window.posthog;
+    return client;
+  }
+
+  function loadPosthog(onReady) {
+    // If some other script already put a usable client on the page, reuse it.
+    if (window.posthog && typeof window.posthog.capture === "function") {
+      client = window.posthog;
+      onReady();
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.src = POSTHOG_ASSET_HOST + "/static/array.js";
+    script.async = true;
+    script.onload = function () {
+      if (!window.posthog || typeof window.posthog.init !== "function") return;
+      window.posthog.init(POSTHOG_KEY, {
+        api_host: POSTHOG_HOST,
+        // Mintlify already handles pageviews, autocapture and session replay.
+        // We only want the explicit pricing_* events from this file.
+        autocapture: false,
+        capture_pageview: false,
+        capture_pageleave: false,
+        disable_session_recording: true,
+        person_profiles: "identified_only",
+      });
+      client = window.posthog;
+      onReady();
+    };
+    document.head.appendChild(script);
   }
 
   function currentPath() {
@@ -162,19 +203,18 @@
     }, 0);
   });
 
-  function init(attempts) {
-    if (!ph()) {
-      if (attempts > 50) return;
-      setTimeout(() => init(attempts + 1), 100);
-      return;
-    }
-    ph().register_for_session({ pricing_surface: SURFACE });
-    fireViewed();
+  function init() {
+    loadPosthog(function () {
+      if (typeof ph().register_for_session === "function") {
+        ph().register_for_session({ pricing_surface: SURFACE });
+      }
+      fireViewed();
+    });
   }
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", () => init(0));
+    document.addEventListener("DOMContentLoaded", init);
   } else {
-    init(0);
+    init();
   }
 })();
