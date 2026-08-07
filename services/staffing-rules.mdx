@@ -1,0 +1,157 @@
+---
+title: "Staffing Rules"
+description: "Automatically determine how many staff and resources are assigned to an event based on guest count and service duration"
+---
+
+## How Staffing Rules Work
+
+Staffing rules tell Flashquotes how many staff members and resources (carts, booths, machines, stations) a given event requires. When a customer submits an inquiry, Flashquotes uses these rules to calculate staffing automatically — no manual math per quote.
+
+Rules are configured per service. A Mobile Bar service can have completely different staffing logic than a Photo Booth service.
+
+<Tip>
+  Staffing counts directly affect pricing when you use hourly-per-staff or per-resource pricing components. Getting staffing rules right means your quotes price themselves accurately.
+</Tip>
+
+## The 4 Staffing Rule Modes
+
+<AccordionGroup>
+  <Accordion icon="gauge" title="Hourly Capacity">
+    The simplest mode. You set a throughput rate and the system calculates everything else.
+
+    **Configure:**
+    - **Max items per hour per staff** — how much one staff member can handle per hour (e.g., 50 drinks/hr per bartender)
+    - **Staff per resource** — how many staff members each resource requires (e.g., 1 bartender per bar cart)
+    - **Min/max staff** (optional) — hard limits on staff count regardless of demand
+
+    **How the calculation works:**
+    1. Hourly demand = guest count ÷ service hours
+    2. Staff needed = hourly demand ÷ items per hour per staff
+    3. Resources = staff needed ÷ staff per resource
+
+    **Example**: 100 guests, 4-hour event, 50 drinks/hr/bartender, 1 bartender per cart
+    - Hourly demand = 100 ÷ 4 = 25 drinks/hr
+    - Staff = 25 ÷ 50 = 1 bartender (rounds up)
+    - Resources = 1 cart
+
+    Best for: bar service, espresso carts, food trucks — anything where you can define a per-hour throughput rate.
+  </Accordion>
+
+  <Accordion icon="users" title="Guest Count">
+    Define brackets by guest count. Each bracket specifies exact staff and resource counts.
+
+    **Configure:**
+    - Guest count ranges (e.g., 1–50, 51–100, 101–200)
+    - Staff and resource count for each range
+
+    **Example**:
+    | Guests | Staff | Carts |
+    |--------|-------|-------|
+    | 1–75   | 1     | 1     |
+    | 76–150 | 2     | 2     |
+    | 151+   | 3     | 3     |
+
+    Best for: services where staffing scales with headcount but duration doesn't matter much — photo booths, caricature artists, dessert stations.
+  </Accordion>
+
+  <Accordion icon="clock" title="Duration">
+    Define brackets by service duration. Each bracket specifies exact staff and resource counts.
+
+    **Configure:**
+    - Duration ranges (e.g., 1–2 hrs, 3–4 hrs, 5+ hrs)
+    - Staff and resource count for each range
+
+    **Example**:
+    | Duration | Staff | Machines |
+    |----------|-------|----------|
+    | 1–2 hrs  | 1     | 1        |
+    | 3–4 hrs  | 2     | 1        |
+    | 5+ hrs   | 2     | 2        |
+
+    Best for: services where longer events need more coverage but guest count is less relevant — entertainment acts, setup-heavy productions.
+  </Accordion>
+
+  <Accordion icon="table" title="Guest × Duration Matrix">
+    The most precise option. A 2D grid where each cell combines a guest count range and a duration range to produce specific staff and resource counts.
+
+    **Configure:**
+    - Guest count ranges (columns)
+    - Duration ranges (rows)
+    - Staff and resource count for every combination
+
+    **Example**:
+    |            | 1–50 guests | 51–100 guests | 101+ guests |
+    |------------|-------------|---------------|-------------|
+    | 1–2 hrs    | 1 staff, 1 cart | 2 staff, 1 cart | 3 staff, 2 carts |
+    | 3–4 hrs    | 1 staff, 1 cart | 2 staff, 2 carts | 3 staff, 2 carts |
+    | 5+ hrs     | 2 staff, 1 cart | 3 staff, 2 carts | 4 staff, 3 carts |
+
+    Best for: businesses where both attendance and duration meaningfully affect staffing — full-service bar, coffee catering, multi-station setups.
+  </Accordion>
+</AccordionGroup>
+
+## Setting Up Staffing Rules
+
+<Steps>
+  <Step title="Navigate to your service">
+    Go to **Services & items** and select the service you want to configure.
+  </Step>
+
+  <Step title="Open Staffing Rules">
+    Click the **Staffing Rules** tab on the service detail page.
+  </Step>
+
+  <Step title="Choose a mode">
+    Select the staffing rule mode that fits your business logic. If you're not sure, start with **Hourly Capacity** — it requires the least configuration.
+  </Step>
+
+  <Step title="Enter your rules">
+    Fill in your rates, ranges, or matrix values based on the mode you chose.
+  </Step>
+
+  <Step title="Test before saving">
+    Use the **Test Panel** to simulate different guest counts and durations. Adjust until the output matches what you'd actually book.
+  </Step>
+</Steps>
+
+## Testing Your Rules
+
+After configuring a mode, use the built-in **Test Panel** to preview calculated staffing before saving.
+
+- Drag the **guest count** and **duration** sliders to simulate different inquiries
+- The panel shows exactly how many staff and resources Flashquotes would assign
+- Test edge cases — your minimum guest count, maximum duration, and a mid-range event
+
+This is the fastest way to catch misconfigured brackets or an off-by-one in your ranges.
+
+## Copying Rules from Another Service
+
+If you have multiple services with similar staffing logic, you don't have to start from scratch.
+
+Use **Copy from Service** to pull the staffing configuration from an existing service into the current one. You can then adjust from there rather than building ranges manually.
+
+## Tips
+
+<CardGroup cols={2}>
+  <Card title="Start simple" icon="sliders">
+    Use Hourly Capacity first. Only move to a matrix if your business genuinely needs both dimensions.
+  </Card>
+
+  <Card title="Set min/max staff guards" icon="shield">
+    Even in Hourly Capacity mode, set a minimum staff of 1 to prevent the calculator from rounding down to zero on small events.
+  </Card>
+
+  <Card title="Cover your edge cases" icon="triangle-alert">
+    Make sure your guest count or duration ranges cover all possible inquiry values — leave no gaps between brackets.
+  </Card>
+
+  <Card title="Re-test after pricing changes" icon="flask">
+    If you update hourly rates or per-resource pricing, re-test staffing rules to confirm quotes still calculate as expected.
+  </Card>
+</CardGroup>
+
+## Next Steps
+
+- [Configure service pricing](/services/pricing)
+- [Add upsells with add-ons](/services/add-ons)
+- [Structure your services effectively](/services/structuring-services)
