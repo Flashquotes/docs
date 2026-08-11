@@ -88,11 +88,6 @@ Specific shortcodes are only available for certain triggers based on what data i
     These shortcodes are available for booking-based workflow triggers
     | Shortcode | Description | Example |
     |-----------|-------------|---------|
-    | `{{booking.first_name}}` | Booking contact first name | John |
-    | `{{booking.last_name}}` | Booking contact last name | Doe |
-    | `{{booking.full_name}}` | Booking contact full name | John Doe |
-    | `{{booking.email}}` | Booking contact email | john@example.com |
-    | `{{booking.phone}}` | Booking contact phone | +1 234-567-890 |
     | `{{booking.first_event_start_date}}` | First event start date | May 1, 2025 |
     | `{{booking.first_event_start_time}}` | First event start time | 10:00 AM |
     | `{{booking.last_event_end_date}}` | Last event end date | May 2, 2025 |
@@ -112,6 +107,10 @@ Specific shortcodes are only available for certain triggers based on what data i
     Booking shortcodes are available for **Quote Booked**, **First Event Start**, and **Last Event End** triggers. First Event Start and Last Event End require a Plus or Pro subscription.
     </Note>
 
+    <Note>
+    `{{booking.first_name}}`, `{{booking.last_name}}`, `{{booking.full_name}}`, `{{booking.email}}`, and `{{booking.phone}}` have been retired and removed from the shortcode picker. Existing templates that already use them keep working and now pull from the live contact record. Use the `{{lead.*}}` shortcodes above instead.
+    </Note>
+
     <Warning>
     Quote shortcodes like `{{quote.number_of_staff}}` and `{{quote.number_of_resources}}` are **not** available in booking-based triggers (First Event Start, Last Event End) — bookings can exist without a quote, so quote data isn't guaranteed. Use `{{booking.first_event_number_of_staff}}` and `{{booking.first_event_number_of_resources}}` instead.
     </Warning>
@@ -124,7 +123,7 @@ Specific shortcodes are only available for certain triggers based on what data i
 
 | Shortcode Category | Quote Requested | Quote Sent | Quote Booked | First Event Start | Last Event End |
 |-------------------|----------------|------------|--------------|-------------------|----------------|
-| **Contact** | ✓ | ✓ | ✓ | - | - |
+| **Contact** | ✓ | ✓ | ✓ | ✓ | ✓ |
 | **Company** | ✓ | ✓ | ✓ | ✓ | ✓ |
 | **Quote** | ✓ | ✓ | - | - | - |
 | **Booking** | - | - | ✓ | ✓ | ✓ |
