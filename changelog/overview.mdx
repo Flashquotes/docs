@@ -9,6 +9,20 @@ import { PlusBadge, ProBadge, ScaleBadge } from "/snippets/badge.mdx";
 This changelog documents product updates and new features in Flashquotes. These updates are rolled out directly to the live application - no separate changelog feature exists within the app itself.
 </Note>
 
+<Update label="August 11, 2026">
+
+## Contact Shortcodes on Booking Workflows
+
+Personalize post-booking and event-timed emails with contact details. The `{{lead.*}}` shortcodes now resolve on the **Quote Booked**, **First Event Start**, and **Last Event End** workflow triggers, so first name, email, phone, and city can flow into confirmations, day-of reminders, and follow-ups.
+
+- Use `{{lead.first_name}}`, `{{lead.last_name}}`, `{{lead.full_name}}`, `{{lead.email}}`, `{{lead.phone}}`, `{{lead.company_name}}`, and `{{lead.city}}` in any booking-triggered workflow
+- The five duplicate booking contact shortcodes (`{{booking.first_name}}`, `{{booking.last_name}}`, `{{booking.full_name}}`, `{{booking.email}}`, `{{booking.phone}}`) are retired and no longer appear in the shortcode picker
+- Existing templates that already use the retired codes keep sending and now pull from the live contact record
+
+[View all shortcodes →](/workflows/shortcodes/overview) · [Workflow triggers →](/workflows/triggers)
+
+</Update>
+
 <Update label="July 15, 2026">
 
 ## Leads Is Now Pipeline and Contacts
