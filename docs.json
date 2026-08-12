@@ -99,7 +99,8 @@
                   "events",
                   "events/timeline",
                   "events/reminders",
-                  "events/event-brief"
+                  "events/event-brief",
+                  "events/attachments"
                 ]
               },
               "calendar",
