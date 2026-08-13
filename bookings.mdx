@@ -111,7 +111,7 @@ To share a booking confirmation:
 
 ### Booking Confirmation Email
 
-Flashquotes automatically emails your customer a confirmation whenever a booking is completed. This is a system email — it sends for every booking and is separate from (and in addition to) any [workflow emails](/workflows/overview) the booking triggers.
+Flashquotes emails your customer a confirmation when a booking is completed. This is a system email, separate from (and in addition to) any [workflow emails](/workflows/overview) the booking triggers.
 
 **How it's sent:**
 
@@ -132,6 +132,25 @@ Flashquotes automatically emails your customer a confirmation whenever a booking
   on in their notification preferences receives an email whenever a new
   booking comes in.
 </Info>
+
+#### When the confirmation sends
+
+The customer confirmation goes out for every booking by default. Two things can change that:
+
+- **Company setting.** If your company has booking confirmation emails turned off, no customer confirmations send from any path.
+- **Per-booking opt-out on manual bookings.** When you manually create a booking or copy an existing one from `/bookings/create`, a **Send booking confirmation** checkbox appears under the client email, defaulted on. Uncheck it to skip the customer confirmation for just that booking. The checkbox is hidden if your company has confirmations turned off, since nothing would send anyway.
+
+All other booking paths still send the confirmation whenever the company setting allows it, including the public quote booking flow and recovery flows.
+
+### $0 bookings
+
+Quotes whose amount due today resolves to $0 now book without a payment step. This covers:
+
+- A fully discounted total
+- A 0% or $0 deposit
+- An `INVOICE_ONLY` payment configuration
+
+The customer completes the booking directly instead of getting stuck on a $0 Stripe charge screen. `CARD_ON_FILE` is the exception: it still shows the payment step at $0 so a card can be captured on file.
 
 ## Financial Management
 
