@@ -11,7 +11,7 @@ Import multiple bookings at once when migrating from another system or adding hi
 
 <Steps>
   <Step title="Download the CSV Template">
-    Go to [Bookings](https://app.flashquotes.com/bookings) and click **Import from CSV**. Download the template with example rows.
+    Go to [Bookings](https://app.flashquotes.com/bookings) and click **Import from CSV**. Download the template with example rows. The template includes an **Email** column, which is now required for every row.
   </Step>
 
   <Step title="Fill Out Your Data">
@@ -44,6 +44,7 @@ Import multiple bookings at once when migrating from another system or adding hi
 All bookings must include:
 - Entity to Invoice
 - Full Name
+- Email (must be a valid email address; rows without one fail validation and are not imported)
 - Payment Method
 - Total Price (Dollars)
 - Event Date (YYYY-MM-DD format)
@@ -60,7 +61,6 @@ All bookings must include:
 ## Optional Fields
 
 Include these if you have the data:
-- Email
 - Phone
 - Event Description
 - Site Contact Name
