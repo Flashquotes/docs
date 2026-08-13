@@ -1,61 +1,77 @@
 ---
 title: "Staffing Calculator"
-description: "Configure the dynamic staffing calculator for your lead intake forms"
+description: "Configure the staffing calculator question on your lead intake forms"
 ---
 
 ## Overview
 
-The Staffing Calculator automatically calculates and displays the number of staff members needed based on guest count and service duration. This helps set customer expectations and justify pricing.
+The Staffing Calculator question on a lead intake form collects the guest count and service length, then shows customers how many staff members their event needs. Staff numbers themselves are resolved from per-service [Staff & Resource Rules](/services/staff-resource-rules) — the form editor no longer defines any staffing math.
 
 <Info>
-For more accurate staffing, configure the [Staff & Resource Rules](/services/staff-resource-rules) at the service level instead. Service-level rules support four calculator modes and take priority over these form-level settings when configured.
+Configure staff and resource counts under **Services & items → Staffing Rules** for each service. The form editor only controls what the customer sees; the numbers come from your service rules.
 </Info>
 
-## Configuration Options
+## Where staff counts come from
 
-### Service Length
-- **Minimum Hours**: Set the shortest service duration you offer
-- **Maximum Hours**: Set the longest service duration available
-- Supports half-hour increments for flexibility
+When a customer submits your form, Flashquotes resolves staff and resource counts from the [Staff & Resource Rules](/services/staff-resource-rules) of the selected services. If a service has no rule, that service is treated as unresolvable and the customer sees a deferred message instead of a number. See [How rules resolve on the lead form](#how-rules-resolve-on-the-lead-form) below.
 
-### Guest Count Controls
-- **Increment Value**: Set how much the +/- buttons change the count (1-100)
-- Smaller increments (5-10) work well for intimate gatherings
-- Larger increments (25-50) are better for corporate events
+To make the resolution source visible in the editor, the Staffing Calculator question's settings panel shows a banner naming which rule(s) will drive the number:
 
-### Staffing Ratios
-- **Service Capacity**: Define how many drinks/services one staff member can handle per hour
-- **Maximum Staff**: Optionally cap the number of staff shown (leave empty for unlimited)
+- **Using staffing rules for selected services: [service names]** — the preview has services selected and each of them has a rule.
+- **Using staffing rules from your default service, [service name]. Change default service** — no services are selected in the preview, so the form's default service supplies the rule.
+- **Set a default service to calculate staff from your staffing rules.** — no default service is set. Choose one on the form's settings page.
+- **Add a service to calculate staff from your staffing rules.** — the company has no services yet. Add one under **Services & items** first.
 
-## Staff Visual Counter
+The banner reflects your standing configuration, not just the current preview: a transient preview selection can refine the message but never masks a misconfiguration.
 
-The visual counter shows interactive staff images on your form that adjust as customers change their guest count and service length.
+## Question settings
 
-### Where to find it
+### Guest count
 
-1. Go to **Forms** and open your lead intake form in the editor.
-2. Under **Content**, select the **Staffing Calculator** question.
-3. In the settings panel, expand the **Staff visual counter** section.
+- **Starts at** — the guest count the counter opens with.
+- **Adjust by** — how much the +/- buttons change the count each click.
 
-### Turn the visual counter on or off
+Both values are clamped to sensible ranges.
+
+### Service length
+
+- **Minimum hours** — the shortest service duration you offer.
+- **Maximum hours** — the longest service duration available.
+
+Supports half-hour increments.
+
+### Staff visual counter
+
+The visual counter shows an interactive row of staff avatars on the lead form that updates as the customer changes the guest count or service length.
+
+#### Turn the visual counter on or off
 
 Use the **Enable visual counter** toggle:
 
-- **On** — the form displays an interactive counter with staff images that adjusts to guest count. Customization fields appear below the toggle.
-- **Off** — the form shows a text-only question instead. Customize the question title and subtitle; staffing calculations still happen behind the scenes.
+- **On** — the form displays the counter with an avatar row that scales with the resolved staff count. Customization fields appear below the toggle.
+- **Off** — the form shows a text-only question instead. Customize the question title and subtitle; staffing still resolves behind the scenes and lands on the quote.
 
-<Note>
-There is no separate "mode" switch or "Display Options" menu — the **Enable visual counter** toggle inside the Staffing Calculator question's settings is the only control.
-</Note>
+#### Customize staff titles and photos
 
-### Customize staff titles and photos
+With the visual counter enabled, personalize:
 
-With the visual counter enabled, you can personalize:
-
-- **Staff title (singular / plural)** — e.g. "barista" / "baristas"
-- **Staff description** — e.g. "Serving lattes, cappuccinos, and more"
-- **Staff Images** — click any of the five image slots to upload or select a photo of your team. Images are optional; hover a photo and click the X to remove it.
+- **Staff title (singular / plural)** — for example, "barista" / "baristas".
+- **Staff description** — for example, "Serving lattes, cappuccinos, and more".
+- **Staff images** — click any of the five image slots to upload or select a photo of your team. Images are optional; hover a photo and click the X to remove it.
 
 <Tip>
-Want to replace the default staff icon with a photo of your own team? Enable the visual counter, then click an image slot under **Staff Images** to upload your photo.
+Want to replace the default staff icon with a photo of your own team? Enable the visual counter, then click an image slot under **Staff images** to upload your photo.
 </Tip>
+
+## How rules resolve on the lead form
+
+The visual counter names what it's showing and, when it can't show a number, gets out of the way:
+
+- **Attribution line** — under the count, the form shows **Estimated for [service]**, naming the service(s) the number is based on. Up to three services are named ("A", "A and B", or "A, B and C"); four or more collapse to "A, B and 2 more".
+- **Deferred state** — when no rule resolves (no selected service has a rule, no default service supplies one, or the company has no services), the counter is hidden entirely. In its place, the form shows a single line using your own staff noun, such as *"We'll confirm how many professional baristas you need when we send your quote."* The guest count and service length inputs stay — those are still worth collecting.
+- **Face pile** — the avatar row is capped at five circles. Beyond that, four avatars appear alongside a **+N** chip (capped at **+99**) so the row never changes width. The exact count leads the block regardless.
+
+## Related
+
+- [Staff & Resource Rules](/services/staff-resource-rules) — the primary place to configure staff and resource counts.
+- [Lead intake forms](/forms/lead-intake) — general form configuration.

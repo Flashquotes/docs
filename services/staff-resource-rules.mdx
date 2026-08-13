@@ -10,7 +10,7 @@ Staff & Resource Rules let you define staffing rules at the service level. When 
 Each service gets its own rule. When a quote is created, Flashquotes calculates the price for each service individually using that service's calculated staff and resource quantities.
 
 <Note>
-If a selected service doesn't have a staffing rule configured, Flashquotes falls back to the [form-level staffing calculator](/forms/staffing-calculator) settings.
+Every service you sell needs a staffing rule. If a selected service has no rule, Flashquotes can't resolve staff counts for it — the [lead form's staffing calculator](/forms/staffing-calculator) shows a deferred message instead of a number, and the quote flags the service as unresolved.
 </Note>
 
 ## Rule Modes
@@ -128,23 +128,17 @@ If multiple services share similar staffing needs, you can copy a rule configura
 3. Select the source service
 4. The full rule configuration (mode, ranges, and values) is copied over
 
-## Form-Level Fallback
+## How the Lead Form Displays Rule Results
 
-The [form-level staffing calculator](/forms/staffing-calculator) uses its own hourly capacity formula to determine staff counts.
-
-When any selected service on a lead intake form has a staffing rule configured, those **service-level rules take priority**. The form-level calculator only runs when no selected services have rules defined.
-
-<Tip>
-Configure rules at the service level for more accurate, flexible staffing. Form-level settings are a fallback, not the primary tool.
-</Tip>
+The Staffing Calculator question on a lead intake form reads directly from these rules. It attributes the estimate ("Estimated for {service}") and, if no rule resolves for the selected services, hides the counter and shows a deferred message instead. See [Staffing Calculator](/forms/staffing-calculator) for the customer-facing behavior.
 
 ## Common Questions
 
 **What if only some of my services have rules?**
-Services without a defined rule will fallback to using the [form-level staffing calculator](/forms/staffing-calculator) when calculating the service price.
+Services without a rule can't be priced or staffed automatically. On the lead form, the counter defers to a "we'll confirm when we send your quote" message; on the quote, the service is flagged as unresolved until you configure its rule.
 
 **Can I use different modes for different services?**
 Yes. Each service has its own independent rule. One service can use Hourly Capacity while another uses By Guest Count + Duration.
 
 **How do I remove a staffing rule from a service?**
-You can just use the Hourly Capacity configuration for this service, which matches the logic of the form-level rules.
+Rules can't be removed — every service needs one. If you want a simple flat approach, use Hourly Capacity with a single staff member and no maximum.
