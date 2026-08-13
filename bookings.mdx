@@ -189,6 +189,13 @@ The booking export includes:
 - **Booking Status**: Confirmed, tentative, cancelled
 - **Form Responses**: Custom field data from booking forms
 
+Opt-in columns roll event-level details onto the booking row:
+
+- **Guest Count** — peak guest count across the booking's events (a 3-day booking for 150 guests exports as `150`, not `450`), kept numeric for `SUM` and pivots
+- **Services**, **Add-ons**, **Core Resources** — deduped, alphabetical, comma-joined across the booking's events; Core Resources filters to `CORE`-tagged resources only
+
+List columns, including the existing Location(s), are comma-joined within a single cell to match the events, invoices, and payments exports.
+
 #### Common Uses
 
 - **Accounting**: Reconcile bookings with QuickBooks or other accounting software
