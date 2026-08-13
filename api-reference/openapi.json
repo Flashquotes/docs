@@ -481,6 +481,209 @@
         }
       }
     },
+    "/resources": {
+      "get": {
+        "summary": "List Resources",
+        "description": "Paginated list of resources for your company, newest first. Supports an equality filter on location_id and cursor pagination. Resources have no expandable relations — any expand[] value returns 400.",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Page size. Default 10, maximum 100.",
+            "example": 25,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 10
+            }
+          },
+          {
+            "name": "starting_after",
+            "in": "query",
+            "required": false,
+            "description": "Cursor — the id of the last resource from the previous page.",
+            "example": "res_5M2wQ8",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "location_id",
+            "in": "query",
+            "required": false,
+            "description": "Filter to resources at this location.",
+            "example": "loc_7H2pQ9",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resources retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ResourceList" },
+                "examples": {
+                  "Default": {
+                    "summary": "Default list response",
+                    "value": {
+                      "object": "list",
+                      "url": "/api/resources",
+                      "hasMore": true,
+                      "data": [
+                        {
+                          "object": "resource",
+                          "id": "res_5M2wQ8",
+                          "name": "Espresso Cart",
+                          "description": "Mobile espresso bar with barista station",
+                          "imageUrl": "https://cdn.flashquotes.com/resources/espresso-cart.jpg",
+                          "category": "Beverage",
+                          "status": "Active",
+                          "locationId": "loc_7H2pQ9",
+                          "createdAt": "2026-04-12T10:15:00.000Z",
+                          "updatedAt": "2026-05-02T08:44:31.000Z"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid query parameter (limit, starting_after, or expand path)",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ErrorResponse" },
+                "examples": {
+                  "InvalidLimit": {
+                    "summary": "limit out of range",
+                    "value": {
+                      "error": {
+                        "type": "invalid_request_error",
+                        "code": "invalid_parameter",
+                        "message": "limit must be an integer between 1 and 100",
+                        "param": "limit"
+                      }
+                    }
+                  },
+                  "InvalidExpand": {
+                    "summary": "expand[] not accepted on resources",
+                    "value": {
+                      "error": {
+                        "type": "invalid_request_error",
+                        "code": "invalid_parameter",
+                        "message": "Unknown expand path: 'data.location'",
+                        "param": "expand"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ErrorResponse" },
+                "example": {
+                  "error": {
+                    "type": "authentication_error",
+                    "code": "missing_or_invalid_api_key",
+                    "message": "Unauthorized, invalid or missing API key"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/resources/{id}": {
+      "get": {
+        "summary": "Get Resource",
+        "description": "Retrieve a single resource by id. Resources have no expandable relations — any expand[] value returns 400.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The resource id.",
+            "example": "res_5M2wQ8",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resource retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Resource" },
+                "example": {
+                  "object": "resource",
+                  "id": "res_5M2wQ8",
+                  "name": "Espresso Cart",
+                  "description": "Mobile espresso bar with barista station",
+                  "imageUrl": "https://cdn.flashquotes.com/resources/espresso-cart.jpg",
+                  "category": "Beverage",
+                  "status": "Active",
+                  "locationId": "loc_7H2pQ9",
+                  "createdAt": "2026-04-12T10:15:00.000Z",
+                  "updatedAt": "2026-05-02T08:44:31.000Z"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid expand path",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ErrorResponse" },
+                "example": {
+                  "error": {
+                    "type": "invalid_request_error",
+                    "code": "invalid_parameter",
+                    "message": "Unknown expand path: 'location'",
+                    "param": "expand"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ErrorResponse" },
+                "example": {
+                  "error": {
+                    "type": "authentication_error",
+                    "code": "missing_or_invalid_api_key",
+                    "message": "Unauthorized, invalid or missing API key"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ErrorResponse" },
+                "example": {
+                  "error": {
+                    "type": "invalid_request_error",
+                    "code": "not_found",
+                    "message": "Resource not found",
+                    "param": "id"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/event/getEventData/{event_id}": {
       "get": {
         "summary": "Get Event Details (Legacy)",
@@ -875,6 +1078,7 @@
       },
       "Resource": {
         "type": "object",
+        "description": "Default response includes all fields below. Resources have no expandable relations.",
         "properties": {
           "object": { "type": "string", "enum": ["resource"] },
           "id": { "type": "string" },
@@ -882,8 +1086,47 @@
           "description": { "type": "string", "nullable": true },
           "imageUrl": { "type": "string", "nullable": true },
           "category": { "type": "string", "nullable": true },
-          "status": { "type": "string" }
-        }
+          "status": { "type": "string" },
+          "locationId": { "type": "string" },
+          "createdAt": { "type": "string", "format": "date-time" },
+          "updatedAt": { "type": "string", "format": "date-time" }
+        },
+        "required": ["object", "id", "locationId"]
+      },
+      "ResourceList": {
+        "type": "object",
+        "example": {
+          "object": "list",
+          "url": "/api/resources",
+          "hasMore": false,
+          "data": [
+            {
+              "object": "resource",
+              "id": "res_5M2wQ8",
+              "name": "Espresso Cart",
+              "description": "Mobile espresso bar with barista station",
+              "imageUrl": "https://cdn.flashquotes.com/resources/espresso-cart.jpg",
+              "category": "Beverage",
+              "status": "Active",
+              "locationId": "loc_7H2pQ9",
+              "createdAt": "2026-04-12T10:15:00.000Z",
+              "updatedAt": "2026-05-02T08:44:31.000Z"
+            }
+          ]
+        },
+        "properties": {
+          "object": { "type": "string", "enum": ["list"] },
+          "url": { "type": "string", "example": "/api/resources" },
+          "hasMore": {
+            "type": "boolean",
+            "description": "Whether more pages are available. If true, use the id of the last item in `data` as `starting_after` to fetch the next page."
+          },
+          "data": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/Resource" }
+          }
+        },
+        "required": ["object", "url", "hasMore", "data"]
       },
       "Booking": {
         "type": "object",
