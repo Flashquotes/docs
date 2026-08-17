@@ -44,6 +44,12 @@ When a user receives an invitation:
 
 3. After signing in, they're automatically added to your company workspace with the role you specified
 
+<Warning>
+  The invitation must be accepted with the exact email address it was sent to. **Sign in with Google** uses whichever Google account is already signed in on that browser, so if the invitee is signed into a different Google account (for example, a personal one, or the inviter's account on a shared computer), Google will hand that account to Flashquotes and the invitation page will show **Signed in with a different account** with the message "This invitation is not for [email]. You must sign out and sign in with the invited email address to accept."
+
+  To avoid this, ask the invitee to either open the invitation link in an incognito or private window, or sign out of any other Google accounts first, and then pick the invited email address when Google prompts them.
+</Warning>
+
 ## Team Roles and Permissions
 
 flashquotes has three team roles. The hierarchy is: **Owner > Admin > Member**.
