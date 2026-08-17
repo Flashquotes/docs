@@ -381,6 +381,38 @@ The Flashquotes platform fee is a business-to-business charge between your compa
 The platform fee is separate from [service charges](/settings/service-charges), which are business-defined fees you add to quotes (like gratuity or service fees).
 </Note>
 
+### Reading Platform Fees in Stripe
+
+Stripe's dashboard always shows the Flashquotes platform fee as an "application fee" deducted from the charge. That's true whether you pass the fee to your customer or absorb it. The difference is what the customer was charged in the first place.
+
+Use these examples to reconcile a $1,000 invoice with a 3% platform fee. Stripe processing fees are excluded to keep the math focused on the platform fee.
+
+**Pass to customer (default for US businesses)**
+
+Flashquotes adds the fee to the amount the customer pays, then Stripe transfers the fee back to Flashquotes. You end up with your original $1,000.
+
+| Stripe field | Amount |
+|---|---|
+| Customer paid | $1,030.00 |
+| Application fee (to Flashquotes) | −$30.00 |
+| **Your net (before Stripe processing)** | **$1,000.00** |
+
+**Absorb the fee**
+
+The customer pays the invoice total. The fee is deducted from your transfer.
+
+| Stripe field | Amount |
+|---|---|
+| Customer paid | $1,000.00 |
+| Application fee (to Flashquotes) | −$30.00 |
+| **Your net (before Stripe processing)** | **$970.00** |
+
+<Tip>
+If the "Customer paid" amount in Stripe is higher than your invoice total, you're passing the fee. If it matches your invoice total, you're absorbing it. Check your setting under **Settings → Company**.
+</Tip>
+
+Stripe's own processing fee is deducted separately on the same charge and is unrelated to the Flashquotes platform fee.
+
 ### Fees on Customer Refunds
 
 When you issue a full refund to a customer, Stripe processing fees and Flashquotes platform fees are not refunded. These fees remain on the invoice and will show as a Flashquotes fee paid by you (the merchant), since the original customer payment that covered the fee has been refunded.
