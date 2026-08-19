@@ -94,6 +94,18 @@ Look up a single staff member by id from the public API. Pair it with expanded e
 
 [Read the endpoint reference →](/api-reference/staff/get)
 
+---
+
+## Collect a Tip After the Event
+
+Add a gratuity to an invoice once the event is over without creating a separate payment link. Edit the booking's **Tip amount** field or add a **Gratuity** line item to the existing invoice, then re-send the invoice link so the customer pays the updated balance on the same invoice page.
+
+- You set the tip amount on the invoice — customers can't pick their own tip after booking
+- Works with any completed booking; totals and remaining balance recalculate on save
+- No standalone Stripe payment link for tipping — everything stays on the invoice
+
+[Add a tip after the event →](/invoices#add-a-tip-after-the-event)
+
 </Update>
 
 <Update label="August 18, 2026">
