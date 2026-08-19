@@ -33,7 +33,7 @@ Quotes move through four groups:
 - **Booked** — quotes the client accepted
 - **Lost** — quotes you've closed out
 
-**New inquiry** and **Quote sent** appear as columns on the board. **Booked** and **Lost** are managed for you — quotes land there automatically when a client books or when you mark a quote as lost, and you can review them from the counters above the board (or on the [Bookings](/bookings) page).
+**New inquiry** and **Quote sent** appear as columns on the board. **Booked** and **Lost** are managed for you — quotes land there automatically when a client books or when you mark a quote as lost. Flip on **Show booked and lost** in the header (desktop only) to add them as read-only columns on the right of the board. Each outcome column is scoped to the past 90 days by when the quote was resolved (booked or marked lost), independent of the main board's window, and loads 25 quotes at a time with an explicit **Load *N* more** button. You can also review booked quotes on the [Bookings](/bookings) page.
 
 Each column shows its card count and total quote value, so you can read the health of your pipeline at a glance.
 
@@ -80,13 +80,26 @@ Sort the pipeline by:
 - **Quote value** — highest first
 - **Created** — newest first
 
-Filter by created date range, source, event type, location, or owner to narrow the board to exactly the quotes you're working.
+### Filters
+
+Click the dashed **Filter** button to add a filter. Once one is applied, the button becomes **Add filter** and each active filter shows as a pill you can click to edit or remove with the **×**. Filters combine, so adding more narrows the board further.
+
+Available dimensions:
+
+- **Quote date** — when the quote was created
+- **Event date** — when the event happens
+- **Source** — where the lead came from
+- **Event type**
+- **Location** — shown when your company has more than one
+- **Owner** — shown when you can filter by owner
+
+**Quote date** and **Event date** are independent filters. Each names its own date in its pill, and you can apply either, both, or neither at the same time — for example, "Quote date: last 30 days" plus "Event date: next 3 months" to focus on recent quotes for upcoming events.
 
 Need this data in a spreadsheet? Click **Export CSV** in the top right of the header to download your quotes — filters and sort carry over. See [Export Quotes to CSV](/imports-exports/export-quotes).
 
 ## Creating quotes
 
-Click **New quote** to start a quote from the Pipeline. Pick an existing contact or create a new one, then build the quote — nothing is saved until you finish, so you can back out cleanly. See [Creating Quotes](/contacts/quotes) for the full quoting guide.
+Click **New quote** to start a quote from the Pipeline. Pick an existing contact or create a new one, choose an **event type** (required — it drives pricing and quote defaults), then build the quote. Nothing is saved until you finish, so you can back out cleanly. See [Creating Quotes](/contacts/quotes) for the full quoting guide.
 
 ## Next steps
 
