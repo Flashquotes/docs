@@ -83,6 +83,24 @@ The Invoices section in Flashquotes provides comprehensive tools for managing yo
   </Accordion>
 </AccordionGroup>
 
+### Add a tip after the event
+
+To collect a tip once the event is over, edit the existing invoice on the booking. Flashquotes doesn't generate a standalone Stripe payment link for tipping, and customers can't choose an arbitrary tip amount on their own after booking.
+
+1. Open the booking's invoice.
+2. Edit the booking's **Tip amount** field, or add a **Gratuity** line item to the invoice for the amount you want to collect.
+3. Save the invoice so the new total and remaining balance recalculate.
+4. Re-send the invoice link to the customer using **Send** or the copy-link action, or point them to the payment link on the booking confirmation page.
+5. The customer pays the updated balance on the same invoice payment page.
+
+<Note>
+  The tip amount you enter is the amount the customer will pay. There is no self-service flow for a customer to pick a tip amount after the booking is complete — you set the amount on the invoice first.
+</Note>
+
+<Info>
+  Gratuity captured through the booking form is covered in [Booking Flow](/contacts/booking-flow). For how gratuity is surfaced to staff on the event brief, see [Gratuity Visibility](/events/event-brief#gratuity-visibility).
+</Info>
+
 ### Invoice Reminders
 
 Flashquotes offers tools to remind customers about their outstanding invoices:
