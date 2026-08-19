@@ -11,6 +11,19 @@ This changelog documents product updates and new features in Flashquotes. These 
 
 <Update label="August 19, 2026">
 
+## Event Address Required Before Booking
+
+The customer-facing booking form now requires a complete, dispatchable event address before customers can advance past that step. The **Next** button stays disabled with an inline message until the address is complete.
+
+- A complete address needs a street, a locality (city or town), and a state (US, CA, AU) or postcode (UK, IE) based on your company's country
+- The address is prefilled from the quote, so most customers just confirm and continue
+- Because lead intake still accepts free text (like "Paris" or "France"), leads with partial addresses will now finish the address at booking time instead of shipping incomplete
+- Custom Address questions that aren't linked to the built-in event address field are unchanged and still accept free text
+
+[Learn more →](/contacts/booking-flow#event-address-requirement)
+
+---
+
 ## Resources API <ScaleBadge />
 
 Sync your Flashquotes resource catalog with external systems, populate resource pickers in custom booking tools, or check what equipment is attached to a location, all through the public REST API.
