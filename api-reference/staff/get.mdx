@@ -1,0 +1,43 @@
+---
+title: "Get Staff"
+description: "Retrieve a single staff member by id"
+openapi: "GET /staff/{id}"
+---
+
+Retrieves the staff member with the given id.
+
+The lookup is scoped to your API key's company. Ids that don't exist and ids that belong to another company both return `404` — the response doesn't distinguish between them.
+
+Retrieve does not apply a status filter, so inactive staff resolve directly by id. Use this endpoint when you already have a specific staff id (for example, one returned by an expanded event) and need the full record.
+
+## Example request
+
+```bash
+curl "https://app.flashquotes.com/api/staff/stf_5J9pK2mR7t" \
+  -H "x-api-key: $FLASHQUOTES_API_KEY"
+```
+
+## Example response
+
+```json
+{
+  "object": "staff",
+  "id": "stf_5J9pK2mR7t",
+  "firstName": "Alex",
+  "lastName": "Nguyen",
+  "email": "alex@example.com",
+  "phone": "+15555550137",
+  "role": "Bartender",
+  "status": "active",
+  "createdAt": "2026-03-14T18:02:44.000Z",
+  "updatedAt": "2026-06-02T11:48:19.000Z"
+}
+```
+
+## Expanding related objects
+
+No `expand[]` paths are supported on staff yet. Passing any value in `expand[]` returns `400` with an `invalid_parameter` error.
+
+## Plan access
+
+This endpoint requires a **Scale**-plan API key. See [Plan access](/api-reference/introduction#plan-access).

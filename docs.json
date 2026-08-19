@@ -254,6 +254,10 @@
             "pages": ["api-reference/form-response/get"]
           },
           {
+            "group": "Staff",
+            "pages": ["api-reference/staff/get"]
+          },
+          {
             "group": "Invoices",
             "pages": ["api-reference/invoice/list-invoices"]
           }

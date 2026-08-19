@@ -613,6 +613,114 @@
         }
       }
     },
+    "/staff/{id}": {
+      "get": {
+        "summary": "Get Staff",
+        "description": "Retrieve a single staff member by id. Scoped to the API key's company: unknown ids and ids belonging to another company both return 404. Retrieve does not filter by status, so inactive staff resolve directly by id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The staff id.",
+            "example": "stf_5J9pK2mR7t",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "expand[]",
+            "in": "query",
+            "required": false,
+            "description": "Reserved for future use. No expand paths are supported on staff yet — passing any value returns 400.",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Staff member retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Staff"
+                },
+                "example": {
+                  "object": "staff",
+                  "id": "stf_5J9pK2mR7t",
+                  "firstName": "Alex",
+                  "lastName": "Nguyen",
+                  "email": "alex@example.com",
+                  "phone": "+15555550137",
+                  "role": "Bartender",
+                  "status": "active",
+                  "createdAt": "2026-03-14T18:02:44.000Z",
+                  "updatedAt": "2026-06-02T11:48:19.000Z"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid expand path (no expand paths are currently supported on staff)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "error": {
+                    "type": "invalid_request_error",
+                    "code": "invalid_parameter",
+                    "message": "Unknown expand path: 'location'",
+                    "param": "expand"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "error": {
+                    "type": "authentication_error",
+                    "code": "missing_or_invalid_api_key",
+                    "message": "Unauthorized, invalid or missing API key"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Staff member not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "error": {
+                    "type": "invalid_request_error",
+                    "code": "not_found",
+                    "message": "Staff not found",
+                    "param": "id"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/invoice/{booking_id}": {
       "get": {
         "summary": "List Invoices",
@@ -859,7 +967,9 @@
           "email": { "type": "string" },
           "phone": { "type": "string", "nullable": true },
           "role": { "type": "string", "nullable": true },
-          "status": { "type": "string" }
+          "status": { "type": "string", "description": "Staff status. Retrieve returns members regardless of status; inactive staff resolve directly by id." },
+          "createdAt": { "type": "string", "format": "date-time" },
+          "updatedAt": { "type": "string", "format": "date-time" }
         }
       },
       "Addon": {
