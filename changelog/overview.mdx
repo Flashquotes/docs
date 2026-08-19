@@ -22,6 +22,19 @@ Manually expire a quote when a lead goes cold or pricing is no longer good, with
 
 [Learn more →](/contacts/sending-quotes#expiring-a-quote-manually)
 
+---
+
+## Retrieve a Staff Member via API <ScaleBadge />
+
+Look up a single staff member by id from the public API. Pair it with expanded event responses to pull the full record for whoever is assigned to a shift, without a second list-and-filter step.
+
+- `GET /api/staff/{id}` returns the staff member's name, email, phone, role, status, and `createdAt` / `updatedAt` timestamps
+- Scoped to your API key's company — ids that don't exist and ids from another company both return `404`
+- Retrieve ignores the active/inactive filter, so inactive staff still resolve by id
+- Requires a **Scale**-plan API key; `expand[]` paths aren't supported on staff yet
+
+[Read the endpoint reference →](/api-reference/staff/get)
+
 </Update>
 
 <Update label="August 18, 2026">
