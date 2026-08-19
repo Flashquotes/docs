@@ -1,0 +1,150 @@
+---
+title: "Export Quotes to CSV"
+description: "Export your quote data — open, booked, and lost — to analyze inbound inquiries, conversion, and win/loss by source"
+---
+
+## Overview
+
+Export your quotes to CSV format for marketing analysis, conversion tracking, and business intelligence. The export includes one row per quote — open, booked, and lost — with event types, sources, addresses, and quote values, so you can see where inquiries come from and which ones turn into bookings.
+
+## How to Export Quotes
+
+<Steps>
+  <Step title="Navigate to the Pipeline">
+    Go to the [Pipeline](https://app.flashquotes.com/pipeline) page in your Flashquotes dashboard. Apply any filters first — the export matches your current filters and sort.
+  </Step>
+
+  <Step title="Click Export CSV">
+    Click the **Export CSV** button in the top right of the header, next to **New quote**. Exporting is available on desktop.
+  </Step>
+
+  <Step title="Choose columns and scope">
+    Pick which columns to include. The **Include booked and lost** toggle (on by default) keeps closed-out quotes in the file for win/loss analysis — switch it off to export only open quotes.
+  </Step>
+
+  <Step title="Download Your File">
+    Your browser will automatically download a CSV file containing your quotes (maximum 2,000 rows).
+  </Step>
+</Steps>
+
+## What's Included
+
+Each row is a single quote. These columns are included by default:
+
+<AccordionGroup>
+  <Accordion icon="user" title="Contact Information">
+    - First Name
+    - Last Name
+    - Company Name
+    - Email
+    - Phone
+    - Source
+  </Accordion>
+
+  <Accordion icon="file-lines" title="Quote & Event Details">
+    - Event Type
+    - Stage
+    - Quote Date
+    - First Event Date
+    - Guest Count
+    - Quote Value
+  </Accordion>
+</AccordionGroup>
+
+And these are available as opt-in columns:
+
+<AccordionGroup>
+  <Accordion icon="table-columns" title="Additional Columns">
+    - Company Location
+    - Lead Owner
+    - Event Address
+    - Services
+    - Add-ons
+    - Staff Count
+    - Resource Count
+    - Sent Date
+    - Expiry Date
+    - Booked Date
+    - Lost Date
+    - Lost Reason
+    - Quote ID
+  </Accordion>
+</AccordionGroup>
+
+## Export Scope
+
+- **Filters and sort carry over** — the export matches exactly what you've filtered the Pipeline to, in the same order
+- **Date range** — without a date filter, the export covers the last 90 days; set a created-date filter to reach further back or narrow down
+- **Booked and lost quotes** are included by default via the toggle in the export dialog
+
+## Common Use Cases
+
+### Marketing Attribution
+
+Analyze your inbound quote data by where it came from:
+- Measure inquiry volume and booking rate by source
+- Compare quote values across marketing channels
+- Identify which channels bring high-intent inquiries
+
+### Win/Loss Analysis
+
+Export with booked and lost quotes included to:
+- Track conversion rates by event type or source
+- Review lost reasons to spot patterns (price, availability, timing)
+- Compare won vs. lost quote values
+
+### Demand Planning
+
+Use event details to plan ahead:
+- Break down demand by event address, city, or venue
+- Track guest counts and staffing needs by season
+- Forecast busy periods from first event dates
+
+## Export Limits
+
+<Note>
+  Exports are limited to 2,000 quotes per export to ensure optimal performance. For larger datasets, add a created-date filter and export in batches.
+</Note>
+
+## File Format
+
+The CSV file follows RFC 4180 standards:
+- UTF-8 encoding
+- Comma-separated values
+- Double-quoted text fields
+- Header row with column names
+- Compatible with Excel, Google Sheets, and all major data tools
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion icon="exclamation-triangle" title="Export button not appearing">
+    The Export CSV button appears in the Pipeline header on desktop only — it isn't available on mobile.
+  </Accordion>
+
+  <Accordion icon="file-excel" title="File won't open in Excel">
+    If special characters appear incorrectly:
+    1. Open Excel first
+    2. Use Data → Import from Text/CSV
+    3. Select UTF-8 encoding
+    4. Choose comma as delimiter
+  </Accordion>
+
+  <Accordion icon="filter" title="Missing quotes in export">
+    Check your export scope — the export respects:
+    - All active Pipeline filters (date range, source, event type, location, owner)
+    - The default 90-day window when no date filter is set
+    - The **Include booked and lost** toggle in the export dialog
+  </Accordion>
+
+  <Accordion icon="circle-info" title="&quot;No quotes match your filters&quot;">
+    If nothing matches your current filters, no file downloads. Widen your filters or date range and try again.
+  </Accordion>
+</AccordionGroup>
+
+## Related Articles
+
+- [Imports & Exports Overview](/imports-exports/overview)
+- [Export Contacts](/imports-exports/export-contacts)
+- [Export Bookings](/imports-exports/export-bookings)
+- [The Pipeline](/pipeline)

@@ -175,6 +175,7 @@
                 "pages": [
                   "imports-exports/overview",
                   "imports-exports/import-bookings",
+                  "imports-exports/export-quotes",
                   "imports-exports/export-contacts",
                   "imports-exports/export-bookings"
                 ]
