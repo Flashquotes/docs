@@ -11,6 +11,20 @@ This changelog documents product updates and new features in Flashquotes. These 
 
 <Update label="August 19, 2026">
 
+## Resources API <ScaleBadge />
+
+Sync your Flashquotes resource catalog with external systems, populate resource pickers in custom booking tools, or check what equipment is attached to a location, all through the public REST API.
+
+- **List resources** — `GET /resources` returns resources newest-first with cursor pagination (`limit`, `starting_after`) and a `hasMore` flag
+- **Get a resource** — `GET /resources/{id}` returns a single resource's scalar fields plus `locationId`, `createdAt`, and `updatedAt`
+- **Filter by location** — pass `location_id` to scope results to one location; combines with pagination
+
+Requires a Scale-plan API key. Follows the same Stripe-style conventions as the rest of the public API (snake_case query params, camelCase response keys, standard list envelope).
+
+[List resources →](/api-reference/resource/list-resources) · [Get a resource →](/api-reference/resource/get) · [API overview →](/api-reference/introduction)
+
+---
+
 ## Booked and Lost Columns on the Pipeline
 
 See closed-out quotes without leaving the board. Toggle **Show booked and lost** in the Pipeline header (desktop only) to add read-only **Booked** and **Lost** columns to the right of the board.
