@@ -1,0 +1,18 @@
+---
+title: "Get Resource"
+description: "Retrieve a single resource by id"
+openapi: "GET /resources/{id}"
+---
+
+Retrieves the resource with the given id. Use this endpoint to look up a specific piece of equipment or asset when you already have its id — for example, from the `resources` array returned by an expanded event.
+
+```bash
+curl "https://app.flashquotes.com/api/resources/res_5M2wQ8" \
+  -H "x-api-key: $FLASHQUOTES_API_KEY"
+```
+
+The response includes the resource's own scalar fields plus its `locationId`, `createdAt`, and `updatedAt`. Cross-tenant or unknown ids return `404`.
+
+## Expand
+
+Resources have no expandable relations. Any `expand[]` value returns `400` with the offending path echoed as `param`.

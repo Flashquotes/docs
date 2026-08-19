@@ -1,0 +1,42 @@
+---
+title: "List Resources"
+description: "List resources with cursor pagination and an optional location filter"
+openapi: "GET /resources"
+---
+
+Returns a paginated list of resources for your company, newest first. Use this endpoint to sync your Flashquotes resource catalog with an external system, populate a picker in a custom booking tool, or check what equipment is assigned to a given location.
+
+```bash
+curl "https://app.flashquotes.com/api/resources?limit=25&location_id=loc_7H2pQ9" \
+  -H "x-api-key: $FLASHQUOTES_API_KEY"
+```
+
+## Pagination
+
+Resources use cursor-based pagination — pass the `id` of the last resource in the previous page as `starting_after`:
+
+```bash
+# First page
+GET /api/resources?limit=25
+
+# Next page
+GET /api/resources?limit=25&starting_after=res_5M2wQ8
+```
+
+The response includes a `hasMore` flag indicating whether further pages exist.
+
+## Filtering by location
+
+Pass `location_id` to return only resources attached to that location. This filter combines with pagination — you can page through resources for a single location by repeating `location_id` alongside `starting_after`.
+
+```
+?location_id=loc_7H2pQ9&limit=25
+```
+
+## Expand
+
+Resources have no expandable relations. Any `expand[]` value returns `400` with the offending path echoed as `param`.
+
+## Sort order
+
+Results are always sorted by `createdAt desc`. Sort order is not configurable.

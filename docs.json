@@ -260,6 +260,13 @@
           {
             "group": "Invoices",
             "pages": ["api-reference/invoice/list-invoices"]
+          },
+          {
+            "group": "Resources",
+            "pages": [
+              "api-reference/resource/get",
+              "api-reference/resource/list-resources"
+            ]
           }
         ]
       },
