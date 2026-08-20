@@ -9,6 +9,21 @@ import { PlusBadge, ProBadge, ScaleBadge } from "/snippets/badge.mdx";
 This changelog documents product updates and new features in Flashquotes. These updates are rolled out directly to the live application - no separate changelog feature exists within the app itself.
 </Note>
 
+<Update label="August 20, 2026">
+
+## Delete Form Pages Instead of Hiding Them
+
+The form builder no longer has a manual **Hide page** toggle. Unneeded pages are now removed by deletion, which keeps the editor a true picture of what customers actually see.
+
+- Empty pages show a kebab menu (⋮) with a **Delete page** option
+- Pages with questions can't be deleted until you remove or move the questions off them
+- The first page can't be deleted
+- For pages that should appear only in some situations, use [conditional logic](/forms/conditional-logic) on booking forms to show or hide based on the customer's service or add-on selection
+
+[Lead intake form editor →](/forms/lead-intake) · [Conditional logic →](/forms/conditional-logic)
+
+</Update>
+
 <Update label="August 19, 2026">
 
 ## Event Address Required Before Booking
@@ -1938,7 +1953,7 @@ Read more about lead intake forms [here](/forms/lead-intake).
   />
 </Frame>
 
-The quote editor now features a live preview as you build, showing exactly how your quote will appear to clients. Customize the hero text at the top of your quotes using markdown formatting for **bold** statements and embedded links. For more details, check out the [quote page docs](/docs/quotes).
+The quote editor now features a live preview as you build, showing exactly how your quote will appear to clients. Customize the hero text at the top of your quotes using markdown formatting for **bold** statements and embedded links. For more details, check out the [quote page docs](/contacts/quote-view).
 
 Brand your quotes with custom hero images for each quote or set a default in company settings. Your brand colors now extend throughout customer-facing pages - set your signature color in **Settings > Branding** to have buttons and icons match your visual identity. Check out the [branding docs](/settings/branding) for more details.
 
