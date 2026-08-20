@@ -11,91 +11,6 @@ This changelog documents product updates and new features in Flashquotes. These 
 
 <Update label="August 19, 2026">
 
-## Event Address Required Before Booking
-
-The customer-facing booking form now requires a complete, dispatchable event address before customers can advance past that step. **Next** won't advance and an inline message appears until the address is complete.
-
-- A complete address needs a street, a locality (city or town), and a state (US, CA, AU) or postcode (UK, IE) based on your company's country
-- The address is prefilled from the quote, so most customers just confirm and continue
-- Because lead intake still accepts free text (like "Paris" or "France"), leads with partial addresses will now finish the address at booking time instead of shipping incomplete
-- Custom Address questions that aren't linked to the built-in event address field are unchanged and still accept free text
-
-[Learn more →](/contacts/booking-flow#event-address-requirement)
-
----
-
-## Resources API <ScaleBadge />
-
-Sync your Flashquotes resource catalog with external systems, populate resource pickers in custom booking tools, or check what equipment is attached to a location, all through the public REST API.
-
-- **List resources** — `GET /resources` returns resources newest-first with cursor pagination (`limit`, `starting_after`) and a `hasMore` flag
-- **Get a resource** — `GET /resources/{id}` returns a single resource's scalar fields plus `locationId`, `createdAt`, and `updatedAt`
-- **Filter by location** — pass `location_id` to scope results to one location; combines with pagination
-
-Requires a Scale-plan API key. Follows the same Stripe-style conventions as the rest of the public API (snake_case query params, camelCase response keys, standard list envelope).
-
-[List resources →](/api-reference/resource/list-resources) · [Get a resource →](/api-reference/resource/get) · [API overview →](/api-reference/introduction)
-
----
-
-## Booked and Lost Columns on the Pipeline
-
-See closed-out quotes without leaving the board. Toggle **Show booked and lost** in the Pipeline header (desktop only) to add read-only **Booked** and **Lost** columns to the right of the board.
-
-- Each column is scoped to the past 90 days by when the quote was resolved, independent of the main board's window
-- Loads 25 quotes at a time with a **Load *N* more** button, so old outcomes don't slow the board down
-- Handy for reviewing recent wins, spotting patterns in lost reasons, or reopening a quote when a lead comes back
-
-[Learn more →](/pipeline#stages)
-
----
-
-## Redesigned Filters on the Pipeline and Bookings
-
-Filtering both pages now works the same way: click the dashed **Filter** button to add a filter, and each active filter shows as a pill you can click to edit or remove with the **×**. Add as many as you need — filters combine to narrow the view.
-
-- **Pipeline** filters: **Quote date**, **Event date**, **Source**, **Event type**, **Location**, and **Owner**
-- **Bookings** filters: **Booking date**, **First event date**, **Location**, and **Payment status**
-- **Quote date** and **Event date** on the Pipeline (and **Booking date** and **First event date** on Bookings) are now independent — apply either, both, or neither, instead of swapping between them. For example, filter to quotes created in the last 30 days *and* events happening in the next 3 months at the same time.
-
-[Pipeline filters →](/pipeline#sorting-and-filtering) · [Bookings filters →](/bookings#filtering-bookings)
-
----
-
-## Event Type Required When Creating a Quote Manually
-
-The **New quote** flow on the Pipeline and the **Create quote** modal on a contact's **Quotes** tab now require you to pick an **event type** up front. Event type drives pricing and quote defaults, so having it set from the start keeps manually created quotes consistent with quotes that come in through your lead intake form.
-
-[Creating quotes →](/contacts/quotes)
-
----
-
-## Expire a Quote in One Step
-
-Manually expire a quote when a lead goes cold or pricing is no longer good, without hunting through stage menus.
-
-- **Expire now** is available from the quote page's **More actions** menu and from the row menu on a contact's **Quotes** tab (hidden on quotes that are already expired)
-- **Confirmation dialog** shows the contact, event date, and current expiration so you can double-check you're on the right quote before confirming
-- **Also mark this quote as Lost** checkbox lets you expire and mark lost in the same step, with the usual reason chips (Price, Date unavailable, Went silent, Chose someone else, Other)
-- Reasons are optional, and you can restore the quote from Lost later if the lead re-engages
-
-[Learn more →](/contacts/sending-quotes#expiring-a-quote-manually)
-
----
-
-## Retrieve a Staff Member via API <ScaleBadge />
-
-Look up a single staff member by id from the public API. Pair it with expanded event responses to pull the full record for whoever is assigned to a shift, without a second list-and-filter step.
-
-- `GET /api/staff/{id}` returns the staff member's name, email, phone, role, status, and `createdAt` / `updatedAt` timestamps
-- Scoped to your API key's company — ids that don't exist and ids from another company both return `404`
-- Retrieve ignores the active/inactive filter, so inactive staff still resolve by id
-- Requires a **Scale**-plan API key; `expand[]` paths aren't supported on staff yet
-
-[Read the endpoint reference →](/api-reference/staff/get)
-
----
-
 ## Collect a Tip After the Event
 
 Add a gratuity to an invoice once the event is over without creating a separate payment link. Edit the booking's **Tip amount** field or add a **Gratuity** line item to the existing invoice, then re-send the invoice link so the customer pays the updated balance on the same invoice page.
@@ -149,6 +64,37 @@ Personalize post-booking and event-timed emails with contact details. The `{{lea
 - Existing templates that already use the retired codes keep sending and now pull from the live contact record
 
 [View all shortcodes →](/workflows/shortcodes/overview) · [Workflow triggers →](/workflows/triggers)
+
+</Update>
+
+<Update label="August 10, 2026">
+
+## Resources API <ScaleBadge />
+
+Sync your Flashquotes resource catalog with external systems, populate resource pickers in custom booking tools, or check what equipment is attached to a location, all through the public REST API.
+
+- **List resources** — `GET /resources` returns resources newest-first with cursor pagination (`limit`, `starting_after`) and a `hasMore` flag
+- **Get a resource** — `GET /resources/{id}` returns a single resource's scalar fields plus `locationId`, `createdAt`, and `updatedAt`
+- **Filter by location** — pass `location_id` to scope results to one location; combines with pagination
+
+Requires a Scale-plan API key. Follows the same Stripe-style conventions as the rest of the public API (snake_case query params, camelCase response keys, standard list envelope).
+
+[List resources →](/api-reference/resource/list-resources) · [Get a resource →](/api-reference/resource/get) · [API overview →](/api-reference/introduction)
+
+</Update>
+
+<Update label="July 22, 2026">
+
+## Retrieve a Staff Member via API <ScaleBadge />
+
+Look up a single staff member by id from the public API. Pair it with expanded event responses to pull the full record for whoever is assigned to a shift, without a second list-and-filter step.
+
+- `GET /api/staff/{id}` returns the staff member's name, email, phone, role, status, and `createdAt` / `updatedAt` timestamps
+- Scoped to your API key's company — ids that don't exist and ids from another company both return `404`
+- Retrieve ignores the active/inactive filter, so inactive staff still resolve by id
+- Requires a **Scale**-plan API key; `expand[]` paths aren't supported on staff yet
+
+[Read the endpoint reference →](/api-reference/staff/get)
 
 </Update>
 
