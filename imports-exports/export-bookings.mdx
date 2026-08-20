@@ -40,6 +40,15 @@ The booking export includes the following columns:
     - Location(s)
   </Accordion>
 
+  <Accordion icon="list-check" title="Event Aggregates (optional)">
+    These columns roll up event-level data onto the booking row. They are opt-in — enable them in the column picker before exporting.
+
+    - **Guest Count** — the peak guest count across the booking's events, not the sum. A 3-day booking for 150 guests exports as `150`, not `450`. The value stays numeric so Excel `SUM` and pivot tables work.
+    - **Services** — every distinct service across the booking's events, deduped, sorted alphabetically, and comma-joined.
+    - **Add-ons** — every distinct add-on across the booking's events, deduped, sorted alphabetically, and comma-joined.
+    - **Core Resources** — every distinct resource tagged `CORE` across the booking's events, deduped, sorted alphabetically, and comma-joined. Non-core resources are excluded, matching the events export.
+  </Accordion>
+
   <Accordion icon="user" title="Client Details">
     - Client Name
     - Client Email
@@ -89,6 +98,8 @@ The CSV file follows RFC 4180 standards:
 - Double-quoted text fields
 - Header row with column names
 - Compatible with Excel, Google Sheets, and all major data tools
+
+List-typed columns (Location(s), Services, Add-ons, Core Resources) are comma-joined within a single quoted cell, matching the events, invoices, and payments exports.
 
 ## Troubleshooting
 
