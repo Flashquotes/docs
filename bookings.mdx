@@ -51,6 +51,13 @@ A booking in Flashquotes represents a client's confirmed service agreement, whic
       Manual booking creation is particularly useful for corporate clients with
       special payment terms or recurring conventions.
     </Tip>
+    <Note>
+      The form includes a **Send booking confirmation** checkbox, checked by
+      default, that emails the contact a confirmation when you save. Uncheck
+      it to record the booking quietly — for example, when backfilling past
+      events or logging an arrangement made over the phone. See
+      [Booking Confirmation Email](#booking-confirmation-email).
+    </Note>
   </Accordion>
 </AccordionGroup>
 
@@ -111,7 +118,12 @@ To share a booking confirmation:
 
 ### Booking Confirmation Email
 
-Flashquotes automatically emails your customer a confirmation whenever a booking is completed. This is a system email — it sends for every booking and is separate from (and in addition to) any [workflow emails](/workflows/overview) the booking triggers.
+Flashquotes automatically emails your customer a confirmation whenever a booking is completed through your booking form. This is a system email — it's separate from (and in addition to) any [workflow emails](/workflows/overview) the booking triggers.
+
+**When it doesn't send:**
+
+- **Imported bookings** — [importing bookings](/imports-exports/import-bookings) never triggers the confirmation email (or any other notifications), so your existing clients aren't re-notified about events they already booked
+- **Manual bookings, when you opt out** — the `New Booking` form has a **Send booking confirmation** checkbox, checked by default. Uncheck it and the contact isn't emailed. Only the customer email is skipped — your team's new-booking alerts still send
 
 **How it's sent:**
 
