@@ -7,40 +7,26 @@ icon: "circle-question"
 ## Frequently Asked Questions
 
 <AccordionGroup>
-  <Accordion title="Why are my clients not able to book me? They get an error message when they complete the booking form.">
-    99% of the time, this issue occurs because your Stripe account is not properly connected or is on hold pending additional documentation.
+  <Accordion title="My customer is stuck on the address step of the booking form and can't continue.">
+    The booking form blocks the address step until the address is complete enough to dispatch a crew to. Clicking **Next** silently does nothing and an inline message appears under the field:
 
-    **Immediate Solution:**
+    > Enter the full event address, including a street, city, and state or ZIP code.
 
-    1. Go to **Settings → Company** in your Flashquotes dashboard
-    2. Check if your Stripe account says "Connected"
-    3. If it shows "Connect" or "Finish setting up", your Stripe account is not ready to receive payments
+    **A complete address needs all three:**
 
-    <Warning>
-      You must complete your Stripe account setup to use Flashquotes' payment
-      features.
-    </Warning>
+    1. A street number and name (`123 Main St`) — or a venue name, when the address has three or more comma-separated parts (`Fort Mason, San Francisco, CA 94109`)
+    2. A city or town
+    3. A state or province, or a ZIP/postal code
 
-    **Temporary Workaround:**
-    If you need to accept bookings immediately while resolving Stripe issues:
+    The exact wording follows your company's country: the UK and Ireland ask for a postcode instead of a state.
 
-    1. Change your quote's payment terms to not require a deposit
-    2. Use "Invoice Only" [payment terms](/contacts/booking-flow) so payment isn't required at booking
-    3. This allows customers to book without immediate payment
+    **Most common causes:**
 
-    <Note>
-      Even with this workaround, you'll still need to resolve your Stripe account
-      issues to process invoice payments.
-    </Note>
+    - The address is only a city, state, or country ("Niagara Falls", "France"), carried over from a lead form — lead intake accepts free text, booking does not
+    - The customer typed the address by hand instead of picking a suggestion from the address autocomplete
+    - The venue is outside your company's country
 
-    **Common Stripe Account Issues:**
-
-    - Incomplete verification
-    - Missing business documentation
-    - Account on hold for compliance review
-    - Incorrect bank account information
-
-    For more help with Stripe setup, visit [Settings → Integrations](/settings/integrations/overview).
+    More detail: [Event address requirement](/contacts/booking-flow#event-address-requirement).
 
   </Accordion>
 

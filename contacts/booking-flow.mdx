@@ -202,11 +202,11 @@ The booking form collects customer information when they book. Select from your 
 
 ### Event address requirement
 
-The booking form's event address question (linked to the built-in `eventAddress` field) requires a complete, dispatchable address before customers can advance. The **Next** button stays disabled with an inline message until the address includes:
+The booking form's event address question (linked to the built-in `eventAddress` field) requires a complete, dispatchable address before customers can advance. Clicking **Next** does nothing and an inline message appears under the field until the address includes:
 
-- A street
-- A locality (city or town)
-- A state (US, CA, AU) or postcode (UK, IE), based on your company's country
+- **A street** — a street number and name (`123 Main St`). A venue name stands in for the street when the address has three or more comma-separated parts (`Fort Mason, San Francisco, CA 94109`)
+- **A locality** — city or town
+- **A state or postal code** — a state or province (US, CA, AU) or a postcode (UK, IE), based on your company's country
 
 The event address is prefilled from the quote. Because the lead intake form still accepts free text (for example, "Paris" or "France"), customers may need to complete a partial address before booking. Custom Address questions that aren't linked to `eventAddress` continue to accept free text.
 
