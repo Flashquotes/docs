@@ -47,6 +47,18 @@ Consolidated view of all your payments applied to Flashquotes invoices.
 - Sortable columns — click any header to sort by amount, date, status, and more
 - Locale-aware currency formatting for multi-currency businesses
 
+### Status quick-filter cards
+
+Four cards sit above the table — **Paid**, **Pending**, **Refunded**, and **Failed** — showing the total amount for each status in the current date window.
+
+- Click a card to filter the table to that status. The date range stays put.
+- Click the active card again to clear the status filter.
+- Totals are summed client-side over the date-filtered list by status-activity timestamp, so they always reflect every status in the window. The status filter doesn't change them.
+- Refunds display as absolute values (positive amounts).
+- **Scheduled** payments have no card, since that money hasn't moved yet.
+- Only the window's dominant currency is summed. Payments in other currencies are excluded to avoid combining amounts across currencies.
+- The muted caption below the cards (for example, `All statuses · Jul 21 – Aug 19, 2026`) names the exact window being summed.
+
 ### Search and filter
 
 - Use the search bar to find payments by customer name, invoice, or other details
