@@ -29,16 +29,26 @@ Company and location IDs are used for building automations with platforms like Z
 ## Stripe Payment Setup
 
 Steps:
-1. Go to Settings > Stripe Connect section
-2. Click "Connect Stripe Account"
-3. Complete Stripe onboarding process
-4. Verify connection status shows "Connected"
+1. Go to Settings > Stripe Connect section.
+2. Click Connect.
+3. Complete Stripe onboarding.
+4. Check the status badge on the Stripe card.
 
-**What happens next:** You can accept payments through forms and quotes.
+**What happens next:** You can accept payments through forms and quotes as soon as the card shows Connected.
+
+### Stripe connection status
+
+The Stripe card shows one of four states so you always know what Flashquotes and Stripe think of your account.
+
+- **Connected** (green badge). Charges and payouts are on. Nothing to do. If Stripe is still reviewing payouts, the card stays Connected with a short "payouts pending" note — you can take payments now and payouts turn on automatically.
+- **Verifying** (blue badge). You finished Stripe onboarding and Stripe is reviewing your details. There is no button and nothing is required from you. This replaces the old "Finish setup" button that used to appear in this state and re-launched OAuth for no reason.
+- **Action needed** (amber badge). Stripe needs something specific from you. The card shows a button labeled for the actual task — for example Update details or Add bank account — that opens the Stripe dashboard directly. Only a genuinely unfinished first-time onboarding still shows Finish setup.
+- **Restricted** (red badge). Stripe has rejected, listed, paused, or otherwise disabled the account. Payments are off and OAuth won't fix it. Email [support@flashquotes.com](mailto:support@flashquotes.com) from the link on the card.
 
 **Common issues:**
-- Connection fails: Verify business information matches Stripe requirements
-- Payments not processing: Check Stripe dashboard for account restrictions
+- Card says Verifying: Nothing to do. Stripe is reviewing and will turn payments on automatically.
+- Card says Action needed: Click the button on the card to fix the requirement in the Stripe dashboard.
+- Payments not processing: Check the Stripe dashboard for account restrictions.
 
 ## Location Management
 
