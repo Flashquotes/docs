@@ -5,16 +5,18 @@ description: "Learn which countries Flashquotes supports and how to provide your
 
 ## Overview
 
-Flashquotes is currently available for businesses in **four countries**. During signup, your country is detected from your business address. Non-US businesses must provide a valid tax identification number to connect to Stripe and accept payments.
+Flashquotes is currently available for businesses in the **US (including Puerto Rico), UK, Canada, and Australia**. During signup, your country is detected from your business address. Non-US businesses must provide a valid tax identification number to connect to Stripe and accept payments.
 
 ## Supported Countries
 
 | Country | Currency | Tax ID Required? |
 |---------|----------|-----------------|
-| United States | USD | No |
+| United States (including Puerto Rico) | USD | No |
 | United Kingdom | GBP | Yes — VAT Number |
 | Canada | CAD | Yes — GST/HST Number |
 | Australia | AUD | Yes — ABN |
+
+Puerto Rico businesses sign up on the US path: your country is stored as United States with state set to `PR`, you settle in USD, and no separate tax ID is required. This matches Stripe, which treats Puerto Rico as part of the US market. Other US territories (US Virgin Islands, Guam, American Samoa, and the Northern Mariana Islands) are not supported.
 
 <Note>
 Your country, currency, and locale are set automatically based on the business address you enter during onboarding. You can update your currency and locale anytime in **Settings → Company**.
@@ -68,7 +70,7 @@ You can also update your tax ID anytime from **Settings → Company** in the bil
 
 ## Unsupported Countries
 
-If your business is located outside the four supported countries, you will see a message during signup that Flashquotes is not yet available in your region.
+If your business is located outside the supported countries, you will see a message during signup that Flashquotes is not yet available in your region.
 
 <Info>
 Want to be notified when Flashquotes expands to your country? Email [support@flashquotes.com](mailto:support@flashquotes.com?subject=Waitlist%20-%20Country%20Expansion) to join the waitlist.
