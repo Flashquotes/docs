@@ -352,16 +352,26 @@ Everything in Pro, plus dynamic pricing tools and enterprise-grade API and suppo
 
 ## Platform Fee
 
-Flashquotes charges a platform fee on payments processed through the platform. This fee funds ongoing development, support, and infrastructure.
+Flashquotes charges a **2% platform fee** on payments processed through Flashquotes checkout. This fee funds ongoing development, support, and infrastructure.
 
-The fee only applies to online payments made through Flashquotes. If your customer pays you directly (check, cash, wire transfer), no platform fee applies.
+The 2% fee only applies to online payments made through Flashquotes. If your customer pays you directly (check, cash, wire transfer), no platform fee applies.
 
 ### Who Pays the Fee?
 
 You control whether the fee is passed to your customer or absorbed by your business:
 
-- **Pass to customer (default):** The fee is added on top of the invoice total as a separate line item, visible to your customer on the payment page. There is no cost to you.
-- **Absorb the fee:** The fee is deducted from your proceeds and is not visible to your customer. Your quoted prices and invoice totals remain unchanged.
+- **Pass to customer (default):** The 2% fee is added on top of the invoice total as a separate line item on the customer's payment page. There is no cost to you.
+- **Absorb the fee:** The 2% fee is deducted from your proceeds and is not visible to your customer. Your quoted prices and invoice totals remain unchanged.
+
+### What You See vs. What Your Customer Sees
+
+The invoice view in your dashboard shows the base invoice total without the platform fee added. The fee only appears on the payment page your customer sees when they pay online.
+
+To preview exactly what your customer will see:
+
+1. Open the invoice from **Invoices**.
+2. Click **View Invoice**.
+3. Look at the payment/checkout widget on the right — the 2% fee shows there as a separate line item above the total.
 
 #### Quote-Level Override
 
@@ -413,7 +423,11 @@ When you issue a full refund to a customer, Stripe processing fees and Flashquot
   </Accordion>
 
   <Accordion icon="circle-dollar-to-slot" title="Where does the platform fee appear?">
-    If you pass the fee to your customer (default for US businesses), it appears as a separate line item on the invoice payment page before they complete payment. It also appears on the receipt after payment for accounting purposes. If you absorb the fee, it is not visible to your customer anywhere.
+    If you pass the 2% fee to your customer (default for US businesses), it appears as a separate line item on the invoice payment page before they complete payment. It also appears on the receipt after payment for accounting purposes.
+
+    The fee is not shown on the invoice view in your dashboard, since it only applies when the customer pays online through Flashquotes. To see exactly what your customer sees, go to **Invoices**, open the invoice, click **View Invoice**, and look at the payment/checkout widget on the right.
+
+    If you absorb the fee, it is not visible to your customer anywhere.
   </Accordion>
 
   <Accordion icon="file-invoice" title="Why isn't the platform fee shown on my quote?">
@@ -425,13 +439,15 @@ When you issue a full refund to a customer, Stripe processing fees and Flashquot
   </Accordion>
 
   <Accordion icon="eye-slash" title="Can I cover the fee so my customers don't see it?">
-    Yes. In **Settings → Company**, choose to absorb the platform fee. The fee will be deducted from your proceeds instead of being added to your customer's total. You can switch between passing and absorbing at any time.
+    Yes. In **Settings → Company**, choose to absorb the platform fee. The 2% will be deducted from your proceeds instead of being added to your customer's total. You can switch between passing and absorbing at any time.
 
     You can also override this on individual quotes — absorb the fee on a specific quote without changing your company-wide default.
   </Accordion>
 
   <Accordion icon="comments" title="How should I set expectations with my customers?">
-    If you pass the fee to customers and want full transparency upfront, consider mentioning it in your communications. For example: "A small platform fee applies to online payments. No fee for check or direct payments."
+    If you pass the fee to customers and want full transparency upfront, mention it in your communications. For example: "A 2% platform fee applies to online payments processed through our checkout. No fee for check or direct payments."
+
+    If a customer questions the extra line on their payment page, you can point out that it's a 2% platform fee that only applies to online checkout and doesn't apply to direct payments like check or bank transfer.
   </Accordion>
 </AccordionGroup>
 
