@@ -11,7 +11,7 @@ Export your quotes to CSV format for marketing analysis, conversion tracking, an
 
 <Steps>
   <Step title="Navigate to the Pipeline">
-    Go to the [Pipeline](https://app.flashquotes.com/pipeline) page in your Flashquotes dashboard. Apply any filters first — the export matches your current filters and sort.
+    Go to the [Pipeline](https://app.flashquotes.com/pipeline) page in your Flashquotes dashboard. Apply any filters first. The export matches your current filters and sort, with no implicit date window.
   </Step>
 
   <Step title="Click Export CSV">
@@ -73,9 +73,9 @@ And these are available as opt-in columns:
 
 ## Export Scope
 
-- **Filters and sort carry over** — the export matches exactly what you've filtered the Pipeline to, in the same order
-- **Date range** — without a date filter, the export covers the last 90 days; set a created-date filter to reach further back or narrow down
-- **Booked and lost quotes** are included by default via the toggle in the export dialog
+- **Filters and sort carry over** — the export matches exactly what you've filtered the Pipeline to, in the same order. **Needs attention** sort is honored server-side, so the file ranks quotes the same way the board does.
+- **No implicit date window** — the export covers every quote matching your active filters. Add a created-date filter to narrow the range.
+- **Booked and lost quotes** are included by default via the **Include booked and lost** toggle in the export dialog footer. Switch it off to export only open quotes.
 
 ## Common Use Cases
 
@@ -133,7 +133,6 @@ The CSV file follows RFC 4180 standards:
   <Accordion icon="filter" title="Missing quotes in export">
     Check your export scope — the export respects:
     - All active Pipeline filters (date range, source, event type, location, owner)
-    - The default 90-day window when no date filter is set
     - The **Include booked and lost** toggle in the export dialog
   </Accordion>
 
