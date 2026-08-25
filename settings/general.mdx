@@ -44,10 +44,12 @@ The Stripe card shows one of four states so you always know what flashquotes and
 - **Verifying** (blue badge). You finished Stripe onboarding and Stripe is reviewing your details. There is no button and nothing is required from you. This replaces the old "Finish setup" button that used to appear in this state and re-launched OAuth for no reason.
 - **Action needed** (amber badge). Stripe needs something specific from you. The card shows a button labeled for the actual task, for example Update details or Add bank account, that opens the Stripe dashboard directly. Only a genuinely unfinished first-time onboarding still shows Finish setup.
 - **Restricted** (red badge). Stripe has rejected, listed, paused, or otherwise disabled the account. Payments are off and OAuth won't fix it. Email [support@flashquotes.com](mailto:support@flashquotes.com) from the link on the card.
+- **Disconnected** (red badge). flashquotes lost access to the Stripe account, usually because it was revoked or removed on Stripe's side. Payments are paused. Click Reconnect Stripe on the card to re-authorize the same account in one step.
 
 **Common issues:**
 - Card says Verifying: Nothing to do. Stripe is reviewing and will turn payments on automatically.
 - Card says Action needed: Click the button on the card to fix the requirement in the Stripe dashboard.
+- Card says Disconnected: Click Reconnect Stripe on the card to restore access.
 - Payments not processing: Check the Stripe dashboard for account restrictions.
 
 ## Location Management
