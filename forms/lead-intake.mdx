@@ -91,6 +91,29 @@ The form editor displays all questions in the left panel, organized by page. Cli
        - First name, last name, email, phone
        - SMS opt-in consent (if enabled)
 
+    <Note>
+      You can hide pages like **Location** by setting a default event address. See **Hiding Pages** below.
+    </Note>
+
+  </Accordion>
+
+  <Accordion icon="eye-slash" title="Hiding Pages">
+    Hide pages you don't need answers for. This is built for venue-style businesses that host events at their own location and don't need to ask customers for an event address.
+
+    **Hide a page:**
+
+    1. Open the kebab menu (⋮) on the page in the left panel
+    2. Click **Hide from customers**
+    3. If the page contains the event address question, a dialog asks you to set a **default event address**. Pick your address from the Google suggestions. Free text isn't accepted because Flashquotes needs the exact location to calculate travel fees.
+
+    Hidden pages are skipped on the live form, and every quote from that form automatically submits your default address. To bring a page back, open the kebab menu and click **Show to customers**.
+
+    **What can't be hidden:** pages with the event date, staffing calculator, or contact questions always stay visible. The menu item is disabled with an inline reason (e.g. "Needs the event date").
+
+    **Builder indicators:**
+    - An eye-off icon marks hidden pages in the page sidebar
+    - The form preview shows a "Customers skip this page" banner
+    - The address question's settings panel shows a **Hidden from customers** card where you can change the default address or click **Show to customers**
   </Accordion>
 
   <Accordion icon="gear" title="Form Settings">
