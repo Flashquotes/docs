@@ -15,11 +15,20 @@ Go to **Services & items** in the sidebar and click **New Service**.
 
 **Service fields:**
 - **Service Name**: What customers see on quotes (e.g., "Mobile Bar Service")
-- **Description**: Brief explanation for customers
-- **Line Item Description**: How it appears on invoices. Supports rich text formatting and [shortcodes](/workflows/shortcodes/overview) like `{{quote.guest_count}}` or `{{lead.first_name}}` — shortcodes resolve when the quote is created.
+- **Short Description**: Appears under the service name on lead intake forms. Keep it under 75 characters.
+- **Detailed Description**: Appears in the line items table on quotes and invoices. Supports rich text formatting and [shortcodes](/workflows/shortcodes/overview) like `{{quote.guest_count}}` or `{{lead.first_name}}`. Shortcodes resolve when the quote is created.
 - **Base Price**: Starting price for the service
 - **Minimum Price**: Lowest acceptable price
 - **Pricing Options**: Configure hourly rates and per-guest pricing
+
+## Where Each Description Appears
+
+- **Short Description**: Lead intake forms, under the service name
+- **Detailed Description**: The line items table on quotes and invoices. It's added automatically when the service is on a quote.
+
+The Detailed Description doesn't appear on lead intake forms. There's also no shortcode to insert it (or the service name) elsewhere in a quote template.
+
+Want a menu-style breakdown on the quote page itself? Add [Service Details lines](/templates/quote-templates#what-you-can-edit-on-templates) to your quote template.
 
 ## Service Pricing Configuration
 
@@ -51,8 +60,8 @@ Go to **Services & items** in the sidebar and click **New Service**.
   <Accordion icon="image" title="Service Presentation">
     Make your service appealing:
     - **Service Image**: Upload a high-quality photo
-    - **Description**: Clear, benefit-focused text
-    - **Line Item Description**: Professional invoice wording — supports rich text and [shortcodes](/workflows/shortcodes/overview) (e.g. `{{quote.guest_count}}`) that resolve when the quote is created
+    - **Short Description**: Clear, benefit-focused text for lead intake forms
+    - **Detailed Description**: Professional wording for quote and invoice line items. Supports rich text and [shortcodes](/workflows/shortcodes/overview) (e.g. `{{quote.guest_count}}`) that resolve when the quote is created
 
     <Note>
       Good descriptions and images significantly improve conversion rates.
@@ -155,6 +164,8 @@ Services appear in:
 ## Common Issues
 
 **Service not appearing in quotes**: Check availability rules and make sure service is active
+
+**Detailed Description not showing on your form**: Only the Short Description appears on lead intake forms. The Detailed Description shows on quote and invoice line items.
 
 **Pricing seems wrong**: Verify the pricing model matches your intended structure (hourly vs. flat rate)
 
