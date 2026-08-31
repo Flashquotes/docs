@@ -187,16 +187,19 @@ You can only resume a workflow if it has scheduled steps in the future. Workflow
 
 ### Automatically Stopping Workflows
 
-When a contact books a quote, all active workflows for that contact will be stopped automatically
+Workflows stop automatically in two situations:
 
-This includes workflows across multiple quotes that may be active
+**When a contact books a quote**, all active workflows for that contact stop. This includes workflows across multiple quotes. You won't keep sending sales-focused follow-ups after they've decided to work with you.
 
-This automatic stopping ensures you maintain a professional relationship with your contacts and don't continue sending sales-focused follow-ups after they've already decided to work with you.
+**When a contact replies to your email**, active Quote Requested and Quote Sent workflows stop. This requires the [full Gmail integration](/settings/integrations/google-gmail-read) on a Plus or Pro plan. Only workflows started before the reply are stopped.
 
 <Warning>
-	If a contact engages with you **before** booking, all active workflows will
-	continue until you stop them manually.
+	Without the full Gmail integration, a contact's reply won't stop active
+	workflows. Stop them manually from the quote view or the contact's Workflows
+	tab.
 </Warning>
+
+**Quote expiration doesn't stop a workflow.** The enrollment stays active, but Flashquotes skips scheduled workflow emails while the quote is expired, lost, or deleted. If you [extend the quote's expiration date](/settings/quotes), remaining scheduled emails send as normal.
 
 ## Best Practices
 

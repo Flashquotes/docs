@@ -18,7 +18,11 @@ The Quote Requested trigger automatically enrolls contacts in workflows when the
 1. A contact submits your lead intake form
 2. Flashquotes automatically enrolls them in any active Quote Requested workflows
 3. The email sequence begins immediately based on your configured timing
-4. Workflows continue until the contact books or you stop them manually
+4. Workflows continue until the contact books, replies to your email (with the [full Gmail integration](/settings/integrations/google-gmail-read)), or you stop them manually
+
+<Note>
+Quote Requested emails don't include a quote link, and there's no quote-link shortcode for this trigger. The quote may not exist yet when these emails send. To follow up with a quote link, use a Quote Sent workflow. Those emails include a **Review Quote** button automatically.
+</Note>
 
 **Key Features:**
 - **Automatic Enrollment**: No manual action required - contacts are enrolled as soon as they submit the form
@@ -61,6 +65,7 @@ The Quote Sent trigger automatically starts the workflow when you send a quote w
 4. The email sequence begins automatically based on the selected workflow
 
 **Key Features:**
+- **Quote Link Included**: Every Quote Sent email automatically includes a **Review Quote** button that links to the quote. No shortcode needed
 - **Multiple Workflows**: Create different follow-up sequences for different situations
 - **Default Workflow**: Set a default that's pre-selected in the send modal — the first workflow created is automatically set as default
 - **Manual Control**: Choose whether to enroll each quote individually
