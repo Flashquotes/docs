@@ -43,14 +43,24 @@ The **Event Schedule** page gives you an operational overview of your upcoming e
     - Resource allocation
   </Accordion>
 
-  <Accordion icon="truck" title="Logistics">
-    Track essential information:
-    - Load-in details
-    - Drive times
-    - Staff assignments
-    - Cart/resource assignments
-    - Shift durations
-    - Contact information
+  <Accordion icon="truck" title="Logistics and Form responses tabs">
+    The right side of the event page is split into two tabs:
+
+    **Logistics** holds four cards:
+    - **Event schedule**: service dates, times, and shift durations. Click any time to edit it directly.
+    - **Staff & resources**: staff and resource assignments, plus the targets for each
+    - **Services & add-ons**: the sellable line items on the event
+    - **Contacts**: contact information for the event
+
+    **Form responses** shows the customer's booking-form answers, in the order the form asked them.
+  </Accordion>
+
+  <Accordion icon="users" title="Staff & Resources">
+    Set targets and fill them from the **Staff & resources** card:
+    - Click the count next to **Staff** or **Resources** to edit how many the event needs
+    - On a multi-day booking, editing a target asks whether to apply the change to this day only or to all days
+    - While a section is short of its target, **Assign staff** or **Assign resource** appears as a prominent button until the target is met
+    - If the staff member or resource you need doesn't exist yet, create it directly from the picker
   </Accordion>
 
   <Accordion icon="map-location-dot" title="Location Details">
@@ -75,20 +85,21 @@ The **Event Schedule** page gives you an operational overview of your upcoming e
     - Service location
     - Parking information
     - Loading details
-    - Staff requirements
-    - Resource needs
     - Dress code
     - Gratuity status
     - Event type (indoor/outdoor)
   </Accordion>
 
   <Accordion icon="calendar-days" title="Multi-Day Events">
-    Access booking information:
-    - View all event days from the original quote's service days
-    - Track related events within the same booking
+    Multi-day bookings show day tiles at the top of the **Event schedule** card:
+    - Click a tile to switch to that day
     - Manage service dates and times for each day
-    - Update individual event details or all events at once
+    - Update individual event details or all days at once
     - Handle setup, main event, and breakdown days separately
+
+    <Note>
+      **Reschedule** and **Delete** pause while a day is loading, so actions always apply to the day you're viewing.
+    </Note>
   </Accordion>
 
   <Accordion icon="copy" title="Copying Events vs Bookings">
@@ -125,11 +136,10 @@ The **Event Schedule** page gives you an operational overview of your upcoming e
 
 <AccordionGroup>
   <Accordion icon="clock" title="Scheduling">
-    Manage timing with:
-    - Service date changes
-    - Time adjustments
-    - Schedule updates
-    - Shift management
+    - Click any time on the **Event schedule** card to edit it in place
+    - Use **Reschedule** to move the event to a different date
+    - The reschedule dialog shows the invoice due date and moves it with the event automatically
+    - Click the due date to set your own instead; a **Follow the event** link appears so you can re-link it to the event date
   </Accordion>
 
   <Accordion icon="arrows-rotate" title="Event History">
