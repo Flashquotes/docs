@@ -39,6 +39,23 @@ Workflows automate contact communication in Flashquotes with intelligent email s
 3. Contacts automatically receive follow-up emails based on the selected workflow
 4. Each email uses customizable templates with your quote details
 
+## Who Receives Workflow Emails
+
+Workflow emails go to the contact on the quote or booking that triggered the workflow:
+
+- **Quote workflows** (Quote Requested, Quote Sent) send to the contact on the quote
+- **Booking workflows** (Quote Booked, First Event Start, Last Event End) send to the contact on the booking
+
+The recipient is resolved when each email sends, not when the workflow starts. That means the sequence always follows the current record:
+
+- Update a contact's email address, and the remaining steps go to the new address
+- [Change which contact a booking is under](/bookings#changing-the-booking-contact), and pending steps go to the new contact
+- Extra recipient addresses you type into the Send Quote modal receive that quote email only — workflow follow-ups go to the quote's contact
+
+<Note>
+  There's no per-workflow recipient setting. To change who receives a sequence, update the contact's email or change the contact on the booking.
+</Note>
+
 ## What's Included
 
 **Quote Requested workflows** help you:
