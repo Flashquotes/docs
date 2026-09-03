@@ -24,7 +24,7 @@ Skip manual quote building! [Set up Flashquotes AutoDraft](/contacts/autodraft) 
     1. Navigate to the [Contacts](https://app.flashquotes.com/contacts) page
     2. Open the contact you want to create a quote for
     3. Click `+ New Quote`
-    4. Fill in the required event details, including selecting an **event type** — it drives pricing and quote defaults, so it's required up front on any manually created quote (both here and from the pipeline's **New quote** flow)
+    4. Fill in the required event details, including selecting an **event type** — it drives pricing and quote defaults, so it's required up front on any manually created quote (both here and from the pipeline's **New quote** flow). You can [change it later](#changing-a-quotes-event-type) from the quote header.
     5. Click `Create`
 
   </Accordion>
@@ -45,6 +45,22 @@ Skip manual quote building! [Set up Flashquotes AutoDraft](/contacts/autodraft) 
 <Note>
   When leads come through your [lead intake form](/forms/lead-intake), a
   pre-populated quote will be automatically created. If you have [Instant Pricing](/contacts/instant-pricing) enabled, pricing is calculated automatically based on either the service selected in the form or your configured fallback service.
+</Note>
+
+## Changing a Quote's Event Type
+
+The event type isn't locked after a quote is created. To change it:
+
+1. Open the quote and click the **event type** (next to the tag icon) in the quote header
+2. Search the dropdown and pick the new event type
+3. Or click **Manage event types** to add, rename, or delete types inline — deleting asks you to confirm, and a newly created type is selected automatically
+
+<Info>
+  If the quote is booked, the linked booking and its events update to the new event type automatically (and changing it from the event page updates the quote too).
+</Info>
+
+<Note>
+  Changing the event type doesn't reprice existing line items. [Event-type price modifiers](/services/pricing#dynamic-pricing) apply to line items you add after the change.
 </Note>
 
 ## Getting the Most from Your Quotes
