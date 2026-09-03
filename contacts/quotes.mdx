@@ -359,6 +359,22 @@ Service charges let you add percentage or flat fees to quotes automatically or m
   </Accordion>
 </AccordionGroup>
 
+## How line-item prices update
+
+When you add a service or add-on to a quote, Flashquotes calculates its price using the quote's current details—such as guest count, service duration, event type, and staffing or resource counts—along with the item's pricing rules.
+
+After the line item is added, changing quote-level details does **not** automatically recalculate its price. Even if a change would normally affect pricing, the existing amount remains unchanged. This is intentional: it prevents Flashquotes from silently replacing a price you have reviewed or customized.
+
+To update an existing line item with a newly calculated price:
+
+1. Save the changes to the quote details.
+2. Add the same service or add-on as a new line item. The new item is calculated using the updated quote details.
+3. Review the new amount, then delete the original line item.
+
+<Note>
+  Always review the replacement line item before deleting the original, especially if the original has a custom description or discount.
+</Note>
+
 ## Per-line-item discounts
 
 Attach an existing discount to any single line item on a quote or invoice — useful when you want to mark down one service without touching the rest of the order.
