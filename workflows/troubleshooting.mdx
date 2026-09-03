@@ -1,0 +1,100 @@
+---
+title: "Troubleshooting"
+description: "Why a workflow didn't start, skipped a step, or didn't send a scheduled email"
+---
+
+import { PlusBadge } from "/snippets/badge.mdx";
+
+## Why Didn't My Workflow Send? <PlusBadge />
+
+"Skipped" can mean four different things. Each has a different fix:
+
+| What you're seeing | What happened |
+| --- | --- |
+| The workflow never appears for the contact or booking | [It was never enrolled](#the-workflow-never-started) |
+| The workflow is running, but an early step is missing | [The step's send time had passed](#a-step-was-skipped-because-its-send-time-had-passed) |
+| The workflow shows as stopped | [The enrollment was stopped](#the-workflow-was-stopped) |
+| A step shows **Skipped**, or its email never sent | [The step couldn't send](#a-scheduled-step-couldnt-send) |
+
+<Note>
+  Check the status pills on the contact's Workflows tab. **Skipped** means the
+  send time passed without the email going out. Steps dropped at enrollment
+  don't appear in the list at all. Stopped workflows show remaining steps as
+  **Cancelled**.
+</Note>
+
+## The Workflow Never Started
+
+If the workflow never appears for a contact or booking, it wasn't enrolled. Common reasons:
+
+- **The workflow isn't published.** Draft workflows never enroll anyone.
+- **The workflow was deleted** before the trigger fired.
+- **The workflow has no active steps.** Nothing to send means no enrollment.
+- **Every step would land in the past.** Nothing is left to schedule, so enrollment is skipped. Common when the event already happened.
+- **Your plan doesn't include workflows.** All workflows need [Plus or higher](https://flashquotes.com/pricing). Plus includes 10 workflows. Pro removes the limit.
+- **The record isn't eligible.** The quote, booking, invoice, or event was deleted or no longer qualifies.
+
+**To fix it:**
+
+1. Publish the workflow
+2. Confirm it has at least one active step
+3. Check your plan includes workflows
+4. For existing bookings, [bulk enroll upcoming bookings](/workflows/workflow-enrollments#bulk-enrolling-bookings)
+
+## A Step Was Skipped Because Its Send Time Had Passed
+
+At enrollment, flashquotes calculates a send time for each step. Steps already in the past are dropped. Only future steps get scheduled. The workflow still runs. It just starts partway through. Dropped steps don't appear in the step list.
+
+This happens when:
+
+- You enroll an older quote or booking, so early follow-ups fall in the past
+- An event-based workflow enrolls a booking whose event is soon or has passed
+- An invoice is already overdue when reminders begin
+
+**To fix it:** nothing needed. Flashquotes never backfills past emails, so contacts don't get a burst of stale follow-ups. Want the contact to get that content anyway? Send it manually, or build a workflow whose timing starts from today.
+
+## The Workflow Was Stopped
+
+Stopped workflows appear under **Canceled Workflows** on the contact's Workflows tab. This happens when:
+
+- **Someone stopped it** with **Stop all** (quote view) or **Stop Workflow** (contact's Workflows tab)
+- **The booking was canceled**
+- **The contact booked.** Quote follow-up workflows stop automatically once they commit
+- **The contact replied.** Quote nurture workflows that stop on reply are deactivated
+
+**To fix it:** [resume the workflow](/workflows/workflow-enrollments#resuming-stopped-workflows) from the contact's Workflows tab. This only works while future steps remain.
+
+## A Scheduled Step Couldn't Send
+
+Flashquotes re-checks every step at send time. Blocked steps show a **Skipped** pill once their send time passes. A step is blocked when:
+
+**The enrollment changed**
+
+- The workflow was stopped, or the enrollment was removed
+- The step already sent or failed
+
+**The record changed**
+
+- The quote was deleted, expired, or marked lost
+- The quote's event date passed
+- The booking was deleted or canceled
+- The booking has no events left (event-based workflows)
+- The invoice was deleted or paid in full. Paid invoices get no more [reminders](/invoices/reminders)
+
+**The workflow or plan changed**
+
+- The step or its email template was deleted
+- The email template couldn't render
+- Your plan no longer includes workflows
+
+**To fix it:** usually nothing. These checks stop emails about dead quotes, bookings, and invoices. Blocked unexpectedly? Confirm:
+
+1. The quote or booking is still active
+2. The workflow and its templates still exist
+3. Your plan still includes workflows
+
+Then re-enroll.
+
+## Still Stuck?
+
+Email [support@flashquotes.com](mailto:support@flashquotes.com) with the contact name and workflow. We'll check the enrollment for you.
