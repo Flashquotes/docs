@@ -42,6 +42,63 @@ Skip manual quote building! [Set up Flashquotes AutoDraft](/contacts/autodraft) 
   </Accordion>
 </AccordionGroup>
 
+## Duplicating a Quote
+
+Duplicate a quote when a client comes back for another event, or when a new inquiry looks a lot like one you've already priced. The copy lands on the same contact as a fresh draft with the dates you choose.
+
+### Where to find it
+
+- On the quote page, open **More actions** in the top right and choose **Duplicate**
+- On a contact's **Quotes** tab, open the row menu on any quote and choose **Duplicate**
+
+### Set the new service dates
+
+<Steps>
+  <Step title="Review the pre-filled days">
+    The dialog starts with the original quote's service days. If those dates have already passed, you'll be asked to pick new ones before you can continue.
+  </Step>
+  <Step title="Adjust dates and times">
+    Change the date, start time, or end time on any day. The date picker shows your availability for the quote's services, and past dates can't be selected. An end time earlier than the start time is treated as ending the next day.
+  </Step>
+  <Step title="Add or remove days">
+    Click **Add service day** to append a day (it defaults to the day after the last one, same times). Use the trash icon to remove a day. At least one day is required, and two days can't share the same date and times.
+  </Step>
+  <Step title="Duplicate">
+    Click **Duplicate quote**. The new quote opens as soon as it's created.
+  </Step>
+</Steps>
+
+### Copy the lead intake form responses
+
+If the original quote came in through your [lead intake form](/forms/lead-intake), the dialog shows a **Duplicate lead intake form responses** checkbox. It's off by default. Turn it on to carry the lead's answers onto the new quote.
+
+<Note>
+  Event date and time answers are never copied, since the dates you set in the dialog are the source of truth. Answers tied to questions or pages you've since deleted from the form are skipped too. The checkbox is hidden when there's nothing eligible to copy.
+</Note>
+
+### What carries over
+
+<AccordionGroup>
+  <Accordion icon="check" title="Copied to the new quote">
+    - Pricing, line items, service charges, tax rate, and discounts
+    - Services and add-ons
+    - Event details: address, guest count, staff and resource counts, event type, and special notes
+    - The quote message
+    - Booking flow settings: booking form, payment terms, and the same contract as the original
+    - The quote's template appearance exactly as it looked on the original, even if that template has changed since or been deleted
+  </Accordion>
+
+  <Accordion icon="xmark" title="Not copied">
+    - Service dates — you set these in the dialog
+    - Sent status, expiration, and email history — the duplicate starts as a new draft
+    - Lead intake form responses, unless you tick the checkbox
+  </Accordion>
+</AccordionGroup>
+
+<Tip>
+  Because the duplicate keeps the original's template snapshot, it may be behind your current template. Open the **Quote Template** tab and use **Update to latest version** to refresh it. [Learn more →](/templates/quote-templates#updating-a-quote-to-the-latest-template-version)
+</Tip>
+
 <Note>
   When leads come through your [lead intake form](/forms/lead-intake), a
   pre-populated quote will be automatically created. If you have [Instant Pricing](/contacts/instant-pricing) enabled, pricing is calculated automatically based on either the service selected in the form or your configured fallback service.

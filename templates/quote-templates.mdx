@@ -21,7 +21,7 @@ Quote templates allow you to create reusable designs for your quotes, making it 
     Configure gallery images, testimonials, add-ons, and more
   </Card>
   <Card title="Apply to Quotes" icon="file-invoice" href="#assigning-a-template-to-a-quote">
-    Quickly assign templates to any quote
+    Assign templates to any quote and refresh quotes that fall behind
   </Card>
   <Card title="Set Defaults" icon="star" href="#setting-a-default-template">
     Choose a default template for new quotes
@@ -193,6 +193,30 @@ The template selector shows:
 
 When you change a quote's template, the quote immediately reflects the new template's settings, including gallery images, testimonials, add-ons, and other visual elements.
 
+## Updating a Quote to the Latest Template Version
+
+Each quote stores a snapshot of its template at the moment the template was applied. Editing a template later doesn't change quotes that already use it, so a quote you've sent never shifts under the customer. When a quote's snapshot no longer matches its template, Flashquotes lets you know and offers a one-click refresh.
+
+<Steps>
+  <Step title="Open the Quote Template tab">
+    On the quote detail page, click the **Quote Template** tab.
+  </Step>
+  <Step title="Look for the update button">
+    If the quote's photos, add-ons, testimonials, or service details differ from the linked template, an **Update to latest version** button appears next to the template selector. If the quote already matches, there's nothing to show.
+  </Step>
+  <Step title="Confirm">
+    Click the button. The confirmation lists exactly which sections will change and which template they'll match. Choose **Update to latest version** to apply it, or **Keep current version** to leave the quote alone.
+  </Step>
+</Steps>
+
+<Warning>
+  Updating replaces the quote's snapshot with the template's current content and can't be undone.
+</Warning>
+
+<Info>
+  Duplicated quotes keep the exact appearance of the quote they were copied from, so they're a common place to see this button. See [Duplicating a quote](/contacts/quotes#duplicating-a-quote).
+</Info>
+
 ## Managing Templates
 
 ### Viewing All Templates
@@ -260,7 +284,7 @@ To delete a template:
 </Warning>
 
 <Info>
-  Deleting a template does not affect existing quotes that were created using that template. Those quotes will continue to display with the template settings they had when they were created.
+  Deleting a template does not affect existing quotes that were created using that template. Those quotes will continue to display with the template settings they had when they were created, and duplicating one of them keeps that same appearance.
 </Info>
 
 ## Default Templates
@@ -309,7 +333,7 @@ When you create your first template, it automatically becomes the default. You c
 
 <AccordionGroup>
   <Accordion icon="circle-question" title="Can I edit a template after quotes have been created with it?">
-    Yes, you can edit templates at any time. However, changes to a template only affect new quotes that use it. Existing quotes retain the template settings they had when they were created.
+    Yes, you can edit templates at any time. However, changes to a template only affect new quotes that use it. Existing quotes retain the template settings they had when they were created. To bring an existing quote up to date, open its **Quote Template** tab and click **Update to latest version**. See [Updating a quote to the latest template version](#updating-a-quote-to-the-latest-template-version).
   </Accordion>
 
   <Accordion icon="circle-question" title="What happens if I delete a template that's being used by quotes?">
