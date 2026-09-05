@@ -1,9 +1,13 @@
 ---
 title: "Gmail Sending"
-description: "Send quotes directly from your Gmail account"
+description: "Send quotes from Gmail and improve deliverability with Google Workspace domain authentication"
 ---
 
 Send quotes and communications from your Gmail account to maintain your email history in one place.
+
+<Tip>
+Our first recommendation for improving email deliverability is to connect your business Google Workspace account and select it when sending from Flashquotes. Then [authenticate your domain with SPF, DKIM, and DMARC](#improve-email-deliverability).
+</Tip>
 
 ## Why use Gmail for sending
 
@@ -40,6 +44,54 @@ Sending from your Gmail account:
 - For each location, select default sending email
 - New quotes will use this sender by default
 
+## Improve email deliverability
+
+Start by confirming that your Google Workspace account is connected, selected as the sender, and that the message appears in Gmail's **Sent** folder. Connecting the account alone does not configure authentication for your business domain.
+
+Authentication helps receiving email services verify that messages really come from your domain and can improve deliverability. It does not guarantee placement in the inbox or Gmail's Primary tab.
+
+### Authenticate your Google Workspace domain
+
+Ask your Google Workspace administrator or the person who manages your domain's DNS records to check all three methods below. These settings apply to your custom business domain, such as `yourbusiness.com`. Google manages authentication for personal `@gmail.com` addresses.
+
+#### SPF: authorize your email senders
+
+SPF lists the services allowed to send email for your domain. If Google Workspace is your **only** sender, Google's example DNS TXT record is:
+
+```text
+v=spf1 include:_spf.google.com ~all
+```
+
+If other services also send email for your domain, include them in the same SPF record. Update the existing record rather than adding a second SPF record or replacing other authorized senders with the Google-only example. Follow [Google's SPF setup guide](https://knowledge.workspace.google.com/admin/security/set-up-spf).
+
+#### DKIM: sign outgoing messages
+
+DKIM adds a digital signature that receiving services can verify using your domain's DNS record.
+
+Ask your Google Workspace administrator to follow [Google's DKIM setup guide](https://support.google.com/a/answer/174124).
+
+#### DMARC: check alignment and monitor failures
+
+DMARC checks that the domain in the visible From address aligns with a domain authenticated by SPF or DKIM. It also lets you request reports and specify how receivers should handle messages that fail.
+
+Ask your domain administrator to follow [Google's DMARC setup guide](https://support.google.com/a/answer/2466580) and [recommended DMARC rollout](https://support.google.com/a/answer/10032473).
+
+### Verify authentication on a delivered message
+
+After DNS changes have taken effect, send a test quote from Flashquotes to a separate Gmail or Google Workspace recipient. In the recipient's Gmail, open the message and choose **More > Show original** next to Reply. Check the authentication results for **SPF: PASS**, **DKIM: PASS**, and **DMARC: PASS**. Google explains [how to view message headers](https://support.google.com/mail/answer/29436?hl=en).
+
+If a check fails, share the original message headers with your domain administrator. Confirm that DKIM signs with your business domain and that SPF or DKIM aligns with the From domain for DMARC.
+
+### Follow Google's sending recommendations
+
+- Send to people who expect to hear from you, such as customers who requested a quote.
+- Use an accurate sender name and subject, and clearly label the quote link.
+- Keep quote emails focused on the customer's inquiry; avoid adding unrelated promotions.
+- Avoid sudden bursts of sending, especially from a new domain.
+- If a customer finds your message in Spam, ask them to mark it as **Not spam** and add your sending address to their contacts.
+
+See [Google's email sender guidelines](https://support.google.com/mail/answer/81126?hl=en) for more recommendations.
+
 ## Manage sending accounts
 
 **View connected accounts:**
@@ -63,6 +115,12 @@ Disconnecting an account removes the ability to send from that email. Existing s
 4. **Connect your primary business email** - Use your main business email for most communications
 
 ## Troubleshooting
+
+### Emails going to spam or showing no opens
+
+First, [verify your Gmail sender and domain authentication](#improve-email-deliverability). A low or zero open count does not prove that a message went to spam; Google cautions against using open rates alone to diagnose delivery problems. Ask the recipient to check Spam and Promotions, and review any bounce message for the rejection reason. See [Google's delivery troubleshooting guidance](https://support.google.com/mail/answer/81126?hl=en#open-rate).
+
+If problems continue, contact [Flashquotes support](mailto:support@flashquotes.com) with the sending address, recipient address, approximate send time, and any bounce error or authentication results.
 
 ### Email not sending
 - Verify your Google account is connected in Settings > Integrations
