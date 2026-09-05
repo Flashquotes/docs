@@ -119,6 +119,14 @@
                 ]
               },
               {
+                "group": "Flashquotes AI",
+                "tag": "Beta",
+                "pages": [
+                  "flashquotes-ai/overview",
+                  "flashquotes-ai/lead-detection"
+                ]
+              },
+              {
                 "group": "Workflows",
                 "pages": [
                   "workflows/overview",
