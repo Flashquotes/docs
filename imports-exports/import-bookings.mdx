@@ -11,7 +11,7 @@ Import multiple bookings at once when migrating from another system or adding hi
 
 <Steps>
   <Step title="Download the CSV Template">
-    Go to [Bookings](https://app.flashquotes.com/bookings) and click **Import from CSV**. Download the template with example rows.
+    Go to [Bookings](https://app.flashquotes.com/bookings) and click **Import from CSV**. Download the template. It has the 9 required columns plus two example rows. Add optional columns yourself if you need them.
   </Step>
 
   <Step title="Fill Out Your Data">
@@ -41,40 +41,36 @@ Import multiple bookings at once when migrating from another system or adding hi
 
 ## Required Fields
 
-All bookings must include:
-- Entity to Invoice
+All bookings must include these 9 columns:
 - Full Name
-- Payment Method
+- Email
 - Total Price (Dollars)
 - Event Date (YYYY-MM-DD format)
 - Start Time (h:mm a format, e.g., 10:00 AM)
-- End Time
+- End Time (h:mm a format)
 - Number of Days (integer)
 - Guest Count
 - Event Address
-- Staff Number
-- Resource Number
-- Location Name
-- Location ID
 
 ## Optional Fields
 
-Include these if you have the data:
-- Email
+Include these if you have the data. Leave one blank and Flashquotes uses the default shown:
+- Entity to Invoice (defaults to Full Name)
+- Payment Method (defaults to "Other")
+- Staff Number (defaults to 1)
+- Resource Number (defaults to 1)
+- Location ID (defaults to your first location)
 - Phone
-- Event Description
-- Site Contact Name
-- Site Contact Phone
-- Additional Location Info
-- Parking Info
-- Staff Dress Code
-- Special Instructions
+- Special Notes
 
 ## Format Requirements
 
 <AccordionGroup>
   <Accordion icon="calendar" title="Dates and Times">
-    - Dates: YYYY-MM-DD (e.g., 2025-02-15)
+    - Dates: YYYY-MM-DD (e.g., 2026-09-03) or month-first slash dates, M/D/YYYY and M/D/YY (e.g., 9/3/2026, 9/3/26)
+    - Slash dates are month-first: 3/9/26 means March 9, not September 3
+    - Dashes other than YYYY-MM-DD (e.g., 9-3-26) and impossible dates (e.g., 2/30/26) are rejected
+    - The upload preview shows the date it'll use, with your original entry in parentheses
     - Times: h:mm a with space (e.g., 10:00 AM, 2:00 PM)
     - Must use uppercase AM/PM with space before
   </Accordion>
@@ -82,14 +78,17 @@ Include these if you have the data:
   <Accordion icon="hashtag" title="Numbers">
     - Number of Days: Whole number (e.g., 1, 2, 3)
     - Guest Count: Whole number
-    - Staff Number: Whole number
-    - Resource Number: Whole number
-    - Total Price: Number format (e.g., 1500 for $1,500.00)
+    - Staff Number and Resource Number: Whole numbers 1-99. Blank defaults to 1; 0 is rejected
+    - Total Price: Plain number, decimals OK (e.g., 1250.55 becomes $1,250.55). No dollar signs or commas
+    - Total Price can be 0. Blank cells import as $0 too, and show as a Draft invoice (for bookings you invoice outside Flashquotes)
+    - Negative Total Price values are rejected
   </Accordion>
 
   <Accordion icon="map-pin" title="Location Fields">
-    - Location ID is required and must match an existing location in your account
-    - Location Name should match the ID's location
+    - Location ID is optional. Leave it blank to use your first location (alphabetical by name)
+    - If you run one location, you can leave Location ID out of your file entirely
+    - Multi-location accounts: find IDs in Settings → Locations, which has a copy button
+    - A provided Location ID must belong to your account
     - Event Address can be different from the location address
   </Accordion>
 </AccordionGroup>
@@ -98,7 +97,7 @@ Include these if you have the data:
 
 <AccordionGroup>
   <Accordion icon="exclamation-triangle" title="Date format incorrect">
-    Dates must be YYYY-MM-DD format. 02/15/2025 won't work. Use 2025-02-15 instead.
+    Use YYYY-MM-DD (2026-09-03) or M/D/YYYY and M/D/YY (9/3/2026, 9/3/26). Dashes other than YYYY-MM-DD, like 9-3-26, don't work. Neither do impossible dates like 2/30/26.
   </Accordion>
 
   <Accordion icon="clock" title="Time format incorrect">
@@ -109,12 +108,12 @@ Include these if you have the data:
     Number of Days, Guest Count, Staff Number, and Resource Number must be whole numbers. No decimals.
   </Accordion>
 
-  <Accordion icon="map-marker-alt" title="Location ID missing or invalid">
-    Location ID is required and must match an existing location in Settings → Locations. Check your location IDs before importing.
+  <Accordion icon="map-marker-alt" title="Location ID invalid">
+    Location ID is optional. A blank cell is fine. But if you do provide one, it must match a location in your account. Check IDs in Settings → Locations.
   </Accordion>
 
   <Accordion icon="dollar-sign" title="Invalid price value">
-    Total Price must be a number. Use 1500 for $1,500.00. Don't include dollar signs or commas.
+    Total Price must be 0 or a positive number. Don't include dollar signs or commas. Negative values are rejected.
   </Accordion>
 </AccordionGroup>
 
