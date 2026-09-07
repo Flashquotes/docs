@@ -113,6 +113,33 @@ Refunded invoices:
 Partial refunds don't change the invoice status. Only full net payment refunds mark an invoice as "Refunded".
 </Note>
 
+## Troubleshooting
+
+### Invoice shows "Overdue" after a partial refund
+
+This is expected. A partial refund doesn't change the invoice status, so any remaining balance can still show as "Overdue".
+
+To clear the remaining balance:
+
+1. Open the invoice.
+2. Add a negative line item equal to the remaining balance.
+3. In the line item description, note the reason for the revision.
+
+The invoice balance drops to zero and no longer shows as overdue.
+
+### "Refund amount exceeds maximum refundable" error
+
+This error appears when you try to manually record a refund for a payment that was processed through Flashquotes. Refunds issued outside Flashquotes (like a bank transfer) can't be recorded manually.
+
+Instead, process the refund through Flashquotes:
+
+1. Open the payment's details.
+2. Click **Send Refund** and enter the amount.
+
+The money goes back to the customer's original payment method. There's no extra fee for refunding this way.
+
+If you've already refunded the customer outside Flashquotes, contact support to record the refund. Then add a negative line item to clear any remaining balance (see above).
+
 ## Related Resources
 
 - [Invoice Management](/invoices)
