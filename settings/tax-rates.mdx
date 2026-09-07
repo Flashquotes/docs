@@ -1,0 +1,39 @@
+---
+title: "Tax Rates"
+description: "Create and manage the sales tax rates applied to quotes and invoices"
+---
+
+Manage the sales tax rates flashquotes applies to quotes and invoices.
+
+Go to **Settings > Tax Rates**.
+
+## Add a tax rate
+
+1. Click **Add tax rate**.
+2. Enter a name (e.g., "CO Sales Tax") and the rate. Rates support up to 4 decimal places.
+3. Click **Add tax rate** to save.
+
+## Change a rate
+
+Rates can't be edited after creation. To change one:
+
+1. Add a new tax rate with the updated percentage.
+2. Delete the old rate.
+3. Update your location's default tax rate in **Settings > Company > Location**.
+
+## Set the default rate
+
+Each location has one default tax rate, set in [Company settings](/settings/general#location-management). New quotes, including auto-drafted quotes, prepopulate with this rate.
+
+Need a different rate for a specific quote, like a county-specific rate? Open the quote and pick a different rate from the tax rate dropdown. You can also mark individual line items as taxable or not.
+
+## How changes affect quotes
+
+- Changing the default or deleting a rate never changes existing quotes. They keep the rate they were created with.
+- New quotes pick up the current default.
+
+**What clients see:** Tax appears as its own line in the quote totals. It can't be hidden.
+
+Common issues:
+- Quotes still show an old rate: existing quotes keep their original rate. Update each quote's tax rate manually.
+- Auto-quotes apply the wrong county rate: auto-quotes always use the location default. Adjust the rate on the quote after it's created.
