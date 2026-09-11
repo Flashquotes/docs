@@ -66,6 +66,9 @@ Add-ons are extras and upsells that customers can add to their bookings. Go to *
     ### Minimum Price (Optional)
     For variable-rate add-ons (**Per guest**, **Per hour**, **Per resource**, **Per unit per hour**, **Per unit per guest**, **Per resource per hour**), you can set an optional minimum price. If the calculated price is below this amount, the minimum is used. Leave blank for no minimum. Flat rate and Per unit do not use minimum price.
 
+    ### Charge the base price each day
+    For any non-Flat pricing type with a base price, enable **Charge the base price each day** to have the base recur on every service day of a multi-day booking. The base is multiplied by the number of days before any per-unit fold or per-resource multiplier, so it composes with the existing add-on math (e.g. a \$100 setup fee on a per-resource-per-hour add-on becomes \$100 × days, then × resources). The toggle is off by default and is ignored for Flat pricing, so existing add-ons keep their current behavior. Use it for costs that genuinely recur daily, such as a \$100/day setup fee on a latte printer that must apply every day of a multi-event booking.
+
     <Tip>
       Choose pricing models that align with your operational costs and market positioning.
     </Tip>
