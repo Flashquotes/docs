@@ -63,12 +63,35 @@ Add-ons are extras and upsells that customers can add to their bookings. Go to *
     - **Per resource per hour**: Per-resource hourly rate, with an optional per-resource setup base and an optional per-resource-per-day minimum hours floor. Use for add-ons that scale by both resource count and time (e.g. additional bartenders billed by the hour with a setup fee per bartender). Customer-facing copy reads "$X per hour" (with the base shown as a leading term when set) — "resource" is hidden from the lead form.
     - **Tiered per guest**: Offer volume discounts on **Per guest** add-ons by setting rate bands (e.g. \$5/guest for 1–49, \$4/guest for 50–99, \$3/guest for 100+). The applicable tier is chosen based on the guest count on the quote.
 
+    ### Base Price (Optional)
+    Every pricing model except **Flat rate** can carry an optional base price for setup, delivery, or equipment costs on top of the calculated amount. Once you enter a base price, two checkboxes appear:
+
+    - **Charge the base price per unit** — the base is added to each unit's price, so it scales with quantity. Only available on **Per unit**, **Per unit per hour**, and **Per unit per guest**.
+    - **Charge the base price each day** — the base is multiplied by the number of service days. Use it for costs you incur every day of a multi-day event, like daily delivery or setup.
+
+    The two combine. With both on, a \$50 base on a 3-unit, 2-day booking bills \$50 × 3 units × 2 days = \$300 before the variable rate.
+
+    <Note>
+      Leave **Charge the base price each day** off for one-time costs. A single delivery fee on a 3-day festival should bill once, not three times.
+    </Note>
+
     ### Minimum Price (Optional)
     For variable-rate add-ons (**Per guest**, **Per hour**, **Per resource**, **Per unit per hour**, **Per unit per guest**, **Per resource per hour**), you can set an optional minimum price. If the calculated price is below this amount, the minimum is used. Leave blank for no minimum. Flat rate and Per unit do not use minimum price.
+
+    The minimum applies to the calculated amount only. The base price is added on top and is never floored by it.
 
     <Tip>
       Choose pricing models that align with your operational costs and market positioning.
     </Tip>
+  </Accordion>
+
+  <Accordion icon="eye" title="Previewing the Price">
+    The **Price preview** panel on the add-on page shows what the add-on would cost before you use it on a real quote. Adjust quantity, guests per day, resources, hours per day, and number of days, and the price updates as you type.
+
+    - Controls only appear for the inputs your pricing model uses. A **Per guest** add-on shows guests and days; a **Flat rate** add-on shows a single fixed price.
+    - The breakdown shows the calculated price and the base price separately, with the factors behind each, like "3 units × 100 guests/day × 2 days × \$1.00".
+    - Callouts flag when a minimum price or a minimum billable hours floor changed the result.
+    - Tiered per-guest add-ons need at least one tier configured before the preview can run.
   </Accordion>
 </AccordionGroup>
 
