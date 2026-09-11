@@ -231,7 +231,7 @@ This ensures you're always paid at least your minimum while allowing flexible pr
 
 ## Dynamic Pricing <ScaleBadge />
 
-Adjust prices automatically based on demand, lead time, and event type. Dynamic modifiers stack on top of your base pricing.
+Adjust prices automatically based on demand, lead time, calendar date, time of day, and event type. Dynamic modifiers stack on top of your base pricing and compound with each other.
 
 <AccordionGroup>
   <Accordion icon="chart-line" title="Surge Pricing">
@@ -242,12 +242,36 @@ Adjust prices automatically based on demand, lead time, and event type. Dynamic 
     - Auto-applies on any quote for dates where the linked resources are scarce
   </Accordion>
 
+  <Accordion icon="calendar-star" title="Holiday & Date Pricing">
+    Charge a premium (or discount) on specific dates — recognized holidays and your own custom date ranges. Each row applies per service day based on the event's local date, and overlapping rows stack.
+
+    Two kinds of rows live on the same modifier:
+
+    - **Holidays** — one-click bulk-add for your company's regional set (US federal, Canadian statutory, UK bank for England & Wales, Australian national, or Irish public) or pick individual holidays like Valentine's Day, Christmas, or New Year's Day. Each row is stored by holiday key, so it resolves to the correct date every year without re-entry.
+    - **Specific dates** — a named range with a start date, end date, and percent. Turn on **Repeat every year** to reuse the range annually; the span keeps its length across New Year, and a Feb 29 endpoint clamps to Feb 28 in non-leap years.
+
+    The editor keeps holidays in a collapsible section with a count badge (auto-expanded when you add one), and specific dates in their own section with a pencil to edit each row. Past date ranges hide behind **Show past dates**.
+
+    **Example**: +25% on New Year's Eve (holiday) and +15% on your custom "Peak summer" range from June 15 to August 31, repeating every year.
+  </Accordion>
+
   <Accordion icon="clock-rotate-left" title="Days-Out Modifier">
     Modify the service price based on **event lead time** — how far out the event is from the booking date. Use it to upcharge rush jobs, charge a premium for far-out reservations that lock up your calendar, or both.
 
     - Set tiers by days between the booking and the event
     - **Short lead time** — e.g. +30% within 7 days to cover the cost of rush jobs
     - **Long lead time** — e.g. +10% beyond 12 months to price in the opportunity cost of holding the date
+  </Accordion>
+
+  <Accordion icon="clock" title="Time-of-Day Pricing">
+    Charge more (or less) based on the clock time a service runs. Build a ladder of clock-time bands with a percent for each; the last row ends at 11:59 PM.
+
+    Flashquotes checks both the service start and end against your ladder and applies the **larger** adjustment once per service day. If start and end tie, the start wins. An 11:30 PM–2 AM booking picks up **one** late-night fee, not two.
+
+    - Rows are typed as clock times in `H:MMa` style (e.g. `7:00a`, `10:00p`)
+    - The quote preview breakdown names which end triggered the fee, like "10:00 PM start" or "1:30 AM finish"
+
+    **Example**: 12 AM–7 AM +10%, 7 AM–10 PM 0%, 10 PM–12 AM +10%. A service that ends at 1:30 AM adds one 10% late-night charge for that service day.
   </Accordion>
 
   <Accordion icon="tags" title="Pricing by Event Type">

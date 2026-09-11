@@ -9,6 +9,19 @@ import { PlusBadge, ProBadge, ScaleBadge } from "/snippets/badge.mdx";
 This changelog documents product updates and new features in Flashquotes. These updates are rolled out directly to the live application - no separate changelog feature exists within the app itself.
 </Note>
 
+<Update label="September 10, 2026">
+
+## Holiday and Time-of-Day Pricing Modifiers <ScaleBadge />
+
+Two new dynamic pricing modifiers on each service, so date-driven and clock-driven premiums apply automatically without touching individual quotes. Both stack with the existing Surge, Days-out, Location, and Event type modifiers.
+
+- **Holiday & date pricing** — bulk-add your region's holidays in one click (US federal, Canadian statutory, UK bank for England & Wales, Australian national, or Irish public), pick individual holidays like Valentine's or Christmas, or add named date ranges with an optional **Repeat every year**. Holiday keys resolve to the correct date each year and repeating ranges keep their length across New Year, with a Feb 29 endpoint clamping to Feb 28.
+- **Time-of-day pricing** — a clock-time ladder (e.g. +10% before 7 AM and after 10 PM). Flashquotes checks both the service start and end and applies the larger adjustment once per service day, so an 11:30 PM–2 AM event pays one late-night fee, not two. The quote preview names which end triggered the fee.
+
+[Dynamic Pricing →](/services/pricing#dynamic-pricing)
+
+</Update>
+
 <Update label="September 5, 2026">
 
 ## Lead Detection with Flashquotes AI
