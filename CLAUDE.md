@@ -32,12 +32,13 @@ Existing markdown tables in `settings/plans.mdx` use unescaped `$` (e.g. `$59/mo
 Badges live in `snippets/badge.mdx` and are imported per page:
 
 ```mdx
-import { PlusBadge, ProBadge, ScaleBadge } from "/snippets/badge.mdx";
+import { PlusBadge, ProBadge, ScaleBadge, BetaBadge } from "/snippets/badge.mdx";
 ```
 
 - `<PlusBadge />` — blue, marks Plus-tier features
 - `<ProBadge />` — green, marks Pro-tier features
 - `<ScaleBadge />` — orange, marks Scale-tier features (also used inline next to "Scale access required" callouts)
+- `<BetaBadge />` — violet, marks features in public beta (currently Flashquotes AI). Not a plan tier; it can sit next to a tier badge. Never use it in the changelog: beta status is temporary and changelog entries are permanent.
 
 Place the badge directly after the H2 title (e.g. `## Dynamic Pricing <ScaleBadge />`) for tier sections, or inline next to the feature reference in prose.
 

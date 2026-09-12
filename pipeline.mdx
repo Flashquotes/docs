@@ -3,7 +3,7 @@ title: "Pipeline"
 description: "Track every open quote from new inquiry to booked in a visual pipeline"
 ---
 
-import { PlusBadge } from "/snippets/badge.mdx";
+import { BetaBadge, PlusBadge } from "/snippets/badge.mdx";
 
 ## Overview
 
@@ -42,6 +42,12 @@ Each column shows its card count and total quote value, so you can read the heal
 Drag a card to move it between stages within the same group. Quotes advance between groups on their own — sending a quote moves it to **Quote sent**, and a booking moves it to **Booked** — so the board always reflects reality.
 
 While dragging, a **Mark as lost** drop zone appears at the bottom of the screen. Drop a card there to close it out with an optional reason — **Price**, **Date unavailable**, **Went silent**, **Chose someone else**, or **Other**. Lost quotes are never deleted; find them anytime under the Lost filter.
+
+### Inquiries found by Flashquotes AI <BetaBadge />
+
+With Gmail connected, Flashquotes AI flags emails that ask for a quote for an upcoming event. Suggestions sit at the top of the default **New inquiry** column and count toward its total. Click one to review it, then build the quote or discard it. If Gmail isn't connected, the column shows a **Connect with Google** card instead.
+
+[Set up lead detection →](/flashquotes-ai/lead-detection)
 
 ### Custom stages <PlusBadge />
 

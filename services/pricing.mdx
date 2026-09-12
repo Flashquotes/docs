@@ -231,7 +231,9 @@ This ensures you're always paid at least your minimum while allowing flexible pr
 
 ## Dynamic Pricing <ScaleBadge />
 
-Adjust prices automatically based on demand, lead time, and event type. Dynamic modifiers stack on top of your base pricing.
+Adjust prices automatically based on demand, lead time, dates, weekdays, time of day, event type, and location. Open a service, go to **Pricing**, and switch to the **Advanced** tab. Standard rates build the price; advanced modifiers adjust it.
+
+Each modifier is a percentage. Positive to upcharge, negative to discount. You only add the rows you want to change; anything you don't configure keeps the base price.
 
 <AccordionGroup>
   <Accordion icon="chart-line" title="Surge Pricing">
@@ -242,7 +244,7 @@ Adjust prices automatically based on demand, lead time, and event type. Dynamic 
     - Auto-applies on any quote for dates where the linked resources are scarce
   </Accordion>
 
-  <Accordion icon="clock-rotate-left" title="Days-Out Modifier">
+  <Accordion icon="clock-rotate-left" title="Days-Out Pricing">
     Modify the service price based on **event lead time** — how far out the event is from the booking date. Use it to upcharge rush jobs, charge a premium for far-out reservations that lock up your calendar, or both.
 
     - Set tiers by days between the booking and the event
@@ -250,13 +252,103 @@ Adjust prices automatically based on demand, lead time, and event type. Dynamic 
     - **Long lead time** — e.g. +10% beyond 12 months to price in the opportunity cost of holding the date
   </Accordion>
 
-  <Accordion icon="tags" title="Pricing by Event Type">
+  <Accordion icon="calendar-week" title="Day-of-Week Pricing">
+    Charge more for the days that are hardest to staff, or discount the ones you're trying to fill.
+
+    - Add only the days that need a change. Unlisted days bill at the base price.
+    - Matched on the day the service **starts** at the event location
+    - Each day of a multi-day event is priced on its own weekday
+
+    **Example**: +20% on Saturdays, −10% on Tuesdays.
+  </Accordion>
+
+  <Accordion icon="calendar-days" title="Holiday & Date Pricing">
+    Charge a premium on holidays and specific dates without editing the service every year.
+
+    - **Add all holidays at once** — pick **Add dates → All US federal holidays** (the list matches your company's country), set one percentage, and every missing holiday is added. Change any of them individually afterward.
+    - **Add a single holiday** — search the list for Valentine's Day, Christmas Eve, New Year's Eve, and more
+    - **Custom dates** — name a one-off date or range (e.g. "Peak season", Jun 1 – Aug 31) and set its percentage
+    - **Repeat every year** — tick **Repeats every year** on a custom range and it applies on the same month and day each year
+
+    Holidays recalculate their date every year, so Thanksgiving and Memorial Day land correctly without maintenance. If more than one date row covers the event day, all of them apply.
+
+    **Example**: +10% on every US federal holiday, plus a "New Year's Eve" row at +25%.
+  </Accordion>
+
+  <Accordion icon="moon" title="Time-of-Day Pricing">
+    Charge more for early-morning starts and late-night finishes.
+
+    - Set ranges of clock time at the event location, each with a percentage
+    - **Both the start and the end are checked** — a 12:00 AM to 7:00 AM range catches a 6:00 AM start and a 1:00 AM finish alike
+    - Applies **once per service day**. When both ends match, only the larger adjustment applies, so a late event isn't charged twice.
+
+    **Example**: +10% from 12:00 AM to 7:00 AM, no change from 7:00 AM to 10:00 PM, +10% from 10:00 PM to midnight.
+  </Accordion>
+
+  <Accordion icon="tags" title="Event Type Pricing">
     Charge differently for the same service depending on event type — wedding, corporate, festival, and more:
     - Set the price modifier for each event type on a service
     - Bump or discount specific event types
     - Captured from the [Event Type form question](/forms/lead-intake) on your lead intake form
   </Accordion>
+
+  <Accordion icon="building" title="Location Pricing">
+    Price the same service differently in each market you operate in.
+
+    - Set a percentage per [company location](/settings/general#location-management)
+    - Add rows only for the locations that need a change
+    - Applies based on the location assigned to the quote
+  </Accordion>
 </AccordionGroup>
+
+### How Modifiers Stack
+
+Modifiers compound on the running price rather than adding together. A +10% and a −10% modifier combine to **−1%**, not 0%.
+
+Day-of-week, holiday and date, and time-of-day pricing are evaluated **per service day**, using the local date and clock at the event location. A Saturday 9:00 PM to 1:00 AM event prices as Saturday, and each day of a multi-day event is priced on its own date.
+
+<Note>
+  Dynamic pricing is folded into the line item price on the customer's quote. Customers see one price per service, not a modifier breakdown.
+</Note>
+
+## Copying Pricing Between Services
+
+Once one service is priced the way you want, reuse it instead of rebuilding it.
+
+Every pricing section has its own copy control at the bottom:
+
+- **Start from…** appears on an empty section. Choose **Starter template** for suggested values, or pick another service to copy from.
+- **Copy from…** appears once the section has settings, or when there's no starter template.
+
+<Steps>
+  <Step title="Open the pricing section you want to fill">
+    Go to **Services & items → your service → Pricing**, then expand the section you want: surge pricing, days-out pricing, day-of-week pricing, holiday and date pricing, time-of-day pricing, event type pricing, or location pricing.
+  </Step>
+
+  <Step title="Click Start from… or Copy from…">
+    Search for the service you want to copy, then select it.
+  </Step>
+
+  <Step title="Confirm the replacement">
+    If the section already has settings, you'll be asked to confirm. Copying replaces that section only. Your other pricing settings stay the same.
+  </Step>
+</Steps>
+
+Each control copies **one category at a time**, so you can take holiday pricing from one service and day-of-week pricing from another. Holiday and date copying brings over custom dates and yearly repeats.
+
+<Tip>
+  Only services that already have settings in that category show up in the list. If a service is missing, configure the category there first.
+</Tip>
+
+## Preview Your Pricing
+
+The **Quote preview** panel on the pricing page shows what a service would cost before you send a real quote. Change the hours, guests, units, distance, date, start time, location, event type, or resource utilization, and the price and its breakdown update as you type.
+
+- Controls only appear for pricing you've actually configured. Add day-of-week or holiday pricing and an event date picker shows up; add time-of-day pricing and a start time stepper appears.
+- The breakdown names every modifier that fired and by how much, like "Day-of-week pricing, on Saturdays, +20%".
+- Derived staff and resource counts are shown too; click through to edit your [staffing rules](/services/staffing-rules).
+
+Add-ons have the same preview. Open **Services & items → Add-ons → your add-on** to see the price for a given quantity, guest count, resource count, hours, and number of days.
 
 ## Service Charges
 
@@ -267,13 +359,22 @@ Navigate to **Settings → Service Charges** to configure these additional fees.
 ## Common Questions
 
 **Q: Can I have different prices for different event types?**
-A: Yes — use [Pricing by Event Type](#dynamic-pricing) to apply different rates for weddings, corporate events, festivals, and more, all within a single service. See [Structuring Your Services](/services/structuring-services) for best practices.
+A: Yes — use [Event Type Pricing](#dynamic-pricing) to apply different rates for weddings, corporate events, festivals, and more, all within a single service. See [Structuring Your Services](/services/structuring-services) for best practices.
 
 **Q: How do I handle peak season pricing?**
-A: Use [Surge Pricing](#dynamic-pricing) to set premium rates on high-demand dates. Modifiers apply automatically on matching quotes.
+A: Add a custom date range under [Holiday & Date Pricing](#dynamic-pricing) and tick **Repeats every year**, so the season prices itself every year. Use [Surge Pricing](#dynamic-pricing) on top of it to react to how booked up you already are.
 
 **Q: What if my costs vary by location?**
-A: Use the minimum price to ensure you cover base costs, and configure travel fees as an add-on or manual adjustment.
+A: Use [Location Pricing](#dynamic-pricing) to set a percentage per company location. For drive-time costs within a market, configure [travel fees](/services/travel-fees) instead.
+
+**Q: Can I charge more for holidays?**
+A: Yes — [Holiday & Date Pricing](#dynamic-pricing) adds every holiday for your country in one step, and each holiday recalculates its date each year.
+
+**Q: Can I charge more for late-night events?**
+A: Use [Time-of-Day Pricing](#dynamic-pricing). It checks both the start and the end of the service, so an event that runs past midnight is caught even if it started at a normal hour.
+
+**Q: Do I have to set this up on every service?**
+A: No — price one service, then use [Copy from…](#copying-pricing-between-services) on the others. Each category copies separately.
 
 ## Next Steps
 

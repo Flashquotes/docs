@@ -9,6 +9,51 @@ import { PlusBadge, ProBadge, ScaleBadge } from "/snippets/badge.mdx";
 This changelog documents product updates and new features in Flashquotes. These updates are rolled out directly to the live application - no separate changelog feature exists within the app itself.
 </Note>
 
+<Update label="September 11, 2026">
+
+## Holiday, Time-of-Day, and Day-of-Week Pricing <ScaleBadge />
+
+Three new dynamic pricing modifiers, so the calendar and the clock set your rates instead of you editing prices by hand. Find them on a service under **Pricing → Advanced**.
+
+- **Holiday & date pricing** — add every holiday for your country in one step with a single percentage, or pick them one at a time. Holidays recalculate their date each year, so Thanksgiving and Memorial Day stay correct without maintenance.
+- **Custom dates that repeat** — name a one-off range like "Peak season," set a percentage, and tick **Repeats every year** to have it apply on the same dates annually
+- **Time-of-day pricing** — charge more for early starts and late finishes. Set ranges of clock time, each with its own percentage. A common setup is +10% before 7:00 AM and after 10:00 PM, with your normal hours left at the base rate.
+- **Day-of-week pricing** — upcharge Saturdays, discount the days you're trying to fill. Add only the days that need a change.
+
+[Learn about dynamic pricing →](/services/pricing#dynamic-pricing)
+
+</Update>
+
+<Update label="September 10, 2026">
+
+## Add-on Base Price per Day and Live Price Preview
+
+Add-on pricing got a new billing option and a way to check your math before it reaches a customer.
+
+- **Charge the base price each day** — a new checkbox that multiplies an add-on's base price by the number of service days. Use it for costs you incur every day of a multi-day event, like daily delivery or setup.
+- **Combines with per-unit** — leave both on and the base scales by quantity and days together
+- **Price preview** — the add-on page now shows the price for any quantity, guest count, resource count, hours, and number of days, with the calculated price and base price broken out separately
+
+[Learn about add-ons →](/services/add-ons)
+
+</Update>
+
+<Update label="September 5, 2026">
+
+## Lead Detection with Flashquotes AI
+
+Flashquotes AI now finds quote requests sitting in your Gmail inbox and turns them into quote opportunities. Connect a Google account and new emails are checked as they arrive.
+
+- **Suggestions in the Pipeline** — each inquiry found appears at the top of the New inquiry column with the event date, guest count, and a brief AI summary
+- **Build the quote in one click** — Flashquotes creates the contact and a draft quote with the date, time, address, and service filled in, then opens it for you to finish
+- **See the source** — read the original email before you decide, and discard anything that isn't a real inquiry
+
+Flashquotes AI is in public beta. Click **Give feedback** on any suggestion to help us make it better next time.
+
+[Lead detection →](/flashquotes-ai/lead-detection) · [Flashquotes AI overview →](/flashquotes-ai/overview)
+
+</Update>
+
 <Update label="September 3, 2026">
 
 ## Duplicate a Quote with New Dates
@@ -474,7 +519,7 @@ Add per-unit pricing to any service — useful for services where you want to pr
 
 Improved sorting, filtering and search on the Invoices view as well as a new Payments view under Finance > Payments.
 
-Additionally, you can now export both Invoice and Payments to CSV to support accounting and data analysis.
+Additionally, you can now export both Invoices and Payments to CSV to support accounting and data analysis.
 
 [Learn more about invoices →](/invoices) and [Learn more about exports →](/imports-exports/overview)
 
@@ -1097,7 +1142,7 @@ Quote Requested workflows complement the existing Quote Sent workflows, giving y
 
 ## Enhanced Quote Expiration for Last-Minute Bookings
 
-Quotes now expire at **midnight the day before the event** instead of at the event start time. This prevents your team from having a last minute booking without first confirming that you can service the event.
+Quotes now expire at **midnight the day before the event** instead of at the event start time. This prevents your team from having a last-minute booking without first confirming that you can service the event.
 
 **What Changed:**
 - Event on Oct 27 at 2pm MST → Quote expires Oct 26 at 12am MST (previously expired at 2pm Oct 27)
