@@ -15,6 +15,19 @@ Go to **Payments** in the sidebar to open your payment tracking dashboard.
   The Payments dashboard requires an active Stripe integration. If you haven't connected Stripe yet, visit [Settings → Integrations](</settings/integrations/overview>) to set up your payment processing.
 </Note>
 
+### Connect or reconnect Stripe from Payments
+
+If Stripe isn't connected, the Payouts and Activity tabs show a Connect Stripe empty state instead of an error. If flashquotes lost access to the account, the same tabs show a Reconnect Stripe empty state.
+
+Steps:
+1. Open the Payouts or Activity tab.
+2. Click **Connect Stripe** or **Reconnect Stripe**.
+3. Complete the Stripe authorization.
+
+**What happens next:** You return to the same tab with a confirmation toast, and payouts and activity load automatically. Reconnect re-authorizes the same Stripe account, so you don't lose history.
+
+If a tab can't load Stripe (network hiccup or session error), it now shows a retryable "unavailable" state instead of spinning forever. Click **Retry** to try again. See [Stripe connection status](/settings/general#stripe-connection-status) for what each state on the settings card means.
+
 ## Dashboard Features
 
 ### Stripe Connect Integration
