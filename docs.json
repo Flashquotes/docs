@@ -241,6 +241,13 @@
             "pages": ["api-reference/introduction"]
           },
           {
+            "group": "Quotes",
+            "pages": [
+              "api-reference/quote/get",
+              "api-reference/quote/list-quotes"
+            ]
+          },
+          {
             "group": "Events",
             "pages": [
               "api-reference/event/get",
