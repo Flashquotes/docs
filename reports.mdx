@@ -97,10 +97,15 @@ The Reports page also displays essential business statistics:
   </Accordion>
 
   <Accordion icon="credit-card" title="Financial Metrics">
+    - **Booked Revenue**: Total booked value for bookings whose first event starts in the period
     - **Percent Paid**: Percentage of invoices fully paid
     - **Period comparisons**: Trend indicators vs previous period
   </Accordion>
 </AccordionGroup>
+
+<Note>
+  Booked revenue is attributed to a booking's earliest active event date, matching the Bookings page's **First event date** filter. Reports and Bookings show identical revenue for the same period, and bookings spanning multiple events are counted once rather than in every period they touch. Canceled bookings and deleted events are excluded. The stat's tooltip lists what's included: line items, gratuity, service charges, and tax, net of discounts.
+</Note>
 
 ## Filtering Reports
 
