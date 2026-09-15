@@ -42,7 +42,11 @@ Quote settings control how your quotes are presented to clients and set default 
     Control how instant quotes behave when generated from your lead intake forms.
 
     ### Auto-Enroll in Workflow
-    When enabled, all instant quotes are automatically enrolled in your quote follow-up workflow. This ensures consistent follow-up for every contact without manual intervention.
+    When enabled, all instant quotes are automatically enrolled in your [default Quote Sent workflow](/workflows/triggers#quote-sent). Pick the default from the workflow selector next to the toggle. This ensures consistent follow-up for every contact without manual intervention.
+
+    <Warning>
+      A default Quote Sent workflow must be set for instant-quote auto-enrollment to work. If you have multiple Quote Sent workflows and no default, instant quotes won't enroll in any of them.
+    </Warning>
 
     <Tip>
       Combine auto-enrollment with a well-designed [quote follow-up workflow](/workflows) to maximize conversion rates on instant quotes.
