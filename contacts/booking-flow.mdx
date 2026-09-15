@@ -63,6 +63,7 @@ Payment terms define your payment schedule for each quote. Select from your conf
     **How it works:**
     - Clients pay a deposit amount when booking
     - Remaining balance is invoiced and due before the event
+    - If the balance due date has already passed when the client books, the full amount is due at booking
     - Clients can choose to **pay the full balance today** instead of just the deposit
 
     **Configuration options:**
@@ -100,6 +101,18 @@ Payment terms define your payment schedule for each quote. Select from your conf
     - **Invoice Due:** Set when payment is due (days before/after event)
   </Accordion>
 </AccordionGroup>
+
+### When the balance deadline has passed
+
+The balance due setting is calculated from the event date, even when a client books close to the event. If that deadline has already passed, Flashquotes requires all currently due payments at booking. The client is therefore asked for the full amount instead of only the deposit.
+
+Collecting the balance during booking prevents the new invoice from being overdue as soon as it is created. It also means the booking is confirmed with the required payment already collected, so you do not have to chase down a remaining balance whose due date has passed.
+
+For example, suppose the payment terms require a deposit at booking and the remaining balance **7 days before the event**. If the client books **3 days before the event**, the balance deadline passed 4 days earlier, so the full amount is due when they book.
+
+<Info>
+  This is expected for last-minute bookings. To collect only a deposit, select payment terms whose balance deadline is still in the future for that event.
+</Info>
 
 ### Editing Payment Terms
 
@@ -263,6 +276,7 @@ The event address is prefilled from the quote. Because the lead intake form stil
   <Accordion icon="calculator" title="Wrong deposit amount calculated?">
     - For percentage deposits, verify the percentage is entered correctly (e.g., 25 not 0.25)
     - Check that the quote total is accurate
+    - Check whether the balance due date has already passed. When it has, the full amount is due at booking.
     - Edit the payment terms to adjust the deposit amount
   </Accordion>
 

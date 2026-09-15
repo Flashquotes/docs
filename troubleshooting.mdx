@@ -7,6 +7,12 @@ icon: "circle-question"
 ## Frequently Asked Questions
 
 <AccordionGroup>
+  <Accordion title="Why are my quote emails going to spam or showing no opens?">
+    First, connect your business Google Workspace account, select it when sending a quote, and confirm the email appears in Gmail's **Sent** folder. Then have your domain administrator verify **SPF, DKIM, and DMARC**. See the [Gmail deliverability guide](/settings/integrations/google-gmail-send#improve-email-deliverability) for setup and verification steps.
+
+    No recorded opens does not prove an email went to spam. Ask the customer to check Spam and Promotions, and review any bounce message. For more help, follow [email delivery troubleshooting](/settings/integrations/google-gmail-send#emails-going-to-spam-or-showing-no-opens).
+  </Accordion>
+
   <Accordion title="My customer is stuck on the address step of the booking form and can't continue.">
     The booking form blocks the address step until the address is complete enough to dispatch a crew to. Clicking **Next** silently does nothing and an inline message appears under the field:
 

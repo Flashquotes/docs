@@ -7,13 +7,13 @@ import { ProBadge, ScaleBadge } from "/snippets/badge.mdx";
 
 ## Welcome to the Flashquotes API <ScaleBadge />
 
-The Flashquotes API enables you to programmatically access and manage your events, bookings, forms, invoices, and tasks. Our REST API provides endpoints for retrieving event data, creating tasks, managing form responses, and accessing invoice information.
+The Flashquotes API enables you to programmatically access and manage your quotes, events, bookings, forms, invoices, and tasks. Our REST API provides endpoints for retrieving quote summaries and live totals, retrieving event data, creating tasks, managing form responses, and accessing invoice information.
 
 ## Plan access
 
 What you can use depends on your plan:
 
-- **Full REST API** <ScaleBadge /> — every endpoint in this reference: events, bookings, form responses, invoices, and tasks. Needs the **Scale** plan.
+- **Full REST API** <ScaleBadge /> — every endpoint in this reference: quotes, events, bookings, form responses, invoices, and tasks. Needs the **Scale** plan.
 - **Zapier** <ProBadge /> — the endpoints the Flashquotes Zapier app uses. Included with **Pro** and above. [Set up Zapier →](/settings/integrations/zapier)
 
 Upgrade anytime in [Plan Settings](https://app.flashquotes.com/settings/plans).
@@ -43,6 +43,10 @@ https://app.flashquotes.com/api
 Our API provides several endpoint groups:
 
 <CardGroup cols={2}>
+<Card title="Quote Endpoints" icon="file-lines" href="/api-reference/quote/list-quotes">
+  Retrieve quote summaries and live totals, filter quotes, and expand related objects
+</Card>
+
 <Card title="Event Endpoints" icon="calendar">
   Manage events, retrieve event details, and list events within date ranges
 </Card>
@@ -59,6 +63,7 @@ Our API provides several endpoint groups:
   Retrieve invoice information and payment details
 </Card>
 </CardGroup>
+
 ## Response Format
 
 All responses are returned in JSON format. Successful responses will have a 2xx status code, while errors will return appropriate 4xx or 5xx status codes with error details.

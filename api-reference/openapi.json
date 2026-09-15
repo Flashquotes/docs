@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "Flashquotes API",
-    "description": "API for accessing event, form, and invoice data from Flashquotes",
+    "description": "API for accessing quote, event, form, and invoice data from Flashquotes",
     "version": "1.0.0",
     "contact": {
       "name": "Flashquotes Support",
@@ -236,7 +236,8 @@
                               "id": "led_2T7nC4",
                               "firstName": "Jane",
                               "lastName": "Doe",
-                              "companyName": "Acme"
+                              "companyName": "Acme",
+                              "source": "Website"
                             }
                           }
                         }
@@ -400,7 +401,8 @@
                           "firstName": "Jane",
                           "lastName": "Doe",
                           "email": "jane@acme.com",
-                          "companyName": "Acme"
+                          "companyName": "Acme",
+                          "source": "Website"
                         },
                         "invoices": [
                           {
@@ -961,6 +963,582 @@
           }
         }
       }
+    },
+    "/quotes/{id}": {
+      "get": {
+        "summary": "Get Quote",
+        "description": "Retrieve a quote summary with live totalPriceCents. Requires an x-api-key with public API access (Scale, or eligible Grandfathered Pro). Related objects are returned only when requested through expand[].",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Quote ID.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "cmf2q8n4x0000kz01a1b2c3d4"
+          },
+          {
+            "name": "expand[]",
+            "in": "query",
+            "required": false,
+            "description": "Use paths without a data. prefix. Repeat expand[] or use comma-separated paths. A nested path includes its parents; unrequested siblings stay absent. Maximum 20 distinct paths per request and four segments, excluding data. Unknown or malformed paths return 400. Allowed paths: lead, location, eventType, services, addons, discounts, taxRate, paymentTerms, serviceCharges, serviceDays, contract, booking, booking.lead, booking.eventType, booking.invoices, booking.events, booking.events.location, booking.events.services, booking.events.staff, booking.events.addons, booking.events.resources, booking.events.booking, booking.events.booking.lead, booking.events.booking.eventType, booking.events.booking.invoices, booking.events.booking.events.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "example": [
+              "lead",
+              "serviceDays"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Quote retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Quote"
+                },
+                "examples": {
+                  "Default": {
+                    "summary": "Default (no expand)",
+                    "value": {
+                      "object": "quote",
+                      "id": "cmf2q8n4x0000kz01a1b2c3d4",
+                      "createdAt": "2026-09-01T14:23:11.000Z",
+                      "updatedAt": "2026-09-08T09:12:44.000Z",
+                      "sentAt": "2026-09-02T10:00:00.000Z",
+                      "expiresAt": "2026-09-30T23:59:59.000Z",
+                      "bookedAt": null,
+                      "lostAt": null,
+                      "lostReason": null,
+                      "leadId": "cmf2l8n4x0001kz01a1b2c3d4",
+                      "locationId": "cmf2p8n4x0002kz01a1b2c3d4",
+                      "eventTypeId": null,
+                      "bookingId": null,
+                      "discountId": null,
+                      "taxRateId": null,
+                      "paymentTermsId": null,
+                      "contractId": null,
+                      "numberOfStaff": 4,
+                      "numberOfResources": 2,
+                      "guestCount": 120,
+                      "eventAddress": "123 Market Street, Denver, CO 80202",
+                      "eventDescription": "Acme launch party",
+                      "siteContactName": "Jane Doe",
+                      "siteContactPhone": "+15555550123",
+                      "entityToInvoice": "Acme",
+                      "currency": {
+                        "isoCode": "USD"
+                      },
+                      "totalPriceCents": 250000
+                    }
+                  },
+                  "WithExpand": {
+                    "summary": "With expand[]=lead&expand[]=serviceDays",
+                    "value": {
+                      "object": "quote",
+                      "id": "cmf2q8n4x0000kz01a1b2c3d4",
+                      "createdAt": "2026-09-01T14:23:11.000Z",
+                      "updatedAt": "2026-09-08T09:12:44.000Z",
+                      "sentAt": "2026-09-02T10:00:00.000Z",
+                      "expiresAt": "2026-09-30T23:59:59.000Z",
+                      "bookedAt": null,
+                      "lostAt": null,
+                      "lostReason": null,
+                      "leadId": "cmf2l8n4x0001kz01a1b2c3d4",
+                      "locationId": "cmf2p8n4x0002kz01a1b2c3d4",
+                      "eventTypeId": null,
+                      "bookingId": null,
+                      "discountId": null,
+                      "taxRateId": null,
+                      "paymentTermsId": null,
+                      "contractId": null,
+                      "numberOfStaff": 4,
+                      "numberOfResources": 2,
+                      "guestCount": 120,
+                      "eventAddress": "123 Market Street, Denver, CO 80202",
+                      "eventDescription": "Acme launch party",
+                      "siteContactName": "Jane Doe",
+                      "siteContactPhone": "+15555550123",
+                      "entityToInvoice": "Acme",
+                      "currency": {
+                        "isoCode": "USD"
+                      },
+                      "totalPriceCents": 250000,
+                      "lead": {
+                        "object": "lead",
+                        "id": "cmf2l8n4x0001kz01a1b2c3d4",
+                        "firstName": "Jane",
+                        "lastName": "Doe",
+                        "email": "jane@example.com",
+                        "phone": "+15555550123",
+                        "companyName": "Acme",
+                        "source": "Website"
+                      },
+                      "serviceDays": [
+                        {
+                          "object": "serviceDay",
+                          "id": "cmf2d8n4x0003kz01a1b2c3d4",
+                          "quoteId": "cmf2q8n4x0000kz01a1b2c3d4",
+                          "serviceStartTime": "2026-10-12T18:00:00.000Z",
+                          "serviceEndTime": "2026-10-12T23:00:00.000Z",
+                          "createdAt": "2026-09-01T14:23:11.000Z",
+                          "updatedAt": "2026-09-08T09:12:44.000Z"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid expansion path or expansion limit exceeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "error": {
+                    "type": "invalid_request_error",
+                    "code": "invalid_parameter",
+                    "message": "Unknown expand path: 'lineItems'",
+                    "param": "expand"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication denied: missing or invalid API key, disallowed IP, or plan without public API access.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "error": {
+                    "type": "authentication_error",
+                    "code": "missing_or_invalid_api_key",
+                    "message": "Unauthorized, invalid or missing API key"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "error": {
+                    "type": "api_error",
+                    "code": "server_error",
+                    "message": "Internal server error"
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Authentication service temporarily unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "error": {
+                    "type": "api_error",
+                    "code": "auth_service_unavailable",
+                    "message": "Authentication service unavailable"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Quote not found, deleted, or inaccessible to your company.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "error": {
+                    "type": "invalid_request_error",
+                    "code": "not_found",
+                    "message": "Quote not found",
+                    "param": "id"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/quotes": {
+      "get": {
+        "summary": "List Quotes",
+        "description": "List quote summaries for your company with live totals, equality and date-range filters, cursor pagination, and optional related-object expansions. Requires public API access (Scale, or eligible Grandfathered Pro). Results are ordered by createdAt descending, then id descending; sort order is fixed.",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Page size, from 1 to 100. Defaults to 10.",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 10
+            },
+            "example": 25
+          },
+          {
+            "name": "starting_after",
+            "in": "query",
+            "required": false,
+            "description": "ID of the last quote in the previous page. The cursor must be accessible and match all supplied filters; otherwise the response is an empty page with hasMore false. Keep filters unchanged between pages.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "cmf2q8n4x0000kz01a1b2c3d4"
+          },
+          {
+            "name": "lead_id",
+            "in": "query",
+            "required": false,
+            "description": "Filter by exact contact ID.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "location_id",
+            "in": "query",
+            "required": false,
+            "description": "Filter by exact location ID.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "booking_id",
+            "in": "query",
+            "required": false,
+            "description": "Filter by exact booking ID.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "event_type_id",
+            "in": "query",
+            "required": false,
+            "description": "Filter by exact event type ID.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "created_at[gt]",
+            "in": "query",
+            "required": false,
+            "description": "Filter quote creation time: strictly after this ISO 8601 datetime. Include a timezone (Z or ±HH:MM); bare dates are rejected.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "2026-10-01T00:00:00Z"
+          },
+          {
+            "name": "created_at[gte]",
+            "in": "query",
+            "required": false,
+            "description": "Filter quote creation time: at or after this ISO 8601 datetime. Include a timezone (Z or ±HH:MM); bare dates are rejected.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "2026-10-01T00:00:00Z"
+          },
+          {
+            "name": "created_at[lt]",
+            "in": "query",
+            "required": false,
+            "description": "Filter quote creation time: strictly before this ISO 8601 datetime. Include a timezone (Z or ±HH:MM); bare dates are rejected.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "2026-10-01T00:00:00Z"
+          },
+          {
+            "name": "created_at[lte]",
+            "in": "query",
+            "required": false,
+            "description": "Filter quote creation time: at or before this ISO 8601 datetime. Include a timezone (Z or ±HH:MM); bare dates are rejected.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "2026-10-01T00:00:00Z"
+          },
+          {
+            "name": "updated_at[gt]",
+            "in": "query",
+            "required": false,
+            "description": "Filter quote row update time (not a complete financial change feed): strictly after this ISO 8601 datetime. Include a timezone (Z or ±HH:MM); bare dates are rejected.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "2026-10-01T00:00:00Z"
+          },
+          {
+            "name": "updated_at[gte]",
+            "in": "query",
+            "required": false,
+            "description": "Filter quote row update time (not a complete financial change feed): at or after this ISO 8601 datetime. Include a timezone (Z or ±HH:MM); bare dates are rejected.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "2026-10-01T00:00:00Z"
+          },
+          {
+            "name": "updated_at[lt]",
+            "in": "query",
+            "required": false,
+            "description": "Filter quote row update time (not a complete financial change feed): strictly before this ISO 8601 datetime. Include a timezone (Z or ±HH:MM); bare dates are rejected.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "2026-10-01T00:00:00Z"
+          },
+          {
+            "name": "updated_at[lte]",
+            "in": "query",
+            "required": false,
+            "description": "Filter quote row update time (not a complete financial change feed): at or before this ISO 8601 datetime. Include a timezone (Z or ±HH:MM); bare dates are rejected.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "2026-10-01T00:00:00Z"
+          },
+          {
+            "name": "service_start_time[gt]",
+            "in": "query",
+            "required": false,
+            "description": "Filter service-day start time; at least one day must satisfy all supplied bounds: strictly after this ISO 8601 datetime. Include a timezone (Z or ±HH:MM); bare dates are rejected.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "2026-10-01T00:00:00Z"
+          },
+          {
+            "name": "service_start_time[gte]",
+            "in": "query",
+            "required": false,
+            "description": "Filter service-day start time; at least one day must satisfy all supplied bounds: at or after this ISO 8601 datetime. Include a timezone (Z or ±HH:MM); bare dates are rejected.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "2026-10-01T00:00:00Z"
+          },
+          {
+            "name": "service_start_time[lt]",
+            "in": "query",
+            "required": false,
+            "description": "Filter service-day start time; at least one day must satisfy all supplied bounds: strictly before this ISO 8601 datetime. Include a timezone (Z or ±HH:MM); bare dates are rejected.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "2026-10-01T00:00:00Z"
+          },
+          {
+            "name": "service_start_time[lte]",
+            "in": "query",
+            "required": false,
+            "description": "Filter service-day start time; at least one day must satisfy all supplied bounds: at or before this ISO 8601 datetime. Include a timezone (Z or ±HH:MM); bare dates are rejected.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "example": "2026-10-01T00:00:00Z"
+          },
+          {
+            "name": "expand[]",
+            "in": "query",
+            "required": false,
+            "description": "Every path must start with data. Repeat expand[] or use comma-separated paths. A nested path includes its parents; unrequested siblings stay absent. Maximum 20 distinct paths per request and four segments, excluding data. Unknown or malformed paths return 400. Allowed paths: data.lead, data.location, data.eventType, data.services, data.addons, data.discounts, data.taxRate, data.paymentTerms, data.serviceCharges, data.serviceDays, data.contract, data.booking, data.booking.lead, data.booking.eventType, data.booking.invoices, data.booking.events, data.booking.events.location, data.booking.events.services, data.booking.events.staff, data.booking.events.addons, data.booking.events.resources, data.booking.events.booking, data.booking.events.booking.lead, data.booking.events.booking.eventType, data.booking.events.booking.invoices, data.booking.events.booking.events.",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "example": [
+              "data.lead",
+              "data.serviceDays"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Paginated quotes. No matches or an unusable cursor returns data: [] and hasMore: false.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QuoteList"
+                },
+                "examples": {
+                  "Default": {
+                    "summary": "Default (no expand)",
+                    "value": {
+                      "object": "list",
+                      "url": "/api/quotes",
+                      "hasMore": false,
+                      "data": [
+                        {
+                          "object": "quote",
+                          "id": "cmf2q8n4x0000kz01a1b2c3d4",
+                          "createdAt": "2026-09-01T14:23:11.000Z",
+                          "updatedAt": "2026-09-08T09:12:44.000Z",
+                          "sentAt": "2026-09-02T10:00:00.000Z",
+                          "expiresAt": "2026-09-30T23:59:59.000Z",
+                          "bookedAt": null,
+                          "lostAt": null,
+                          "lostReason": null,
+                          "leadId": "cmf2l8n4x0001kz01a1b2c3d4",
+                          "locationId": "cmf2p8n4x0002kz01a1b2c3d4",
+                          "eventTypeId": null,
+                          "bookingId": null,
+                          "discountId": null,
+                          "taxRateId": null,
+                          "paymentTermsId": null,
+                          "contractId": null,
+                          "numberOfStaff": 4,
+                          "numberOfResources": 2,
+                          "guestCount": 120,
+                          "eventAddress": "123 Market Street, Denver, CO 80202",
+                          "eventDescription": "Acme launch party",
+                          "siteContactName": "Jane Doe",
+                          "siteContactPhone": "+15555550123",
+                          "entityToInvoice": "Acme",
+                          "currency": {
+                            "isoCode": "USD"
+                          },
+                          "totalPriceCents": 250000
+                        }
+                      ]
+                    }
+                  },
+                  "Empty": {
+                    "summary": "No matching quotes",
+                    "value": {
+                      "object": "list",
+                      "url": "/api/quotes",
+                      "hasMore": false,
+                      "data": []
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid limit, date-range value, or expansion.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "error": {
+                    "type": "invalid_request_error",
+                    "code": "invalid_parameter",
+                    "message": "limit must be an integer between 1 and 100",
+                    "param": "limit"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication denied: missing or invalid API key, disallowed IP, or plan without public API access.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "error": {
+                    "type": "authentication_error",
+                    "code": "missing_or_invalid_api_key",
+                    "message": "Unauthorized, invalid or missing API key"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "error": {
+                    "type": "api_error",
+                    "code": "server_error",
+                    "message": "Internal server error"
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Authentication service temporarily unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "error": {
+                    "type": "api_error",
+                    "code": "auth_service_unavailable",
+                    "message": "Authentication service unavailable"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -1178,12 +1756,26 @@
       "Addon": {
         "type": "object",
         "properties": {
-          "object": { "type": "string", "enum": ["addon"] },
-          "id": { "type": "string" },
-          "name": { "type": "string" },
-          "description": { "type": "string", "nullable": true },
-          "imageUrl": { "type": "string", "nullable": true },
-          "unitPriceCents": { "type": "integer" }
+          "object": {
+            "type": "string",
+            "enum": [
+              "addon"
+            ]
+          },
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "imageUrl": {
+            "type": "string",
+            "nullable": true
+          }
         }
       },
       "Resource": {
@@ -1241,41 +1833,112 @@
       "Booking": {
         "type": "object",
         "properties": {
-          "object": { "type": "string", "enum": ["booking"] },
-          "id": { "type": "string" },
-          "quoteId": { "type": "string", "nullable": true },
-          "leadId": { "type": "string", "nullable": true },
-          "entityToInvoice": { "type": "string" },
-          "fullName": { "type": "string" },
-          "email": { "type": "string" },
-          "phone": { "type": "string" },
-          "paymentMethod": { "type": "string", "nullable": true },
-          "billingNotes": { "type": "string", "nullable": true },
-          "cardOnFile": { "type": "boolean" },
-          "totalPriceCents": { "type": "integer" },
-          "gratuityAmountCents": { "type": "integer", "nullable": true },
-          "eventTypeId": { "type": "string", "nullable": true },
-          "canceledAt": { "type": "string", "format": "date-time", "nullable": true },
-          "createdAt": { "type": "string", "format": "date-time" },
-          "updatedAt": { "type": "string", "format": "date-time" },
+          "object": {
+            "type": "string",
+            "enum": [
+              "booking"
+            ]
+          },
+          "id": {
+            "type": "string"
+          },
+          "quoteId": {
+            "type": "string",
+            "nullable": true
+          },
+          "leadId": {
+            "type": "string",
+            "nullable": true
+          },
+          "entityToInvoice": {
+            "type": "string"
+          },
+          "fullName": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "paymentMethod": {
+            "type": "string",
+            "nullable": true
+          },
+          "billingNotes": {
+            "type": "string",
+            "nullable": true
+          },
+          "cardOnFile": {
+            "type": "boolean"
+          },
+          "totalPriceCents": {
+            "type": "integer"
+          },
+          "gratuityAmountCents": {
+            "type": "integer",
+            "nullable": true
+          },
+          "eventTypeId": {
+            "type": "string",
+            "nullable": true
+          },
+          "canceledAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
           "currency": {
             "type": "object",
             "properties": {
-              "isoCode": { "type": "string", "example": "USD" }
+              "isoCode": {
+                "type": "string",
+                "example": "USD"
+              }
             }
           },
           "lead": {
-            "$ref": "#/components/schemas/Lead",
-            "description": "Present only when `expand[]=booking.lead`."
+            "type": "object",
+            "nullable": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Lead"
+              }
+            ],
+            "description": "Present only when lead is expanded on this booking. Returns null when missing or inaccessible."
           },
           "eventType": {
-            "$ref": "#/components/schemas/EventType",
-            "description": "Present only when `expand[]=booking.eventType`."
+            "type": "object",
+            "nullable": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/EventType"
+              }
+            ],
+            "description": "Present only when eventType is expanded on this booking. Returns null when missing or inaccessible."
           },
           "invoices": {
             "type": "array",
-            "items": { "$ref": "#/components/schemas/Invoice" },
-            "description": "Present only when `expand[]=booking.invoices`."
+            "items": {
+              "$ref": "#/components/schemas/Invoice"
+            },
+            "description": "Present only when invoices is expanded on this booking. Terminal invoice summaries; deeper invoice expansions and line items are not supported."
+          },
+          "events": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Event"
+            },
+            "description": "Present only when events is expanded on this booking. Ordered by serviceStartTime ascending, then id ascending."
           }
         }
       },
@@ -1288,7 +1951,13 @@
           "lastName": { "type": "string", "nullable": true },
           "email": { "type": "string", "nullable": true },
           "phone": { "type": "string", "nullable": true },
-          "companyName": { "type": "string", "nullable": true }
+          "companyName": { "type": "string", "nullable": true },
+          "source": {
+            "type": "string",
+            "nullable": true,
+            "description": "The contact's recorded lead source. Returns null when no source is set. Included wherever a lead object is expanded.",
+            "example": "Website"
+          }
         }
       },
       "EventType": {
@@ -1505,6 +2174,615 @@
             "type": "string",
             "description": "Overall payment status across all invoices for this booking"
           }
+        }
+      },
+      "Quote": {
+        "type": "object",
+        "required": [
+          "object",
+          "id",
+          "createdAt",
+          "updatedAt",
+          "sentAt",
+          "expiresAt",
+          "bookedAt",
+          "lostAt",
+          "lostReason",
+          "leadId",
+          "locationId",
+          "eventTypeId",
+          "bookingId",
+          "discountId",
+          "taxRateId",
+          "paymentTermsId",
+          "contractId",
+          "numberOfStaff",
+          "numberOfResources",
+          "guestCount",
+          "eventAddress",
+          "eventDescription",
+          "siteContactName",
+          "siteContactPhone",
+          "entityToInvoice",
+          "currency",
+          "totalPriceCents"
+        ],
+        "properties": {
+          "object": {
+            "type": "string",
+            "enum": [
+              "quote"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "description": "Quote ID."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When the quote was created."
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When the quote row was last updated. Child pricing changes can change totalPriceCents without changing this timestamp."
+          },
+          "sentAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true,
+            "description": "When the quote was sent, or null."
+          },
+          "expiresAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true,
+            "description": "Quote expiration time, or null."
+          },
+          "bookedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true,
+            "description": "When the quote was booked, or null."
+          },
+          "lostAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true,
+            "description": "When the quote was marked lost, or null."
+          },
+          "lostReason": {
+            "type": "string",
+            "enum": [
+              "PRICE",
+              "DATE_UNAVAILABLE",
+              "WENT_SILENT",
+              "CHOSE_COMPETITOR",
+              "OTHER"
+            ],
+            "nullable": true,
+            "description": "Reason the quote was marked lost, or null."
+          },
+          "leadId": {
+            "type": "string",
+            "description": "Contact ID. The related object is named lead in the API."
+          },
+          "locationId": {
+            "type": "string",
+            "description": "Location ID."
+          },
+          "eventTypeId": {
+            "type": "string",
+            "nullable": true,
+            "description": "Event type ID, or null."
+          },
+          "bookingId": {
+            "type": "string",
+            "nullable": true,
+            "description": "Booking ID, or null."
+          },
+          "discountId": {
+            "type": "string",
+            "nullable": true,
+            "description": "Quote-level discount ID, or null. The discounts expansion also includes line-level discount definitions."
+          },
+          "taxRateId": {
+            "type": "string",
+            "nullable": true,
+            "description": "Tax rate ID, or null."
+          },
+          "paymentTermsId": {
+            "type": "string",
+            "nullable": true,
+            "description": "Payment terms ID, or null."
+          },
+          "contractId": {
+            "type": "string",
+            "nullable": true,
+            "description": "Contract template ID, or null."
+          },
+          "numberOfStaff": {
+            "type": "integer",
+            "description": "Requested staff count."
+          },
+          "numberOfResources": {
+            "type": "integer",
+            "description": "Requested resource count."
+          },
+          "guestCount": {
+            "type": "integer",
+            "description": "Guest count."
+          },
+          "eventAddress": {
+            "type": "string",
+            "description": "Event address."
+          },
+          "eventDescription": {
+            "type": "string",
+            "nullable": true,
+            "description": "Event description, or null."
+          },
+          "siteContactName": {
+            "type": "string",
+            "nullable": true,
+            "description": "On-site contact name, or null."
+          },
+          "siteContactPhone": {
+            "type": "string",
+            "nullable": true,
+            "description": "On-site contact phone number, or null."
+          },
+          "entityToInvoice": {
+            "type": "string",
+            "nullable": true,
+            "description": "Entity to invoice, or null."
+          },
+          "currency": {
+            "type": "object",
+            "required": [
+              "isoCode"
+            ],
+            "properties": {
+              "isoCode": {
+                "type": "string",
+                "description": "ISO 4217 currency code.",
+                "example": "USD"
+              }
+            }
+          },
+          "totalPriceCents": {
+            "type": "integer",
+            "description": "Live overall quote total in the currency’s minor units (cents for USD), recalculated on every request from saved pricing, fees, discounts, service charges, and tax. Excludes booking-time gratuity; not an unpaid invoice balance. Expansion does not change this value.",
+            "example": 250000
+          },
+          "lead": {
+            "type": "object",
+            "nullable": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Lead"
+              }
+            ],
+            "description": "Present only when `lead` is expanded (use `data.lead` on lists). Returns null when the relation is missing or inaccessible."
+          },
+          "location": {
+            "type": "object",
+            "nullable": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Location"
+              }
+            ],
+            "description": "Present only when `location` is expanded (use `data.location` on lists). Returns null when the relation is missing or inaccessible."
+          },
+          "eventType": {
+            "type": "object",
+            "nullable": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/EventType"
+              }
+            ],
+            "description": "Present only when `eventType` is expanded (use `data.eventType` on lists). Returns null when the relation is missing or inaccessible."
+          },
+          "services": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Service"
+            },
+            "description": "Present only when `services` is expanded (use `data.services` on lists). Returns [] when empty. Distinct current line-item service definitions. Archived services are omitted; saved prices still contribute to the total."
+          },
+          "addons": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Addon"
+            },
+            "description": "Present only when `addons` is expanded (use `data.addons` on lists). Returns [] when empty. Distinct current line-item add-on definitions, without unit prices. Archived add-ons are omitted; saved prices still contribute to the total."
+          },
+          "discounts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Discount"
+            },
+            "description": "Present only when `discounts` is expanded (use `data.discounts` on lists). Returns [] when empty. Deduplicated quote-level and line-level definitions, with the quote-level definition first. No allocations or realized discount amounts. Attached archived definitions remain visible."
+          },
+          "taxRate": {
+            "type": "object",
+            "nullable": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TaxRate"
+              }
+            ],
+            "description": "Present only when `taxRate` is expanded (use `data.taxRate` on lists). Returns null when the relation is missing or inaccessible."
+          },
+          "paymentTerms": {
+            "type": "object",
+            "nullable": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/PaymentTerms"
+              }
+            ],
+            "description": "Present only when `paymentTerms` is expanded (use `data.paymentTerms` on lists). Returns null when the relation is missing or inaccessible."
+          },
+          "serviceCharges": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ServiceCharge"
+            },
+            "description": "Present only when `serviceCharges` is expanded (use `data.serviceCharges` on lists). Returns [] when empty. Flat definition array without association wrappers or calculated charge amounts. Attached archived definitions remain visible."
+          },
+          "serviceDays": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ServiceDay"
+            },
+            "description": "Present only when `serviceDays` is expanded (use `data.serviceDays` on lists). Returns [] when empty. Flat array ordered by serviceStartTime ascending, then id ascending."
+          },
+          "contract": {
+            "type": "object",
+            "nullable": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Contract"
+              }
+            ],
+            "description": "Present only when `contract` is expanded (use `data.contract` on lists). Returns null when the relation is missing or inaccessible. Template metadata only; excludes contract content and signatures."
+          },
+          "booking": {
+            "type": "object",
+            "nullable": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Booking"
+              }
+            ],
+            "description": "Present only when `booking` is expanded (use `data.booking` on lists). Returns null when the relation is missing or inaccessible."
+          }
+        },
+        "description": "Quote summary with live overall value. Base fields are always present; nullable native values remain null. Relations appear only when expanded. Quote and invoice line items, quantities, unit prices, and pricing configuration are not exposed."
+      },
+      "Discount": {
+        "type": "object",
+        "required": [
+          "object",
+          "id",
+          "name",
+          "type",
+          "percentOff",
+          "amountOff"
+        ],
+        "properties": {
+          "object": {
+            "type": "string",
+            "enum": [
+              "discount"
+            ]
+          },
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "PERCENT",
+              "AMOUNT"
+            ]
+          },
+          "percentOff": {
+            "type": "number",
+            "nullable": true,
+            "description": "Percentage discount (10 means 10%), or null."
+          },
+          "amountOff": {
+            "type": "integer",
+            "nullable": true,
+            "description": "Fixed discount in minor currency units, or null."
+          }
+        }
+      },
+      "TaxRate": {
+        "type": "object",
+        "required": [
+          "object",
+          "id",
+          "name",
+          "rate"
+        ],
+        "properties": {
+          "object": {
+            "type": "string",
+            "enum": [
+              "taxRate"
+            ]
+          },
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "rate": {
+            "type": "number",
+            "description": "Tax rate as a fraction (0.0825 means 8.25%)."
+          }
+        }
+      },
+      "PaymentTerms": {
+        "type": "object",
+        "required": [
+          "object",
+          "id",
+          "name",
+          "paymentSchedule",
+          "depositType",
+          "depositPercentage",
+          "depositAmountCents",
+          "invoiceDueDays"
+        ],
+        "properties": {
+          "object": {
+            "type": "string",
+            "enum": [
+              "paymentTerms"
+            ]
+          },
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "paymentSchedule": {
+            "type": "string",
+            "enum": [
+              "DEPOSIT",
+              "FULL",
+              "CARD_ON_FILE",
+              "INVOICE_ONLY"
+            ]
+          },
+          "depositType": {
+            "type": "string",
+            "enum": [
+              "PERCENT",
+              "AMOUNT"
+            ]
+          },
+          "depositPercentage": {
+            "type": "integer",
+            "description": "Deposit percentage (25 means 25%)."
+          },
+          "depositAmountCents": {
+            "type": "integer",
+            "description": "Fixed deposit amount in minor currency units."
+          },
+          "invoiceDueDays": {
+            "type": "integer",
+            "description": "Configured invoice due-days value."
+          }
+        }
+      },
+      "ServiceCharge": {
+        "type": "object",
+        "required": [
+          "object",
+          "id",
+          "name",
+          "type",
+          "percentageValue",
+          "amountCents",
+          "taxable"
+        ],
+        "properties": {
+          "object": {
+            "type": "string",
+            "enum": [
+              "serviceCharge"
+            ]
+          },
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "PERCENT",
+              "FLAT"
+            ]
+          },
+          "percentageValue": {
+            "type": "number",
+            "nullable": true,
+            "description": "Percentage charge as a fraction (0.15 means 15%), or null."
+          },
+          "amountCents": {
+            "type": "integer",
+            "nullable": true,
+            "description": "Fixed charge in minor currency units, or null."
+          },
+          "taxable": {
+            "type": "boolean",
+            "description": "Whether this charge is taxable."
+          }
+        }
+      },
+      "ServiceDay": {
+        "type": "object",
+        "required": [
+          "object",
+          "id",
+          "quoteId",
+          "serviceStartTime",
+          "serviceEndTime",
+          "createdAt",
+          "updatedAt"
+        ],
+        "properties": {
+          "object": {
+            "type": "string",
+            "enum": [
+              "serviceDay"
+            ]
+          },
+          "id": {
+            "type": "string"
+          },
+          "quoteId": {
+            "type": "string"
+          },
+          "serviceStartTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "serviceEndTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "Contract": {
+        "type": "object",
+        "required": [
+          "object",
+          "id",
+          "name",
+          "description",
+          "createdAt",
+          "updatedAt"
+        ],
+        "properties": {
+          "object": {
+            "type": "string",
+            "enum": [
+              "contract"
+            ]
+          },
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "QuoteList": {
+        "type": "object",
+        "required": [
+          "object",
+          "url",
+          "hasMore",
+          "data"
+        ],
+        "properties": {
+          "object": {
+            "type": "string",
+            "enum": [
+              "list"
+            ]
+          },
+          "url": {
+            "type": "string",
+            "enum": [
+              "/api/quotes"
+            ]
+          },
+          "hasMore": {
+            "type": "boolean",
+            "description": "Whether more pages exist. Pass the last returned quote ID as starting_after to retrieve the next page."
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Quote"
+            }
+          }
+        },
+        "example": {
+          "object": "list",
+          "url": "/api/quotes",
+          "hasMore": false,
+          "data": [
+            {
+              "object": "quote",
+              "id": "cmf2q8n4x0000kz01a1b2c3d4",
+              "createdAt": "2026-09-01T14:23:11.000Z",
+              "updatedAt": "2026-09-08T09:12:44.000Z",
+              "sentAt": "2026-09-02T10:00:00.000Z",
+              "expiresAt": "2026-09-30T23:59:59.000Z",
+              "bookedAt": null,
+              "lostAt": null,
+              "lostReason": null,
+              "leadId": "cmf2l8n4x0001kz01a1b2c3d4",
+              "locationId": "cmf2p8n4x0002kz01a1b2c3d4",
+              "eventTypeId": null,
+              "bookingId": null,
+              "discountId": null,
+              "taxRateId": null,
+              "paymentTermsId": null,
+              "contractId": null,
+              "numberOfStaff": 4,
+              "numberOfResources": 2,
+              "guestCount": 120,
+              "eventAddress": "123 Market Street, Denver, CO 80202",
+              "eventDescription": "Acme launch party",
+              "siteContactName": "Jane Doe",
+              "siteContactPhone": "+15555550123",
+              "entityToInvoice": "Acme",
+              "currency": {
+                "isoCode": "USD"
+              },
+              "totalPriceCents": 250000
+            }
+          ]
         }
       }
     }

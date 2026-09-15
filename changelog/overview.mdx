@@ -9,6 +9,81 @@ import { PlusBadge, ProBadge, ScaleBadge } from "/snippets/badge.mdx";
 This changelog documents product updates and new features in Flashquotes. These updates are rolled out directly to the live application - no separate changelog feature exists within the app itself.
 </Note>
 
+<Update label="September 11, 2026">
+
+## Holiday, Time-of-Day, and Day-of-Week Pricing <ScaleBadge />
+
+Three new dynamic pricing modifiers, so the calendar and the clock set your rates instead of you editing prices by hand. Find them on a service under **Pricing → Advanced**.
+
+- **Holiday & date pricing** — add every holiday for your country in one step with a single percentage, or pick them one at a time. Holidays recalculate their date each year, so Thanksgiving and Memorial Day stay correct without maintenance.
+- **Custom dates that repeat** — name a one-off range like "Peak season," set a percentage, and tick **Repeats every year** to have it apply on the same dates annually
+- **Time-of-day pricing** — charge more for early starts and late finishes. Set ranges of clock time, each with its own percentage. A common setup is +10% before 7:00 AM and after 10:00 PM, with your normal hours left at the base rate.
+- **Day-of-week pricing** — upcharge Saturdays, discount the days you're trying to fill. Add only the days that need a change.
+
+[Learn about dynamic pricing →](/services/pricing#dynamic-pricing)
+
+</Update>
+
+<Update label="September 10, 2026">
+
+## Add-on Base Price per Day and Live Price Preview
+
+Add-on pricing got a new billing option and a way to check your math before it reaches a customer.
+
+- **Charge the base price each day** — a new checkbox that multiplies an add-on's base price by the number of service days. Use it for costs you incur every day of a multi-day event, like daily delivery or setup.
+- **Combines with per-unit** — leave both on and the base scales by quantity and days together
+- **Price preview** — the add-on page now shows the price for any quantity, guest count, resource count, hours, and number of days, with the calculated price and base price broken out separately
+
+[Learn about add-ons →](/services/add-ons)
+
+</Update>
+
+<Update label="September 5, 2026">
+
+## Lead Detection with Flashquotes AI
+
+Flashquotes AI now finds quote requests sitting in your Gmail inbox and turns them into quote opportunities. Connect a Google account and new emails are checked as they arrive.
+
+- **Suggestions in the Pipeline** — each inquiry found appears at the top of the New inquiry column with the event date, guest count, and a brief AI summary
+- **Build the quote in one click** — Flashquotes creates the contact and a draft quote with the date, time, address, and service filled in, then opens it for you to finish
+- **See the source** — read the original email before you decide, and discard anything that isn't a real inquiry
+
+Flashquotes AI is in public beta. Click **Give feedback** on any suggestion to help us make it better next time.
+
+[Lead detection →](/flashquotes-ai/lead-detection) · [Flashquotes AI overview →](/flashquotes-ai/overview)
+
+</Update>
+
+<Update label="September 3, 2026">
+
+## Duplicate a Quote with New Dates
+
+Reuse a quote for a repeat client or a similar event without rebuilding it. **Duplicate** now opens a dialog where you set the new service dates before the copy is created, so the duplicate is ready to send instead of pointing at last year's event.
+
+- **Pick the dates first** — service days start pre-filled from the original; change any date or time, add or remove days, and check availability right in the date picker
+- **Everything else carries over** — pricing, line items, service charges, event details, quote message, booking form, payment terms, and the same contract as the original
+- **Optionally copy intake answers** — tick **Duplicate lead intake form responses** to bring the original lead's form answers along; it's off by default and only appears when the original has answers to copy
+- **Same look, guaranteed** — the duplicate keeps the original quote's exact template appearance, even if the template has changed since
+
+Find it in the quote page's **More actions** menu or the row menu on a contact's **Quotes** tab. The new quote opens as soon as it's created.
+
+[Duplicating a quote →](/contacts/quotes#duplicating-a-quote)
+
+</Update>
+
+<Update label="September 3, 2026">
+
+## Update a Quote to the Latest Template Version
+
+Quotes keep a snapshot of their template, so editing the template never silently changes a quote you've already sent. When a quote's photos, add-ons, testimonials, or service details fall behind its template, the **Quote Template** tab now shows an **Update to latest version** button.
+
+- The confirmation names exactly which sections will change and the template they'll match
+- Applying the update can't be undone — choose **Keep current version** to leave the quote as is
+
+[Updating a quote to the latest template →](/templates/quote-templates#updating-a-quote-to-the-latest-template-version)
+
+</Update>
+
 <Update label="September 1, 2026">
 
 ## Change a Booking's Contact
@@ -395,7 +470,7 @@ For example, you can choose to absorb and not show any fee to certain customers.
 
 ## Staff & Resource Rules
 
-Now you can always calculate the right number of staff and resources for each service, allowing you to dial in your autodraft and instant quotes!
+Now you can always calculate the right number of staff and resources for each service, allowing you to dial in your AutoDraft and instant quotes!
 
 Set per-service staffing rules that automatically calculate staff and resource quantities on quotes. Choose from four modes — Hourly Capacity, By Guest Count, By Duration, or By Guest Count + Duration — based on how your staffing scales.
 
@@ -444,7 +519,7 @@ Add per-unit pricing to any service — useful for services where you want to pr
 
 Improved sorting, filtering and search on the Invoices view as well as a new Payments view under Finance > Payments.
 
-Additionally, you can now export both Invoice and Payments to CSV to support accounting and data analysis.
+Additionally, you can now export both Invoices and Payments to CSV to support accounting and data analysis.
 
 [Learn more about invoices →](/invoices) and [Learn more about exports →](/imports-exports/overview)
 
@@ -1067,7 +1142,7 @@ Quote Requested workflows complement the existing Quote Sent workflows, giving y
 
 ## Enhanced Quote Expiration for Last-Minute Bookings
 
-Quotes now expire at **midnight the day before the event** instead of at the event start time. This prevents your team from having a last minute booking without first confirming that you can service the event.
+Quotes now expire at **midnight the day before the event** instead of at the event start time. This prevents your team from having a last-minute booking without first confirming that you can service the event.
 
 **What Changed:**
 - Event on Oct 27 at 2pm MST → Quote expires Oct 26 at 12am MST (previously expired at 2pm Oct 27)
@@ -1109,7 +1184,7 @@ We've improved the email composer and workflow automation for [Pro/Plus subscrib
 - **Easily compose new email**: Click the email icon on any contact in the list view to start composing a new message
 - **Workflow auto-stop on email reply**: When leads reply to emails, active quote follow-up workflows deactivate automatically. This ensures you never send automated follow-ups after a lead has already responded, maintaining a personal touch throughout the sales process.
 
-[Learn more about gmail integration →](/settings/integrations/google-gmail-read)
+[Learn more about Gmail integration →](/settings/integrations/google-gmail-read)
 
 </Update>
 
@@ -1797,7 +1872,7 @@ You can set a permanent default for the email body text in [Quote Settings](http
 
 We've added a multi-select question type to Booking forms, allowing clients to choose multiple options in a single response. This is especially useful for event packages, customer flavor choices, etc.
 
-Find this under Forms → Booking Forms → Add Question
+Find this under Forms → Booking Forms → Add Question.
 
 ## Copy Quotes with One Click
 

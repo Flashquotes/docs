@@ -119,12 +119,21 @@
                 ]
               },
               {
+                "group": "Flashquotes AI",
+                "tag": "Beta",
+                "pages": [
+                  "flashquotes-ai/overview",
+                  "flashquotes-ai/lead-detection"
+                ]
+              },
+              {
                 "group": "Workflows",
                 "pages": [
                   "workflows/overview",
                   "workflows/templates",
                   "workflows/workflow-enrollments",
                   "workflows/triggers",
+                  "workflows/troubleshooting",
                   {
                     "group": "Shortcodes",
                     "pages": [
@@ -230,6 +239,13 @@
           {
             "group": "API Documentation",
             "pages": ["api-reference/introduction"]
+          },
+          {
+            "group": "Quotes",
+            "pages": [
+              "api-reference/quote/get",
+              "api-reference/quote/list-quotes"
+            ]
           },
           {
             "group": "Events",

@@ -1,0 +1,122 @@
+---
+title: "List Quotes"
+description: "List quote summaries with live totals, date filters, cursor pagination, and optional expansions"
+openapi: "GET /quotes"
+---
+
+Return a paginated list of quotes for your company. Each quote includes the same base fields and live `totalPriceCents` as [Get Quote](/api-reference/quote/get).
+
+Use your `x-api-key` with [public API access](/api-reference/introduction#plan-access). These endpoints require Scale or an eligible Grandfathered Pro plan.
+
+```bash
+curl --get 'https://app.flashquotes.com/api/quotes' \
+  --header "x-api-key: $FLASHQUOTES_API_KEY" \
+  --data-urlencode 'limit=25' \
+  --data-urlencode 'service_start_time[gte]=2026-10-01T00:00:00Z' \
+  --data-urlencode 'service_start_time[lt]=2026-11-01T00:00:00Z' \
+  --data-urlencode 'expand[]=data.lead' \
+  --data-urlencode 'expand[]=data.serviceDays'
+```
+
+Set `FLASHQUOTES_API_KEY` to your API key. This request finds quotes with at least one service day starting in October 2026 and includes contact and service-day details.
+
+## Pagination
+
+| Parameter | Description |
+| --- | --- |
+| `limit` | Page size. Integer from `1` to `100`; default `10` |
+| `starting_after` | ID of the last quote from the previous page |
+
+Results are sorted by `createdAt` descending, then `id` descending. Sort order is fixed.
+
+The response contains `object: "list"`, `url: "/api/quotes"`, `hasMore`, and a `data` array of quote objects. When `hasMore` is `true`, pass the ID of the last quote in `data` as `starting_after`. Keep the filters unchanged between pages.
+
+```bash
+curl --get 'https://app.flashquotes.com/api/quotes' \
+  --header "x-api-key: $FLASHQUOTES_API_KEY" \
+  --data-urlencode 'limit=25' \
+  --data-urlencode 'starting_after=cmf2q8n4x0000kz01a1b2c3d4' \
+  --data-urlencode 'service_start_time[gte]=2026-10-01T00:00:00Z' \
+  --data-urlencode 'service_start_time[lt]=2026-11-01T00:00:00Z' \
+  --data-urlencode 'expand[]=data.lead' \
+  --data-urlencode 'expand[]=data.serviceDays'
+```
+
+Replace the example cursor with the last returned quote ID. An unknown or inaccessible cursor, or one that does not match the supplied filters, returns an empty page. No matching quotes also returns:
+
+```json
+{
+  "object": "list",
+  "url": "/api/quotes",
+  "hasMore": false,
+  "data": []
+}
+```
+
+## Equality filters
+
+| Parameter | Matches |
+| --- | --- |
+| `lead_id` | Exact contact ID (`leadId` in the response) |
+| `location_id` | Exact location ID |
+| `booking_id` | Exact booking ID |
+| `event_type_id` | Exact event type ID |
+
+All supplied filters apply together. For example, pass `lead_id` and `location_id` to find a contact's quotes at one location.
+
+## Date-range filters
+
+| Field | Matches |
+| --- | --- |
+| `created_at` | Quote creation time |
+| `updated_at` | Quote row update time |
+| `service_start_time` | At least one service day whose start time satisfies all supplied bounds |
+
+Each field accepts `[gt]` (after), `[gte]` (at or after), `[lt]` (before), and `[lte]` (at or before). Values must be full ISO 8601 datetimes with a timezone: for example, `2026-10-01T00:00:00Z` or `2026-10-01T00:00:00-06:00`. Bare dates such as `2026-10-01` return `400`.
+
+Use `--data-urlencode` as shown above to encode brackets and timezone offsets correctly, including the `+` in positive offsets.
+
+For a multi-day quote, **one service day must satisfy the entire range**. A start time before the lower bound on one day and after the upper bound on another does not match. Expanding `serviceDays` returns all of the matching quote's service days, including days outside the filter range.
+
+<Note>
+  `updated_at` filters the quote row's timestamp. Child pricing edits can change `totalPriceCents` without updating that timestamp, so this filter is not a complete financial change feed.
+</Note>
+
+## Expanding related objects
+
+Use the [Get Quote expansion paths](/api-reference/quote/get#expanding-related-objects), prefixed with **`data.`** on every path:
+
+```bash
+curl --get 'https://app.flashquotes.com/api/quotes' \
+  --header "x-api-key: $FLASHQUOTES_API_KEY" \
+  --data-urlencode 'expand[]=data.booking.invoices' \
+  --data-urlencode 'expand[]=data.booking.events.resources'
+```
+
+Nested paths include their parents. Missing single relations return `null`; empty collections return `[]`. Expansions do not change quote totals and do not expose line items or unit prices.
+
+Expanded lead objects include the contact's `source` as a string, or `null` when no source is set. Use `data.lead`, `data.booking.lead`, or `data.booking.events.booking.lead` to include it.
+
+The limit is **20 distinct paths** and **four segments per path**, excluding the `data.` prefix. Missing prefixes and unsupported paths return `400`. Request only what you need: expanded collections are not independently paginated, and these routes do not currently enforce per-key rate or concurrency limits.
+
+## Errors
+
+| Status | Meaning |
+| --- | --- |
+| `400` | Invalid page size, date-range value, expansion path, or expansion limit |
+| `401` | Authentication denied: check the API key, allowed IPs, and plan access |
+| `500` | Internal server error |
+| `503` | Authentication service temporarily unavailable |
+
+For example, `limit=101` returns:
+
+```json
+{
+  "error": {
+    "type": "invalid_request_error",
+    "code": "invalid_parameter",
+    "message": "limit must be an integer between 1 and 100",
+    "param": "limit"
+  }
+}
+```

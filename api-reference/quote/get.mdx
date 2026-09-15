@@ -1,0 +1,109 @@
+---
+title: "Get Quote"
+description: "Retrieve a quote summary with live totals and optional related objects"
+openapi: "GET /quotes/{id}"
+---
+
+Retrieve a quote by ID, including its live `totalPriceCents`, currency, dates, contact and location IDs, and event details. Related objects are included only when requested with `expand[]`.
+
+Use your `x-api-key` with [public API access](/api-reference/introduction#plan-access). These endpoints require Scale or an eligible Grandfathered Pro plan.
+
+```bash
+curl --get 'https://app.flashquotes.com/api/quotes/cmf2q8n4x0000kz01a1b2c3d4' \
+  --header "x-api-key: $FLASHQUOTES_API_KEY" \
+  --data-urlencode 'expand[]=lead' \
+  --data-urlencode 'expand[]=serviceDays'
+```
+
+Set `FLASHQUOTES_API_KEY` to your API key and replace the quote ID with one from [List Quotes](/api-reference/quote/list-quotes). `--data-urlencode` safely encodes the brackets in query parameters.
+
+## Live quote total
+
+`totalPriceCents` is calculated on every request from saved line prices, base and travel fees, line and quote discounts, service charges, and tax. It uses the same calculation, rounding, and currency rules as the app. Monetary amounts use the currency's minor units: `250000` with `currency.isoCode: "USD"` represents \$2,500.00.
+
+The total does not reprice services, refresh tax-provider data, include booking-time gratuity, or represent an invoice's unpaid balance. Expanding related objects does not change the total.
+
+<Note>
+  Child pricing changes can change `totalPriceCents` without changing the quote's `updatedAt`. Do not use `updated_at` filtering as a complete financial change feed.
+</Note>
+
+## Expanding related objects
+
+Repeat `expand[]` for each relation you need. Single-quote paths have no `data.` prefix. Comma-separated paths are also accepted.
+
+| Path | Adds |
+| --- | --- |
+| `lead` | Contact: ID, name, email, phone, company name, and source |
+| `location` | Location: ID, name, address fields, and time zone |
+| `eventType` | Event type ID and name |
+| `services` | Distinct service definitions: ID, name, description, and image URL |
+| `addons` | Distinct add-on definitions: ID, name, description, and image URL |
+| `discounts` | Discount definitions: ID, name, type, `percentOff`, and `amountOff` |
+| `taxRate` | Tax rate ID, name, and rate |
+| `paymentTerms` | Payment schedule, deposit terms, and invoice due-days value |
+| `serviceCharges` | Flat array of charge definitions, including type, percentage or fixed amount, and taxability |
+| `serviceDays` | Flat array of service days with quote ID, start/end times, and creation/update times |
+| `contract` | Contract template ID, name, description, and creation/update times |
+| `booking` | Booking summary |
+| `booking.lead` | Contact inside the booking |
+| `booking.eventType` | Event type inside the booking |
+| `booking.invoices` | Invoice summaries, including totals, paid/due amounts, status, and payment URLs |
+| `booking.events` | Events inside the booking |
+| `booking.events.location` | Each event's location |
+| `booking.events.services` | Each event's services |
+| `booking.events.addons` | Each event's add-ons |
+| `booking.events.staff` | Each event's assigned staff |
+| `booking.events.resources` | Each event's assigned resources |
+| `booking.events.booking` | Each event's booking summary |
+| `booking.events.booking.lead` | Contact inside each event's booking |
+| `booking.events.booking.eventType` | Event type inside each event's booking |
+| `booking.events.booking.events` | Events inside each event's booking |
+| `booking.events.booking.invoices` | Invoice summaries inside each event's booking |
+
+A nested path automatically includes its parents. For example, `booking.events.resources` includes `booking`, its `events`, and each event's `resources`. Other relations remain absent unless requested. Expanded single relations return `null` when missing or inaccessible; empty collections return `[]`.
+
+Every expanded lead object includes `source`, the contact's recorded lead source (for example, `"Website"`), or `null` when no source is set. This applies to `lead`, `booking.lead`, and `booking.events.booking.lead`.
+
+### Services, discounts, and charges
+
+`services` and `addons` come from current line-item associations and are deduplicated by ID. Archived services and add-ons are omitted, although their saved pricing still contributes to the total. These objects do not include quantities or unit prices.
+
+`discounts` combines quote-level and line-level definitions, deduplicated by ID, with the quote-level definition first. Use the base `discountId` to identify the quote-level discount. No line IDs, discount allocations, or realized discount amounts are returned. Attached archived discount and service-charge definitions remain visible.
+
+`serviceCharges` and `serviceDays` are direct arrays without association wrappers. `serviceDays` and `booking.events` are ordered by start time ascending, then ID ascending. Invoice summaries are terminal: they have no expandable children.
+
+### Limits and excluded fields
+
+- Maximum **20 distinct paths** per request; duplicates count once. The full list above exceeds this limit.
+- Maximum **four segments** per path.
+- Unknown, malformed, or unsupported paths return `400` with `param: "expand"`.
+- Quote and invoice line items, quantities, unit prices, pricing configuration, contract content, and signatures are excluded.
+
+For example, `lineItems`, `serviceDays.lineItems`, `booking.invoices.lineItems`, `discount`, and `serviceCharges.serviceCharge` are unsupported. Free-text descriptions can still contain details entered by your team.
+
+Request only the relations you need. Expanded collections are not independently paginated or truncated; repeated booking/event traversal can produce large responses. These routes do not currently enforce per-key rate or concurrency limits.
+
+## Errors
+
+| Status | Meaning |
+| --- | --- |
+| `400` | Invalid expansion path or expansion limit exceeded |
+| `401` | Authentication denied: check the API key, allowed IPs, and plan access |
+| `404` | Quote is missing, deleted, or inaccessible to your company |
+| `500` | Internal server error |
+| `503` | Authentication service temporarily unavailable |
+
+Requesting an unsupported expansion returns:
+
+```json
+{
+  "error": {
+    "type": "invalid_request_error",
+    "code": "invalid_parameter",
+    "message": "Unknown expand path: 'lineItems'",
+    "param": "expand"
+  }
+}
+```
+
+Quotes and expanded objects are scoped to your company. Missing and inaccessible quote IDs return the same `404`. Foreign pricing relationships are excluded from the total; if stored relationships are invalid, this can differ from the app's total until the data is repaired.
