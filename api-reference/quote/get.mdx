@@ -33,7 +33,7 @@ Repeat `expand[]` for each relation you need. Single-quote paths have no `data.`
 
 | Path | Adds |
 | --- | --- |
-| `lead` | Contact: ID, name, email, phone, and company name |
+| `lead` | Contact: ID, name, email, phone, company name, and source |
 | `location` | Location: ID, name, address fields, and time zone |
 | `eventType` | Event type ID and name |
 | `services` | Distinct service definitions: ID, name, description, and image URL |
@@ -61,6 +61,8 @@ Repeat `expand[]` for each relation you need. Single-quote paths have no `data.`
 | `booking.events.booking.invoices` | Invoice summaries inside each event's booking |
 
 A nested path automatically includes its parents. For example, `booking.events.resources` includes `booking`, its `events`, and each event's `resources`. Other relations remain absent unless requested. Expanded single relations return `null` when missing or inaccessible; empty collections return `[]`.
+
+Every expanded lead object includes `source`, the contact's recorded lead source (for example, `"Website"`), or `null` when no source is set. This applies to `lead`, `booking.lead`, and `booking.events.booking.lead`.
 
 ### Services, discounts, and charges
 

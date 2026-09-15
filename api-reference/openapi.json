@@ -236,7 +236,8 @@
                               "id": "led_2T7nC4",
                               "firstName": "Jane",
                               "lastName": "Doe",
-                              "companyName": "Acme"
+                              "companyName": "Acme",
+                              "source": "Website"
                             }
                           }
                         }
@@ -400,7 +401,8 @@
                           "firstName": "Jane",
                           "lastName": "Doe",
                           "email": "jane@acme.com",
-                          "companyName": "Acme"
+                          "companyName": "Acme",
+                          "source": "Website"
                         },
                         "invoices": [
                           {
@@ -1078,7 +1080,8 @@
                         "lastName": "Doe",
                         "email": "jane@example.com",
                         "phone": "+15555550123",
-                        "companyName": "Acme"
+                        "companyName": "Acme",
+                        "source": "Website"
                       },
                       "serviceDays": [
                         {
@@ -1948,7 +1951,13 @@
           "lastName": { "type": "string", "nullable": true },
           "email": { "type": "string", "nullable": true },
           "phone": { "type": "string", "nullable": true },
-          "companyName": { "type": "string", "nullable": true }
+          "companyName": { "type": "string", "nullable": true },
+          "source": {
+            "type": "string",
+            "nullable": true,
+            "description": "The contact's recorded lead source. Returns null when no source is set. Included wherever a lead object is expanded.",
+            "example": "Website"
+          }
         }
       },
       "EventType": {

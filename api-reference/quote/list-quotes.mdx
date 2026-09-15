@@ -95,6 +95,8 @@ curl --get 'https://app.flashquotes.com/api/quotes' \
 
 Nested paths include their parents. Missing single relations return `null`; empty collections return `[]`. Expansions do not change quote totals and do not expose line items or unit prices.
 
+Expanded lead objects include the contact's `source` as a string, or `null` when no source is set. Use `data.lead`, `data.booking.lead`, or `data.booking.events.booking.lead` to include it.
+
 The limit is **20 distinct paths** and **four segments per path**, excluding the `data.` prefix. Missing prefixes and unsupported paths return `400`. Request only what you need: expanded collections are not independently paginated, and these routes do not currently enforce per-key rate or concurrency limits.
 
 ## Errors
